@@ -18,7 +18,6 @@ v0.2
  - (New)部分元件加入提示字串
  - (New)視窗半透明化
  - 修復偵錯功能Bug
- - 使用不同complier提高相容性 (MSVC 2017 64bit -> Mingw 5.3.0 32bit)
 
 v0.1
 
