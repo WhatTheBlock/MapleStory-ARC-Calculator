@@ -83,7 +83,7 @@ public:
     {
         if (MainUI->objectName().isEmpty())
             MainUI->setObjectName(QString::fromUtf8("MainUI"));
-        MainUI->resize(530, 387);
+        MainUI->resize(540, 387);
         QFont font;
         font.setFamily(QString::fromUtf8("\345\276\256\350\273\237\346\255\243\351\273\221\351\253\224"));
         font.setPointSize(12);
@@ -91,7 +91,7 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/ARC1.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainUI->setWindowIcon(icon);
-        MainUI->setWindowOpacity(0.920000000000000);
+        MainUI->setWindowOpacity(0.970000000000000);
         MainUI->setLayoutDirection(Qt::LeftToRight);
         arcimg1 = new QLabel(MainUI);
         arcimg1->setObjectName(QString::fromUtf8("arcimg1"));
@@ -99,7 +99,7 @@ public:
         arcimg1->setPixmap(QPixmap(QString::fromUtf8(":/images/ARC1.png")));
         background = new QTextEdit(MainUI);
         background->setObjectName(QString::fromUtf8("background"));
-        background->setGeometry(QRect(-10, 0, 541, 391));
+        background->setGeometry(QRect(-10, 0, 551, 391));
         background->setAcceptDrops(false);
         background->setReadOnly(true);
         background->setAcceptRichText(false);
@@ -264,7 +264,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         groupBox = new QGroupBox(MainUI);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(250, 20, 261, 71));
+        groupBox->setGeometry(QRect(250, 20, 271, 71));
         label_16 = new QLabel(groupBox);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(10, 30, 21, 31));
@@ -292,13 +292,13 @@ public:
         label_19->setGeometry(QRect(160, 30, 21, 31));
         cost = new QLabel(groupBox);
         cost->setObjectName(QString::fromUtf8("cost"));
-        cost->setGeometry(QRect(185, 30, 47, 31));
+        cost->setGeometry(QRect(185, 30, 57, 31));
         QFont font2;
         font2.setUnderline(true);
         cost->setFont(font2);
         label_20 = new QLabel(groupBox);
         label_20->setObjectName(QString::fromUtf8("label_20"));
-        label_20->setGeometry(QRect(230, 30, 21, 31));
+        label_20->setGeometry(QRect(242, 30, 21, 31));
         background->raise();
         arcimg1->raise();
         arcimg2->raise();
@@ -352,7 +352,7 @@ public:
 
     void retranslateUi(QWidget *MainUI)
     {
-        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237 v0.2    by \346\233\211\344\272\246\345\244\217\351\242\250", nullptr));
+        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237 v0.3    by \346\233\211\344\272\246\345\244\217\351\242\250", nullptr));
         arcimg1->setText(QString());
         arcimg2->setText(QString());
         arcimg3->setText(QString());
@@ -458,17 +458,17 @@ public:
         groupBox->setTitle(QApplication::translate("MainUI", "\345\274\267\345\214\226\346\211\200\351\234\200\346\245\223\345\271\243", nullptr));
         label_16->setText(QApplication::translate("MainUI", "Lv.", nullptr));
 #ifndef QT_NO_TOOLTIP
-        ArcLV_from->setToolTip(QApplication::translate("MainUI", "1~19", nullptr));
+        ArcLV_from->setToolTip(QApplication::translate("MainUI", "1~20", nullptr));
 #endif // QT_NO_TOOLTIP
-        ArcLV_from->setText(QString());
+        ArcLV_from->setText(QApplication::translate("MainUI", "1", nullptr));
         label_17->setText(QApplication::translate("MainUI", "\342\206\222", nullptr));
         label_18->setText(QApplication::translate("MainUI", "Lv.", nullptr));
 #ifndef QT_NO_TOOLTIP
-        ArcLV_to->setToolTip(QApplication::translate("MainUI", "2~20", nullptr));
+        ArcLV_to->setToolTip(QApplication::translate("MainUI", "1~20", nullptr));
 #endif // QT_NO_TOOLTIP
-        ArcLV_to->setText(QString());
+        ArcLV_to->setText(QApplication::translate("MainUI", "2", nullptr));
         label_19->setText(QApplication::translate("MainUI", "$\357\274\232", nullptr));
-        cost->setText(QApplication::translate("MainUI", "99999", nullptr));
+        cost->setText(QApplication::translate("MainUI", "1904", nullptr));
         label_20->setText(QApplication::translate("MainUI", "\350\220\254", nullptr));
     } // retranslateUi
 
