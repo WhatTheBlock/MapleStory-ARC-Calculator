@@ -1,4 +1,4 @@
-﻿#ifndef MAINUI_H
+#ifndef MAINUI_H
 #define MAINUI_H
 
 #include<QtWidgets>
@@ -44,6 +44,10 @@ private slots:
 
     void on_Arc6current_textChanged(const QString &arg1);
 
+    void on_ArcLV_from_textChanged(const QString &arg1);
+
+    void on_ArcLV_to_textChanged(const QString &arg1);
+
 private:
     Ui::MainUI *ui;
 
@@ -58,6 +62,7 @@ private:
     void upgradeVal();
     void updateAp(int mode);
     void avoidError();
+    int upgradeMeso(int from, int to);
 
 };
 
