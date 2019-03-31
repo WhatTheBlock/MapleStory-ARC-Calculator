@@ -78,6 +78,21 @@ public:
     QLabel *label_19;
     QLabel *cost;
     QLabel *label_20;
+    QGroupBox *groupBox_2;
+    QLabel *label_21;
+    QLineEdit *ArcDamage_x;
+    QLabel *label_22;
+    QLineEdit *ArcDamage_y;
+    QLabel *label_23;
+    QLabel *label_24;
+    QLabel *damage;
+    QLabel *label_25;
+    QLabel *label_26;
+    QLabel *hit_damage;
+    QFrame *line_2;
+    QLabel *label_27;
+    QFrame *line_3;
+    QLabel *damage150;
 
     void setupUi(QWidget *MainUI)
     {
@@ -299,6 +314,66 @@ public:
         label_20 = new QLabel(groupBox);
         label_20->setObjectName(QString::fromUtf8("label_20"));
         label_20->setGeometry(QRect(242, 30, 21, 31));
+        groupBox_2 = new QGroupBox(MainUI);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setGeometry(QRect(250, 110, 271, 161));
+        label_21 = new QLabel(groupBox_2);
+        label_21->setObjectName(QString::fromUtf8("label_21"));
+        label_21->setGeometry(QRect(10, 30, 41, 31));
+        ArcDamage_x = new QLineEdit(groupBox_2);
+        ArcDamage_x->setObjectName(QString::fromUtf8("ArcDamage_x"));
+        ArcDamage_x->setGeometry(QRect(60, 30, 41, 31));
+        ArcDamage_x->setAcceptDrops(false);
+        ArcDamage_x->setInputMethodHints(Qt::ImhNone);
+        ArcDamage_x->setMaxLength(4);
+        label_22 = new QLabel(groupBox_2);
+        label_22->setObjectName(QString::fromUtf8("label_22"));
+        label_22->setGeometry(QRect(10, 70, 41, 31));
+        ArcDamage_y = new QLineEdit(groupBox_2);
+        ArcDamage_y->setObjectName(QString::fromUtf8("ArcDamage_y"));
+        ArcDamage_y->setGeometry(QRect(60, 70, 41, 31));
+        ArcDamage_y->setAcceptDrops(false);
+        ArcDamage_y->setInputMethodHints(Qt::ImhNone);
+        ArcDamage_y->setMaxLength(4);
+        label_23 = new QLabel(groupBox_2);
+        label_23->setObjectName(QString::fromUtf8("label_23"));
+        label_23->setGeometry(QRect(130, 30, 51, 31));
+        label_24 = new QLabel(groupBox_2);
+        label_24->setObjectName(QString::fromUtf8("label_24"));
+        label_24->setGeometry(QRect(130, 70, 81, 31));
+        damage = new QLabel(groupBox_2);
+        damage->setObjectName(QString::fromUtf8("damage"));
+        damage->setGeometry(QRect(180, 30, 31, 31));
+        QFont font3;
+        font3.setUnderline(false);
+        damage->setFont(font3);
+        label_25 = new QLabel(groupBox_2);
+        label_25->setObjectName(QString::fromUtf8("label_25"));
+        label_25->setGeometry(QRect(210, 30, 16, 31));
+        label_26 = new QLabel(groupBox_2);
+        label_26->setObjectName(QString::fromUtf8("label_26"));
+        label_26->setGeometry(QRect(240, 70, 16, 31));
+        hit_damage = new QLabel(groupBox_2);
+        hit_damage->setObjectName(QString::fromUtf8("hit_damage"));
+        hit_damage->setGeometry(QRect(210, 70, 31, 31));
+        hit_damage->setFont(font3);
+        line_2 = new QFrame(groupBox_2);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setGeometry(QRect(107, 30, 20, 83));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+        label_27 = new QLabel(groupBox_2);
+        label_27->setObjectName(QString::fromUtf8("label_27"));
+        label_27->setGeometry(QRect(10, 120, 181, 31));
+        line_3 = new QFrame(groupBox_2);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setGeometry(QRect(10, 99, 251, 31));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        damage150 = new QLabel(groupBox_2);
+        damage150->setObjectName(QString::fromUtf8("damage150"));
+        damage150->setGeometry(QRect(193, 120, 41, 31));
+        damage150->setFont(font3);
         background->raise();
         arcimg1->raise();
         arcimg2->raise();
@@ -344,6 +419,7 @@ public:
         ApTotal->raise();
         line->raise();
         groupBox->raise();
+        groupBox_2->raise();
 
         retranslateUi(MainUI);
 
@@ -352,7 +428,7 @@ public:
 
     void retranslateUi(QWidget *MainUI)
     {
-        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237 v0.3    by \346\233\211\344\272\246\345\244\217\351\242\250", nullptr));
+        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237 v0.4    by \346\233\211\344\272\246\345\244\217\351\242\250", nullptr));
         arcimg1->setText(QString());
         arcimg2->setText(QString());
         arcimg3->setText(QString());
@@ -470,6 +546,25 @@ public:
         label_19->setText(QApplication::translate("MainUI", "$\357\274\232", nullptr));
         cost->setText(QApplication::translate("MainUI", "1904", nullptr));
         label_20->setText(QApplication::translate("MainUI", "\350\220\254", nullptr));
+        groupBox_2->setTitle(QApplication::translate("MainUI", "\345\202\267\345\256\263\350\250\210\347\256\227", nullptr));
+        label_21->setText(QApplication::translate("MainUI", "\350\207\252\350\272\253\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        ArcDamage_x->setToolTip(QApplication::translate("MainUI", "0~1320", nullptr));
+#endif // QT_NO_TOOLTIP
+        ArcDamage_x->setText(QApplication::translate("MainUI", "0", nullptr));
+        label_22->setText(QApplication::translate("MainUI", "\346\200\252\347\211\251\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        ArcDamage_y->setToolTip(QApplication::translate("MainUI", "30~1320", nullptr));
+#endif // QT_NO_TOOLTIP
+        ArcDamage_y->setText(QApplication::translate("MainUI", "30", nullptr));
+        label_23->setText(QApplication::translate("MainUI", "\347\265\202\345\202\267\357\274\232", nullptr));
+        label_24->setText(QApplication::translate("MainUI", "\350\242\253\346\223\212\345\202\267\345\256\263\357\274\232", nullptr));
+        damage->setText(QApplication::translate("MainUI", "10", nullptr));
+        label_25->setText(QApplication::translate("MainUI", "%", nullptr));
+        label_26->setText(QApplication::translate("MainUI", "%", nullptr));
+        hit_damage->setText(QApplication::translate("MainUI", "280", nullptr));
+        label_27->setText(QApplication::translate("MainUI", "\351\201\224\345\210\2601.5\345\200\215\345\242\236\345\202\267ARC\351\234\200\346\261\202\357\274\232", nullptr));
+        damage150->setText(QApplication::translate("MainUI", "50", nullptr));
     } // retranslateUi
 
 };
