@@ -48,6 +48,10 @@ private slots:
 
     void on_ArcLV_to_textChanged(const QString &arg1);
 
+    void on_ArcDamage_x_textChanged(const QString &arg1);
+
+    void on_ArcDamage_y_textChanged(const QString &arg1);
+
 private:
     Ui::MainUI *ui;
 
@@ -63,6 +67,7 @@ private:
     void updateAp(int mode);
     void avoidError();
     int upgradeMeso(int from, int to);
+    void ArcDamage(int x, int y);
 
 };
 
