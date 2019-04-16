@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
+    <width>768</width>
     <height>387</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>768</width>
+    <height>387</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>768</width>
+    <height>387</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -17,7 +29,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷ARC計算機 v0.4    by 曉亦夏風</string>
+   <string>新楓之谷ARC計算機  v1.0</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -38,6 +50,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>消逝的旅途</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -50,7 +65,7 @@
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>551</width>
+     <width>781</width>
      <height>391</height>
     </rect>
    </property>
@@ -76,6 +91,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>啾啾島</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -91,6 +109,9 @@
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>拉契爾恩</string>
    </property>
    <property name="text">
     <string/>
@@ -108,6 +129,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>艾斯佩拉</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -124,6 +148,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>魔菈斯</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -139,6 +166,9 @@
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>阿爾卡娜</string>
    </property>
    <property name="text">
     <string/>
@@ -355,7 +385,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>ARC類型：</string>
+    <string>職業類型：</string>
    </property>
   </widget>
   <widget class="QComboBox" name="ArcMode">
@@ -772,8 +802,8 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>20</y>
+     <x>480</x>
+     <y>130</y>
      <width>271</width>
      <height>71</height>
     </rect>
@@ -923,8 +953,8 @@
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>110</y>
+     <x>480</x>
+     <y>210</y>
      <width>271</width>
      <height>161</height>
     </rect>
@@ -964,7 +994,7 @@
      <set>Qt::ImhNone</set>
     </property>
     <property name="text">
-     <string>0</string>
+     <string/>
     </property>
     <property name="maxLength">
      <number>4</number>
@@ -1100,9 +1130,9 @@
     <property name="geometry">
      <rect>
       <x>107</x>
-      <y>30</y>
+      <y>24</y>
       <width>20</width>
-      <height>83</height>
+      <height>89</height>
      </rect>
     </property>
     <property name="orientation">
@@ -1125,9 +1155,9 @@
    <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>99</y>
-      <width>251</width>
+      <width>271</width>
       <height>31</height>
      </rect>
     </property>
@@ -1153,6 +1183,919 @@
      <string>50</string>
     </property>
    </widget>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>120</y>
+     <width>20</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>113</y>
+     <width>311</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="startDate">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>20</y>
+     <width>115</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::UpDownArrows</enum>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2019</year>
+     <month>3</month>
+     <day>31</day>
+    </datetime>
+   </property>
+   <property name="maximumDateTime">
+    <datetime>
+     <hour>23</hour>
+     <minute>59</minute>
+     <second>59</second>
+     <year>2099</year>
+     <month>12</month>
+     <day>31</day>
+    </datetime>
+   </property>
+   <property name="maximumDate">
+    <date>
+     <year>2099</year>
+     <month>12</month>
+     <day>31</day>
+    </date>
+   </property>
+   <property name="minimumDate">
+    <date>
+     <year>2019</year>
+     <month>3</month>
+     <day>1</day>
+    </date>
+   </property>
+   <property name="minimumTime">
+    <time>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+    </time>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy/MM/dd</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+   <property name="date">
+    <date>
+     <year>2019</year>
+     <month>3</month>
+     <day>31</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_28">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>20</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>起始日期：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img200">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>60</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>消逝的旅途</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/200.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d200">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>64</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~8</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_29">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>60</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d210">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>110</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~15</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_30">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>106</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img210">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>106</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>啾啾島</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/210.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d220">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>156</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~500</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img220">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>152</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>拉契爾恩</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/220.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_31">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>152</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d225">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>202</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~30</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img225">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>198</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>阿爾卡娜</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/225.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_32">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>198</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d230">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>248</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~8</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_33">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>244</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img230">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>244</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>魔菈斯</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/230.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d235">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>294</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~8</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>290</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="img235">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>290</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>艾斯佩拉</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/235.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_35">
+   <property name="geometry">
+    <rect>
+     <x>339</x>
+     <y>143</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>*1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_36">
+   <property name="geometry">
+    <rect>
+     <x>339</x>
+     <y>190</y>
+     <width>21</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>*2</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>250</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>*1：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="coinimg1">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>250</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>每30個硬幣可兌換1個拉契爾恩ARC</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/Coin1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_38">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>300</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>*2：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="coinimg2">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>300</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>每3個硬幣可兌換1個阿爾卡娜ARC</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/Coin2.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_39">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>150</y>
+     <width>16</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>(</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vipimg1">
+   <property name="geometry">
+    <rect>
+     <x>365</x>
+     <y>156</y>
+     <width>33</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>高級服務</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/Vip.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d220_vip">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>156</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~500</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_40">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>150</y>
+     <width>16</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_41">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>196</y>
+     <width>16</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vipimg1_2">
+   <property name="geometry">
+    <rect>
+     <x>365</x>
+     <y>200</y>
+     <width>33</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>高級服務</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/Vip.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="d225_vip">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>202</y>
+     <width>32</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~40</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_42">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>196</y>
+     <width>16</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>(</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_43">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>20</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>目標ARC：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="targetArc">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>20</y>
+     <width>43</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="toolTip">
+    <string>0~1320</string>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>4</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_44">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>20</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>達成天數：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_45">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>達成日期：</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="targetDate">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>70</y>
+     <width>97</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::NoButtons</enum>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>9999</year>
+     <month>12</month>
+     <day>31</day>
+    </datetime>
+   </property>
+   <property name="maximumDateTime">
+    <datetime>
+     <hour>23</hour>
+     <minute>59</minute>
+     <second>59</second>
+     <year>9999</year>
+     <month>12</month>
+     <day>31</day>
+    </datetime>
+   </property>
+   <property name="maximumDate">
+    <date>
+     <year>9999</year>
+     <month>12</month>
+     <day>31</day>
+    </date>
+   </property>
+   <property name="minimumDate">
+    <date>
+     <year>2019</year>
+     <month>3</month>
+     <day>1</day>
+    </date>
+   </property>
+   <property name="minimumTime">
+    <time>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+    </time>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy/MM/dd</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>false</bool>
+   </property>
+   <property name="date">
+    <date>
+     <year>9999</year>
+     <month>12</month>
+     <day>31</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QLabel" name="targetDays">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>20</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>最高顯示至9999</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="vipSwitch">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>340</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>使用高級服務</string>
+   </property>
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/Vip.png</normaloff>:/images/Vip.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="tristate">
+    <bool>false</bool>
+   </property>
   </widget>
   <zorder>background</zorder>
   <zorder>arcimg1</zorder>
@@ -1200,6 +2143,49 @@
   <zorder>line</zorder>
   <zorder>groupBox</zorder>
   <zorder>groupBox_2</zorder>
+  <zorder>line_4</zorder>
+  <zorder>line_5</zorder>
+  <zorder>startDate</zorder>
+  <zorder>label_28</zorder>
+  <zorder>img200</zorder>
+  <zorder>d200</zorder>
+  <zorder>label_29</zorder>
+  <zorder>d210</zorder>
+  <zorder>label_30</zorder>
+  <zorder>img210</zorder>
+  <zorder>d220</zorder>
+  <zorder>img220</zorder>
+  <zorder>label_31</zorder>
+  <zorder>d225</zorder>
+  <zorder>img225</zorder>
+  <zorder>label_32</zorder>
+  <zorder>d230</zorder>
+  <zorder>label_33</zorder>
+  <zorder>img230</zorder>
+  <zorder>d235</zorder>
+  <zorder>label_34</zorder>
+  <zorder>img235</zorder>
+  <zorder>label_35</zorder>
+  <zorder>label_36</zorder>
+  <zorder>label_37</zorder>
+  <zorder>coinimg1</zorder>
+  <zorder>label_38</zorder>
+  <zorder>coinimg2</zorder>
+  <zorder>label_39</zorder>
+  <zorder>vipimg1</zorder>
+  <zorder>d220_vip</zorder>
+  <zorder>label_40</zorder>
+  <zorder>label_41</zorder>
+  <zorder>vipimg1_2</zorder>
+  <zorder>d225_vip</zorder>
+  <zorder>label_42</zorder>
+  <zorder>label_43</zorder>
+  <zorder>targetArc</zorder>
+  <zorder>label_44</zorder>
+  <zorder>label_45</zorder>
+  <zorder>targetDate</zorder>
+  <zorder>targetDays</zorder>
+  <zorder>vipSwitch</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
