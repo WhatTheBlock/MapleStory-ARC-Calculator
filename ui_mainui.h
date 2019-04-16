@@ -9,10 +9,13 @@
 #ifndef UI_MAINUI_H
 #define UI_MAINUI_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLabel>
@@ -93,12 +96,57 @@ public:
     QLabel *label_27;
     QFrame *line_3;
     QLabel *damage150;
+    QFrame *line_4;
+    QFrame *line_5;
+    QDateEdit *startDate;
+    QLabel *label_28;
+    QLabel *img200;
+    QLineEdit *d200;
+    QLabel *label_29;
+    QLineEdit *d210;
+    QLabel *label_30;
+    QLabel *img210;
+    QLineEdit *d220;
+    QLabel *img220;
+    QLabel *label_31;
+    QLineEdit *d225;
+    QLabel *img225;
+    QLabel *label_32;
+    QLineEdit *d230;
+    QLabel *label_33;
+    QLabel *img230;
+    QLineEdit *d235;
+    QLabel *label_34;
+    QLabel *img235;
+    QLabel *label_35;
+    QLabel *label_36;
+    QLabel *label_37;
+    QLabel *coinimg1;
+    QLabel *label_38;
+    QLabel *coinimg2;
+    QLabel *label_39;
+    QLabel *vipimg1;
+    QLineEdit *d220_vip;
+    QLabel *label_40;
+    QLabel *label_41;
+    QLabel *vipimg1_2;
+    QLineEdit *d225_vip;
+    QLabel *label_42;
+    QLabel *label_43;
+    QLineEdit *targetArc;
+    QLabel *label_44;
+    QLabel *label_45;
+    QDateEdit *targetDate;
+    QLabel *targetDays;
+    QCheckBox *vipSwitch;
 
     void setupUi(QWidget *MainUI)
     {
         if (MainUI->objectName().isEmpty())
             MainUI->setObjectName(QString::fromUtf8("MainUI"));
-        MainUI->resize(540, 387);
+        MainUI->resize(768, 387);
+        MainUI->setMinimumSize(QSize(768, 387));
+        MainUI->setMaximumSize(QSize(768, 387));
         QFont font;
         font.setFamily(QString::fromUtf8("\345\276\256\350\273\237\346\255\243\351\273\221\351\253\224"));
         font.setPointSize(12);
@@ -114,7 +162,7 @@ public:
         arcimg1->setPixmap(QPixmap(QString::fromUtf8(":/images/ARC1.png")));
         background = new QTextEdit(MainUI);
         background->setObjectName(QString::fromUtf8("background"));
-        background->setGeometry(QRect(-10, 0, 551, 391));
+        background->setGeometry(QRect(-10, 0, 781, 391));
         background->setAcceptDrops(false);
         background->setReadOnly(true);
         background->setAcceptRichText(false);
@@ -279,7 +327,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         groupBox = new QGroupBox(MainUI);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(250, 20, 271, 71));
+        groupBox->setGeometry(QRect(480, 130, 271, 71));
         label_16 = new QLabel(groupBox);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(10, 30, 21, 31));
@@ -316,7 +364,7 @@ public:
         label_20->setGeometry(QRect(242, 30, 21, 31));
         groupBox_2 = new QGroupBox(MainUI);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(250, 110, 271, 161));
+        groupBox_2->setGeometry(QRect(480, 210, 271, 161));
         label_21 = new QLabel(groupBox_2);
         label_21->setObjectName(QString::fromUtf8("label_21"));
         label_21->setGeometry(QRect(10, 30, 41, 31));
@@ -359,7 +407,7 @@ public:
         hit_damage->setFont(font3);
         line_2 = new QFrame(groupBox_2);
         line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setGeometry(QRect(107, 30, 20, 83));
+        line_2->setGeometry(QRect(107, 24, 20, 89));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
         label_27 = new QLabel(groupBox_2);
@@ -367,13 +415,225 @@ public:
         label_27->setGeometry(QRect(10, 120, 181, 31));
         line_3 = new QFrame(groupBox_2);
         line_3->setObjectName(QString::fromUtf8("line_3"));
-        line_3->setGeometry(QRect(10, 99, 251, 31));
+        line_3->setGeometry(QRect(0, 99, 271, 31));
         line_3->setFrameShape(QFrame::HLine);
         line_3->setFrameShadow(QFrame::Sunken);
         damage150 = new QLabel(groupBox_2);
         damage150->setObjectName(QString::fromUtf8("damage150"));
         damage150->setGeometry(QRect(193, 120, 41, 31));
         damage150->setFont(font3);
+        line_4 = new QFrame(MainUI);
+        line_4->setObjectName(QString::fromUtf8("line_4"));
+        line_4->setGeometry(QRect(450, 120, 20, 271));
+        line_4->setFrameShape(QFrame::VLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+        line_5 = new QFrame(MainUI);
+        line_5->setObjectName(QString::fromUtf8("line_5"));
+        line_5->setGeometry(QRect(460, 113, 311, 16));
+        line_5->setFrameShape(QFrame::HLine);
+        line_5->setFrameShadow(QFrame::Sunken);
+        startDate = new QDateEdit(MainUI);
+        startDate->setObjectName(QString::fromUtf8("startDate"));
+        startDate->setGeometry(QRect(330, 20, 115, 31));
+        startDate->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
+        startDate->setDateTime(QDateTime(QDate(2019, 3, 31), QTime(0, 0, 0)));
+        startDate->setMaximumDateTime(QDateTime(QDate(2099, 12, 31), QTime(23, 59, 59)));
+        startDate->setMaximumDate(QDate(2099, 12, 31));
+        startDate->setMinimumDate(QDate(2019, 3, 1));
+        startDate->setMinimumTime(QTime(0, 0, 0));
+        startDate->setCalendarPopup(true);
+        startDate->setDate(QDate(2019, 3, 31));
+        label_28 = new QLabel(MainUI);
+        label_28->setObjectName(QString::fromUtf8("label_28"));
+        label_28->setGeometry(QRect(250, 20, 81, 31));
+        img200 = new QLabel(MainUI);
+        img200->setObjectName(QString::fromUtf8("img200"));
+        img200->setGeometry(QRect(250, 60, 41, 41));
+        img200->setPixmap(QPixmap(QString::fromUtf8(":/images/200.png")));
+        d200 = new QLineEdit(MainUI);
+        d200->setObjectName(QString::fromUtf8("d200"));
+        d200->setGeometry(QRect(305, 64, 32, 31));
+        d200->setAcceptDrops(false);
+        d200->setInputMethodHints(Qt::ImhNone);
+        d200->setMaxLength(3);
+        label_29 = new QLabel(MainUI);
+        label_29->setObjectName(QString::fromUtf8("label_29"));
+        label_29->setGeometry(QRect(289, 60, 21, 41));
+        d210 = new QLineEdit(MainUI);
+        d210->setObjectName(QString::fromUtf8("d210"));
+        d210->setGeometry(QRect(305, 110, 32, 31));
+        d210->setAcceptDrops(false);
+        d210->setInputMethodHints(Qt::ImhNone);
+        d210->setMaxLength(3);
+        label_30 = new QLabel(MainUI);
+        label_30->setObjectName(QString::fromUtf8("label_30"));
+        label_30->setGeometry(QRect(289, 106, 21, 41));
+        img210 = new QLabel(MainUI);
+        img210->setObjectName(QString::fromUtf8("img210"));
+        img210->setGeometry(QRect(250, 106, 41, 41));
+        img210->setPixmap(QPixmap(QString::fromUtf8(":/images/210.png")));
+        d220 = new QLineEdit(MainUI);
+        d220->setObjectName(QString::fromUtf8("d220"));
+        d220->setGeometry(QRect(305, 156, 32, 31));
+        d220->setAcceptDrops(false);
+        d220->setInputMethodHints(Qt::ImhNone);
+        d220->setMaxLength(3);
+        img220 = new QLabel(MainUI);
+        img220->setObjectName(QString::fromUtf8("img220"));
+        img220->setGeometry(QRect(250, 152, 41, 41));
+        img220->setPixmap(QPixmap(QString::fromUtf8(":/images/220.png")));
+        label_31 = new QLabel(MainUI);
+        label_31->setObjectName(QString::fromUtf8("label_31"));
+        label_31->setGeometry(QRect(289, 152, 21, 41));
+        d225 = new QLineEdit(MainUI);
+        d225->setObjectName(QString::fromUtf8("d225"));
+        d225->setGeometry(QRect(305, 202, 32, 31));
+        d225->setAcceptDrops(false);
+        d225->setInputMethodHints(Qt::ImhNone);
+        d225->setMaxLength(3);
+        img225 = new QLabel(MainUI);
+        img225->setObjectName(QString::fromUtf8("img225"));
+        img225->setGeometry(QRect(250, 198, 41, 41));
+        img225->setPixmap(QPixmap(QString::fromUtf8(":/images/225.png")));
+        label_32 = new QLabel(MainUI);
+        label_32->setObjectName(QString::fromUtf8("label_32"));
+        label_32->setGeometry(QRect(289, 198, 21, 41));
+        d230 = new QLineEdit(MainUI);
+        d230->setObjectName(QString::fromUtf8("d230"));
+        d230->setGeometry(QRect(305, 248, 32, 31));
+        d230->setAcceptDrops(false);
+        d230->setInputMethodHints(Qt::ImhNone);
+        d230->setMaxLength(3);
+        label_33 = new QLabel(MainUI);
+        label_33->setObjectName(QString::fromUtf8("label_33"));
+        label_33->setGeometry(QRect(289, 244, 21, 41));
+        img230 = new QLabel(MainUI);
+        img230->setObjectName(QString::fromUtf8("img230"));
+        img230->setGeometry(QRect(250, 244, 41, 41));
+        img230->setPixmap(QPixmap(QString::fromUtf8(":/images/230.png")));
+        d235 = new QLineEdit(MainUI);
+        d235->setObjectName(QString::fromUtf8("d235"));
+        d235->setGeometry(QRect(305, 294, 32, 31));
+        d235->setAcceptDrops(false);
+        d235->setInputMethodHints(Qt::ImhNone);
+        d235->setMaxLength(3);
+        label_34 = new QLabel(MainUI);
+        label_34->setObjectName(QString::fromUtf8("label_34"));
+        label_34->setGeometry(QRect(289, 290, 21, 41));
+        img235 = new QLabel(MainUI);
+        img235->setObjectName(QString::fromUtf8("img235"));
+        img235->setGeometry(QRect(250, 290, 41, 41));
+        img235->setPixmap(QPixmap(QString::fromUtf8(":/images/235.png")));
+        label_35 = new QLabel(MainUI);
+        label_35->setObjectName(QString::fromUtf8("label_35"));
+        label_35->setGeometry(QRect(339, 143, 21, 41));
+        QFont font4;
+        font4.setPointSize(9);
+        label_35->setFont(font4);
+        label_36 = new QLabel(MainUI);
+        label_36->setObjectName(QString::fromUtf8("label_36"));
+        label_36->setGeometry(QRect(339, 190, 21, 41));
+        label_36->setFont(font4);
+        label_37 = new QLabel(MainUI);
+        label_37->setObjectName(QString::fromUtf8("label_37"));
+        label_37->setGeometry(QRect(360, 250, 31, 31));
+        QFont font5;
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_37->setFont(font5);
+        coinimg1 = new QLabel(MainUI);
+        coinimg1->setObjectName(QString::fromUtf8("coinimg1"));
+        coinimg1->setGeometry(QRect(390, 250, 31, 31));
+        coinimg1->setPixmap(QPixmap(QString::fromUtf8(":/images/Coin1.png")));
+        label_38 = new QLabel(MainUI);
+        label_38->setObjectName(QString::fromUtf8("label_38"));
+        label_38->setGeometry(QRect(360, 300, 31, 31));
+        label_38->setFont(font5);
+        coinimg2 = new QLabel(MainUI);
+        coinimg2->setObjectName(QString::fromUtf8("coinimg2"));
+        coinimg2->setGeometry(QRect(390, 300, 31, 31));
+        coinimg2->setPixmap(QPixmap(QString::fromUtf8(":/images/Coin2.png")));
+        label_39 = new QLabel(MainUI);
+        label_39->setObjectName(QString::fromUtf8("label_39"));
+        label_39->setGeometry(QRect(355, 150, 16, 41));
+        label_39->setFont(font1);
+        vipimg1 = new QLabel(MainUI);
+        vipimg1->setObjectName(QString::fromUtf8("vipimg1"));
+        vipimg1->setGeometry(QRect(365, 156, 33, 31));
+        vipimg1->setPixmap(QPixmap(QString::fromUtf8(":/images/Vip.png")));
+        d220_vip = new QLineEdit(MainUI);
+        d220_vip->setObjectName(QString::fromUtf8("d220_vip"));
+        d220_vip->setGeometry(QRect(405, 156, 32, 31));
+        d220_vip->setAcceptDrops(false);
+        d220_vip->setInputMethodHints(Qt::ImhNone);
+        d220_vip->setMaxLength(3);
+        label_40 = new QLabel(MainUI);
+        label_40->setObjectName(QString::fromUtf8("label_40"));
+        label_40->setGeometry(QRect(440, 150, 16, 41));
+        label_40->setFont(font1);
+        label_41 = new QLabel(MainUI);
+        label_41->setObjectName(QString::fromUtf8("label_41"));
+        label_41->setGeometry(QRect(440, 196, 16, 41));
+        label_41->setFont(font1);
+        vipimg1_2 = new QLabel(MainUI);
+        vipimg1_2->setObjectName(QString::fromUtf8("vipimg1_2"));
+        vipimg1_2->setGeometry(QRect(365, 200, 33, 31));
+        vipimg1_2->setPixmap(QPixmap(QString::fromUtf8(":/images/Vip.png")));
+        d225_vip = new QLineEdit(MainUI);
+        d225_vip->setObjectName(QString::fromUtf8("d225_vip"));
+        d225_vip->setGeometry(QRect(405, 202, 32, 31));
+        d225_vip->setAcceptDrops(false);
+        d225_vip->setInputMethodHints(Qt::ImhNone);
+        d225_vip->setMaxLength(3);
+        label_42 = new QLabel(MainUI);
+        label_42->setObjectName(QString::fromUtf8("label_42"));
+        label_42->setGeometry(QRect(355, 196, 16, 41));
+        label_42->setFont(font1);
+        label_43 = new QLabel(MainUI);
+        label_43->setObjectName(QString::fromUtf8("label_43"));
+        label_43->setGeometry(QRect(480, 20, 81, 31));
+        targetArc = new QLineEdit(MainUI);
+        targetArc->setObjectName(QString::fromUtf8("targetArc"));
+        targetArc->setGeometry(QRect(560, 20, 43, 31));
+        targetArc->setAcceptDrops(false);
+        targetArc->setInputMethodHints(Qt::ImhNone);
+        targetArc->setMaxLength(4);
+        label_44 = new QLabel(MainUI);
+        label_44->setObjectName(QString::fromUtf8("label_44"));
+        label_44->setGeometry(QRect(620, 20, 81, 31));
+        label_45 = new QLabel(MainUI);
+        label_45->setObjectName(QString::fromUtf8("label_45"));
+        label_45->setGeometry(QRect(480, 70, 81, 31));
+        targetDate = new QDateEdit(MainUI);
+        targetDate->setObjectName(QString::fromUtf8("targetDate"));
+        targetDate->setGeometry(QRect(560, 70, 97, 31));
+        targetDate->setWrapping(false);
+        targetDate->setFrame(true);
+        targetDate->setReadOnly(true);
+        targetDate->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        targetDate->setDateTime(QDateTime(QDate(9999, 12, 31), QTime(0, 0, 0)));
+        targetDate->setMaximumDateTime(QDateTime(QDate(9999, 12, 31), QTime(23, 59, 59)));
+        targetDate->setMaximumDate(QDate(9999, 12, 31));
+        targetDate->setMinimumDate(QDate(2019, 3, 1));
+        targetDate->setMinimumTime(QTime(0, 0, 0));
+        targetDate->setCalendarPopup(false);
+        targetDate->setDate(QDate(9999, 12, 31));
+        targetDays = new QLabel(MainUI);
+        targetDays->setObjectName(QString::fromUtf8("targetDays"));
+        targetDays->setGeometry(QRect(700, 20, 41, 31));
+        targetDays->setFont(font3);
+        vipSwitch = new QCheckBox(MainUI);
+        vipSwitch->setObjectName(QString::fromUtf8("vipSwitch"));
+        vipSwitch->setGeometry(QRect(260, 340, 161, 31));
+        QFont font6;
+        font6.setBold(false);
+        font6.setWeight(50);
+        vipSwitch->setFont(font6);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/images/Vip.png"), QSize(), QIcon::Normal, QIcon::Off);
+        vipSwitch->setIcon(icon1);
+        vipSwitch->setIconSize(QSize(32, 32));
+        vipSwitch->setTristate(false);
         background->raise();
         arcimg1->raise();
         arcimg2->raise();
@@ -420,6 +680,49 @@ public:
         line->raise();
         groupBox->raise();
         groupBox_2->raise();
+        line_4->raise();
+        line_5->raise();
+        startDate->raise();
+        label_28->raise();
+        img200->raise();
+        d200->raise();
+        label_29->raise();
+        d210->raise();
+        label_30->raise();
+        img210->raise();
+        d220->raise();
+        img220->raise();
+        label_31->raise();
+        d225->raise();
+        img225->raise();
+        label_32->raise();
+        d230->raise();
+        label_33->raise();
+        img230->raise();
+        d235->raise();
+        label_34->raise();
+        img235->raise();
+        label_35->raise();
+        label_36->raise();
+        label_37->raise();
+        coinimg1->raise();
+        label_38->raise();
+        coinimg2->raise();
+        label_39->raise();
+        vipimg1->raise();
+        d220_vip->raise();
+        label_40->raise();
+        label_41->raise();
+        vipimg1_2->raise();
+        d225_vip->raise();
+        label_42->raise();
+        label_43->raise();
+        targetArc->raise();
+        label_44->raise();
+        label_45->raise();
+        targetDate->raise();
+        targetDays->raise();
+        vipSwitch->raise();
 
         retranslateUi(MainUI);
 
@@ -428,12 +731,30 @@ public:
 
     void retranslateUi(QWidget *MainUI)
     {
-        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237 v0.4    by \346\233\211\344\272\246\345\244\217\351\242\250", nullptr));
+        MainUI->setWindowTitle(QApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237  v1.0", nullptr));
+#ifndef QT_NO_TOOLTIP
+        arcimg1->setToolTip(QApplication::translate("MainUI", "\346\266\210\351\200\235\347\232\204\346\227\205\351\200\224", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg1->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        arcimg2->setToolTip(QApplication::translate("MainUI", "\345\225\276\345\225\276\345\263\266", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        arcimg3->setToolTip(QApplication::translate("MainUI", "\346\213\211\345\245\221\347\210\276\346\201\251", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg3->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        arcimg6->setToolTip(QApplication::translate("MainUI", "\350\211\276\346\226\257\344\275\251\346\213\211", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg6->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        arcimg5->setToolTip(QApplication::translate("MainUI", "\351\255\224\350\217\210\346\226\257", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg5->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        arcimg4->setToolTip(QApplication::translate("MainUI", "\351\230\277\347\210\276\345\215\241\345\250\234", nullptr));
+#endif // QT_NO_TOOLTIP
         arcimg4->setText(QString());
         label->setText(QApplication::translate("MainUI", "Lv.", nullptr));
         label_2->setText(QApplication::translate("MainUI", "Lv.", nullptr));
@@ -465,7 +786,7 @@ public:
         Arc4LV->setToolTip(QApplication::translate("MainUI", "0~20", nullptr));
 #endif // QT_NO_TOOLTIP
         Arc4LV->setText(QString());
-        label_7->setText(QApplication::translate("MainUI", "ARC\351\241\236\345\236\213\357\274\232", nullptr));
+        label_7->setText(QApplication::translate("MainUI", "\350\201\267\346\245\255\351\241\236\345\236\213\357\274\232", nullptr));
         ArcMode->setItemText(0, QApplication::translate("MainUI", "\344\270\200\350\210\254\350\201\267\346\245\255", nullptr));
         ArcMode->setItemText(1, QApplication::translate("MainUI", "\345\202\221\350\253\276", nullptr));
         ArcMode->setItemText(2, QApplication::translate("MainUI", "\346\203\241\345\276\251", nullptr));
@@ -551,7 +872,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         ArcDamage_x->setToolTip(QApplication::translate("MainUI", "0~1320", nullptr));
 #endif // QT_NO_TOOLTIP
-        ArcDamage_x->setText(QApplication::translate("MainUI", "0", nullptr));
+        ArcDamage_x->setText(QString());
         label_22->setText(QApplication::translate("MainUI", "\346\200\252\347\211\251\357\274\232", nullptr));
 #ifndef QT_NO_TOOLTIP
         ArcDamage_y->setToolTip(QApplication::translate("MainUI", "30~1320", nullptr));
@@ -565,6 +886,107 @@ public:
         hit_damage->setText(QApplication::translate("MainUI", "280", nullptr));
         label_27->setText(QApplication::translate("MainUI", "\351\201\224\345\210\2601.5\345\200\215\345\242\236\345\202\267ARC\351\234\200\346\261\202\357\274\232", nullptr));
         damage150->setText(QApplication::translate("MainUI", "50", nullptr));
+        startDate->setDisplayFormat(QApplication::translate("MainUI", "yyyy/MM/dd", nullptr));
+        label_28->setText(QApplication::translate("MainUI", "\350\265\267\345\247\213\346\227\245\346\234\237\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        img200->setToolTip(QApplication::translate("MainUI", "\346\266\210\351\200\235\347\232\204\346\227\205\351\200\224", nullptr));
+#endif // QT_NO_TOOLTIP
+        img200->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        d200->setToolTip(QApplication::translate("MainUI", "0~8", nullptr));
+#endif // QT_NO_TOOLTIP
+        d200->setText(QString());
+        label_29->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        d210->setToolTip(QApplication::translate("MainUI", "0~15", nullptr));
+#endif // QT_NO_TOOLTIP
+        d210->setText(QString());
+        label_30->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        img210->setToolTip(QApplication::translate("MainUI", "\345\225\276\345\225\276\345\263\266", nullptr));
+#endif // QT_NO_TOOLTIP
+        img210->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        d220->setToolTip(QApplication::translate("MainUI", "0~500", nullptr));
+#endif // QT_NO_TOOLTIP
+        d220->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        img220->setToolTip(QApplication::translate("MainUI", "\346\213\211\345\245\221\347\210\276\346\201\251", nullptr));
+#endif // QT_NO_TOOLTIP
+        img220->setText(QString());
+        label_31->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        d225->setToolTip(QApplication::translate("MainUI", "0~30", nullptr));
+#endif // QT_NO_TOOLTIP
+        d225->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        img225->setToolTip(QApplication::translate("MainUI", "\351\230\277\347\210\276\345\215\241\345\250\234", nullptr));
+#endif // QT_NO_TOOLTIP
+        img225->setText(QString());
+        label_32->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        d230->setToolTip(QApplication::translate("MainUI", "0~8", nullptr));
+#endif // QT_NO_TOOLTIP
+        d230->setText(QString());
+        label_33->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        img230->setToolTip(QApplication::translate("MainUI", "\351\255\224\350\217\210\346\226\257", nullptr));
+#endif // QT_NO_TOOLTIP
+        img230->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        d235->setToolTip(QApplication::translate("MainUI", "0~8", nullptr));
+#endif // QT_NO_TOOLTIP
+        d235->setText(QString());
+        label_34->setText(QApplication::translate("MainUI", "\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        img235->setToolTip(QApplication::translate("MainUI", "\350\211\276\346\226\257\344\275\251\346\213\211", nullptr));
+#endif // QT_NO_TOOLTIP
+        img235->setText(QString());
+        label_35->setText(QApplication::translate("MainUI", "*1", nullptr));
+        label_36->setText(QApplication::translate("MainUI", "*2", nullptr));
+        label_37->setText(QApplication::translate("MainUI", "*1\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        coinimg1->setToolTip(QApplication::translate("MainUI", "\346\257\21730\345\200\213\347\241\254\345\271\243\345\217\257\345\205\214\346\217\2331\345\200\213\346\213\211\345\245\221\347\210\276\346\201\251ARC", nullptr));
+#endif // QT_NO_TOOLTIP
+        coinimg1->setText(QString());
+        label_38->setText(QApplication::translate("MainUI", "*2\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        coinimg2->setToolTip(QApplication::translate("MainUI", "\346\257\2173\345\200\213\347\241\254\345\271\243\345\217\257\345\205\214\346\217\2331\345\200\213\351\230\277\347\210\276\345\215\241\345\250\234ARC", nullptr));
+#endif // QT_NO_TOOLTIP
+        coinimg2->setText(QString());
+        label_39->setText(QApplication::translate("MainUI", "(", nullptr));
+#ifndef QT_NO_TOOLTIP
+        vipimg1->setToolTip(QApplication::translate("MainUI", "\351\253\230\347\264\232\346\234\215\345\213\231", nullptr));
+#endif // QT_NO_TOOLTIP
+        vipimg1->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        d220_vip->setToolTip(QApplication::translate("MainUI", "0~500", nullptr));
+#endif // QT_NO_TOOLTIP
+        d220_vip->setText(QString());
+        label_40->setText(QApplication::translate("MainUI", ")", nullptr));
+        label_41->setText(QApplication::translate("MainUI", ")", nullptr));
+#ifndef QT_NO_TOOLTIP
+        vipimg1_2->setToolTip(QApplication::translate("MainUI", "\351\253\230\347\264\232\346\234\215\345\213\231", nullptr));
+#endif // QT_NO_TOOLTIP
+        vipimg1_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        d225_vip->setToolTip(QApplication::translate("MainUI", "0~40", nullptr));
+#endif // QT_NO_TOOLTIP
+        d225_vip->setText(QString());
+        label_42->setText(QApplication::translate("MainUI", "(", nullptr));
+        label_43->setText(QApplication::translate("MainUI", "\347\233\256\346\250\231ARC\357\274\232", nullptr));
+#ifndef QT_NO_TOOLTIP
+        targetArc->setToolTip(QApplication::translate("MainUI", "0~1320", nullptr));
+#endif // QT_NO_TOOLTIP
+        targetArc->setText(QString());
+        label_44->setText(QApplication::translate("MainUI", "\351\201\224\346\210\220\345\244\251\346\225\270\357\274\232", nullptr));
+        label_45->setText(QApplication::translate("MainUI", "\351\201\224\346\210\220\346\227\245\346\234\237\357\274\232", nullptr));
+        targetDate->setDisplayFormat(QApplication::translate("MainUI", "yyyy/MM/dd", nullptr));
+#ifndef QT_NO_TOOLTIP
+        targetDays->setToolTip(QApplication::translate("MainUI", "\346\234\200\351\253\230\351\241\257\347\244\272\350\207\2639999", nullptr));
+#endif // QT_NO_TOOLTIP
+        targetDays->setText(QApplication::translate("MainUI", "0", nullptr));
+        vipSwitch->setText(QApplication::translate("MainUI", "\344\275\277\347\224\250\351\253\230\347\264\232\346\234\215\345\213\231", nullptr));
     } // retranslateUi
 
 };
