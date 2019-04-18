@@ -9,5 +9,11 @@
         <file>images/Coin1.png</file>
         <file>images/Coin2.png</file>
         <file>images/Vip.png</file>
+        <file>images/200.png</file>
+        <file>images/210.png</file>
+        <file>images/220.png</file>
+        <file>images/225.png</file>
+        <file>images/230.png</file>
+        <file>images/235.png</file>
     </qresource>
 </RCC>
