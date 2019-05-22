@@ -51,7 +51,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1471,7 +1471,7 @@
        <second>0</second>
        <year>2019</year>
        <month>5</month>
-       <day>22</day>
+       <day>23</day>
       </datetime>
      </property>
      <property name="maximumDateTime">
@@ -1495,7 +1495,7 @@
       <date>
        <year>2019</year>
        <month>5</month>
-       <day>22</day>
+       <day>23</day>
       </date>
      </property>
      <property name="minimumTime">
@@ -1515,7 +1515,7 @@
       <date>
        <year>2019</year>
        <month>5</month>
-       <day>22</day>
+       <day>23</day>
       </date>
      </property>
     </widget>
