@@ -506,13 +506,13 @@ public:
         startDate->setObjectName(QString::fromUtf8("startDate"));
         startDate->setGeometry(QRect(575, 110, 115, 31));
         startDate->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
-        startDate->setDateTime(QDateTime(QDate(2019, 5, 22), QTime(0, 0, 0)));
+        startDate->setDateTime(QDateTime(QDate(2019, 5, 23), QTime(0, 0, 0)));
         startDate->setMaximumDateTime(QDateTime(QDate(2099, 12, 31), QTime(23, 59, 59)));
         startDate->setMaximumDate(QDate(2099, 12, 31));
-        startDate->setMinimumDate(QDate(2019, 5, 22));
+        startDate->setMinimumDate(QDate(2019, 5, 23));
         startDate->setMinimumTime(QTime(0, 0, 0));
         startDate->setCalendarPopup(true);
-        startDate->setDate(QDate(2019, 5, 22));
+        startDate->setDate(QDate(2019, 5, 23));
         label_28 = new QLabel(tab);
         label_28->setObjectName(QString::fromUtf8("label_28"));
         label_28->setGeometry(QRect(495, 110, 81, 31));
@@ -738,7 +738,7 @@ public:
 
         retranslateUi(MainUI);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainUI);
