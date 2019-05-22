@@ -186,7 +186,7 @@ void MainUI::dailyTask() {
 
     //如果目前ARC已達到目標ARC
     if(targetArc <= ArcTotal->text().toInt()) {
-        ui->targetDays->setText("0");
+        ui->targetDays->setNum(0);
         ui->targetDate->setDate(ui->startDate->date());
     }
     //若未達到才計算
@@ -302,8 +302,7 @@ void MainUI::dailyTask() {
                 }
                 day++;
             }
-            if(day > 9999) ui->targetDays->setText("9999");
-            else ui->targetDays->setText(QString::number(day));
+            ui->targetDays->setNum(day);
             ui->targetDate->setDate(ui->startDate->date().addDays(day));
         }
     }
