@@ -7,6 +7,7 @@
 #include<QUrl>
 #include<QtCore>
 #include<QLineEdit>
+#include<cmath>
 
 namespace Ui {class MainUI;}
 
@@ -44,14 +45,6 @@ private slots:
 
     void on_Arc6current_textChanged(const QString &arg1);
 
-    void on_ArcLV_from_textChanged(const QString &arg1);
-
-    void on_ArcLV_to_textChanged(const QString &arg1);
-
-    void on_ArcDamage_x_textChanged(const QString &arg1);
-
-    void on_ArcDamage_y_textChanged(const QString &arg1);
-
     void on_d200_textChanged(const QString &arg1);
 
     void on_d210_textChanged(const QString &arg1);
@@ -68,12 +61,23 @@ private slots:
 
     void on_d235_textChanged(const QString &arg1);
 
-    void on_targetArc_textChanged(const QString &arg1);
-
     void on_startDate_userDateChanged(const QDate &date);
 
-
     void on_vipSwitch_stateChanged(int arg1);
+
+    void on_ArcLV_from_valueChanged(int arg1);
+
+    void on_ArcLV_to_valueChanged(int arg1);
+
+    void on_ArcDamage_x_valueChanged(int arg1);
+
+    void on_ArcDamage_y_valueChanged(int arg1);
+
+    void on_targetArc_valueChanged(int arg1);
+
+    void on_transLV_before_valueChanged(int arg1);
+
+    void on_transArc_before_valueChanged(int arg1);
 
 private:
     Ui::MainUI *ui;
@@ -87,6 +91,7 @@ private:
     int ArcLVint[6], ArcCurrentint[6], ArcUpgradeint[6];
     int upgradeList[99];
     int day;
+    QMessageBox* msg;
 
     void upgradeVal();
     void updateAp(int mode);
@@ -94,6 +99,8 @@ private:
     int upgradeMeso(int from, int to);
     void ArcDamage(int x, int y);
     void dailyTask();
+    void warningMsg(QString msg);
+    void transArc(int lv, int arc);
 
 };
 
