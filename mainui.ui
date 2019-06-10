@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainUI</class>
  <widget class="QWidget" name="MainUI">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,7 +32,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷ARC計算機  v2.0</string>
+   <string>新楓之谷ARC計算機  v2.1</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -38,8 +41,26 @@
   <property name="windowOpacity">
    <double>0.970000000000000</double>
   </property>
+  <property name="toolTip">
+   <string notr="true"/>
+  </property>
+  <property name="statusTip">
+   <string notr="true"/>
+  </property>
+  <property name="whatsThis">
+   <string notr="true"/>
+  </property>
+  <property name="accessibleName">
+   <string notr="true"/>
+  </property>
+  <property name="accessibleDescription">
+   <string notr="true"/>
+  </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="windowFilePath">
+   <string notr="true"/>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -50,12 +71,60 @@
      <height>421</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string notr="true"/>
+   </property>
+   <property name="statusTip">
+    <string notr="true"/>
+   </property>
+   <property name="whatsThis">
+    <string notr="true"/>
+   </property>
+   <property name="accessibleName">
+    <string notr="true"/>
+   </property>
+   <property name="accessibleDescription">
+    <string notr="true"/>
+   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="documentMode">
+    <bool>false</bool>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
    <widget class="QWidget" name="tab">
+    <property name="toolTip">
+     <string notr="true"/>
+    </property>
+    <property name="statusTip">
+     <string notr="true"/>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+    <property name="accessibleName">
+     <string notr="true"/>
+    </property>
+    <property name="accessibleDescription">
+     <string notr="true"/>
+    </property>
     <attribute name="title">
-     <string>ARC達成日計算</string>
+     <string>秘法達成日計算 (&amp;A)</string>
     </attribute>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
@@ -71,8 +140,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLabel" name="Arc6upgrade">
@@ -85,10 +169,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc1LV">
@@ -104,16 +200,37 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
+     <property name="inputMask">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLabel" name="Arc4upgrade">
@@ -126,10 +243,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_13">
@@ -146,8 +275,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLabel" name="arcimg2">
@@ -160,10 +304,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>啾啾島</string>
+      <string notr="true">啾啾島</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC2.png</pixmap>
@@ -178,14 +334,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_6">
@@ -197,8 +371,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -215,8 +404,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_11">
@@ -233,8 +437,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLabel" name="arcimg5">
@@ -247,10 +466,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>魔菈斯</string>
+      <string notr="true">魔菈斯</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC5.png</pixmap>
@@ -265,14 +496,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc2current">
@@ -284,14 +533,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="arcimg1">
@@ -304,10 +571,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>消逝的旅途</string>
+      <string notr="true">消逝的旅途</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC1.png</pixmap>
@@ -323,10 +602,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>艾斯佩拉</string>
+      <string notr="true">艾斯佩拉</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC6.png</pixmap>
@@ -342,10 +633,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>阿爾卡娜</string>
+      <string notr="true">阿爾卡娜</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC4.png</pixmap>
@@ -360,14 +663,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
@@ -379,8 +700,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLabel" name="Arc2upgrade">
@@ -393,10 +729,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -408,8 +756,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLabel" name="Arc5upgrade">
@@ -422,10 +785,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
@@ -437,8 +812,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -450,8 +840,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc5current">
@@ -463,14 +868,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc4current">
@@ -482,14 +905,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~372</string>
+      <string notr="true">0~372</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc3LV">
@@ -501,14 +942,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc6LV">
@@ -520,14 +979,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -539,8 +1016,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Lv.</string>
+      <string notr="true">Lv.</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
@@ -557,8 +1049,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc4LV">
@@ -570,14 +1077,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="Arc1upgrade">
@@ -590,10 +1115,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QLabel" name="arcimg3">
@@ -606,10 +1143,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>拉契爾恩</string>
+      <string notr="true">拉契爾恩</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/ARC3.png</pixmap>
@@ -624,14 +1173,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -648,8 +1215,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>/</string>
+      <string notr="true">/</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Arc2LV">
@@ -661,14 +1243,32 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
-      <string>0~20</string>
+      <string notr="true">0~20</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>2</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="Arc3upgrade">
@@ -681,10 +1281,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>升級所需數量</string>
+      <string notr="true">升級所需數量</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>?</string>
+      <string notr="true">?</string>
      </property>
     </widget>
     <widget class="QComboBox" name="ArcMode">
@@ -697,7 +1309,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>一般職業(主屬)、傑諾(三屬)、惡復(HP)</string>
+      <string notr="true">一般職業(主屬)、傑諾(三屬)、惡復(HP)</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
+     <property name="currentText">
+      <string notr="true">一般職業</string>
      </property>
      <item>
       <property name="text">
@@ -724,8 +1351,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>職業類型：</string>
+      <string notr="true">職業類型：</string>
      </property>
     </widget>
     <widget class="QLabel" name="ApTotal">
@@ -737,8 +1379,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>0</string>
+      <string notr="true">0</string>
      </property>
     </widget>
     <widget class="QLabel" name="ArcTotal">
@@ -750,8 +1407,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>0</string>
+      <string notr="true">0</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_15">
@@ -763,8 +1435,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>屬性增加量：</string>
+      <string notr="true">屬性增加量：</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -776,8 +1463,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>目前ARC：</string>
+      <string notr="true">目前ARC：</string>
      </property>
     </widget>
     <widget class="Line" name="line">
@@ -788,6 +1490,21 @@
        <width>31</width>
        <height>411</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -803,10 +1520,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>每3個硬幣可兌換1個阿爾卡娜ARC</string>
+      <string notr="true">每3個硬幣可兌換1個阿爾卡娜ARC</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/Coin2.png</pixmap>
@@ -822,10 +1551,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>艾斯佩拉</string>
+      <string notr="true">艾斯佩拉</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/235.png</pixmap>
@@ -840,8 +1581,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLabel" name="img225">
@@ -854,10 +1610,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>阿爾卡娜</string>
+      <string notr="true">阿爾卡娜</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/225.png</pixmap>
@@ -876,16 +1644,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~8</string>
+      <string notr="true">0~8</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_30">
@@ -897,8 +1680,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d225">
@@ -914,16 +1712,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~30</string>
+      <string notr="true">0~30</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="vipimg1_2">
@@ -936,10 +1749,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>高級服務</string>
+      <string notr="true">高級服務</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/Vip.png</pixmap>
@@ -955,10 +1780,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>消逝的旅途</string>
+      <string notr="true">消逝的旅途</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/200.png</pixmap>
@@ -978,8 +1815,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>(</string>
+      <string notr="true">(</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d230">
@@ -995,16 +1847,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~8</string>
+      <string notr="true">0~8</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLineEdit" name="d220_vip">
@@ -1020,16 +1887,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~500</string>
+      <string notr="true">0~500</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_32">
@@ -1041,8 +1923,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLabel" name="img210">
@@ -1055,10 +1952,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>啾啾島</string>
+      <string notr="true">啾啾島</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/210.png</pixmap>
@@ -1079,8 +1988,23 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>*1：</string>
+      <string notr="true">*1：</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_40">
@@ -1097,8 +2021,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>)</string>
+      <string notr="true">)</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_33">
@@ -1110,8 +2049,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d220">
@@ -1127,16 +2081,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~500</string>
+      <string notr="true">0~500</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_41">
@@ -1153,8 +2122,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>)</string>
+      <string notr="true">)</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_36">
@@ -1171,8 +2155,23 @@
        <pointsize>9</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>*2</string>
+      <string notr="true">*2</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d210">
@@ -1188,16 +2187,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~15</string>
+      <string notr="true">0~15</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_29">
@@ -1209,8 +2223,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLabel" name="img230">
@@ -1223,10 +2252,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>魔菈斯</string>
+      <string notr="true">魔菈斯</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/230.png</pixmap>
@@ -1241,8 +2282,23 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>：</string>
+      <string notr="true">：</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_35">
@@ -1259,8 +2315,23 @@
        <pointsize>9</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>*1</string>
+      <string notr="true">*1</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d225_vip">
@@ -1276,16 +2347,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~40</string>
+      <string notr="true">0~40</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="label_39">
@@ -1302,8 +2388,23 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>(</string>
+      <string notr="true">(</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="d200">
@@ -1319,16 +2420,31 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>0~8</string>
+      <string notr="true">0~8</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="maxLength">
       <number>3</number>
+     </property>
+     <property name="placeholderText">
+      <string notr="true"/>
      </property>
     </widget>
     <widget class="QLabel" name="coinimg1">
@@ -1341,10 +2457,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>每30個硬幣可兌換1個拉契爾恩ARC</string>
+      <string notr="true">每30個硬幣可兌換1個拉契爾恩ARC</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/Coin1.png</pixmap>
@@ -1365,8 +2493,23 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>*2：</string>
+      <string notr="true">*2：</string>
      </property>
     </widget>
     <widget class="QLabel" name="vipimg1">
@@ -1379,10 +2522,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>高級服務</string>
+      <string notr="true">高級服務</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/Vip.png</pixmap>
@@ -1398,10 +2553,22 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>拉契爾恩</string>
+      <string notr="true">拉契爾恩</string>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string/>
+      <string notr="true"/>
      </property>
      <property name="pixmap">
       <pixmap resource="images.qrc">:/images/220.png</pixmap>
@@ -1412,7 +2579,7 @@
       <rect>
        <x>495</x>
        <y>60</y>
-       <width>161</width>
+       <width>181</width>
        <height>31</height>
       </rect>
      </property>
@@ -1422,8 +2589,23 @@
        <bold>false</bold>
       </font>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>使用高級服務</string>
+      <string>使用高級服務 (&amp;V)</string>
      </property>
      <property name="icon">
       <iconset resource="images.qrc">
@@ -1434,6 +2616,9 @@
        <width>32</width>
        <height>32</height>
       </size>
+     </property>
+     <property name="shortcut">
+      <string>V</string>
      </property>
      <property name="tristate">
       <bool>false</bool>
@@ -1448,8 +2633,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>目標ARC：</string>
+      <string notr="true">目標ARC：</string>
      </property>
     </widget>
     <widget class="QDateEdit" name="startDate">
@@ -1461,8 +2661,29 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="buttonSymbols">
       <enum>QAbstractSpinBox::UpDownArrows</enum>
+     </property>
+     <property name="specialValueText">
+      <string notr="true"/>
+     </property>
+     <property name="showGroupSeparator" stdset="0">
+      <bool>false</bool>
      </property>
      <property name="dateTime">
       <datetime>
@@ -1470,8 +2691,8 @@
        <minute>0</minute>
        <second>0</second>
        <year>2019</year>
-       <month>5</month>
-       <day>23</day>
+       <month>6</month>
+       <day>10</day>
       </datetime>
      </property>
      <property name="maximumDateTime">
@@ -1494,8 +2715,8 @@
      <property name="minimumDate">
       <date>
        <year>2019</year>
-       <month>5</month>
-       <day>23</day>
+       <month>6</month>
+       <day>10</day>
       </date>
      </property>
      <property name="minimumTime">
@@ -1506,7 +2727,7 @@
       </time>
      </property>
      <property name="displayFormat">
-      <string>yyyy/MM/dd</string>
+      <string notr="true">yyyy/MM/dd</string>
      </property>
      <property name="calendarPopup">
       <bool>true</bool>
@@ -1514,8 +2735,8 @@
      <property name="date">
       <date>
        <year>2019</year>
-       <month>5</month>
-       <day>23</day>
+       <month>6</month>
+       <day>10</day>
       </date>
      </property>
     </widget>
@@ -1528,8 +2749,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>起始日期：</string>
+      <string notr="true">起始日期：</string>
      </property>
     </widget>
     <widget class="QDateEdit" name="targetDate">
@@ -1540,6 +2776,21 @@
        <width>97</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="wrapping">
       <bool>false</bool>
@@ -1552,6 +2803,12 @@
      </property>
      <property name="buttonSymbols">
       <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="specialValueText">
+      <string notr="true"/>
+     </property>
+     <property name="keyboardTracking">
+      <bool>false</bool>
      </property>
      <property name="dateTime">
       <datetime>
@@ -1617,8 +2874,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>達成日期：</string>
+      <string notr="true">達成日期：</string>
      </property>
     </widget>
     <widget class="QLabel" name="targetDays">
@@ -1636,10 +2908,22 @@
       </font>
      </property>
      <property name="toolTip">
-      <string/>
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>0</string>
+      <string notr="true">0</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_44">
@@ -1651,8 +2935,23 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>達成所需天數：</string>
+      <string notr="true">達成所需天數：</string>
      </property>
     </widget>
     <widget class="QSpinBox" name="targetArc">
@@ -1664,8 +2963,26 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="buttonSymbols">
       <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="specialValueText">
+      <string notr="true"/>
      </property>
      <property name="minimum">
       <number>0</number>
@@ -1679,8 +2996,23 @@
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
+    <property name="toolTip">
+     <string notr="true"/>
+    </property>
+    <property name="statusTip">
+     <string notr="true"/>
+    </property>
+    <property name="whatsThis">
+     <string notr="true"/>
+    </property>
+    <property name="accessibleName">
+     <string notr="true"/>
+    </property>
+    <property name="accessibleDescription">
+     <string notr="true"/>
+    </property>
     <attribute name="title">
-     <string>其他</string>
+     <string>其他 (&amp;O)</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
@@ -1691,8 +3023,26 @@
        <height>131</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="title">
       <string>升級所需楓幣</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
      </property>
      <widget class="QLabel" name="label_16">
       <property name="geometry">
@@ -1703,8 +3053,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>Lv.</string>
+       <string notr="true">Lv.</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
@@ -1721,8 +3086,23 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>→</string>
+       <string notr="true">→</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
@@ -1734,8 +3114,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>Lv.</string>
+       <string notr="true">Lv.</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_19">
@@ -1747,8 +3142,23 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
       <property name="pixmap">
        <pixmap resource="images.qrc">:/images/meso_gold.png</pixmap>
@@ -1762,17 +3172,32 @@
        <rect>
         <x>120</x>
         <y>90</y>
-        <width>91</width>
+        <width>111</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <underline>true</underline>
+        <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>19040000</string>
+       <string notr="true">19,040,000</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_51">
@@ -1784,8 +3209,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>：</string>
+       <string notr="true">：</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="ArcLV_from">
@@ -1797,8 +3237,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>1</number>
@@ -1819,8 +3283,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>2</number>
@@ -1841,21 +3329,51 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>升級所需</string>
+       <string notr="true">升級所需</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_54">
       <property name="geometry">
        <rect>
-        <x>212</x>
+        <x>227</x>
         <y>95</y>
         <width>21</width>
         <height>21</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
       <property name="pixmap">
        <pixmap resource="images.qrc">:/images/meso.png</pixmap>
@@ -1873,6 +3391,21 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -1887,6 +3420,21 @@
        <height>171</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="title">
       <string>被擊傷害 / 增傷</string>
      </property>
@@ -1899,8 +3447,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>自身：</string>
+       <string notr="true">自身：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_22">
@@ -1912,8 +3475,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>怪物：</string>
+       <string notr="true">怪物：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_23">
@@ -1925,8 +3503,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>終傷：</string>
+       <string notr="true">終傷：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_24">
@@ -1938,8 +3531,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>被擊傷害：</string>
+       <string notr="true">被擊傷害：</string>
       </property>
      </widget>
      <widget class="QLabel" name="damage">
@@ -1956,8 +3564,23 @@
         <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>10</string>
+       <string notr="true">10</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
@@ -1969,8 +3592,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>%</string>
+       <string notr="true">%</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_26">
@@ -1982,8 +3620,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>%</string>
+       <string notr="true">%</string>
       </property>
      </widget>
      <widget class="QLabel" name="hit_damage">
@@ -2000,8 +3653,23 @@
         <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>280</string>
+       <string notr="true">280</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_27">
@@ -2013,8 +3681,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>達到1.5倍增傷ARC需求：</string>
+       <string notr="true">達到1.5倍增傷ARC需求：</string>
       </property>
      </widget>
      <widget class="Line" name="line_3">
@@ -2025,6 +3708,21 @@
         <width>290</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -2044,8 +3742,23 @@
         <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>50</string>
+       <string notr="true">50</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="ArcDamage_x">
@@ -2057,8 +3770,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>0</number>
@@ -2079,8 +3816,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>30</number>
@@ -2102,6 +3863,21 @@
        <height>171</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
      <property name="title">
       <string>秘法觸媒</string>
      </property>
@@ -2114,8 +3890,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>成長等級：</string>
+       <string notr="true">成長等級：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_47">
@@ -2127,8 +3918,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>成長值：</string>
+       <string notr="true">成長值：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_48">
@@ -2145,8 +3951,23 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>→</string>
+       <string notr="true">→</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_49">
@@ -2158,8 +3979,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>成長值：</string>
+       <string notr="true">成長值：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_50">
@@ -2171,8 +4007,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>成長等級：</string>
+       <string notr="true">成長等級：</string>
       </property>
      </widget>
      <widget class="QLabel" name="transLV_after">
@@ -2189,8 +4040,23 @@
         <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>1</string>
+       <string notr="true">1</string>
       </property>
      </widget>
      <widget class="QLabel" name="transArc_after">
@@ -2207,8 +4073,23 @@
         <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>0</string>
+       <string notr="true">0</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="transLV_before">
@@ -2220,8 +4101,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>1</number>
@@ -2242,8 +4147,32 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="buttonSymbols">
        <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="specialValueText">
+       <string notr="true"/>
+      </property>
+      <property name="suffix">
+       <string notr="true"/>
+      </property>
+      <property name="prefix">
+       <string notr="true"/>
       </property>
       <property name="minimum">
        <number>0</number>
@@ -2264,6 +4193,21 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -2277,8 +4221,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>升級所需</string>
+       <string notr="true">升級所需</string>
       </property>
      </widget>
      <widget class="QLabel" name="transCost">
@@ -2286,30 +4245,60 @@
        <rect>
         <x>120</x>
         <y>130</y>
-        <width>91</width>
+        <width>111</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <underline>true</underline>
+        <underline>false</underline>
        </font>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>19040000</string>
+       <string notr="true">19,040,000</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_20">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>227</x>
         <y>136</y>
         <width>21</width>
         <height>21</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
       <property name="pixmap">
        <pixmap resource="images.qrc">:/images/meso.png</pixmap>
@@ -2327,8 +4316,23 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>：</string>
+       <string notr="true">：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_56">
@@ -2340,8 +4344,23 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
       <property name="pixmap">
        <pixmap resource="images.qrc">:/images/meso_gold.png</pixmap>
@@ -2365,8 +4384,42 @@
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
+   <property name="toolTip">
+    <string notr="true"/>
+   </property>
+   <property name="statusTip">
+    <string notr="true"/>
+   </property>
+   <property name="whatsThis">
+    <string notr="true"/>
+   </property>
+   <property name="accessibleName">
+    <string notr="true"/>
+   </property>
+   <property name="accessibleDescription">
+    <string notr="true"/>
+   </property>
+   <property name="undoRedoEnabled">
+    <bool>false</bool>
+   </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+   <property name="html">
+    <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'微軟正黑體'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="acceptRichText">
+    <bool>false</bool>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::NoTextInteraction</set>
+   </property>
+   <property name="placeholderText">
+    <string notr="true"/>
    </property>
   </widget>
   <zorder>background</zorder>
