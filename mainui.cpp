@@ -2,7 +2,7 @@
 //   哈囉大家好：）我是來自艾麗亞的曉亦夏風
 //   寫這個小工具只是單純為了練習程式撰寫能力
 //   變數命名方式不太理想，先跟各位說聲抱歉QnQ
-//   歡迎+巴哈好友，巴哈小屋：https://home.gamer.com.tw/evildjkay
+//   歡迎加巴哈好友，巴哈小屋：https://home.gamer.com.tw/evildjkay
 //   巴哈文章：https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565
 //   數據資料來源：https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710
 */
@@ -313,12 +313,19 @@ void MainUI::transArc(int lv, int arc){
     double total = ceil((upgradeList[lv - 1] + arc) * 0.8);
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
-            ui->transCost->setNum(upgradeMeso(1, lv - i));
+            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i)));
             ui->transLV_after->setNum(lv - i);
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
             break;
         }
     }
+}
+
+QString MainUI::decimalSeparator(int n){
+    QString temp = QString::number(n);
+    if(n<100000000) return temp.mid(0,2)+","+temp.mid(2,3)+","+temp.mid(5,3);
+    else if(n<1000000000) return temp.mid(0,3)+","+temp.mid(3,3)+","+temp.mid(6,3);
+    else return temp.mid(0,1)+","+temp.mid(1,3)+","+temp.mid(4,3)+","+temp.mid(7,3);
 }
 
 //觸發事件
@@ -411,7 +418,7 @@ void MainUI::on_ArcLV_from_valueChanged(int from) {
         ui->ArcLV_to->setValue(2);
         ui->cost->setNum(19040000);
     }
-    else ui->cost->setNum(upgradeMeso(from, to));
+    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to)));
 }
 void MainUI::on_ArcLV_to_valueChanged(int to) {
     int from = ui->ArcLV_from->value();
@@ -421,7 +428,7 @@ void MainUI::on_ArcLV_to_valueChanged(int to) {
         ui->ArcLV_to->setValue(2);
         ui->cost->setNum(19040000);
     }
-    else ui->cost->setNum(upgradeMeso(from, to));
+    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to)));
 }
 void MainUI::on_ArcDamage_x_valueChanged(int x) { ArcDamage(x, ui->ArcDamage_y->value()); }
 void MainUI::on_ArcDamage_y_valueChanged(int y){ ArcDamage(ui->ArcDamage_x->value(), y); }
