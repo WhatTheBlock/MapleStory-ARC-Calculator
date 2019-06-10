@@ -101,6 +101,7 @@ private:
     void dailyTask();
     void warningMsg(QString msg);
     void transArc(int lv, int arc);
+    QString decimalSeparator(int n);
 
 };
 
