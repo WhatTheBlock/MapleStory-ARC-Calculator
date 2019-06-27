@@ -132,26 +132,34 @@ void MainUI::updateAp(int mode) {
 }
 
 //升級所需楓幣
-int MainUI::upgradeMeso(int from, int to) {
+int MainUI::upgradeMeso(int from, int to, int arc1) {
     int base = 19040000;
+    int base_arc1 = 9500000;
     int result = 19040000;
+    int result_arc1 = 9500000;
 
-    for(int i = to - 2; i >= 1; i--){
-        for(int j = 0; j < i; j++){
-            result+=6600000;
+    if(arc1 == 2) {
+        for(int i = to - 2; i >= 1; i--){
+            for(int j = 0; j < i; j++) result_arc1+=7130000;
+            result_arc1+=base_arc1;
         }
-        result+=base;
+        if(from > 1) result_arc1 -= upgradeMeso(1, from, arc1);
+        return result_arc1;
     }
-
-    if(from > 1) result -= upgradeMeso(1, from);
-
-    return result;
+    else {
+        for(int i = to - 2; i >= 1; i--){
+            for(int j = 0; j < i; j++) result+=6600000;
+            result+=base;
+        }
+        if(from > 1) result -= upgradeMeso(1, from, arc1);
+        return result;
+    }
 }
 
 //被擊傷害 / 增傷
 void MainUI::ArcDamage(int x, int y) {
-    int damageList[8] = {10, 30, 60, 70, 80, 100, 110, 150};
-    int hit_damageList[8] = {280, 240, 180, 160, 140, 100, 80, 0};
+    int damageList[9] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
+    int hit_damageList[9] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
 
     double percent = double(x) / double(y);
     if(percent < 0.1) { ui->damage->setNum(damageList[0]); ui->hit_damage->setNum(hit_damageList[0]); }
@@ -159,9 +167,10 @@ void MainUI::ArcDamage(int x, int y) {
     else if(percent >= 0.3 && percent < 0.5) { ui->damage->setNum(damageList[2]); ui->hit_damage->setNum(hit_damageList[2]); }
     else if(percent >= 0.5 && percent < 0.7) { ui->damage->setNum(damageList[3]); ui->hit_damage->setNum(hit_damageList[3]); }
     else if(percent >= 0.7 && percent < 1) { ui->damage->setNum(damageList[4]); ui->hit_damage->setNum(hit_damageList[4]); }
-    else if(percent >= 1 && percent < 1.25) { ui->damage->setNum(damageList[5]); ui->hit_damage->setNum(hit_damageList[5]); }
-    else if(percent >= 1.25 && percent < 1.5) { ui->damage->setNum(damageList[6]); ui->hit_damage->setNum(hit_damageList[6]); }
-    else { ui->damage->setNum(damageList[7]); ui->hit_damage->setNum(hit_damageList[7]); }
+    else if(percent >= 1 && percent < 1.1) { ui->damage->setNum(damageList[5]); ui->hit_damage->setNum(hit_damageList[5]); }
+    else if(percent >= 1.1 && percent < 1.3) { ui->damage->setNum(damageList[6]); ui->hit_damage->setNum(hit_damageList[6]); }
+    else if(percent >= 1.3 && percent < 1.5) { ui->damage->setNum(damageList[7]); ui->hit_damage->setNum(hit_damageList[7]); }
+    else { ui->damage->setNum(damageList[8]); ui->hit_damage->setNum(hit_damageList[8]); }
 
     //1.5倍傷害需求尾數為5的值需額外加5
     if((y * 15) % 100 == 50) ui->damage150->setNum(y * 1.5 + 5);
@@ -313,7 +322,8 @@ void MainUI::transArc(int lv, int arc){
     double total = ceil((upgradeList[lv - 1] + arc) * 0.8);
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
-            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i)));
+            if(ui->arc1Switch->isChecked()) ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, 2)));
+            else ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, 0)));
             ui->transLV_after->setNum(lv - i);
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
             break;
@@ -323,7 +333,8 @@ void MainUI::transArc(int lv, int arc){
 
 QString MainUI::decimalSeparator(int n){
     QString temp = QString::number(n);
-    if(n<100000000) return temp.mid(0,2)+","+temp.mid(2,3)+","+temp.mid(5,3);
+    if(n<10000000) return temp.mid(0,1)+","+temp.mid(1,3)+","+temp.mid(4,3);
+    else if(n<100000000) return temp.mid(0,2)+","+temp.mid(2,3)+","+temp.mid(5,3);
     else if(n<1000000000) return temp.mid(0,3)+","+temp.mid(3,3)+","+temp.mid(6,3);
     else return temp.mid(0,1)+","+temp.mid(1,3)+","+temp.mid(4,3)+","+temp.mid(7,3);
 }
@@ -418,7 +429,8 @@ void MainUI::on_ArcLV_from_valueChanged(int from) {
         ui->ArcLV_to->setValue(2);
         ui->cost->setNum(19040000);
     }
-    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to)));
+    else if(ui->arc1Switch->isChecked()) ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 2)));
+    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 0)));
 }
 void MainUI::on_ArcLV_to_valueChanged(int to) {
     int from = ui->ArcLV_from->value();
@@ -428,7 +440,8 @@ void MainUI::on_ArcLV_to_valueChanged(int to) {
         ui->ArcLV_to->setValue(2);
         ui->cost->setNum(19040000);
     }
-    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to)));
+    else if(ui->arc1Switch->isChecked()) ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 2)));
+    else ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 0)));
 }
 void MainUI::on_ArcDamage_x_valueChanged(int x) { ArcDamage(x, ui->ArcDamage_y->value()); }
 void MainUI::on_ArcDamage_y_valueChanged(int y){ ArcDamage(ui->ArcDamage_x->value(), y); }
@@ -448,4 +461,12 @@ void MainUI::on_transArc_before_valueChanged(int arc) {
         ui->transArc_before->setValue(0);
     }
     else transArc(lv, arc);
+}
+void MainUI::on_arc1Switch_stateChanged(int Switch) {
+    int from = ui->ArcLV_from->value();
+    int to = ui->ArcLV_to->value();
+    int lv = ui->transLV_before->value();
+    int arc = ui->transArc_before->value();
+    ui->cost->setText(decimalSeparator(upgradeMeso(from, to, Switch)));
+    transArc(lv, arc);
 }
