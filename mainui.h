@@ -79,6 +79,8 @@ private slots:
 
     void on_transArc_before_valueChanged(int arg1);
 
+    void on_arc1Switch_stateChanged(int arg1);
+
 private:
     Ui::MainUI *ui;
 
@@ -96,7 +98,7 @@ private:
     void upgradeVal();
     void updateAp(int mode);
     void avoidError();
-    int upgradeMeso(int from, int to);
+    int upgradeMeso(int from, int to, int arc1);
     void ArcDamage(int x, int y);
     void dailyTask();
     void warningMsg(QString msg);
