@@ -1665,7 +1665,7 @@
       <string notr="true"/>
      </property>
      <property name="maxLength">
-      <number>3</number>
+      <number>2</number>
      </property>
      <property name="placeholderText">
       <string notr="true"/>
@@ -1868,7 +1868,7 @@
       <string notr="true"/>
      </property>
      <property name="maxLength">
-      <number>3</number>
+      <number>2</number>
      </property>
      <property name="placeholderText">
       <string notr="true"/>
@@ -2208,7 +2208,7 @@
       <string notr="true"/>
      </property>
      <property name="maxLength">
-      <number>3</number>
+      <number>2</number>
      </property>
      <property name="placeholderText">
       <string notr="true"/>
@@ -2420,7 +2420,7 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string notr="true">0~8</string>
+      <string notr="true">0~14</string>
      </property>
      <property name="statusTip">
       <string notr="true"/>
@@ -2441,7 +2441,7 @@
       <string notr="true"/>
      </property>
      <property name="maxLength">
-      <number>3</number>
+      <number>2</number>
      </property>
      <property name="placeholderText">
       <string notr="true"/>
