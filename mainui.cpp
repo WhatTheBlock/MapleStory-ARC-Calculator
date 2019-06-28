@@ -52,14 +52,6 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     ui->ArcDamage_x->setMaximum(ARCMAX);
     ui->ArcDamage_y->setMaximum(ARCMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
-    ui->d200->setValidator(new QIntValidator(0, 8, this));
-    ui->d210->setValidator(new QIntValidator(0, 15, this));
-    ui->d220->setValidator(new QIntValidator(0, 500, this));
-    ui->d220_vip->setValidator(new QIntValidator(0, 500, this));
-    ui->d225->setValidator(new QIntValidator(0, 30, this));
-    ui->d225_vip->setValidator(new QIntValidator(0, 40, this));
-    ui->d230->setValidator(new QIntValidator(0, 8, this));
-    ui->d235->setValidator(new QIntValidator(0, 8, this));
 
     //設定日期為電腦當前時間
     ui->startDate->setDate(QDate::currentDate());
@@ -355,8 +347,8 @@ void MainUI::on_Arc6current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 void MainUI::on_d200_textChanged(const QString &d) {
     int d200 = d.toInt();
-    if(d200 > 8) {
-        warningMsg(QStringLiteral("消逝的旅途每日任務一天最高是8顆ARC唷！"));
+    if(d200 > 14) {
+        warningMsg(QStringLiteral("消逝的旅途每日任務一天最高是14顆ARC唷！"));
         ui->d200->clear();
     }
     else dailyTask();
