@@ -127,7 +127,7 @@ void MainUI::updateAp(int mode) {
     switch (mode) {
     case 0: ApTotal->setNum(ArcTotal->text().toInt() * 10); break;
     case 1: ApTotal->setNum(ArcTotal->text().toInt() * 3.9); break;
-    case 2: ApTotal->setNum(ArcTotal->text().toInt() * 140); break;
+    case 2: ApTotal->setNum(ArcTotal->text().toInt() * 175); break;
     }
 }
 
