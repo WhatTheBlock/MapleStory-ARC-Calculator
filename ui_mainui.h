@@ -1209,7 +1209,7 @@ public:
 #endif // QT_CONFIG(accessibility)
         d235->setInputMethodHints(Qt::ImhNone);
         d235->setText(QString::fromUtf8(""));
-        d235->setMaxLength(3);
+        d235->setMaxLength(2);
         d235->setPlaceholderText(QString::fromUtf8(""));
         label_30 = new QLabel(tab);
         label_30->setObjectName(QString::fromUtf8("label_30"));
@@ -1334,7 +1334,7 @@ public:
 #endif // QT_CONFIG(accessibility)
         d230->setInputMethodHints(Qt::ImhNone);
         d230->setText(QString::fromUtf8(""));
-        d230->setMaxLength(3);
+        d230->setMaxLength(2);
         d230->setPlaceholderText(QString::fromUtf8(""));
         d220_vip = new QLineEdit(tab);
         d220_vip->setObjectName(QString::fromUtf8("d220_vip"));
@@ -1546,7 +1546,7 @@ public:
 #endif // QT_CONFIG(accessibility)
         d210->setInputMethodHints(Qt::ImhNone);
         d210->setText(QString::fromUtf8(""));
-        d210->setMaxLength(3);
+        d210->setMaxLength(2);
         d210->setPlaceholderText(QString::fromUtf8(""));
         label_29 = new QLabel(tab);
         label_29->setObjectName(QString::fromUtf8("label_29"));
@@ -1674,7 +1674,7 @@ public:
         d200->setGeometry(QRect(315, 14, 32, 31));
         d200->setAcceptDrops(false);
 #if QT_CONFIG(tooltip)
-        d200->setToolTip(QString::fromUtf8("0~8"));
+        d200->setToolTip(QString::fromUtf8("0~14"));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
         d200->setStatusTip(QString::fromUtf8(""));
@@ -1690,7 +1690,7 @@ public:
 #endif // QT_CONFIG(accessibility)
         d200->setInputMethodHints(Qt::ImhNone);
         d200->setText(QString::fromUtf8(""));
-        d200->setMaxLength(3);
+        d200->setMaxLength(2);
         d200->setPlaceholderText(QString::fromUtf8(""));
         coinimg1 = new QLabel(tab);
         coinimg1->setObjectName(QString::fromUtf8("coinimg1"));
