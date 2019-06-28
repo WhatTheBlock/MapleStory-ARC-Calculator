@@ -2915,7 +2915,7 @@ public:
 
     void retranslateUi(QWidget *MainUI)
     {
-        MainUI->setWindowTitle(QCoreApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237  v2.2", nullptr));
+        MainUI->setWindowTitle(QCoreApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237  v2.3", nullptr));
         ArcMode->setItemText(0, QCoreApplication::translate("MainUI", "\344\270\200\350\210\254\350\201\267\346\245\255", nullptr));
         ArcMode->setItemText(1, QCoreApplication::translate("MainUI", "\345\202\221\350\253\276", nullptr));
         ArcMode->setItemText(2, QCoreApplication::translate("MainUI", "\346\203\241\345\276\251", nullptr));
