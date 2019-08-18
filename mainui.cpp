@@ -126,8 +126,8 @@ void MainUI::updateAp(int mode) {
 //升級所需楓幣
 int MainUI::upgradeMeso(int from, int to, int arc1) {
     if(arc1 == 2) {
-		int base_arc1 = 9500000;
-		int result_arc1 = 9500000;
+	int base_arc1 = 9500000;
+	int result_arc1 = 9500000;
 		
         for(int i = to - 2; i >= 1; i--){
             for(int j = 0; j < i; j++) result_arc1+=7130000;
@@ -137,8 +137,8 @@ int MainUI::upgradeMeso(int from, int to, int arc1) {
         return result_arc1;
     }
     else {
-		int base = 19040000;
-		int result = 19040000;
+	int base = 19040000;
+	int result = 19040000;
 		
         for(int i = to - 2; i >= 1; i--){
             for(int j = 0; j < i; j++) result+=6600000;
@@ -189,8 +189,8 @@ void MainUI::dailyTask() {
     }
     //若未達到才計算
     else {
-		int dailyGet[8];
-		int maxReachArc = 0;
+	int dailyGet[8];
+	int maxReachArc = 0;
 		
         dailyGet[0] = ui->d200->text().toInt();
         dailyGet[1] = ui->d210->text().toInt();
@@ -230,8 +230,8 @@ void MainUI::dailyTask() {
             ui->targetArc->setValue(0);
         }
         else {
-			int current[6];
-			int cntLv[6];
+	    int current[6];
+	    int cntLv[6];
 			
             if((targetArc % 10) != 0) targetArc = targetArc - (targetArc % 10) + 10; //如果目標ARC不為10的倍數則無條件進位
             for(int i=0; i<6; i++) {  //計算目前各ARC累積量
