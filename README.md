@@ -3,13 +3,13 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/app/WhatTheBlock/MapleStory-ARC-Calculator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 當前版本對應的遊戲版本為 TMS v221
+### 當前版本對應的遊戲版本為 TMS v222
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
 ### 若計算公式未及時更新請至巴哈姆特文章回覆通知，感謝您 :D <br><br>
 
-### ✡  本專案使用Qt 5.13.0開發  ✡ <br><br>
+### ✡  本專案使用Qt 5.14.0開發  ✡ <br><br>
 
 UI介面：
 ----
@@ -18,6 +18,12 @@ UI介面：
 
 Changelog：
 ----
+#### v2.4
+ - 啾啾島每日獲得上限提高至19
+ - (New)新增拉契爾恩打怪每日任務選項
+ - (New)新增阿爾卡娜打怪每日任務選項
+ - UI調整
+
 #### v2.3
  - 惡復HP增加量調整 (1400 → 1750)
  - 消逝的旅途每日獲得上限提高至14
