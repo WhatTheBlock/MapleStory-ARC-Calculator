@@ -1,4 +1,4 @@
-#ifndef MAINUI_H
+﻿#ifndef MAINUI_H
 #define MAINUI_H
 
 #include<QtWidgets>
@@ -80,6 +80,10 @@ private slots:
     void on_transArc_before_valueChanged(int arg1);
 
     void on_arc1Switch_stateChanged(int arg1);
+
+    void on_mobbingMission_220_stateChanged(int arg1);
+
+    void on_mobbingMission_225_stateChanged(int arg1);
 
 private:
     Ui::MainUI *ui;

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainui.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.14.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -107,7 +107,6 @@ public:
     QLabel *label_38;
     QLabel *vipimg1;
     QLabel *img220;
-    QCheckBox *vipSwitch;
     QLabel *label_43;
     QDateEdit *startDate;
     QLabel *label_28;
@@ -116,6 +115,10 @@ public:
     QLabel *targetDays;
     QLabel *label_44;
     QSpinBox *targetArc;
+    QGroupBox *groupBox_4;
+    QCheckBox *vipSwitch;
+    QCheckBox *mobbingMission_220;
+    QCheckBox *mobbingMission_225;
     QWidget *tab_2;
     QGroupBox *groupBox;
     QLabel *label_16;
@@ -1091,7 +1094,7 @@ public:
         label_14->setText(QString::fromUtf8("\347\233\256\345\211\215ARC\357\274\232"));
         line = new QFrame(tab);
         line->setObjectName(QString::fromUtf8("line"));
-        line->setGeometry(QRect(220, -10, 31, 411));
+        line->setGeometry(QRect(223, -10, 31, 395));
 #if QT_CONFIG(tooltip)
         line->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1530,7 +1533,7 @@ public:
         d210->setGeometry(QRect(315, 60, 32, 31));
         d210->setAcceptDrops(false);
 #if QT_CONFIG(tooltip)
-        d210->setToolTip(QString::fromUtf8("0~15"));
+        d210->setToolTip(QString::fromUtf8("0~19"));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
         d210->setStatusTip(QString::fromUtf8(""));
@@ -1772,36 +1775,9 @@ public:
 #endif // QT_CONFIG(accessibility)
         img220->setText(QString::fromUtf8(""));
         img220->setPixmap(QPixmap(QString::fromUtf8(":/images/220.png")));
-        vipSwitch = new QCheckBox(tab);
-        vipSwitch->setObjectName(QString::fromUtf8("vipSwitch"));
-        vipSwitch->setGeometry(QRect(495, 60, 181, 31));
-        QFont font4;
-        font4.setBold(false);
-        font4.setWeight(50);
-        vipSwitch->setFont(font4);
-#if QT_CONFIG(tooltip)
-        vipSwitch->setToolTip(QString::fromUtf8(""));
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(statustip)
-        vipSwitch->setStatusTip(QString::fromUtf8(""));
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
-        vipSwitch->setWhatsThis(QString::fromUtf8(""));
-#endif // QT_CONFIG(whatsthis)
-#if QT_CONFIG(accessibility)
-        vipSwitch->setAccessibleName(QString::fromUtf8(""));
-#endif // QT_CONFIG(accessibility)
-#if QT_CONFIG(accessibility)
-        vipSwitch->setAccessibleDescription(QString::fromUtf8(""));
-#endif // QT_CONFIG(accessibility)
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/images/Vip.png"), QSize(), QIcon::Normal, QIcon::Off);
-        vipSwitch->setIcon(icon1);
-        vipSwitch->setIconSize(QSize(32, 32));
-        vipSwitch->setTristate(false);
         label_43 = new QLabel(tab);
         label_43->setObjectName(QString::fromUtf8("label_43"));
-        label_43->setGeometry(QRect(495, 10, 81, 31));
+        label_43->setGeometry(QRect(490, 10, 81, 31));
 #if QT_CONFIG(tooltip)
         label_43->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1820,7 +1796,7 @@ public:
         label_43->setText(QString::fromUtf8("\347\233\256\346\250\231ARC\357\274\232"));
         startDate = new QDateEdit(tab);
         startDate->setObjectName(QString::fromUtf8("startDate"));
-        startDate->setGeometry(QRect(575, 110, 115, 31));
+        startDate->setGeometry(QRect(570, 60, 115, 31));
 #if QT_CONFIG(tooltip)
         startDate->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1839,17 +1815,17 @@ public:
         startDate->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
         startDate->setSpecialValueText(QString::fromUtf8(""));
         startDate->setProperty("showGroupSeparator", QVariant(false));
-        startDate->setDateTime(QDateTime(QDate(2019, 6, 10), QTime(0, 0, 0)));
+        startDate->setDateTime(QDateTime(QDate(2020, 1, 20), QTime(0, 0, 0)));
         startDate->setMaximumDateTime(QDateTime(QDate(2099, 12, 31), QTime(23, 59, 59)));
         startDate->setMaximumDate(QDate(2099, 12, 31));
-        startDate->setMinimumDate(QDate(2019, 6, 10));
+        startDate->setMinimumDate(QDate(2020, 1, 20));
         startDate->setMinimumTime(QTime(0, 0, 0));
         startDate->setDisplayFormat(QString::fromUtf8("yyyy/MM/dd"));
         startDate->setCalendarPopup(true);
-        startDate->setDate(QDate(2019, 6, 10));
+        startDate->setDate(QDate(2020, 1, 20));
         label_28 = new QLabel(tab);
         label_28->setObjectName(QString::fromUtf8("label_28"));
-        label_28->setGeometry(QRect(495, 110, 81, 31));
+        label_28->setGeometry(QRect(490, 60, 81, 31));
 #if QT_CONFIG(tooltip)
         label_28->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1868,7 +1844,7 @@ public:
         label_28->setText(QString::fromUtf8("\350\265\267\345\247\213\346\227\245\346\234\237\357\274\232"));
         targetDate = new QDateEdit(tab);
         targetDate->setObjectName(QString::fromUtf8("targetDate"));
-        targetDate->setGeometry(QRect(575, 160, 97, 31));
+        targetDate->setGeometry(QRect(570, 110, 97, 31));
 #if QT_CONFIG(tooltip)
         targetDate->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1899,7 +1875,7 @@ public:
         targetDate->setDate(QDate(9999, 12, 31));
         label_45 = new QLabel(tab);
         label_45->setObjectName(QString::fromUtf8("label_45"));
-        label_45->setGeometry(QRect(495, 160, 81, 31));
+        label_45->setGeometry(QRect(490, 110, 81, 31));
 #if QT_CONFIG(tooltip)
         label_45->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1918,10 +1894,10 @@ public:
         label_45->setText(QString::fromUtf8("\351\201\224\346\210\220\346\227\245\346\234\237\357\274\232"));
         targetDays = new QLabel(tab);
         targetDays->setObjectName(QString::fromUtf8("targetDays"));
-        targetDays->setGeometry(QRect(610, 210, 51, 31));
-        QFont font5;
-        font5.setUnderline(false);
-        targetDays->setFont(font5);
+        targetDays->setGeometry(QRect(600, 160, 51, 31));
+        QFont font4;
+        font4.setUnderline(false);
+        targetDays->setFont(font4);
 #if QT_CONFIG(tooltip)
         targetDays->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1940,7 +1916,7 @@ public:
         targetDays->setText(QString::fromUtf8("0"));
         label_44 = new QLabel(tab);
         label_44->setObjectName(QString::fromUtf8("label_44"));
-        label_44->setGeometry(QRect(495, 210, 111, 31));
+        label_44->setGeometry(QRect(490, 160, 111, 31));
 #if QT_CONFIG(tooltip)
         label_44->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1959,7 +1935,7 @@ public:
         label_44->setText(QString::fromUtf8("\351\201\224\346\210\220\346\211\200\351\234\200\345\244\251\346\225\270\357\274\232"));
         targetArc = new QSpinBox(tab);
         targetArc->setObjectName(QString::fromUtf8("targetArc"));
-        targetArc->setGeometry(QRect(580, 10, 61, 31));
+        targetArc->setGeometry(QRect(570, 10, 61, 31));
 #if QT_CONFIG(tooltip)
         targetArc->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -1980,6 +1956,86 @@ public:
         targetArc->setMinimum(0);
         targetArc->setMaximum(1320);
         targetArc->setValue(0);
+        groupBox_4 = new QGroupBox(tab);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox_4->setGeometry(QRect(490, 210, 241, 181));
+        groupBox_4->setFlat(false);
+        groupBox_4->setCheckable(false);
+        vipSwitch = new QCheckBox(groupBox_4);
+        vipSwitch->setObjectName(QString::fromUtf8("vipSwitch"));
+        vipSwitch->setGeometry(QRect(20, 30, 181, 31));
+        QFont font5;
+        font5.setBold(false);
+        font5.setWeight(50);
+        vipSwitch->setFont(font5);
+#if QT_CONFIG(tooltip)
+        vipSwitch->setToolTip(QString::fromUtf8(""));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        vipSwitch->setStatusTip(QString::fromUtf8(""));
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        vipSwitch->setWhatsThis(QString::fromUtf8(""));
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        vipSwitch->setAccessibleName(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+        vipSwitch->setAccessibleDescription(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/images/Vip.png"), QSize(), QIcon::Normal, QIcon::Off);
+        vipSwitch->setIcon(icon1);
+        vipSwitch->setIconSize(QSize(32, 32));
+        vipSwitch->setTristate(false);
+        mobbingMission_220 = new QCheckBox(groupBox_4);
+        mobbingMission_220->setObjectName(QString::fromUtf8("mobbingMission_220"));
+        mobbingMission_220->setGeometry(QRect(20, 72, 191, 41));
+        mobbingMission_220->setFont(font5);
+#if QT_CONFIG(tooltip)
+        mobbingMission_220->setToolTip(QString::fromUtf8("\346\257\217\346\227\245\345\217\257\351\241\215\345\244\226\347\215\262\345\276\2274\345\200\213\347\247\230\346\263\225\347\254\246\346\226\207"));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        mobbingMission_220->setStatusTip(QString::fromUtf8(""));
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        mobbingMission_220->setWhatsThis(QString::fromUtf8(""));
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        mobbingMission_220->setAccessibleName(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+        mobbingMission_220->setAccessibleDescription(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/images/220.png"), QSize(), QIcon::Normal, QIcon::Off);
+        mobbingMission_220->setIcon(icon2);
+        mobbingMission_220->setIconSize(QSize(32, 32));
+        mobbingMission_220->setTristate(false);
+        mobbingMission_225 = new QCheckBox(groupBox_4);
+        mobbingMission_225->setObjectName(QString::fromUtf8("mobbingMission_225"));
+        mobbingMission_225->setGeometry(QRect(20, 122, 191, 41));
+        mobbingMission_225->setFont(font5);
+#if QT_CONFIG(tooltip)
+        mobbingMission_225->setToolTip(QString::fromUtf8("\346\257\217\346\227\245\345\217\257\351\241\215\345\244\226\347\215\262\345\276\2278\345\200\213\347\247\230\346\263\225\347\254\246\346\226\207"));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        mobbingMission_225->setStatusTip(QString::fromUtf8(""));
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        mobbingMission_225->setWhatsThis(QString::fromUtf8(""));
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        mobbingMission_225->setAccessibleName(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+        mobbingMission_225->setAccessibleDescription(QString::fromUtf8(""));
+#endif // QT_CONFIG(accessibility)
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/images/225.png"), QSize(), QIcon::Normal, QIcon::Off);
+        mobbingMission_225->setIcon(icon3);
+        mobbingMission_225->setIconSize(QSize(32, 32));
+        mobbingMission_225->setTristate(false);
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -2099,7 +2155,7 @@ public:
         cost = new QLabel(groupBox);
         cost->setObjectName(QString::fromUtf8("cost"));
         cost->setGeometry(QRect(120, 90, 111, 31));
-        cost->setFont(font5);
+        cost->setFont(font4);
 #if QT_CONFIG(tooltip)
         cost->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2248,7 +2304,7 @@ public:
         arc1Switch = new QCheckBox(groupBox);
         arc1Switch->setObjectName(QString::fromUtf8("arc1Switch"));
         arc1Switch->setGeometry(QRect(220, 40, 81, 31));
-        arc1Switch->setFont(font4);
+        arc1Switch->setFont(font5);
 #if QT_CONFIG(tooltip)
         arc1Switch->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2364,7 +2420,7 @@ public:
         damage = new QLabel(groupBox_2);
         damage->setObjectName(QString::fromUtf8("damage"));
         damage->setGeometry(QRect(200, 40, 31, 31));
-        damage->setFont(font5);
+        damage->setFont(font4);
 #if QT_CONFIG(tooltip)
         damage->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2422,7 +2478,7 @@ public:
         hit_damage = new QLabel(groupBox_2);
         hit_damage->setObjectName(QString::fromUtf8("hit_damage"));
         hit_damage->setGeometry(QRect(230, 80, 31, 31));
-        hit_damage->setFont(font5);
+        hit_damage->setFont(font4);
 #if QT_CONFIG(tooltip)
         hit_damage->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2481,7 +2537,7 @@ public:
         damage150 = new QLabel(groupBox_2);
         damage150->setObjectName(QString::fromUtf8("damage150"));
         damage150->setGeometry(QRect(198, 130, 71, 31));
-        damage150->setFont(font5);
+        damage150->setFont(font4);
 #if QT_CONFIG(tooltip)
         damage150->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2665,7 +2721,7 @@ public:
         transLV_after = new QLabel(groupBox_3);
         transLV_after->setObjectName(QString::fromUtf8("transLV_after"));
         transLV_after->setGeometry(QRect(275, 40, 21, 31));
-        transLV_after->setFont(font5);
+        transLV_after->setFont(font4);
 #if QT_CONFIG(tooltip)
         transLV_after->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2685,7 +2741,7 @@ public:
         transArc_after = new QLabel(groupBox_3);
         transArc_after->setObjectName(QString::fromUtf8("transArc_after"));
         transArc_after->setGeometry(QRect(260, 80, 31, 31));
-        transArc_after->setFont(font5);
+        transArc_after->setFont(font4);
 #if QT_CONFIG(tooltip)
         transArc_after->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2794,7 +2850,7 @@ public:
         transCost = new QLabel(groupBox_3);
         transCost->setObjectName(QString::fromUtf8("transCost"));
         transCost->setGeometry(QRect(120, 130, 111, 31));
-        transCost->setFont(font5);
+        transCost->setFont(font4);
 #if QT_CONFIG(tooltip)
         transCost->setToolTip(QString::fromUtf8(""));
 #endif // QT_CONFIG(tooltip)
@@ -2915,16 +2971,25 @@ public:
 
     void retranslateUi(QWidget *MainUI)
     {
-        MainUI->setWindowTitle(QCoreApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237  v2.3", nullptr));
+        MainUI->setWindowTitle(QCoreApplication::translate("MainUI", "\346\226\260\346\245\223\344\271\213\350\260\267ARC\350\250\210\347\256\227\346\251\237  v2.4", nullptr));
         ArcMode->setItemText(0, QCoreApplication::translate("MainUI", "\344\270\200\350\210\254\350\201\267\346\245\255", nullptr));
         ArcMode->setItemText(1, QCoreApplication::translate("MainUI", "\345\202\221\350\253\276", nullptr));
         ArcMode->setItemText(2, QCoreApplication::translate("MainUI", "\346\203\241\345\276\251", nullptr));
 
+        targetDate->setDisplayFormat(QCoreApplication::translate("MainUI", "yyyy/MM/dd", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("MainUI", "\351\200\262\351\232\216\350\250\255\345\256\232", nullptr));
         vipSwitch->setText(QCoreApplication::translate("MainUI", "\344\275\277\347\224\250\351\253\230\347\264\232\346\234\215\345\213\231 (&V)", nullptr));
 #if QT_CONFIG(shortcut)
         vipSwitch->setShortcut(QCoreApplication::translate("MainUI", "V", nullptr));
 #endif // QT_CONFIG(shortcut)
-        targetDate->setDisplayFormat(QCoreApplication::translate("MainUI", "yyyy/MM/dd", nullptr));
+        mobbingMission_220->setText(QCoreApplication::translate("MainUI", "\345\256\214\346\210\220\346\211\223\346\200\252\346\257\217\346\227\245\344\273\273\345\213\231", nullptr));
+#if QT_CONFIG(shortcut)
+        mobbingMission_220->setShortcut(QCoreApplication::translate("MainUI", "V", nullptr));
+#endif // QT_CONFIG(shortcut)
+        mobbingMission_225->setText(QCoreApplication::translate("MainUI", "\345\256\214\346\210\220\346\211\223\346\200\252\346\257\217\346\227\245\344\273\273\345\213\231", nullptr));
+#if QT_CONFIG(shortcut)
+        mobbingMission_225->setShortcut(QCoreApplication::translate("MainUI", "V", nullptr));
+#endif // QT_CONFIG(shortcut)
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainUI", "\347\247\230\346\263\225\351\201\224\346\210\220\346\227\245\350\250\210\347\256\227 (&Z)", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainUI", "\345\215\207\347\264\232\346\211\200\351\234\200\346\245\223\345\271\243", nullptr));
         arc1Switch->setText(QCoreApplication::translate("MainUI", "(&A)", nullptr));

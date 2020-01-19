@@ -1,4 +1,4 @@
-/*
+﻿/*
 //   哈囉大家好：）我是來自艾麗亞的曉亦夏風
 //   寫這個小工具只是單純為了練習程式撰寫能力
 //   變數命名方式不太理想，先跟各位說聲抱歉QnQ
@@ -10,9 +10,19 @@
 #include "mainui.h"
 #include "ui_mainui.h"
 
-#define ARCMAXLV 20             //當前版本ARC等級上限
-#define ARCMAX 1320            //當前版本個人最高ARC
-#define ARCMAX_MOB 1320   //當前版本怪物最高ARC
+#define ARCMAXLV 20         //ARC等級上限
+#define ARCMAX 1320         //個人最高ARC
+#define ARCMAX_MOB 1320     //怪物最高ARC
+#define D200_MAX 14         //消逝的旅途每日最高取得量
+#define D210_MAX 19         //啾啾島每日最高取得量
+#define D220_MAX 500        //拉契爾恩每日最高取得量
+#define D220_VIP_MAX 500    //拉契爾恩每日最高取得量(高服)
+#define D220_MOBBING 4      //拉契爾恩打怪每日取得量
+#define D225_MAX 30         //阿爾卡娜每日最高取得量
+#define D225_VIP_MAX 40     //阿爾卡娜每日最高取得量(高服)
+#define D225_MOBBING 8      //阿爾卡娜打怪每日取得量
+#define D230_MAX 8          //魔菈斯每日最高取得量
+#define D235_MAX 8          //艾斯佩拉每日最高取得量
 
 //初始化設定
 MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
@@ -125,10 +135,12 @@ void MainUI::updateAp(int mode) {
 
 //升級所需楓幣
 int MainUI::upgradeMeso(int from, int to, int arc1) {
+    int base = 19040000;
+    int base_arc1 = 9500000;
+    int result = 19040000;
+    int result_arc1 = 9500000;
+
     if(arc1 == 2) {
-	int base_arc1 = 9500000;
-	int result_arc1 = 9500000;
-		
         for(int i = to - 2; i >= 1; i--){
             for(int j = 0; j < i; j++) result_arc1+=7130000;
             result_arc1+=base_arc1;
@@ -137,9 +149,6 @@ int MainUI::upgradeMeso(int from, int to, int arc1) {
         return result_arc1;
     }
     else {
-	int base = 19040000;
-	int result = 19040000;
-		
         for(int i = to - 2; i >= 1; i--){
             for(int j = 0; j < i; j++) result+=6600000;
             result+=base;
@@ -173,7 +182,11 @@ void MainUI::ArcDamage(int x, int y) {
 //計算到達目標ARC所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
+    int dailyGet[8];
+    int maxReachArc = 0;
     int count = ArcTotal->text().toInt();
+    int current[6];
+    int cntLv[6];
     bool vip;
     day = 0;
 
@@ -189,17 +202,26 @@ void MainUI::dailyTask() {
     }
     //若未達到才計算
     else {
-	int dailyGet[8];
-	int maxReachArc = 0;
-		
         dailyGet[0] = ui->d200->text().toInt();
         dailyGet[1] = ui->d210->text().toInt();
-        dailyGet[2] = ui->d220->text().toInt();
-        dailyGet[3] = ui->d225->text().toInt();
+        if(ui->mobbingMission_220->isChecked()) {
+            dailyGet[2] = ui->d220->text().toInt() + D220_MOBBING * 30;
+            dailyGet[6] = ui->d220_vip->text().toInt() + D220_MOBBING * 30;
+        }
+        else {
+            dailyGet[2] = ui->d220->text().toInt();
+            dailyGet[6] = ui->d220_vip->text().toInt();
+        }
+        if(ui->mobbingMission_225->isChecked()) {
+            dailyGet[3] = ui->d225->text().toInt() + D225_MOBBING * 3;
+            dailyGet[7] = ui->d225_vip->text().toInt() + D225_MOBBING * 3;
+        }
+        else {
+            dailyGet[3] = ui->d225->text().toInt();
+            dailyGet[7] = ui->d225_vip->text().toInt();
+        }
         dailyGet[4] = ui->d230->text().toInt();
         dailyGet[5] = ui->d235->text().toInt();
-        dailyGet[6] = ui->d220_vip->text().toInt();
-        dailyGet[7] = ui->d225_vip->text().toInt();
 
         //計算可能達到的最高ARC
         for(int i=0; i<6; i++){
@@ -230,9 +252,6 @@ void MainUI::dailyTask() {
             ui->targetArc->setValue(0);
         }
         else {
-	    int current[6];
-	    int cntLv[6];
-			
             if((targetArc % 10) != 0) targetArc = targetArc - (targetArc % 10) + 10; //如果目標ARC不為10的倍數則無條件進位
             for(int i=0; i<6; i++) {  //計算目前各ARC累積量
                 cntLv[i] = 0; //init
@@ -341,81 +360,80 @@ void MainUI::on_Arc3LV_textChanged(const QString &a) { upgradeVal(); updateAp(Ar
 void MainUI::on_Arc4LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
 void MainUI::on_Arc5LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
 void MainUI::on_Arc6LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+
 void MainUI::on_Arc1current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_Arc2current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_Arc3current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_Arc4current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_Arc5current_textChanged(const QString &a) { dailyTask(); }
 void MainUI::on_Arc6current_textChanged(const QString &a) { dailyTask(); }
+
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
+
 void MainUI::on_d200_textChanged(const QString &d) {
-    int d200 = d.toInt();
-    if(d200 > 14) {
-        warningMsg(QStringLiteral("消逝的旅途每日任務一天最高是14顆ARC唷！"));
+    if(d.toInt() > D200_MAX) {
+        warningMsg(QStringLiteral("消逝的旅途每日最高取得量是%1顆唷！").arg(D200_MAX));
         ui->d200->clear();
     }
     else dailyTask();
 }
 void MainUI::on_d210_textChanged(const QString &d) {
-    int d210 = d.toInt();
-    if(d210 > 15) {
-        warningMsg(QStringLiteral("啾啾島每日任務一天最高是15顆ARC唷！"));
+    if(d.toInt() > D210_MAX) {
+        warningMsg(QStringLiteral("啾啾島每日最高取得量是%1顆唷！").arg(D210_MAX));
         ui->d210->clear();
     }
     else dailyTask();
 }
 void MainUI::on_d220_textChanged(const QString &d) {
-    int d220 = d.toInt();
-    if(d220 > 500) {
-        warningMsg(QStringLiteral("拉契爾恩每日任務一天最高是500個硬幣唷！"));
+    if(d.toInt() > D220_MAX) {
+        warningMsg(QStringLiteral("拉契爾恩每日最高取得量是%1個硬幣唷！").arg(D220_MAX));
         ui->d220->clear();
     }
     else dailyTask();
 }
 void MainUI::on_d220_vip_textChanged(const QString &d) {
-    int d220_vip = d.toInt();
-    if(d220_vip > 500) {
-        warningMsg(QStringLiteral("拉契爾恩每日任務使用高服一天最高是500個硬幣唷！"));
+    if(d.toInt() > D220_VIP_MAX) {
+        warningMsg(QStringLiteral("拉契爾恩使用高服每日最高取得量是%1個硬幣唷！").arg(D220_VIP_MAX));
         ui->d220_vip->clear();
     }
     else dailyTask();
 }
+void MainUI::on_mobbingMission_220_stateChanged(int state) { dailyTask(); }
 void MainUI::on_d225_textChanged(const QString &d) {
-    int d225 = d.toInt();
-    if(d225 > 30) {
-        warningMsg(QStringLiteral("阿爾卡娜每日任務一天最高是30個硬幣唷！"));
+    if(d.toInt() > D225_MAX) {
+        warningMsg(QStringLiteral("阿爾卡娜每日最高取得量是%1個硬幣唷！").arg(D225_MAX));
         ui->d225->clear();
     }
     else dailyTask();
 }
 void MainUI::on_d225_vip_textChanged(const QString &d) {
-    int d225_vip = d.toInt();
-    if(d225_vip > 40) {
-        warningMsg(QStringLiteral("阿爾卡娜每日任務使用高服一天最高是40個硬幣唷！"));
+    if(d.toInt() > D225_VIP_MAX) {
+        warningMsg(QStringLiteral("阿爾卡娜使用高服每日最高取得量是%1個硬幣唷！").arg(D225_VIP_MAX));
         ui->d225_vip->clear();
     }
     else dailyTask();
 }
+void MainUI::on_mobbingMission_225_stateChanged(int state) { dailyTask(); }
 void MainUI::on_d230_textChanged(const QString &d) {
-    int d230 = d.toInt();
-    if(d230 > 8) {
-        warningMsg(QStringLiteral("魔菈斯每日任務一天最高是8顆ARC唷！"));
+    if(d.toInt() > D230_MAX) {
+        warningMsg(QStringLiteral("魔菈斯每日最高取得量是%1顆唷！").arg(D230_MAX));
         ui->d230->clear();
     }
     else dailyTask();
 }
 void MainUI::on_d235_textChanged(const QString &d) {
-    int d235 = d.toInt();
-    if(d235 > 8) {
-        warningMsg(QStringLiteral("艾斯佩拉每日任務一天最高是8顆ARC唷！"));
+    if(d.toInt() > D235_MAX) {
+        warningMsg(QStringLiteral("艾斯佩拉每日最高取得量是%1顆唷！").arg(D235_MAX));
         ui->d235->clear();
     }
     else dailyTask();
 }
+void MainUI::on_vipSwitch_stateChanged(int state) { dailyTask(); }
+
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
     ui->targetDate->setDate(ui->startDate->date().addDays(day));
 }
-void MainUI::on_vipSwitch_stateChanged(int Switch) { dailyTask(); }
+
 void MainUI::on_ArcLV_from_valueChanged(int from) {
     int to = ui->ArcLV_to->value();
     if(from > to) {
@@ -438,8 +456,18 @@ void MainUI::on_ArcLV_to_valueChanged(int to) {
     else if(ui->arc1Switch->isChecked()) ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 2)));
     else ui->cost->setText(decimalSeparator(upgradeMeso(from, to, 0)));
 }
+void MainUI::on_arc1Switch_stateChanged(int state) {
+    int from = ui->ArcLV_from->value();
+    int to = ui->ArcLV_to->value();
+    int lv = ui->transLV_before->value();
+    int arc = ui->transArc_before->value();
+    ui->cost->setText(decimalSeparator(upgradeMeso(from, to, state)));
+    transArc(lv, arc);
+}
+
 void MainUI::on_ArcDamage_x_valueChanged(int x) { ArcDamage(x, ui->ArcDamage_y->value()); }
-void MainUI::on_ArcDamage_y_valueChanged(int y){ ArcDamage(ui->ArcDamage_x->value(), y); }
+void MainUI::on_ArcDamage_y_valueChanged(int y) { ArcDamage(ui->ArcDamage_x->value(), y); }
+
 void MainUI::on_targetArc_valueChanged(int val) { dailyTask(); }
 void MainUI::on_transLV_before_valueChanged(int lv) {
     int arc = ui->transArc_before->value();
@@ -456,12 +484,4 @@ void MainUI::on_transArc_before_valueChanged(int arc) {
         ui->transArc_before->setValue(0);
     }
     else transArc(lv, arc);
-}
-void MainUI::on_arc1Switch_stateChanged(int Switch) {
-    int from = ui->ArcLV_from->value();
-    int to = ui->ArcLV_to->value();
-    int lv = ui->transLV_before->value();
-    int arc = ui->transArc_before->value();
-    ui->cost->setText(decimalSeparator(upgradeMeso(from, to, Switch)));
-    transArc(lv, arc);
 }
