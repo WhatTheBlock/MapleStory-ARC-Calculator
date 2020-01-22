@@ -9,20 +9,7 @@
 
 #include "mainui.h"
 #include "ui_mainui.h"
-
-#define ARCMAXLV 20         //ARC等級上限
-#define ARCMAX 1320         //個人最高ARC
-#define ARCMAX_MOB 1320     //怪物最高ARC
-#define D200_MAX 14         //消逝的旅途每日最高取得量
-#define D210_MAX 19         //啾啾島每日最高取得量
-#define D220_MAX 500        //拉契爾恩每日最高取得量
-#define D220_VIP_MAX 500    //拉契爾恩每日最高取得量(高服)
-#define D220_MOBBING 4      //拉契爾恩打怪每日取得量
-#define D225_MAX 30         //阿爾卡娜每日最高取得量
-#define D225_VIP_MAX 40     //阿爾卡娜每日最高取得量(高服)
-#define D225_MOBBING 8      //阿爾卡娜打怪每日取得量
-#define D230_MAX 8          //魔菈斯每日最高取得量
-#define D235_MAX 8          //艾斯佩拉每日最高取得量
+#include "static_value.h"
 
 //初始化設定
 MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
@@ -53,7 +40,7 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     ArcMode = ui->ArcMode;
 
     //設定數據範圍
-    for(int i=0; i<6; i++) {
+    for(int i = 0; i < 6; i++) {
         ArcLV[i]->setValidator(new QIntValidator(0, ARCMAXLV, this));
         ArcCurrent[i]->setValidator(new QIntValidator(0, (ARCMAXLV*ARCMAXLV)+11, this));
     }
@@ -67,47 +54,56 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     ui->startDate->setDate(QDate::currentDate());
     ui->targetDate->setDate(QDate::currentDate());
 
-    //累加各階ARC升級數量，Lv1=12、Lv2=27、Lv3=47
-    for(int i=1; i<ARCMAXLV; i++){
+    //累加各階ARC升級數量，Lv1=12、Lv2=27、Lv3=47...
+    for(int i = 1; i < ARCMAXLV; i++){
         if(i != 1) upgradeList[i] = i * i + 11 + upgradeList[i - 1];
         else upgradeList[i] = i * i + 11;
     }
     upgradeList[0] = 1;
 }
+
 MainUI::~MainUI() { delete ui; }
 
 //提醒訊息
 void MainUI::warningMsg(QString str){
-    msg = new QMessageBox(QMessageBox::Warning,QStringLiteral("嘿！"), str);
+    msg = new QMessageBox(QMessageBox::Warning, QStringLiteral("嘿！"), str);
     msg->exec();
 }
 
 //更新升級所需ARC數量
 void MainUI::upgradeVal() {
     ArcTotal->setText("0");
-    for(int i=0; i<6; i++) {
+
+    for(int i = 0; i < 6; i++) {
         ArcLVint[i] = ArcLV[i]->text().toInt();
-        if(ArcLVint[i] != 0) ArcTotal->setNum((ArcLVint[i] + 2) * 10 + ArcTotal->text().toInt()); //更新目前ARC
+
+        //更新目前ARC
+        if(ArcLVint[i] != 0) ArcTotal->setNum((ArcLVint[i] + 2) * 10 + ArcTotal->text().toInt());
+
+        //防止輸入錯誤
         if(ArcLVint[i] > ARCMAXLV) {
             warningMsg(QStringLiteral("此版本的ARC等級上限為%1等唷！").arg(ARCMAXLV));
             ArcLV[i]->setText(QString::number(ARCMAXLV));
         }
+
         switch(ArcLVint[i]) {
         case 0: ArcUpgrade[i]->setText("?"); break;
         case ARCMAXLV: ArcUpgrade[i]->setNum(0); break;
         default: ArcUpgrade[i]->setNum(ArcLVint[i] * ArcLVint[i] + 11); break;
         }
     }
+
     avoidError(); //防止輸入錯誤
 }
 
 //防止輸入錯誤
 void MainUI::avoidError() {
-    for(int i=0; i<6; i++) {
+    for(int i = 0; i < 6; i++) {
         ArcLVint[i] = ArcLV[i]->text().toInt();
         ArcCurrentint[i] = ArcCurrent[i]->text().toInt();
         ArcUpgradeint[i] = ArcUpgrade[i]->text().toInt();
-        if(ArcCurrentint[i]>ArcUpgradeint[i]) {
+
+        if(ArcCurrentint[i] > ArcUpgradeint[i]) {
             if(ArcUpgradeint[i] != 0 && ArcLVint[i] != ARCMAXLV) {
                 warningMsg(QStringLiteral("當前數量超過升級數量！"));
                 ArcCurrent[i]->clear();
@@ -135,24 +131,27 @@ void MainUI::updateAp(int mode) {
 
 //升級所需楓幣
 int MainUI::upgradeMeso(int from, int to, int arc1) {
-    int base = 19040000;
-    int base_arc1 = 9500000;
-    int result = 19040000;
-    int result_arc1 = 9500000;
-
+    //套用強化費用減少
     if(arc1 == 2) {
+        int result_arc1 = UPGRADE_BASE_ARC1;
+
         for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result_arc1+=7130000;
-            result_arc1+=base_arc1;
+            for(int j = 0; j < i; j++) result_arc1 += UPGRADE_BASE_ARC1_INCREASE;
+            result_arc1 += UPGRADE_BASE_ARC1;
         }
+
         if(from > 1) result_arc1 -= upgradeMeso(1, from, arc1);
         return result_arc1;
     }
+    //無套用
     else {
+        int result = UPGRADE_BASE;
+
         for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result+=6600000;
-            result+=base;
+            for(int j = 0; j < i; j++) result += UPGRADE_BASE_INCREASE;
+            result += UPGRADE_BASE;
         }
+
         if(from > 1) result -= upgradeMeso(1, from, arc1);
         return result;
     }
@@ -160,47 +159,51 @@ int MainUI::upgradeMeso(int from, int to, int arc1) {
 
 //被擊傷害 / 增傷
 void MainUI::ArcDamage(int x, int y) {
-    int damageList[9] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
-    int hit_damageList[9] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
+    float proportion = (float(x) / float(y)) * 100;
 
-    double percent = double(x) / double(y);
-    if(percent < 0.1) { ui->damage->setNum(damageList[0]); ui->hit_damage->setNum(hit_damageList[0]); }
-    else if(percent >= 0.1 && percent < 0.3) { ui->damage->setNum(damageList[1]); ui->hit_damage->setNum(hit_damageList[1]); }
-    else if(percent >= 0.3 && percent < 0.5) { ui->damage->setNum(damageList[2]); ui->hit_damage->setNum(hit_damageList[2]); }
-    else if(percent >= 0.5 && percent < 0.7) { ui->damage->setNum(damageList[3]); ui->hit_damage->setNum(hit_damageList[3]); }
-    else if(percent >= 0.7 && percent < 1) { ui->damage->setNum(damageList[4]); ui->hit_damage->setNum(hit_damageList[4]); }
-    else if(percent >= 1 && percent < 1.1) { ui->damage->setNum(damageList[5]); ui->hit_damage->setNum(hit_damageList[5]); }
-    else if(percent >= 1.1 && percent < 1.3) { ui->damage->setNum(damageList[6]); ui->hit_damage->setNum(hit_damageList[6]); }
-    else if(percent >= 1.3 && percent < 1.5) { ui->damage->setNum(damageList[7]); ui->hit_damage->setNum(hit_damageList[7]); }
-    else { ui->damage->setNum(damageList[8]); ui->hit_damage->setNum(hit_damageList[8]); }
+    //執行效率極差但是能寫的很短XD
+    for(int i = 0; i < 9; i++) {
+        if(proportion < damageList[i]) {
+            ui->damage->setNum(damageList[i]);
+            ui->hit_damage->setNum(hit_damageList[i]);
+            break;
+        }
+        else if(proportion >= damageList[i] && proportion < damageList[i + 1]) {
+            ui->damage->setNum(damageList[i]);
+            ui->hit_damage->setNum(hit_damageList[i]);
+            break;
+        }
+        else {
+            ui->damage->setNum(damageList[i]);
+            ui->hit_damage->setNum(hit_damageList[i]);
+        }
+    }
 
     //1.5倍傷害需求尾數為5的值需額外加5
     if((y * 15) % 100 == 50) ui->damage150->setNum(y * 1.5 + 5);
     else ui->damage150->setNum(y * 1.5);
 }
 
-//計算到達目標ARC所需時間
+//計算到達目標所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
     int dailyGet[8];
     int maxReachArc = 0;
-    int count = ArcTotal->text().toInt();
-    int current[6];
-    int cntLv[6];
-    bool vip;
+    bool vip = false;
     day = 0;
 
+    //計算前先偵錯
     avoidError();
 
+    //若有使用高服
     if(ui->vipSwitch->isChecked()) vip = true;
-    else vip = false;
 
-    //如果目前ARC已達到目標ARC
+    //若已達到
     if(targetArc <= ArcTotal->text().toInt()) {
         ui->targetDays->setNum(0);
         ui->targetDate->setDate(ui->startDate->date());
     }
-    //若未達到才計算
+    //若未達到
     else {
         dailyGet[0] = ui->d200->text().toInt();
         dailyGet[1] = ui->d210->text().toInt();
@@ -224,25 +227,25 @@ void MainUI::dailyTask() {
         dailyGet[5] = ui->d235->text().toInt();
 
         //計算可能達到的最高ARC
-        for(int i=0; i<6; i++){
+        for(int i = 0; i < 6; i++){
             if(vip){
                 switch (i) {
                 case 2:
                     if(dailyGet[6] != 0) maxReachArc += 220;
                     else if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i]*10+20; break;
+                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
                 case 3:
                     if(dailyGet[7] != 0) maxReachArc += 220;
                     else if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i]*10+20; break;
+                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
                 default:
                     if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i]*10+20; break;
+                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
                 }
             }
             else {
                 if(dailyGet[i] != 0) maxReachArc += 220;
-                else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i]*10+20;
+                else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20;
             }
         }
         //-------------------------------------------------------------
@@ -252,17 +255,25 @@ void MainUI::dailyTask() {
             ui->targetArc->setValue(0);
         }
         else {
-            if((targetArc % 10) != 0) targetArc = targetArc - (targetArc % 10) + 10; //如果目標ARC不為10的倍數則無條件進位
-            for(int i=0; i<6; i++) {  //計算目前各ARC累積量
+            int count = ArcTotal->text().toInt();
+            int current[6];
+            int cntLv[6];
+
+            //如果目標ARC不為10的倍數則無條件進位
+            if((targetArc % 10) != 0) targetArc += 10 - (targetArc % 10);
+
+            //計算目前各ARC累積量
+            for(int i = 0; i < 6; i++) {
                 cntLv[i] = 0; //init
+
                 if(ArcLVint[i] == 0) current[i] = 0;
                 else {
                     switch (i) {
-                    case 2: //拉契爾恩ARC換為硬幣來計算
+                    case 2: //拉契爾恩轉換為硬幣來計算
                         if(ArcLVint[i] == 1) current[i] = ArcCurrentint[i] * 30;
                         else current[i] = (upgradeList[ArcLVint[i] - 1] + ArcCurrentint[i]) * 30;
                         break;
-                    case 3: //阿爾卡娜ARC換為硬幣來計算
+                    case 3: //阿爾卡娜轉換為硬幣來計算
                         if(ArcLVint[i] == 1) current[i] = ArcCurrentint[i] * 3;
                         else current[i] = (upgradeList[ArcLVint[i] - 1] + ArcCurrentint[i]) * 3;
                         break;
@@ -273,9 +284,12 @@ void MainUI::dailyTask() {
                     }
                 }
             }
-            while(count < targetArc) { //迴圈一次等於過一天
-                for(int i=0; i<6; i++){
-                    if((ArcLVint[i] + cntLv[i]) < ARCMAXLV){ //當前等級+暫存等級小於上限才繼續累加
+
+            //迴圈一次等於過一天
+            while(count < targetArc) {
+                for(int i = 0; i < 6; i++){
+                    //當前等級+暫存等級小於上限才繼續累加
+                    if((ArcLVint[i] + cntLv[i]) < ARCMAXLV){
                         switch (i) {
                         case 2:
                             if(vip && dailyGet[6] > dailyGet[i]){
@@ -334,10 +348,12 @@ void MainUI::dailyTask() {
 //秘法觸媒
 void MainUI::transArc(int lv, int arc){
     double total = ceil((upgradeList[lv - 1] + arc) * 0.8);
+
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
             if(ui->arc1Switch->isChecked()) ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, 2)));
             else ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, 0)));
+
             ui->transLV_after->setNum(lv - i);
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
             break;
@@ -345,12 +361,14 @@ void MainUI::transArc(int lv, int arc){
     }
 }
 
+//加入分位符號
 QString MainUI::decimalSeparator(int n){
     QString temp = QString::number(n);
-    if(n<10000000) return temp.mid(0,1)+","+temp.mid(1,3)+","+temp.mid(4,3);
-    else if(n<100000000) return temp.mid(0,2)+","+temp.mid(2,3)+","+temp.mid(5,3);
-    else if(n<1000000000) return temp.mid(0,3)+","+temp.mid(3,3)+","+temp.mid(6,3);
-    else return temp.mid(0,1)+","+temp.mid(1,3)+","+temp.mid(4,3)+","+temp.mid(7,3);
+
+    if(n<10000000) return temp.mid(0,1) + "," + temp.mid(1,3) + "," + temp.mid(4,3);
+    else if(n<100000000) return temp.mid(0,2) + "," + temp.mid(2,3) + "," + temp.mid(5,3);
+    else if(n<1000000000) return temp.mid(0,3) + "," + temp.mid(3,3) + "," + temp.mid(6,3);
+    else return temp.mid(0,1) + "," + temp.mid(1,3) + "," + temp.mid(4,3) + "," + temp.mid(7,3);
 }
 
 //觸發事件
