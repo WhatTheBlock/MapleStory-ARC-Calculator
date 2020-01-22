@@ -30,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
         mainui.h \
+    static_value.h \
     ui_mainui.h
 
 FORMS += \
