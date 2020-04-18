@@ -1,10 +1,8 @@
 ﻿/*
-//   哈囉大家好：）我是來自艾麗亞的曉亦夏風
-//   寫這個小工具只是單純為了練習程式撰寫能力
-//   變數命名方式不太理想，先跟各位說聲抱歉QnQ
-//   歡迎加巴哈好友，巴哈小屋：https://home.gamer.com.tw/evildjkay
+//   個人巴哈小屋：https://home.gamer.com.tw/evildjkay
 //   巴哈文章：https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565
-//   數據資料來源：https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710
+//   數據資料來源：1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710
+//               2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats
 */
 
 #include "mainui.h"
@@ -40,12 +38,14 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     ArcMode = ui->ArcMode;
 
     //設定數據範圍
-    for(int i = 0; i < 6; i++) {
-        ArcLV[i]->setValidator(new QIntValidator(0, ARCMAXLV, this));
-        ArcCurrent[i]->setValidator(new QIntValidator(0, (ARCMAXLV*ARCMAXLV)+11, this));
-    }
+    ui->d200->setMaximum(D200_MAX);
+    ui->d210->setMaximum(D210_MAX);
+    ui->d220->setMaximum(D220_MAX);
+    ui->d225->setMaximum(D225_MAX);
+    ui->d230->setMaximum(D230_MAX);
+    ui->d235->setMaximum(D235_MAX);
     ui->ArcLV_to->setMaximum(ARCMAXLV);
-    ui->ArcLV_from->setMaximum(ARCMAXLV);
+    ui->ArcLV_from->setMaximum(ARCMAXLV - 1);
     ui->ArcDamage_x->setMaximum(ARCMAX);
     ui->ArcDamage_y->setMaximum(ARCMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
@@ -60,6 +60,9 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
         else upgradeList[i] = i * i + 11;
     }
     upgradeList[0] = 1;
+
+    //極限屬性
+    hyperStats = 0;
 }
 
 MainUI::~MainUI() { delete ui; }
@@ -72,24 +75,19 @@ void MainUI::warningMsg(QString str){
 
 //更新升級所需ARC數量
 void MainUI::upgradeVal() {
-    ArcTotal->setText("0");
+    //計算前先加上極限屬性ARC
+    ArcTotal->setNum(hyperStats);
 
     for(int i = 0; i < 6; i++) {
-        ArcLVint[i] = ArcLV[i]->text().toInt();
+        arcLV = ArcLV[i]->value();
 
         //更新目前ARC
-        if(ArcLVint[i] != 0) ArcTotal->setNum((ArcLVint[i] + 2) * 10 + ArcTotal->text().toInt());
+        if(arcLV != 0) ArcTotal->setNum((arcLV + 2) * 10 + ArcTotal->text().toInt());
 
-        //防止輸入錯誤
-        if(ArcLVint[i] > ARCMAXLV) {
-            warningMsg(QStringLiteral("此版本的ARC等級上限為%1等唷！").arg(ARCMAXLV));
-            ArcLV[i]->setText(QString::number(ARCMAXLV));
-        }
-
-        switch(ArcLVint[i]) {
+        switch(arcLV) {
         case 0: ArcUpgrade[i]->setText("?"); break;
         case ARCMAXLV: ArcUpgrade[i]->setNum(0); break;
-        default: ArcUpgrade[i]->setNum(ArcLVint[i] * ArcLVint[i] + 11); break;
+        default: ArcUpgrade[i]->setNum(arcLV * arcLV + 11); break;
         }
     }
 
@@ -99,22 +97,22 @@ void MainUI::upgradeVal() {
 //防止輸入錯誤
 void MainUI::avoidError() {
     for(int i = 0; i < 6; i++) {
-        ArcLVint[i] = ArcLV[i]->text().toInt();
-        ArcCurrentint[i] = ArcCurrent[i]->text().toInt();
-        ArcUpgradeint[i] = ArcUpgrade[i]->text().toInt();
+        arcLV = ArcLV[i]->value();
+        arcCurrent = ArcCurrent[i]->value();
+        arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
 
-        if(ArcCurrentint[i] > ArcUpgradeint[i]) {
-            if(ArcUpgradeint[i] != 0 && ArcLVint[i] != ARCMAXLV) {
+        if(arcCurrent > arcUpgradeInt[i]) {
+            if(arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
                 warningMsg(QStringLiteral("當前數量超過升級數量！"));
-                ArcCurrent[i]->clear();
+                ArcCurrent[i]->setValue(0);
             }
-            else if(ArcLVint[i] == ARCMAXLV) {
+            else if(arcLV == ARCMAXLV) {
                 warningMsg(QStringLiteral("ARC滿等就不能再合成啦！"));
-                ArcCurrent[i]->clear();
+                ArcCurrent[i]->setValue(0);
             }
             else {
                 warningMsg(QStringLiteral("請先輸入ARC等級唷＞w＜"));
-                ArcCurrent[i]->clear();
+                ArcCurrent[i]->setValue(0);
             }
         }
     }
@@ -122,10 +120,13 @@ void MainUI::avoidError() {
 
 //更新屬性增加量數據
 void MainUI::updateAp(int mode) {
+    //計算屬性增加量不可加上極限屬性ARC
+    int arc = ArcTotal->text().toInt() - hyperStats;
+
     switch (mode) {
-    case 0: ApTotal->setNum(ArcTotal->text().toInt() * 10); break;
-    case 1: ApTotal->setNum(ArcTotal->text().toInt() * 3.9); break;
-    case 2: ApTotal->setNum(ArcTotal->text().toInt() * 175); break;
+    case 0: ApTotal->setNum(arc * 10); break;
+    case 1: ApTotal->setNum(arc * 3.9); break;
+    case 2: ApTotal->setNum(arc * 175); break;
     }
 }
 
@@ -187,16 +188,13 @@ void MainUI::ArcDamage(int x, int y) {
 //計算到達目標所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
-    int dailyGet[8];
-    int maxReachArc = 0;
-    bool vip = false;
+    int dailyGet[6];
+    int maxReachArc = hyperStats; //計算前先加上極限屬性ARC
+    int a2c = 1; //ARC轉硬幣倍率
     day = 0;
 
     //計算前先偵錯
     avoidError();
-
-    //若有使用高服
-    if(ui->vipSwitch->isChecked()) vip = true;
 
     //若已達到
     if(targetArc <= ArcTotal->text().toInt()) {
@@ -205,48 +203,22 @@ void MainUI::dailyTask() {
     }
     //若未達到
     else {
-        dailyGet[0] = ui->d200->text().toInt();
-        dailyGet[1] = ui->d210->text().toInt();
-        if(ui->mobbingMission_220->isChecked()) {
-            dailyGet[2] = ui->d220->text().toInt() + D220_MOBBING * 30;
-            dailyGet[6] = ui->d220_vip->text().toInt() + D220_MOBBING * 30;
-        }
-        else {
-            dailyGet[2] = ui->d220->text().toInt();
-            dailyGet[6] = ui->d220_vip->text().toInt();
-        }
-        if(ui->mobbingMission_225->isChecked()) {
-            dailyGet[3] = ui->d225->text().toInt() + D225_MOBBING * 3;
-            dailyGet[7] = ui->d225_vip->text().toInt() + D225_MOBBING * 3;
-        }
-        else {
-            dailyGet[3] = ui->d225->text().toInt();
-            dailyGet[7] = ui->d225_vip->text().toInt();
-        }
-        dailyGet[4] = ui->d230->text().toInt();
-        dailyGet[5] = ui->d235->text().toInt();
+        dailyGet[0] = ui->d200->value();
+        dailyGet[1] = ui->d210->value();
+        if(ui->mobbingMission_220->isChecked())
+            dailyGet[2] = ui->d220->value() + D220_MOBBING;
+        else dailyGet[2] = ui->d220->value();
+        if(ui->mobbingMission_225->isChecked())
+            dailyGet[3] = ui->d225->value() + D225_MOBBING;
+        else dailyGet[3] = ui->d225->value();
+        dailyGet[4] = ui->d230->value();
+        dailyGet[5] = ui->d235->value();
 
         //計算可能達到的最高ARC
         for(int i = 0; i < 6; i++){
-            if(vip){
-                switch (i) {
-                case 2:
-                    if(dailyGet[6] != 0) maxReachArc += 220;
-                    else if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
-                case 3:
-                    if(dailyGet[7] != 0) maxReachArc += 220;
-                    else if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
-                default:
-                    if(dailyGet[i] != 0) maxReachArc += 220;
-                    else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20; break;
-                }
-            }
-            else {
-                if(dailyGet[i] != 0) maxReachArc += 220;
-                else if(ArcLVint[i] != 0) maxReachArc += ArcLVint[i] * 10 + 20;
-            }
+            arcLV = ArcLV[i]->value();
+            if(dailyGet[i] != 0) maxReachArc += 220;
+            else if(arcLV != 0) maxReachArc += arcLV * 10 + 20;
         }
         //-------------------------------------------------------------
         //目標ARC超過可能達到的最高值，停止計算
@@ -265,21 +237,23 @@ void MainUI::dailyTask() {
             //計算目前各ARC累積量
             for(int i = 0; i < 6; i++) {
                 cntLv[i] = 0; //init
+                arcLV = ArcLV[i]->value();
+                arcCurrent = ArcCurrent[i]->value();
 
-                if(ArcLVint[i] == 0) current[i] = 0;
+                if(arcLV == 0) current[i] = 0;
                 else {
                     switch (i) {
                     case 2: //拉契爾恩轉換為硬幣來計算
-                        if(ArcLVint[i] == 1) current[i] = ArcCurrentint[i] * 30;
-                        else current[i] = (upgradeList[ArcLVint[i] - 1] + ArcCurrentint[i]) * 30;
+                        if(arcLV == 1) current[i] = arcCurrent * ARC_TO_COIN_220;
+                        else current[i] = (upgradeList[arcLV - 1] + arcCurrent) * ARC_TO_COIN_220;
                         break;
                     case 3: //阿爾卡娜轉換為硬幣來計算
-                        if(ArcLVint[i] == 1) current[i] = ArcCurrentint[i] * 3;
-                        else current[i] = (upgradeList[ArcLVint[i] - 1] + ArcCurrentint[i]) * 3;
+                        if(arcLV == 1) current[i] = arcCurrent * ARC_TO_COIN_225;
+                        else current[i] = (upgradeList[arcLV - 1] + arcCurrent) * ARC_TO_COIN_225;
                         break;
                     default:
-                        if(ArcLVint[i] == 1) current[i] = ArcCurrentint[i];
-                        else current[i] = upgradeList[ArcLVint[i] - 1] + ArcCurrentint[i];
+                        if(arcLV == 1) current[i] = arcCurrent;
+                        else current[i] = upgradeList[arcLV - 1] + arcCurrent;
                         break;
                     }
                 }
@@ -288,52 +262,25 @@ void MainUI::dailyTask() {
             //迴圈一次等於過一天
             while(count < targetArc) {
                 for(int i = 0; i < 6; i++){
+                    arcLV = ArcLV[i]->value();
                     //當前等級+暫存等級小於上限才繼續累加
-                    if((ArcLVint[i] + cntLv[i]) < ARCMAXLV){
-                        switch (i) {
-                        case 2:
-                            if(vip && dailyGet[6] > dailyGet[i]){
-                                current[i] += dailyGet[6];
-                                if(current[i] >= (upgradeList[ArcLVint[i] + cntLv[i]] * 30)) {
-                                    if(ArcLVint[i] + cntLv[i] == 0) count += 30;
-                                    else count += 10;
-                                    cntLv[i]++;
-                                }
+                    if((arcLV + cntLv[i]) < ARCMAXLV){
+                        //若一天可獲得數量大於0
+                        if(dailyGet[i] > 0) {
+                            current[i] += dailyGet[i];
+
+                            //設定ARC轉硬幣倍率
+                            switch (i) {
+                            case 2: a2c = ARC_TO_COIN_220; break;
+                            case 3: a2c = ARC_TO_COIN_225; break;
+                            default: a2c = 1; break;
                             }
-                            else if(dailyGet[i] != 0) {
-                                current[i] += dailyGet[i];
-                                if(current[i] >= (upgradeList[ArcLVint[i] + cntLv[i]] * 30)) {
-                                    if(ArcLVint[i] + cntLv[i] == 0) count += 30;
-                                    else count += 10;
-                                    cntLv[i]++;
-                                }
-                            } break;
-                        case 3:
-                            if(vip && dailyGet[7] > dailyGet[i]){
-                                current[i] += dailyGet[7];
-                                if(current[i] >= (upgradeList[ArcLVint[i] + cntLv[i]] * 3)) {
-                                    if(ArcLVint[i] + cntLv[i] == 0) count += 30;
-                                    else count += 10;
-                                    cntLv[i]++;
-                                }
+
+                            if(current[i] >= (upgradeList[arcLV + cntLv[i]] * a2c)) {
+                                if(arcLV + cntLv[i] == 0) count += 30;
+                                else count += 10;
+                                cntLv[i]++;
                             }
-                            else if(dailyGet[i] != 0) {
-                                current[i] += dailyGet[i];
-                                if(current[i] >= (upgradeList[ArcLVint[i] + cntLv[i]] * 3)) {
-                                    if(ArcLVint[i] + cntLv[i] == 0) count += 30;
-                                    else count += 10;
-                                    cntLv[i]++;
-                                }
-                            } break;
-                        default:
-                            if(dailyGet[i] != 0) {
-                                current[i] += dailyGet[i];
-                                if(current[i] >= upgradeList[ArcLVint[i] + cntLv[i]]) {
-                                    if(ArcLVint[i] + cntLv[i] == 0) count += 30;
-                                    else count += 10;
-                                    cntLv[i]++;
-                                }
-                            } break;
                         }
                     }
                 }
@@ -372,84 +319,33 @@ QString MainUI::decimalSeparator(int n){
 }
 
 //觸發事件
-void MainUI::on_Arc1LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
-void MainUI::on_Arc2LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
-void MainUI::on_Arc3LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
-void MainUI::on_Arc4LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
-void MainUI::on_Arc5LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
-void MainUI::on_Arc6LV_textChanged(const QString &a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc1LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc2LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc3LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc4LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc5LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
+void MainUI::on_Arc6LV_valueChanged(int a) { upgradeVal(); updateAp(ArcMode->currentIndex()); dailyTask(); }
 
-void MainUI::on_Arc1current_textChanged(const QString &a) { dailyTask(); }
-void MainUI::on_Arc2current_textChanged(const QString &a) { dailyTask(); }
-void MainUI::on_Arc3current_textChanged(const QString &a) { dailyTask(); }
-void MainUI::on_Arc4current_textChanged(const QString &a) { dailyTask(); }
-void MainUI::on_Arc5current_textChanged(const QString &a) { dailyTask(); }
-void MainUI::on_Arc6current_textChanged(const QString &a) { dailyTask(); }
+void MainUI::on_Arc1current_valueChanged(int a) { dailyTask(); }
+void MainUI::on_Arc2current_valueChanged(int a) { dailyTask(); }
+void MainUI::on_Arc3current_valueChanged(int a) { dailyTask(); }
+void MainUI::on_Arc4current_valueChanged(int a) { dailyTask(); }
+void MainUI::on_Arc5current_valueChanged(int a) { dailyTask(); }
+void MainUI::on_Arc6current_valueChanged(int a) { dailyTask(); }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 
-void MainUI::on_d200_textChanged(const QString &d) {
-    if(d.toInt() > D200_MAX) {
-        warningMsg(QStringLiteral("消逝的旅途每日最高取得量是%1顆唷！").arg(D200_MAX));
-        ui->d200->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_d210_textChanged(const QString &d) {
-    if(d.toInt() > D210_MAX) {
-        warningMsg(QStringLiteral("啾啾島每日最高取得量是%1顆唷！").arg(D210_MAX));
-        ui->d210->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_d220_textChanged(const QString &d) {
-    if(d.toInt() > D220_MAX) {
-        warningMsg(QStringLiteral("拉契爾恩每日最高取得量是%1個硬幣唷！").arg(D220_MAX));
-        ui->d220->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_d220_vip_textChanged(const QString &d) {
-    if(d.toInt() > D220_VIP_MAX) {
-        warningMsg(QStringLiteral("拉契爾恩使用高服每日最高取得量是%1個硬幣唷！").arg(D220_VIP_MAX));
-        ui->d220_vip->clear();
-    }
-    else dailyTask();
-}
+void MainUI::on_d200_valueChanged(int a) { dailyTask(); }
+void MainUI::on_d210_valueChanged(int a) { dailyTask(); }
+void MainUI::on_d220_valueChanged(int a) { dailyTask(); }
 void MainUI::on_mobbingMission_220_stateChanged(int state) { dailyTask(); }
-void MainUI::on_d225_textChanged(const QString &d) {
-    if(d.toInt() > D225_MAX) {
-        warningMsg(QStringLiteral("阿爾卡娜每日最高取得量是%1個硬幣唷！").arg(D225_MAX));
-        ui->d225->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_d225_vip_textChanged(const QString &d) {
-    if(d.toInt() > D225_VIP_MAX) {
-        warningMsg(QStringLiteral("阿爾卡娜使用高服每日最高取得量是%1個硬幣唷！").arg(D225_VIP_MAX));
-        ui->d225_vip->clear();
-    }
-    else dailyTask();
-}
+void MainUI::on_d225_valueChanged(int a) { dailyTask(); }
 void MainUI::on_mobbingMission_225_stateChanged(int state) { dailyTask(); }
-void MainUI::on_d230_textChanged(const QString &d) {
-    if(d.toInt() > D230_MAX) {
-        warningMsg(QStringLiteral("魔菈斯每日最高取得量是%1顆唷！").arg(D230_MAX));
-        ui->d230->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_d235_textChanged(const QString &d) {
-    if(d.toInt() > D235_MAX) {
-        warningMsg(QStringLiteral("艾斯佩拉每日最高取得量是%1顆唷！").arg(D235_MAX));
-        ui->d235->clear();
-    }
-    else dailyTask();
-}
-void MainUI::on_vipSwitch_stateChanged(int state) { dailyTask(); }
+void MainUI::on_d230_valueChanged(int a) { dailyTask(); }
+void MainUI::on_d235_valueChanged(int a) { dailyTask(); }
 
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
-    ui->targetDate->setDate(ui->startDate->date().addDays(day));
+    ui->targetDate->setDate(date.addDays(day));
 }
 
 void MainUI::on_ArcLV_from_valueChanged(int from) {
@@ -503,3 +399,5 @@ void MainUI::on_transArc_before_valueChanged(int arc) {
     }
     else transArc(lv, arc);
 }
+
+void MainUI::on_HyperStats_valueChanged(int lv) { hyperStats = hyperStatsList[lv]; upgradeVal(); dailyTask(); }
