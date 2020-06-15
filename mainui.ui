@@ -32,7 +32,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷ARC計算機  v2.5</string>
+   <string>新楓之谷ARC計算機  v2.6</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -422,8 +422,8 @@
         <minute>0</minute>
         <second>0</second>
         <year>2020</year>
-        <month>4</month>
-        <day>19</day>
+        <month>6</month>
+        <day>15</day>
        </datetime>
       </property>
       <property name="maximumDateTime">
@@ -446,8 +446,8 @@
       <property name="minimumDate">
        <date>
         <year>2020</year>
-        <month>4</month>
-        <day>19</day>
+        <month>6</month>
+        <day>15</day>
        </date>
       </property>
       <property name="minimumTime">
@@ -466,8 +466,8 @@
       <property name="date">
        <date>
         <year>2020</year>
-        <month>4</month>
-        <day>19</day>
+        <month>6</month>
+        <day>15</day>
        </date>
       </property>
      </widget>

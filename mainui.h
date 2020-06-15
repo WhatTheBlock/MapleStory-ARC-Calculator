@@ -1,12 +1,19 @@
 ﻿#ifndef MAINUI_H
 #define MAINUI_H
 
-#include<QtWidgets>
-#include<QStyleFactory>
-#include<QDebug>
-#include<QUrl>
-#include<QtCore>
-#include<cmath>
+#include <QtWidgets>
+#include <QStyleFactory>
+#include <QDebug>
+#include <QtCore>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QUrl>
+#include <QByteArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QDesktopServices>
+#include <cmath>
 
 namespace Ui {class MainUI;}
 
@@ -75,6 +82,8 @@ private:
     int day;
     int hyperStats;
     QMessageBox* msg;
+    QNetworkAccessManager* nam;
+    QUrl url;
 
     void upgradeVal();
     void updateAp(int mode);
@@ -85,6 +94,7 @@ private:
     void warningMsg(QString msg);
     void transArc(int lv, int arc);
     QString decimalSeparator(int n);
+    void onResult(QNetworkReply* reply);
 
 };
 
