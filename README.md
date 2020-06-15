@@ -3,7 +3,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/app/WhatTheBlock/MapleStory-ARC-Calculator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 當前版本對應的遊戲版本為 TMS v224
+### 當前版本對應的遊戲版本為 TMS v225
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
@@ -18,6 +18,13 @@ UI介面：
 
 Changelog：
 ----
+#### v2.5
+ - 移除高級服務功能
+ - (New)新增極限屬性選項
+ - 提高個人ARC上限至1420
+ - 升級所需楓幣Bug修正
+ - UI調整
+
 #### v2.4
  - 啾啾島每日獲得上限提高至19
  - (New)新增拉契爾恩打怪每日任務選項
