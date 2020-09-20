@@ -1,10 +1,10 @@
-#ifndef STATIC_VALUE_H
+﻿#ifndef STATIC_VALUE_H
 #define STATIC_VALUE_H
 
 #define VERCODE 260
 
 #define ARCMAXLV 20         //ARC等級上限
-#define ARCMAX 1420         //個人最高ARC
+#define ARCMAX 1450         //個人最高ARC
 #define ARCMAX_MOB 1320     //怪物最高ARC
 
 //ARC最高取得量
@@ -31,7 +31,16 @@
 const int damageList[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
 const int hit_damageList[] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
 
-//ARC極限屬性
+//極限屬性
 const int hyperStatsList[] = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100};
+
+//公會技能
+const int guildSkillList[] = {0, 15, 20, 25, 30};
+
+//URL
+#define UpdateURL "https://raw.githubusercontent.com/WhatTheBlock/MapleStory-ARC-Calculator/master/update.json"
+#define ReleaseURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/releases"
+#define GithubURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator"
+#define BahamutURL "https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565"
 
 #endif // STATIC_VALUE_H

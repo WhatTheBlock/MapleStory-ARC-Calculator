@@ -16,5 +16,8 @@
         <file>images/235.png</file>
         <file>images/meso.png</file>
         <file>images/meso_gold.png</file>
+        <file>images/guild.png</file>
+        <file>images/github.png</file>
+        <file>images/bahamut.png</file>
     </qresource>
 </RCC>

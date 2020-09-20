@@ -67,6 +67,11 @@ private slots:
     void on_mobbingMission_225_stateChanged(int arg1);
 
     void on_HyperStats_valueChanged(int arg1);
+    void on_GuildSkillLV_valueChanged(int arg1);
+
+    void on_bahamut_clicked();
+    void on_github_clicked();
+
 
 private:
     Ui::MainUI *ui;
@@ -75,13 +80,15 @@ private:
     QSpinBox* ArcCurrent[6];
     QLabel* ArcUpgrade[6];
     QLabel* ArcTotal;
-    QLabel* ApTotal;
     QComboBox* ArcMode;
+    QMessageBox* msg;
+
     int arcLV, arcCurrent, arcUpgradeInt[6];
     int upgradeList[99];
     int day;
     int hyperStats;
-    QMessageBox* msg;
+    int guildSkill;
+
     QNetworkAccessManager* nam;
     QUrl url;
 

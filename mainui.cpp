@@ -1,8 +1,8 @@
 ﻿/*
-//   個人巴哈小屋：https://home.gamer.com.tw/evildjkay
-//   巴哈文章：https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565
-//   數據資料來源：1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710
-//               2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats
+//　個人巴哈小屋【https://home.gamer.com.tw/evildjkay】
+//　巴哈文章【https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565】
+//　數據資料來源【1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710】
+//　　　　　　　【2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats】
 */
 
 #include "mainui.h"
@@ -10,7 +10,7 @@
 #include "static_value.h"
 
 //初始化設定
-MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
+MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     QApplication::setStyle(QStyleFactory::create("Fusion")); //設定UI介面
     ui->setupUi(this);
     ui->background->viewport()->setCursor(Qt::ArrowCursor); //設定TextEdit的鼠標為標準箭頭
@@ -18,7 +18,7 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     //檢查更新
     nam = new QNetworkAccessManager(this);
     connect(nam, &QNetworkAccessManager::finished, this, &MainUI::onResult);
-    url.setUrl("https://raw.githubusercontent.com/WhatTheBlock/MapleStory-ARC-Calculator/master/update.json");
+    url.setUrl(UpdateURL);
     nam->get(QNetworkRequest(url));
 
     ArcLV[0] = ui->Arc1LV;
@@ -40,7 +40,6 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
     ArcUpgrade[4] = ui->Arc5upgrade;
     ArcUpgrade[5] = ui->Arc6upgrade;
     ArcTotal = ui->ArcTotal;
-    ApTotal = ui->ApTotal;
     ArcMode = ui->ArcMode;
 
     //設定數據範圍
@@ -69,14 +68,16 @@ MainUI::MainUI(QWidget *parent) :  QWidget(parent), ui(new Ui::MainUI) {
 
     //極限屬性
     hyperStats = 0;
+
+    //公會技能
+    guildSkill = 0;
 }
 
 MainUI::~MainUI() { delete ui; }
 
 //提醒訊息
 void MainUI::warningMsg(QString str){
-    msg = new QMessageBox(QMessageBox::Warning, QStringLiteral("嘿！"), str);
-    msg->exec();
+    QMessageBox::warning(this, QStringLiteral("嘿！"), str);
 }
 
 //檢查更新
@@ -87,22 +88,22 @@ void MainUI::onResult(QNetworkReply *reply) {
         QJsonObject obj = jsonResponse.object();
 
         if(VERCODE < obj["verCode"].toInt()) {
-            msg = new QMessageBox(QMessageBox::Information, QStringLiteral("發現新版本！"), QStringLiteral("是否現在更新？"));
+            msg = new QMessageBox(QMessageBox::Information, QStringLiteral("發現新版本！"), QStringLiteral("是否現在更新？"), QMessageBox::NoButton, this);
             msg->addButton(QStringLiteral("取消"), QMessageBox::ActionRole);
             QPushButton *yes = msg->addButton(QStringLiteral("好唷！"), QMessageBox::ActionRole);
             msg->setDefaultButton(yes);
             msg->exec();
-            if(msg->clickedButton() == yes) QDesktopServices::openUrl(QUrl("https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/releases"));
+            if(msg->clickedButton() == yes) QDesktopServices::openUrl(QUrl(ReleaseURL));
         }
-    } else qDebug() << "ERROR";
+    } //else qDebug() << "ERROR";
 
     reply->deleteLater();
 }
 
 //更新升級所需ARC數量
 void MainUI::upgradeVal() {
-    //計算前先加上極限屬性ARC
-    ArcTotal->setNum(hyperStats);
+    //計算前先加上極限屬性 & 公會技能增加的ARC
+    ArcTotal->setNum(hyperStats + guildSkill);
 
     for(int i = 0; i < 6; i++) {
         arcLV = ArcLV[i]->value();
@@ -146,13 +147,13 @@ void MainUI::avoidError() {
 
 //更新屬性增加量數據
 void MainUI::updateAp(int mode) {
-    //計算屬性增加量不可加上極限屬性ARC
-    int arc = ArcTotal->text().toInt() - hyperStats;
+    //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
+    int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
 
     switch (mode) {
-    case 0: ApTotal->setNum(arc * 10); break;
-    case 1: ApTotal->setNum(arc * 3.9); break;
-    case 2: ApTotal->setNum(arc * 175); break;
+    case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 10)); break;
+    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 3.9)); break;
+    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 175)); break;
     }
 }
 
@@ -215,7 +216,7 @@ void MainUI::ArcDamage(int x, int y) {
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
     int dailyGet[6];
-    int maxReachArc = hyperStats; //計算前先加上極限屬性ARC
+    int maxReachArc = hyperStats + guildSkill; //計算前先加上極限屬性 & 公會技能增加的ARC
     int a2c = 1; //ARC轉硬幣倍率
     day = 0;
 
@@ -427,3 +428,7 @@ void MainUI::on_transArc_before_valueChanged(int arc) {
 }
 
 void MainUI::on_HyperStats_valueChanged(int lv) { hyperStats = hyperStatsList[lv]; upgradeVal(); dailyTask(); }
+void MainUI::on_GuildSkillLV_valueChanged(int lv) { guildSkill = guildSkillList[lv]; upgradeVal(); dailyTask(); }
+
+void MainUI::on_bahamut_clicked() { QDesktopServices::openUrl(QUrl(BahamutURL)); }
+void MainUI::on_github_clicked() { QDesktopServices::openUrl(QUrl(GithubURL)); }

@@ -10,19 +10,19 @@
     <x>0</x>
     <y>0</y>
     <width>695</width>
-    <height>425</height>
+    <height>429</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>695</width>
-    <height>425</height>
+    <height>429</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>695</width>
-    <height>425</height>
+    <height>429</height>
    </size>
   </property>
   <property name="font">
@@ -137,6 +137,7 @@
      </property>
      <property name="font">
       <font>
+       <family>微軟正黑體</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -177,34 +178,6 @@
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="ApTotal">
-     <property name="geometry">
-      <rect>
-       <x>121</x>
-       <y>350</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string notr="true"/>
-     </property>
-     <property name="statusTip">
-      <string notr="true"/>
-     </property>
-     <property name="whatsThis">
-      <string notr="true"/>
-     </property>
-     <property name="accessibleName">
-      <string notr="true"/>
-     </property>
-     <property name="accessibleDescription">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string notr="true">0</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="ArcTotal">
      <property name="geometry">
       <rect>
@@ -231,34 +204,6 @@
      </property>
      <property name="text">
       <string notr="true">0</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>26</x>
-       <y>350</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string notr="true"/>
-     </property>
-     <property name="statusTip">
-      <string notr="true"/>
-     </property>
-     <property name="whatsThis">
-      <string notr="true"/>
-     </property>
-     <property name="accessibleName">
-      <string notr="true"/>
-     </property>
-     <property name="accessibleDescription">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string notr="true">屬性增加量：</string>
      </property>
     </widget>
     <widget class="Line" name="line">
@@ -321,6 +266,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -422,8 +369,8 @@
         <minute>0</minute>
         <second>0</second>
         <year>2020</year>
-        <month>6</month>
-        <day>15</day>
+        <month>9</month>
+        <day>20</day>
        </datetime>
       </property>
       <property name="maximumDateTime">
@@ -446,8 +393,8 @@
       <property name="minimumDate">
        <date>
         <year>2020</year>
-        <month>6</month>
-        <day>15</day>
+        <month>9</month>
+        <day>20</day>
        </date>
       </property>
       <property name="minimumTime">
@@ -466,8 +413,8 @@
       <property name="date">
        <date>
         <year>2020</year>
-        <month>6</month>
-        <day>15</day>
+        <month>9</month>
+        <day>20</day>
        </date>
       </property>
      </widget>
@@ -687,7 +634,7 @@
        <x>11</x>
        <y>10</y>
        <width>250</width>
-       <height>331</height>
+       <height>381</height>
       </rect>
      </property>
      <property name="title">
@@ -699,8 +646,8 @@
      <widget class="QSpinBox" name="HyperStats">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>290</y>
+        <x>104</x>
+        <y>296</y>
         <width>41</width>
         <height>31</height>
        </rect>
@@ -785,6 +732,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -964,6 +912,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -1217,6 +1166,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -1250,6 +1200,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -1339,6 +1290,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -1372,6 +1324,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
        </font>
       </property>
@@ -1460,8 +1413,8 @@
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>289</y>
-        <width>81</width>
+        <y>295</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -1481,7 +1434,7 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string notr="true">極限屬性：</string>
+       <string notr="true">極限屬性Lv.</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="Arc1LV">
@@ -1766,6 +1719,106 @@
        <number>10</number>
       </property>
      </widget>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>274</y>
+        <width>251</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>336</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string notr="true">公會技能Lv.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="guildIcon">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>336</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string notr="true">艾斯佩拉</string>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string notr="true"/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/guild.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>-2</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="GuildSkillLV">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>336</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>4</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
     </widget>
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
@@ -1773,7 +1826,7 @@
        <x>287</x>
        <y>10</y>
        <width>171</width>
-       <height>371</height>
+       <height>381</height>
       </rect>
      </property>
      <property name="title">
@@ -2265,26 +2318,28 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>290</y>
-        <width>151</width>
+        <y>300</y>
+        <width>131</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>完成打怪每日任務：</string>
+       <string>完成打怪每日任務</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="mobbingMission_225">
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>320</y>
+        <y>330</y>
         <width>61</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -2328,13 +2383,15 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>320</y>
+        <y>330</y>
         <width>61</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -2538,14 +2595,188 @@
       </property>
      </widget>
     </widget>
-    <zorder>ApTotal</zorder>
-    <zorder>label_15</zorder>
+    <widget class="QPushButton" name="bahamut">
+     <property name="geometry">
+      <rect>
+       <x>472</x>
+       <y>310</y>
+       <width>101</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>點我！</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="images.qrc">
+       <normaloff>:/images/bahamut.png</normaloff>:/images/bahamut.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="github">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>303</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>點我！</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="images.qrc">
+       <normaloff>:/images/github.png</normaloff>:/images/github.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>85</width>
+       <height>77</height>
+      </size>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_58">
+     <property name="geometry">
+      <rect>
+       <x>469</x>
+       <y>270</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string notr="true">介紹文章           開放原始碼</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>567</x>
+       <y>259</y>
+       <width>31</width>
+       <height>146</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_8">
+     <property name="geometry">
+      <rect>
+       <x>468</x>
+       <y>250</y>
+       <width>231</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_9">
+     <property name="geometry">
+      <rect>
+       <x>454</x>
+       <y>259</y>
+       <width>31</width>
+       <height>145</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string notr="true"/>
+     </property>
+     <property name="statusTip">
+      <string notr="true"/>
+     </property>
+     <property name="whatsThis">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string notr="true"/>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
     <zorder>line</zorder>
     <zorder>groupBox_4</zorder>
     <zorder>groupBox_6</zorder>
     <zorder>ArcTotal</zorder>
     <zorder>ArcMode</zorder>
     <zorder>groupBox_7</zorder>
+    <zorder>bahamut</zorder>
+    <zorder>github</zorder>
+    <zorder>label_58</zorder>
+    <zorder>line_7</zorder>
+    <zorder>line_8</zorder>
+    <zorder>line_9</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <property name="toolTip">
@@ -2638,6 +2869,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -2735,6 +2967,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -2978,6 +3212,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -3171,6 +3407,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -3260,6 +3498,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -3349,6 +3589,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -3561,6 +3803,7 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -3652,6 +3895,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -3685,6 +3930,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
@@ -3866,6 +4113,8 @@
       </property>
       <property name="font">
        <font>
+        <family>微軟正黑體</family>
+        <pointsize>12</pointsize>
         <underline>false</underline>
        </font>
       </property>
