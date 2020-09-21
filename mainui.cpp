@@ -215,9 +215,7 @@ void MainUI::ArcDamage(int x, int y) {
 //計算到達目標所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
-    int dailyGet[6];
     int maxReachArc = hyperStats + guildSkill; //計算前先加上極限屬性 & 公會技能增加的ARC
-    int a2c = 1; //ARC轉硬幣倍率
     day = 0;
 
     //計算前先偵錯
@@ -290,24 +288,22 @@ void MainUI::dailyTask() {
             while(count < targetArc) {
                 for(int i = 0; i < 6; i++){
                     arcLV = ArcLV[i]->value();
-                    //當前等級+暫存等級小於上限才繼續累加
-                    if((arcLV + cntLv[i]) < ARCMAXLV){
-                        //若一天可獲得數量大於0
-                        if(dailyGet[i] > 0) {
-                            current[i] += dailyGet[i];
+                    //當前等級+暫存等級小於上限且一天可獲得數量大於0
+                    if((arcLV + cntLv[i]) < ARCMAXLV && dailyGet[i] > 0){
+                        current[i] += dailyGet[i];
 
-                            //設定ARC轉硬幣倍率
-                            switch (i) {
-                            case 2: a2c = ARC_TO_COIN_220; break;
-                            case 3: a2c = ARC_TO_COIN_225; break;
-                            default: a2c = 1; break;
-                            }
+                        //設定ARC轉硬幣倍率
+                        int a2c;
+                        switch (i) {
+                        case 2: a2c = ARC_TO_COIN_220; break;
+                        case 3: a2c = ARC_TO_COIN_225; break;
+                        default: a2c = 1; break;
+                        }
 
-                            if(current[i] >= (upgradeList[arcLV + cntLv[i]] * a2c)) {
-                                if(arcLV + cntLv[i] == 0) count += 30;
-                                else count += 10;
-                                cntLv[i]++;
-                            }
+                        if(current[i] >= (upgradeList[arcLV + cntLv[i]] * a2c)) {
+                            if(arcLV + cntLv[i] == 0) count += 30;
+                            else count += 10;
+                            cntLv[i]++;
                         }
                     }
                 }

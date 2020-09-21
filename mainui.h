@@ -85,6 +85,7 @@ private:
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
     int upgradeList[99];
+    int dailyGet[6];
     int day;
     int hyperStats;
     int guildSkill;
