@@ -25,8 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        avoidError.cpp \
+        calculate.cpp \
+        checkUpdate.cpp \
         main.cpp \
-        mainui.cpp
+        mainui.cpp \
+        triggerEvent.cpp \
+        utils.cpp
 
 HEADERS += \
         mainui.h \
