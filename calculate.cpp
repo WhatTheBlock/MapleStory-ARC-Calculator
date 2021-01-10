@@ -48,7 +48,7 @@ void MainUI::updateAp(int mode) {
 
 //升級所需楓幣
 int MainUI::upgradeMeso(int from, int to, bool discount) {
-    if(from == to || from == 0) return 0;
+    if(from == to || from == 0 || from == ARCMAXLV) return 0;
     //套用強化費用減少
     else if(discount) {
         int result_arc1 = UPGRADE_BASE_ARC1;
