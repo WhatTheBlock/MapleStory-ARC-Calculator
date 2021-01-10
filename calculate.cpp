@@ -51,11 +51,11 @@ int MainUI::upgradeMeso(int from, int to, bool discount) {
     if(from == to || from == 0 || from == ARCMAXLV) return 0;
     //套用強化費用減少
     else if(discount) {
-        int result_arc1 = UPGRADE_BASE_ARC1;
+        int result_arc1 = UPGRADE_BASE_DISC;
 
         for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result_arc1 += UPGRADE_BASE_ARC1_INCREASE;
-            result_arc1 += UPGRADE_BASE_ARC1;
+            for(int j = 0; j < i; j++) result_arc1 += UPGRADE_BASE_DISC_INCREASE;
+            result_arc1 += UPGRADE_BASE_DISC;
         }
 
         if(from > 1) result_arc1 -= upgradeMeso(1, from, discount);
@@ -120,10 +120,10 @@ void MainUI::dailyTask() {
         dailyGet[0] = ui->d200->value();
         dailyGet[1] = ui->d210->value();
         if(ui->mobbingMission_220->isChecked())
-            dailyGet[2] = ui->d220->value() + D220_MOBBING;
+            dailyGet[2] = ui->d220->value() + D220_MOB;
         else dailyGet[2] = ui->d220->value();
         if(ui->mobbingMission_225->isChecked())
-            dailyGet[3] = ui->d225->value() + D225_MOBBING;
+            dailyGet[3] = ui->d225->value() + D225_MOB;
         else dailyGet[3] = ui->d225->value();
         dailyGet[4] = ui->d230->value();
         dailyGet[5] = ui->d235->value();
@@ -225,16 +225,117 @@ void MainUI::transArc(int lv, int arc){
     }
 }
 
+//更新各ARC的升級資訊
 void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
-    if(lv <= 20) {
+    //升級所需楓幣
+    if(lv <= ARCMAXLV) {
         if(arc == 0) arcUpgradeMeso[arc] = upgradeMeso(lv, lv + 1, true);
         else arcUpgradeMeso[arc] = upgradeMeso(lv, lv + 1, false);
     }
 
+    //升級所需天數
+    int temp = ArcCurrent[arc]->value();
+    arcUpgradeDays[arc] = 0;
 
-    arcimg->setToolTip(
-                QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2")
-                    .arg(decimalSeparator(arcUpgradeMeso[arc]))
-                    .arg(1)
-    );
+    switch (arc) {
+    case 0:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d200->value() == 0) {
+                arcUpgradeDays[arc] = 9999;
+                break;
+            }
+            else {
+                temp += ui->d200->value();
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    case 1:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d210->value() == 0) {
+                arcUpgradeDays[arc] = 9999;
+                break;
+            }
+            else {
+                temp += ui->d210->value();
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    case 2:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d220->value() == 0) {
+                if(ui->mobbingMission_220->isChecked()) {
+                    temp += D220_MOB_T;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
+            }
+            else {
+                if(ui->mobbingMission_220->isChecked()) {
+                    temp += ui->d220->value() / ARC_TO_COIN_220 + D220_MOB_T;
+                }
+                else temp += ui->d220->value() / ARC_TO_COIN_220;
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    case 3:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d225->value() == 0) {
+                if(ui->mobbingMission_225->isChecked()) {
+                    temp += D225_MOB_T;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
+            }
+            else {
+                if(ui->mobbingMission_225->isChecked()) {
+                    temp += ui->d225->value() / ARC_TO_COIN_225 + D225_MOB_T;
+                }
+                else temp += ui->d225->value() / ARC_TO_COIN_225;
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    case 4:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d230->value() == 0) {
+                arcUpgradeDays[arc] = 9999;
+                break;
+            }
+            else {
+                temp += ui->d230->value();
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    case 5:
+        while(temp < ArcUpgrade[arc]->text().toInt()) {
+            if(ui->d235->value() == 0) {
+                arcUpgradeDays[arc] = 9999;
+                break;
+            }
+            else {
+                temp += ui->d235->value();
+                arcUpgradeDays[arc]++;
+            }
+        } break;
+    }
+
+    //若所需天數無窮大時
+    if(arcUpgradeDays[arc] >= 9999) {
+        arcimg->setToolTip(
+                    QStringLiteral("升級所需楓幣：%1\n升級所需天數：？")
+                        .arg(decimalSeparator(arcUpgradeMeso[arc]))
+        );
+    }
+    else {
+        arcimg->setToolTip(
+                    QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2")
+                        .arg(decimalSeparator(arcUpgradeMeso[arc]))
+                        .arg(arcUpgradeDays[arc])
+        );
+    }
 }

@@ -89,7 +89,7 @@ private:
     QUrl url;
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
-    int arcUpgradeMeso[6];
+    int arcUpgradeMeso[6], arcUpgradeDays[6];
     int upgradeList[99];
     int dailyGet[6];
     int day;

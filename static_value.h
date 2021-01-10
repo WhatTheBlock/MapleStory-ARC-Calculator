@@ -11,9 +11,11 @@
 #define D200_MAX 14         //消逝的旅途每日最高取得量
 #define D210_MAX 19         //啾啾島每日最高取得量
 #define D220_MAX 500        //拉契爾恩每日最高取得量
-#define D220_MOBBING 120    //拉契爾恩打怪每日取得量
+#define D220_MOB 120        //拉契爾恩打怪每日取得量
+#define D220_MOB_T 4        //拉契爾恩打怪每日取得量 (轉換後)
 #define D225_MAX 30         //阿爾卡娜每日最高取得量
-#define D225_MOBBING 24     //阿爾卡娜打怪每日取得量
+#define D225_MOB 24         //阿爾卡娜打怪每日取得量
+#define D225_MOB_T 8        //阿爾卡娜打怪每日取得量 (轉換後)
 #define D230_MAX 8          //魔菈斯每日最高取得量
 #define D235_MAX 8          //艾斯佩拉每日最高取得量
 
@@ -24,8 +26,8 @@
 //ARC升級所需楓幣
 #define UPGRADE_BASE 19040000
 #define UPGRADE_BASE_INCREASE 6600000
-#define UPGRADE_BASE_ARC1 9500000
-#define UPGRADE_BASE_ARC1_INCREASE 7130000
+#define UPGRADE_BASE_DISC 9500000
+#define UPGRADE_BASE_DISC_INCREASE 7130000
 
 //被擊傷害 & 增傷規則
 const int damageList[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};

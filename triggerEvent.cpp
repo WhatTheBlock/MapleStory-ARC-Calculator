@@ -39,23 +39,65 @@ void MainUI::on_Arc6LV_valueChanged(int lv) {
     updateArcToolTips(ui->arcimg6, 5, lv);
 }
 
-void MainUI::on_Arc1current_valueChanged() { dailyTask(); }
-void MainUI::on_Arc2current_valueChanged() { dailyTask(); }
-void MainUI::on_Arc3current_valueChanged() { dailyTask(); }
-void MainUI::on_Arc4current_valueChanged() { dailyTask(); }
-void MainUI::on_Arc5current_valueChanged() { dailyTask(); }
-void MainUI::on_Arc6current_valueChanged() { dailyTask(); }
+void MainUI::on_Arc1current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg1, 0, 99);
+}
+void MainUI::on_Arc2current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg2, 1, 99);
+}
+void MainUI::on_Arc3current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg3, 2, 99);
+}
+void MainUI::on_Arc4current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg4, 3, 99);
+}
+void MainUI::on_Arc5current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg5, 4, 99);
+}
+void MainUI::on_Arc6current_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg6, 5, 99);
+}
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 
-void MainUI::on_d200_valueChanged() { dailyTask(); }
-void MainUI::on_d210_valueChanged() { dailyTask(); }
-void MainUI::on_d220_valueChanged() { dailyTask(); }
-void MainUI::on_mobbingMission_220_stateChanged() { dailyTask(); }
-void MainUI::on_d225_valueChanged() { dailyTask(); }
-void MainUI::on_mobbingMission_225_stateChanged() { dailyTask(); }
-void MainUI::on_d230_valueChanged() { dailyTask(); }
-void MainUI::on_d235_valueChanged() { dailyTask(); }
+void MainUI::on_d200_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg1, 0, 99);
+}
+void MainUI::on_d210_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg2, 1, 99);
+}
+void MainUI::on_d220_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg3, 2, 99);
+}
+void MainUI::on_mobbingMission_220_stateChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg3, 2, 99);
+}
+void MainUI::on_d225_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg4, 3, 99);
+}
+void MainUI::on_mobbingMission_225_stateChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg4, 3, 99);
+}
+void MainUI::on_d230_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg5, 4, 99);
+}
+void MainUI::on_d235_valueChanged() {
+    dailyTask();
+    updateArcToolTips(ui->arcimg6, 5, 99);
+}
 
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
     ui->targetDate->setDate(date.addDays(day));

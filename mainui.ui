@@ -368,9 +368,9 @@
         <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
-        <year>2020</year>
-        <month>9</month>
-        <day>20</day>
+        <year>2021</year>
+        <month>1</month>
+        <day>11</day>
        </datetime>
       </property>
       <property name="maximumDateTime">
@@ -392,9 +392,9 @@
       </property>
       <property name="minimumDate">
        <date>
-        <year>2020</year>
-        <month>9</month>
-        <day>20</day>
+        <year>2021</year>
+        <month>1</month>
+        <day>11</day>
        </date>
       </property>
       <property name="minimumTime">
@@ -412,9 +412,9 @@
       </property>
       <property name="date">
        <date>
-        <year>2020</year>
-        <month>9</month>
-        <day>20</day>
+        <year>2021</year>
+        <month>1</month>
+        <day>11</day>
        </date>
       </property>
      </widget>
@@ -4134,7 +4134,7 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string notr="true">19,040,000</string>
+       <string notr="true">0</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_20">
