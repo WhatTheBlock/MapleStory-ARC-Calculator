@@ -1,7 +1,7 @@
 ﻿#ifndef STATIC_VALUE_H
 #define STATIC_VALUE_H
 
-#define VERCODE 260
+#define VERCODE 271
 
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCMAX 1450         //個人最高ARC

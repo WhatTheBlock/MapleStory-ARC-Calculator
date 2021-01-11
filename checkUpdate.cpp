@@ -21,7 +21,7 @@ void MainUI::onResult(QNetworkReply *reply) {
             msg->exec();
             if(msg->clickedButton() == yes) QDesktopServices::openUrl(QUrl(ReleaseURL));
         }
-    } //else qDebug() << "ERROR";
+    } else warningMsg(QStringLiteral("檢查更新失敗 QnQ\n錯誤訊息：%1").arg(reply->errorString()));
 
     reply->deleteLater();
 }
