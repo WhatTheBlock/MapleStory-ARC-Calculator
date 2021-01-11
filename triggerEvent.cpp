@@ -142,7 +142,9 @@ void MainUI::on_transLV_before_valueChanged(int lv) {
     transArc(lv, ui->transArc_before->value());
 }
 void MainUI::on_transArc_before_valueChanged(int arc) {
-    transArc(ui->transLV_before->value(), arc);
+    if(ui->transLV_before->value() != ARCMAXLV) {
+       transArc(ui->transLV_before->value(), arc);
+    }
 }
 
 void MainUI::on_HyperStats_valueChanged(int lv) {

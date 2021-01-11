@@ -12,10 +12,8 @@
 #define D210_MAX 19         //啾啾島每日最高取得量
 #define D220_MAX 500        //拉契爾恩每日最高取得量
 #define D220_MOB 120        //拉契爾恩打怪每日取得量
-#define D220_MOB_T 4        //拉契爾恩打怪每日取得量 (轉換後)
 #define D225_MAX 30         //阿爾卡娜每日最高取得量
 #define D225_MOB 24         //阿爾卡娜打怪每日取得量
-#define D225_MOB_T 8        //阿爾卡娜打怪每日取得量 (轉換後)
 #define D230_MAX 8          //魔菈斯每日最高取得量
 #define D235_MAX 8          //艾斯佩拉每日最高取得量
 
