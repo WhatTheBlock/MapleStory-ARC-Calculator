@@ -1,21 +1,21 @@
 ﻿#ifndef STATIC_VALUE_H
 #define STATIC_VALUE_H
 
-#define VERCODE 271
+#define VERCODE 280
 
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCMAX 1450         //個人最高ARC
 #define ARCMAX_MOB 1320     //怪物最高ARC
 
 //ARC最高取得量
-#define D200_MAX 14         //消逝的旅途每日最高取得量
-#define D210_MAX 19         //啾啾島每日最高取得量
-#define D220_MAX 500        //拉契爾恩每日最高取得量
-#define D220_MOB 120        //拉契爾恩打怪每日取得量
+#define D200_MAX 22         //消逝的旅途每日最高取得量
+#define D210_MAX 23         //啾啾島每日最高取得量
+#define D220_MAX 536        //拉契爾恩每日最高取得量
+#define D220_MOB 240        //拉契爾恩打怪每日取得量
 #define D225_MAX 30         //阿爾卡娜每日最高取得量
 #define D225_MOB 24         //阿爾卡娜打怪每日取得量
-#define D230_MAX 8          //魔菈斯每日最高取得量
-#define D235_MAX 8          //艾斯佩拉每日最高取得量
+#define D230_MAX 14         //魔菈斯每日最高取得量
+#define D235_MAX 14         //艾斯佩拉每日最高取得量
 
 //ARC轉硬幣倍率
 #define ARC_TO_COIN_220 30  //拉契爾恩
@@ -39,7 +39,7 @@ const int guildSkillList[] = {0, 15, 20, 25, 30};
 
 //URL
 #define UpdateURL "https://raw.githubusercontent.com/WhatTheBlock/MapleStory-ARC-Calculator/master/update.json"
-#define ReleaseURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/releases"
+#define ReleaseURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/releases/latest"
 #define GithubURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator"
 #define BahamutURL "https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565"
 

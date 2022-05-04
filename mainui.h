@@ -27,14 +27,14 @@ public:
     ~MainUI();
 
 private slots:
-    void on_Arc1LV_valueChanged(int arg1);
-    void on_Arc2LV_valueChanged(int arg1);
-    void on_Arc3LV_valueChanged(int arg1);
-    void on_Arc4LV_valueChanged(int arg1);
-    void on_Arc5LV_valueChanged(int arg1);
-    void on_Arc6LV_valueChanged(int arg1);
+    void on_Arc1LV_valueChanged(int);
+    void on_Arc2LV_valueChanged(int);
+    void on_Arc3LV_valueChanged(int);
+    void on_Arc4LV_valueChanged(int);
+    void on_Arc5LV_valueChanged(int);
+    void on_Arc6LV_valueChanged(int);
 
-    void on_ArcMode_currentIndexChanged(int index);
+    void on_ArcMode_currentIndexChanged(int);
 
     void on_Arc1current_valueChanged();
     void on_Arc2current_valueChanged();
@@ -50,26 +50,26 @@ private slots:
     void on_d230_valueChanged();
     void on_d235_valueChanged();
 
-    void on_startDate_userDateChanged(const QDate &date);
+    void on_startDate_userDateChanged(const QDate &);
 
     void on_ArcLV_from_valueChanged();
     void on_ArcLV_to_valueChanged();
 
-    void on_ArcDamage_x_valueChanged(int arg1);
-    void on_ArcDamage_y_valueChanged(int arg1);
+    void on_ArcDamage_x_valueChanged(int);
+    void on_ArcDamage_y_valueChanged(int);
 
     void on_targetArc_valueChanged();
 
-    void on_transLV_before_valueChanged(int arg1);
-    void on_transArc_before_valueChanged(int arg1);
+    void on_transLV_before_valueChanged(int);
+    void on_transArc_before_valueChanged(int);
 
     void on_arc1Switch_stateChanged(int arg1);
 
     void on_mobbingMission_220_stateChanged();
     void on_mobbingMission_225_stateChanged();
 
-    void on_HyperStats_valueChanged(int arg1);
-    void on_GuildSkillLV_valueChanged(int arg1);
+    void on_HyperStats_valueChanged(int);
+    void on_GuildSkillLV_valueChanged(int);
 
     void on_bahamut_clicked();
     void on_github_clicked();
@@ -97,18 +97,18 @@ private:
     int guildSkill;
 
     void upgradeVal();
-    void updateAp(int mode);
+    void updateAp(int);
     void updateArc();
     void avoidError();
-    int upgradeMeso(int from, int to, bool discount);
-    void ArcDamage(int x, int y);
+    int upgradeMeso(int, int, bool);
+    void ArcDamage(int, int);
     void dailyTask();
-    void warningMsg(QString msg);
-    void transArc(int lv, int arc);
-    QString decimalSeparator(int n);
+    void warningMsg(QString);
+    void transArc(int, int);
+    QString decimalSeparator(int);
     void checkUpdate();
-    void onResult(QNetworkReply* reply);
-    void updateArcToolTips(QLabel* arcimg, int arc, int lv);
+    void onResult(QNetworkReply*);
+    void updateArcToolTips(QLabel*, int, int);
 
 };
 
