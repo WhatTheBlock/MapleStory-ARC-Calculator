@@ -11,7 +11,6 @@
 MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     QApplication::setStyle(QStyleFactory::create("Fusion")); //設定UI介面
     ui->setupUi(this);
-    ui->background->viewport()->setCursor(Qt::ArrowCursor); //設定TextEdit的鼠標為標準箭頭
 
     //檢查更新
     checkUpdate();

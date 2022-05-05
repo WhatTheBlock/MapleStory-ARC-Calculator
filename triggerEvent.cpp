@@ -111,7 +111,7 @@ void MainUI::on_ArcLV_from_valueChanged() {
                     upgradeMeso(
                         ui->ArcLV_from->value(),
                         ui->ArcLV_to->value(),
-                        ui->arc1Switch->isChecked()
+                        ui->lowPriceSwitch->isChecked()
                     )
                 )
     );
@@ -119,7 +119,7 @@ void MainUI::on_ArcLV_from_valueChanged() {
 void MainUI::on_ArcLV_to_valueChanged() {
     on_ArcLV_from_valueChanged();
 }
-void MainUI::on_arc1Switch_stateChanged(int state) {
+void MainUI::on_lowPriceSwitch_stateChanged(int state) {
     int from = ui->ArcLV_from->value();
     int to = ui->ArcLV_to->value();
     int lv = ui->transLV_before->value();

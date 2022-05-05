@@ -7,6 +7,8 @@
 #define ARCMAX 1450         //個人最高ARC
 #define ARCMAX_MOB 1320     //怪物最高ARC
 
+#define ARC_LV19_MAX 372    //ARC LV19的最高數量
+
 //ARC最高取得量
 #define D200_MAX 22         //消逝的旅途每日最高取得量
 #define D210_MAX 23         //啾啾島每日最高取得量

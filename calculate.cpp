@@ -325,17 +325,11 @@ void MainUI::ArcDamage(int x, int y) {
 
 //秘法觸媒
 void MainUI::transArc(int lv, int arc){
-    ui->transArc_before->setEnabled(true);
-
-    if(arc > (lv * lv + 11) || lv == ARCMAXLV) {
-        ui->transArc_before->setValue(0);
-    }
-
     double total = ceil((upgradeList[lv - 1] + ui->transArc_before->value()) * 0.8);
 
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
-            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, ui->arc1Switch->isChecked())));
+            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, ui->lowPriceSwitch->isChecked())));
 
             ui->transLV_after->setNum(lv - i);
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
@@ -344,7 +338,8 @@ void MainUI::transArc(int lv, int arc){
     }
 
     if(lv == ARCMAXLV) {
-        ui->transArc_before->setEnabled(false);
+        ui->transLV_before->setValue(ARCMAXLV - 1);
+        ui->transArc_before->setValue(ARC_LV19_MAX);
         warningMsg(QStringLiteral("19等滿經驗直接轉就好\n可以省一筆錢唷！"));
     }
 }

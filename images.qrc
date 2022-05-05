@@ -19,5 +19,8 @@
         <file>images/guild.png</file>
         <file>images/github.png</file>
         <file>images/bahamut.png</file>
+        <file>images/sword.png</file>
+        <file>images/sword2.png</file>
+        <file>images/low-price.png</file>
     </qresource>
 </RCC>

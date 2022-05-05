@@ -63,7 +63,7 @@ private slots:
     void on_transLV_before_valueChanged(int);
     void on_transArc_before_valueChanged(int);
 
-    void on_arc1Switch_stateChanged(int arg1);
+    void on_lowPriceSwitch_stateChanged(int);
 
     void on_mobbingMission_220_stateChanged();
     void on_mobbingMission_225_stateChanged();
