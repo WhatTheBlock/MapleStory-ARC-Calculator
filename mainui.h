@@ -50,7 +50,7 @@ private slots:
     void on_d230_valueChanged();
     void on_d235_valueChanged();
 
-    void on_startDate_userDateChanged(const QDate &);
+    void on_startDate_userDateChanged(const QDate&);
 
     void on_ArcLV_from_valueChanged();
     void on_ArcLV_to_valueChanged();
@@ -63,7 +63,7 @@ private slots:
     void on_transLV_before_valueChanged(int);
     void on_transArc_before_valueChanged(int);
 
-    void on_lowPriceSwitch_stateChanged(int);
+    void on_discountSwitch_stateChanged(int);
 
     void on_mobbingMission_220_stateChanged();
     void on_mobbingMission_225_stateChanged();
@@ -74,6 +74,10 @@ private slots:
     void on_bahamut_clicked();
     void on_github_clicked();
 
+    void on_characterLV_valueChanged(int);
+
+    void on_allMobbing_clicked();
+    void on_allMission_clicked();
 
 private:
     Ui::MainUI *ui;
@@ -109,6 +113,7 @@ private:
     void checkUpdate();
     void onResult(QNetworkReply*);
     void updateArcToolTips(QLabel*, int, int);
+    void clearMission();
 
 };
 

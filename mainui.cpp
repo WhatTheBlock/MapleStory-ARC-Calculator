@@ -1,8 +1,7 @@
 ﻿/*
-//　個人巴哈小屋【https://home.gamer.com.tw/evildjkay】
-//　巴哈文章【https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565】
 //　數據資料來源【1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710】
 //　　　　　　　【2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats】
+//　圖示來源【https://maplestory.fandom.com/wiki/MapleStory】
 */
 
 #include "mainui.h"
@@ -37,12 +36,12 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcMode = ui->ArcMode;
 
     //設定數據範圍
-    ui->d200->setMaximum(D200_MAX);
-    ui->d210->setMaximum(D210_MAX);
-    ui->d220->setMaximum(D220_MAX);
-    ui->d225->setMaximum(D225_MAX);
-    ui->d230->setMaximum(D230_MAX);
-    ui->d235->setMaximum(D235_MAX);
+    ui->d200->setMaximum(D200_MIS);
+    ui->d210->setMaximum(D210_MIS);
+    ui->d220->setMaximum(D220_MIS);
+    ui->d225->setMaximum(D225_MIS);
+    ui->d230->setMaximum(D230_MIS);
+    ui->d235->setMaximum(D235_MIS);
     ui->ArcLV_to->setMaximum(ARCMAXLV);
     ui->ArcLV_from->setMaximum(ARCMAXLV - 1);
     ui->ArcDamage_x->setMaximum(ARCMAX);
@@ -68,3 +67,4 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 }
 
 MainUI::~MainUI() { delete ui; }
+

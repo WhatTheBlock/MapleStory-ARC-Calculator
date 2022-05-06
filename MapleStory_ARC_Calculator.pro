@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        avoidError.cpp \
         calculate.cpp \
         checkUpdate.cpp \
         main.cpp \

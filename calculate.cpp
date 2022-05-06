@@ -1,40 +1,5 @@
 ﻿#include "mainui.h"
 
-//更新目前ARC
-void MainUI::updateArc() {
-    //計算前先加上極限屬性 & 公會技能增加的ARC
-    ArcTotal->setNum(hyperStats + guildSkill);
-
-    for(int i = 0; i < 6; i++) {
-        arcLV = ArcLV[i]->value();
-
-        //更新目前ARC
-        if(arcLV != 0) ArcTotal->setNum((arcLV + 2) * 10 + ArcTotal->text().toInt());
-    }
-}
-
-//更新升級所需ARC數量
-void MainUI::upgradeVal() {
-    //計算前先加上極限屬性 & 公會技能增加的ARC
-    ArcTotal->setNum(hyperStats + guildSkill);
-
-    for(int i = 0; i < 6; i++) {
-        arcLV = ArcLV[i]->value();
-
-        //更新目前ARC
-        if(arcLV != 0) ArcTotal->setNum((arcLV + 2) * 10 + ArcTotal->text().toInt());
-
-        switch(arcLV) {
-        case 0: ArcUpgrade[i]->setText("?"); break;
-        case ARCMAXLV: ArcUpgrade[i]->setNum(0); break;
-        default: ArcUpgrade[i]->setNum(arcLV * arcLV + 11); break;
-        }
-    }
-
-    //防止輸入錯誤
-    avoidError();
-}
-
 //更新各ARC的升級資訊
 void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     //升級所需楓幣
@@ -153,18 +118,6 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     }
 }
 
-//更新屬性增加量數據
-void MainUI::updateAp(int mode) {
-    //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
-    int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
-
-    switch (mode) {
-    case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 10)); break;
-    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 3.9)); break;
-    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 175)); break;
-    }
-}
-
 //計算到達目標所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
@@ -181,16 +134,16 @@ void MainUI::dailyTask() {
     }
     //若未達到
     else {
-        dailyGet[0] = ui->d200->value();
-        dailyGet[1] = ui->d210->value();
-        if(ui->mobbingMission_220->isChecked())
-            dailyGet[2] = ui->d220->value() + D220_MOB;
-        else dailyGet[2] = ui->d220->value();
-        if(ui->mobbingMission_225->isChecked())
-            dailyGet[3] = ui->d225->value() + D225_MOB;
-        else dailyGet[3] = ui->d225->value();
-        dailyGet[4] = ui->d230->value();
-        dailyGet[5] = ui->d235->value();
+        if(ui->characterLV->value() >= 205)
+            dailyGet[0] = (ui->mobbingMission_200->isChecked()) ? ui->d200->value() + D200_MOB + D205_MOB : ui->d200->value();
+        else dailyGet[0] = (ui->mobbingMission_200->isChecked()) ? ui->d200->value() + D200_MOB : ui->d200->value();
+        if(ui->characterLV->value() >= 215)
+            dailyGet[1] = (ui->mobbingMission_210->isChecked()) ? ui->d210->value() + D210_MOB + D215_MOB : ui->d210->value();
+        else dailyGet[1] = (ui->mobbingMission_210->isChecked()) ? ui->d210->value() + D210_MOB : ui->d210->value();
+        dailyGet[2] = (ui->mobbingMission_220->isChecked()) ? ui->d220->value() + D220_MOB : ui->d220->value();
+        dailyGet[3] = (ui->mobbingMission_225->isChecked()) ? ui->d225->value() + D225_MOB : ui->d225->value();
+        dailyGet[4] = (ui->mobbingMission_230->isChecked()) ? ui->d230->value() + D230_MOB : ui->d230->value();
+        dailyGet[5] = (ui->mobbingMission_235->isChecked()) ? ui->d235->value() + D235_MOB : ui->d235->value();
 
         //計算可能達到的最高ARC
         for(int i = 0; i < 6; i++){
@@ -268,78 +221,3 @@ void MainUI::dailyTask() {
     }
 }
 
-//升級所需楓幣
-int MainUI::upgradeMeso(int from, int to, bool discount) {
-    if(from == to || from == 0 || from == ARCMAXLV) return 0;
-    //套用強化費用減少
-    else if(discount) {
-        int result_arc1 = UPGRADE_BASE_DISC;
-
-        for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result_arc1 += UPGRADE_BASE_DISC_INCREASE;
-            result_arc1 += UPGRADE_BASE_DISC;
-        }
-
-        if(from > 1) result_arc1 -= upgradeMeso(1, from, discount);
-        return result_arc1;
-    }
-    //無套用
-    else {
-        int result = UPGRADE_BASE;
-
-        for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result += UPGRADE_BASE_INCREASE;
-            result += UPGRADE_BASE;
-        }
-
-        if(from > 1) result -= upgradeMeso(1, from, discount);
-        return result;
-    }
-}
-
-//被擊傷害 / 增傷
-void MainUI::ArcDamage(int x, int y) {
-    float percent = (float(x) / float(y)) * 100;
-
-    for(int i = 0; i < 9; i++) {
-        if(percent < damageList[i]) {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
-            break;
-        }
-        else if(percent >= damageList[i] && percent < damageList[i + 1]) {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
-            break;
-        }
-        else {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
-        }
-    }
-
-    //1.5倍傷害需求尾數為5的值需額外加5
-    if((y * 15) % 100 == 50) ui->damage150->setNum(y * 1.5 + 5);
-    else ui->damage150->setNum(y * 1.5);
-}
-
-//秘法觸媒
-void MainUI::transArc(int lv, int arc){
-    double total = ceil((upgradeList[lv - 1] + ui->transArc_before->value()) * 0.8);
-
-    for(int i = 0; i < lv; i++) {
-        if(total >= upgradeList[lv - i - 1]) {
-            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, ui->lowPriceSwitch->isChecked())));
-
-            ui->transLV_after->setNum(lv - i);
-            ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
-            break;
-        }
-    }
-
-    if(lv == ARCMAXLV) {
-        ui->transLV_before->setValue(ARCMAXLV - 1);
-        ui->transArc_before->setValue(ARC_LV19_MAX);
-        warningMsg(QStringLiteral("19等滿經驗直接轉就好\n可以省一筆錢唷！"));
-    }
-}

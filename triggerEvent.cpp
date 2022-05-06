@@ -2,6 +2,10 @@
 
 #include "mainui.h"
 
+void MainUI::on_characterLV_valueChanged(int lv) {
+
+}
+
 void MainUI::on_Arc1LV_valueChanged(int lv) {
     upgradeVal();
     updateAp(ArcMode->currentIndex());
@@ -111,7 +115,7 @@ void MainUI::on_ArcLV_from_valueChanged() {
                     upgradeMeso(
                         ui->ArcLV_from->value(),
                         ui->ArcLV_to->value(),
-                        ui->lowPriceSwitch->isChecked()
+                        ui->discountSwitch->isChecked()
                     )
                 )
     );
@@ -119,7 +123,7 @@ void MainUI::on_ArcLV_from_valueChanged() {
 void MainUI::on_ArcLV_to_valueChanged() {
     on_ArcLV_from_valueChanged();
 }
-void MainUI::on_lowPriceSwitch_stateChanged(int state) {
+void MainUI::on_discountSwitch_stateChanged(int state) {
     int from = ui->ArcLV_from->value();
     int to = ui->ArcLV_to->value();
     int lv = ui->transLV_before->value();
@@ -163,4 +167,26 @@ void MainUI::on_bahamut_clicked() {
 }
 void MainUI::on_github_clicked() {
     QDesktopServices::openUrl(QUrl(GithubURL));
+}
+
+//一鍵勾選打怪任務
+void MainUI::on_allMobbing_clicked() {
+    clearMission();
+    ui->mobbingMission_200->setChecked(true);
+    if(ui->characterLV->value() >= 210) ui->mobbingMission_210->setChecked(true);
+    if(ui->characterLV->value() >= 220) ui->mobbingMission_220->setChecked(true);
+    if(ui->characterLV->value() >= 225) ui->mobbingMission_225->setChecked(true);
+    if(ui->characterLV->value() >= 230) ui->mobbingMission_230->setChecked(true);
+    if(ui->characterLV->value() >= 235) ui->mobbingMission_235->setChecked(true);
+}
+
+//打怪和組隊任務都解滿
+void MainUI::on_allMission_clicked() {
+    on_allMobbing_clicked();
+    ui->d200->setValue(D200_MIS);
+    if(ui->characterLV->value() >= 210) ui->d210->setValue(D210_MIS);
+    if(ui->characterLV->value() >= 220) ui->d220->setValue(D220_MIS);
+    if(ui->characterLV->value() >= 225) ui->d225->setValue(D225_MIS);
+    if(ui->characterLV->value() >= 230) ui->d230->setValue(D230_MIS);
+    if(ui->characterLV->value() >= 235) ui->d235->setValue(D235_MIS);
 }

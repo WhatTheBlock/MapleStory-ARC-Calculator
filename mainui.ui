@@ -485,7 +485,7 @@
        </time>
       </property>
       <property name="currentSection">
-       <enum>QDateTimeEdit::DaySection</enum>
+       <enum>QDateTimeEdit::YearSection</enum>
       </property>
       <property name="displayFormat">
        <string notr="true">yyyy/MM/dd</string>
@@ -754,7 +754,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string notr="true"/>
+       <string notr="true">設定角色等級只會影響打怪任務相關功能</string>
       </property>
       <property name="statusTip">
        <string notr="true"/>
@@ -2400,7 +2400,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string/>
+       <string>記得先設定角色等級哦！</string>
       </property>
       <property name="text">
        <string>一鍵勾選打怪任務</string>
@@ -2643,7 +2643,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string/>
+       <string>打怪和組隊任務都解滿</string>
       </property>
       <property name="text">
        <string>我全都要</string>
@@ -3275,7 +3275,7 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QCheckBox" name="lowPriceSwitch">
+     <widget class="QCheckBox" name="discountSwitch">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -3312,7 +3312,7 @@
       </property>
       <property name="icon">
        <iconset resource="images.qrc">
-        <normaloff>:/images/low-price.png</normaloff>:/images/low-price.png</iconset>
+        <normaloff>:/images/discount.png</normaloff>:/images/discount.png</iconset>
       </property>
       <property name="iconSize">
        <size>

@@ -9,21 +9,27 @@
 
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
 
-//ARC最高取得量
-#define D200_MAX 22         //消逝的旅途每日最高取得量
-#define D210_MAX 23         //啾啾島每日最高取得量
-#define D220_MAX 536        //拉契爾恩每日最高取得量
-#define D220_MOB 240        //拉契爾恩打怪每日取得量
-#define D225_MAX 30         //阿爾卡娜每日最高取得量
-#define D225_MOB 24         //阿爾卡娜打怪每日取得量
-#define D230_MAX 14         //魔菈斯每日最高取得量
-#define D235_MAX 14         //艾斯佩拉每日最高取得量
+//最高取得量
+#define D200_MIS 6
+#define D200_MOB 8
+#define D205_MOB 8
+#define D210_MIS 15
+#define D210_MOB 4
+#define D215_MOB 4
+#define D220_MIS 524
+#define D220_MOB 240
+#define D225_MIS 30
+#define D225_MOB 24
+#define D230_MIS 6
+#define D230_MOB 8
+#define D235_MIS 6
+#define D235_MOB 8
 
-//ARC轉硬幣倍率
-#define ARC_TO_COIN_220 30  //拉契爾恩
-#define ARC_TO_COIN_225 3   //阿爾卡娜
+//轉硬幣倍率
+#define ARC_TO_COIN_220 30
+#define ARC_TO_COIN_225 3
 
-//ARC升級所需楓幣
+//升級所需楓幣
 #define UPGRADE_BASE 19040000
 #define UPGRADE_BASE_INCREASE 6600000
 #define UPGRADE_BASE_DISC 9500000
