@@ -2,10 +2,6 @@
 
 #include "mainui.h"
 
-void MainUI::on_characterLV_valueChanged(int lv) {
-
-}
-
 void MainUI::on_Arc1LV_valueChanged(int lv) {
     upgradeVal();
     updateAp(ArcMode->currentIndex());

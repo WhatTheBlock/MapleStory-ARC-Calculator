@@ -57,7 +57,7 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
         if(i != 1) upgradeList[i] = i * i + 11 + upgradeList[i - 1];
         else upgradeList[i] = i * i + 11;
     }
-    upgradeList[0] = 1;
+    upgradeList[0] = 0;
 
     //極限屬性
     hyperStats = 0;

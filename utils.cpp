@@ -141,7 +141,7 @@ void MainUI::ArcDamage(int x, int y) {
 
 //秘法觸媒
 void MainUI::transArc(int lv, int arc) {
-    double total = ceil((upgradeList[lv - 1] + ui->transArc_before->value()) * 0.8);
+    double total = floor((upgradeList[lv - 1] + ui->transArc_before->value()) * 0.8);
 
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
@@ -151,6 +151,11 @@ void MainUI::transArc(int lv, int arc) {
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
             break;
         }
+    }
+
+    if(arc == (lv * lv + 11)) {
+        ui->transLV_before->setValue(lv + 1);
+        ui->transArc_before->setValue(0);
     }
 
     if(lv == ARCMAXLV) {
