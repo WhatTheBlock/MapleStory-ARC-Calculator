@@ -16,22 +16,38 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     case 0:
         while(temp < ArcUpgrade[arc]->text().toInt()) {
             if(ui->d200->value() == 0) {
-                arcUpgradeDays[arc] = 9999;
-                break;
+                if(ui->mobbingMission_200->isChecked()) {
+                    temp += (ui->characterLV->value() >= 205) ? D200_MOB + D205_MOB : D200_MOB;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
             }
             else {
-                temp += ui->d200->value();
+                if(ui->mobbingMission_200->isChecked())
+                    temp += (ui->characterLV->value() >= 205) ? ui->d200->value() + D200_MOB + D205_MOB : ui->d200->value() + D200_MOB;
+                else temp += ui->d200->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
     case 1:
         while(temp < ArcUpgrade[arc]->text().toInt()) {
             if(ui->d210->value() == 0) {
-                arcUpgradeDays[arc] = 9999;
-                break;
+                if(ui->mobbingMission_210->isChecked()) {
+                    temp += (ui->characterLV->value() >= 215) ? D210_MOB + D215_MOB : D210_MOB;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
             }
             else {
-                temp += ui->d210->value();
+                if(ui->mobbingMission_210->isChecked())
+                    temp += (ui->characterLV->value() >= 215) ? ui->d210->value() + D210_MOB + D215_MOB : ui->d210->value() + D210_MOB;
+                else temp += ui->d210->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
@@ -49,10 +65,7 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
                 }
             }
             else {
-                if(ui->mobbingMission_220->isChecked()) {
-                    temp += ui->d220->value() + D220_MOB;
-                }
-                else temp += ui->d220->value();
+                temp += (ui->mobbingMission_220->isChecked()) ? ui->d220->value() + D220_MOB : ui->d220->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
@@ -70,32 +83,41 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
                 }
             }
             else {
-                if(ui->mobbingMission_225->isChecked()) {
-                    temp += ui->d225->value() + D225_MOB;
-                }
-                else temp += ui->d225->value();
+                temp += (ui->mobbingMission_225->isChecked()) ? ui->d225->value() + D225_MOB : ui->d225->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
     case 4:
         while(temp < ArcUpgrade[arc]->text().toInt()) {
             if(ui->d230->value() == 0) {
-                arcUpgradeDays[arc] = 9999;
-                break;
+                if(ui->mobbingMission_230->isChecked()) {
+                    temp += D230_MOB;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
             }
             else {
-                temp += ui->d230->value();
+                temp += (ui->mobbingMission_230->isChecked()) ? ui->d230->value() + D230_MOB : ui->d230->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
     case 5:
         while(temp < ArcUpgrade[arc]->text().toInt()) {
             if(ui->d235->value() == 0) {
-                arcUpgradeDays[arc] = 9999;
-                break;
+                if(ui->mobbingMission_235->isChecked()) {
+                    temp += D235_MOB;
+                    arcUpgradeDays[arc]++;
+                }
+                else {
+                    arcUpgradeDays[arc] = 9999;
+                    break;
+                }
             }
             else {
-                temp += ui->d235->value();
+                temp += (ui->mobbingMission_235->isChecked()) ? ui->d235->value() + D235_MOB : ui->d235->value();
                 arcUpgradeDays[arc]++;
             }
         } break;
