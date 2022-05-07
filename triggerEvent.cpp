@@ -3,100 +3,80 @@
 #include "mainui.h"
 
 void MainUI::on_Arc1LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg1, 0, lv);
+    arcLvChanged(ui->arcimg1, 0, lv);
 }
 void MainUI::on_Arc2LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg2, 1, lv);
+    arcLvChanged(ui->arcimg2, 1, lv);
 }
 void MainUI::on_Arc3LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg3, 2, lv);
+    arcLvChanged(ui->arcimg3, 2, lv);
 }
 void MainUI::on_Arc4LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg4, 3, lv);
+    arcLvChanged(ui->arcimg4, 3, lv);
 }
 void MainUI::on_Arc5LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg5, 4, lv);
+    arcLvChanged(ui->arcimg5, 4, lv);
 }
 void MainUI::on_Arc6LV_valueChanged(int lv) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    dailyTask();
-    updateArcToolTips(ui->arcimg6, 5, lv);
+    arcLvChanged(ui->arcimg6, 5, lv);
 }
 
 void MainUI::on_Arc1current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg1, 0, 99);
 }
 void MainUI::on_Arc2current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg2, 1, 99);
 }
 void MainUI::on_Arc3current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg3, 2, 99);
 }
 void MainUI::on_Arc4current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg4, 3, 99);
 }
 void MainUI::on_Arc5current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg5, 4, 99);
 }
 void MainUI::on_Arc6current_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg6, 5, 99);
 }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 
 void MainUI::on_d200_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg1, 0, 99);
 }
+void MainUI::on_mobbingMission_200_stateChanged() {
+    on_d200_valueChanged();
+}
 void MainUI::on_d210_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg2, 1, 99);
 }
+void MainUI::on_mobbingMission_210_stateChanged() {
+    on_d210_valueChanged();
+}
 void MainUI::on_d220_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg3, 2, 99);
 }
 void MainUI::on_mobbingMission_220_stateChanged() {
-    dailyTask();
-    updateArcToolTips(ui->arcimg3, 2, 99);
+    on_d220_valueChanged();
 }
 void MainUI::on_d225_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg4, 3, 99);
 }
 void MainUI::on_mobbingMission_225_stateChanged() {
-    dailyTask();
-    updateArcToolTips(ui->arcimg4, 3, 99);
+    on_d225_valueChanged();
 }
 void MainUI::on_d230_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg5, 4, 99);
 }
+void MainUI::on_mobbingMission_230_stateChanged() {
+    on_d230_valueChanged();
+}
 void MainUI::on_d235_valueChanged() {
-    dailyTask();
     updateArcToolTips(ui->arcimg6, 5, 99);
+}
+void MainUI::on_mobbingMission_235_stateChanged() {
+    on_d235_valueChanged();
 }
 
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
@@ -106,15 +86,7 @@ void MainUI::on_startDate_userDateChanged(const QDate &date) {
 void MainUI::on_ArcLV_from_valueChanged() {
     avoidError();
 
-    ui->cost->setText(
-                decimalSeparator(
-                    upgradeMeso(
-                        ui->ArcLV_from->value(),
-                        ui->ArcLV_to->value(),
-                        ui->discountSwitch->isChecked()
-                    )
-                )
-    );
+    ui->cost->setText(decimalSeparator(upgradeMeso(ui->ArcLV_from->value(), ui->ArcLV_to->value(), ui->discountSwitch->isChecked())));
 }
 void MainUI::on_ArcLV_to_valueChanged() {
     on_ArcLV_from_valueChanged();
@@ -167,13 +139,19 @@ void MainUI::on_github_clicked() {
 
 //一鍵勾選打怪任務
 void MainUI::on_allMobbing_clicked() {
+    int temp = ui->targetArc->value();
+    ui->targetArc->setValue(0);
+
     clearMission();
+
     ui->mobbingMission_200->setChecked(true);
     if(ui->characterLV->value() >= 210) ui->mobbingMission_210->setChecked(true);
     if(ui->characterLV->value() >= 220) ui->mobbingMission_220->setChecked(true);
     if(ui->characterLV->value() >= 225) ui->mobbingMission_225->setChecked(true);
     if(ui->characterLV->value() >= 230) ui->mobbingMission_230->setChecked(true);
     if(ui->characterLV->value() >= 235) ui->mobbingMission_235->setChecked(true);
+
+    ui->targetArc->setValue(temp);
 }
 
 //打怪和組隊任務都解滿

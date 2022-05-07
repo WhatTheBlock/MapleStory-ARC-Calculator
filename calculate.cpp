@@ -2,10 +2,11 @@
 
 //更新各ARC的升級資訊
 void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
+    dailyTask();
+
     //升級所需楓幣
     if(lv <= ARCMAXLV) {
-        if(arc == 0) arcUpgradeMeso[arc] = upgradeMeso(lv, lv + 1, true);
-        else arcUpgradeMeso[arc] = upgradeMeso(lv, lv + 1, false);
+        arcUpgradeMeso[arc] = (arc == 0) ? upgradeMeso(lv, lv + 1, true) : upgradeMeso(lv, lv + 1, false);
     }
 
     //升級所需天數
@@ -230,4 +231,3 @@ void MainUI::dailyTask() {
         }
     }
 }
-

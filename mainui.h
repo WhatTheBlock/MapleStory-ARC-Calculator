@@ -49,6 +49,15 @@ private slots:
     void on_d225_valueChanged();
     void on_d230_valueChanged();
     void on_d235_valueChanged();
+    void on_mobbingMission_200_stateChanged();
+    void on_mobbingMission_210_stateChanged();
+    void on_mobbingMission_220_stateChanged();
+    void on_mobbingMission_225_stateChanged();
+    void on_mobbingMission_230_stateChanged();
+    void on_mobbingMission_235_stateChanged();
+
+    void on_allMobbing_clicked();
+    void on_allMission_clicked();
 
     void on_startDate_userDateChanged(const QDate&);
 
@@ -65,19 +74,11 @@ private slots:
 
     void on_discountSwitch_stateChanged(int);
 
-    void on_mobbingMission_220_stateChanged();
-    void on_mobbingMission_225_stateChanged();
-
     void on_HyperStats_valueChanged(int);
     void on_GuildSkillLV_valueChanged(int);
 
     void on_bahamut_clicked();
     void on_github_clicked();
-
-    void on_characterLV_valueChanged(int);
-
-    void on_allMobbing_clicked();
-    void on_allMission_clicked();
 
 private:
     Ui::MainUI *ui;
@@ -103,18 +104,23 @@ private:
     void upgradeVal();
     void updateAp(int);
     void updateArc();
+    void arcLvChanged(QLabel*, int, int);
     void avoidError();
-    int upgradeMeso(int, int, bool);
-    void ArcDamage(int, int);
-    void dailyTask();
-    void warningMsg(QString);
-    void transArc(int, int);
-    QString decimalSeparator(int);
-    void checkUpdate();
-    void onResult(QNetworkReply*);
-    void updateArcToolTips(QLabel*, int, int);
     void clearMission();
 
+    void updateArcToolTips(QLabel*, int, int);
+    void dailyTask();
+
+    int upgradeMeso(int, int, bool);
+    void ArcDamage(int, int);
+    void transArc(int, int);
+
+    void warningMsg(QString);
+
+    QString decimalSeparator(int);
+
+    void checkUpdate();
+    void onResult(QNetworkReply*);
 };
 
 #endif // MAINUI_H

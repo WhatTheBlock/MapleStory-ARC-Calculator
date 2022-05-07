@@ -67,4 +67,3 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 }
 
 MainUI::~MainUI() { delete ui; }
-
