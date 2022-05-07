@@ -3293,7 +3293,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string notr="true">價格調降</string>
+       <string notr="true">費用調降</string>
       </property>
       <property name="statusTip">
        <string notr="true"/>

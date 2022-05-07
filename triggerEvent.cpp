@@ -111,11 +111,23 @@ void MainUI::on_ArcDamage_y_valueChanged(int y) {
 void MainUI::on_targetArc_valueChanged() { dailyTask(); }
 
 void MainUI::on_transLV_before_valueChanged(int lv) {
+    if(lv == ARCMAXLV) {
+        ui->transArc_before->setValue(0);
+        warningMsg(QStringLiteral("19等滿經驗直接轉就好\n可以省一筆錢唷！"));
+    }
+
     transArc(lv, ui->transArc_before->value());
 }
 void MainUI::on_transArc_before_valueChanged(int arc) {
-    if(ui->transLV_before->value() != ARCMAXLV) {
-       transArc(ui->transLV_before->value(), arc);
+    int lv = ui->transLV_before->value();
+
+    if(lv != ARCMAXLV) {
+       transArc(lv, arc);
+
+       if(arc == (lv * lv + 11)) {
+           ui->transArc_before->setValue(0);
+           ui->transLV_before->setValue(lv + 1);
+       }
     }
 }
 
