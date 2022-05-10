@@ -96,11 +96,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷ARC計算機  v2.8</string>
+   <string>新楓之谷 ARC / AUT 計算機  v2.9</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="images.qrc">
-    <normaloff>:/images/ARC1.png</normaloff>:/images/ARC1.png</iconset>
+   <iconset>
+    <normaloff>maplestory.ico</normaloff>maplestory.ico</iconset>
   </property>
   <property name="windowOpacity">
    <double>0.970000000000000</double>
@@ -159,6 +159,9 @@
      <height>16</height>
     </size>
    </property>
+   <property name="elideMode">
+    <enum>Qt::ElideNone</enum>
+   </property>
    <property name="documentMode">
     <bool>false</bool>
    </property>
@@ -171,7 +174,7 @@
    <property name="tabBarAutoHide">
     <bool>false</bool>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="tab_arc">
     <property name="toolTip">
      <string notr="true"/>
     </property>
@@ -187,8 +190,15 @@
     <property name="accessibleDescription">
      <string notr="true"/>
     </property>
+    <attribute name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/images/ARC1.png</normaloff>:/images/ARC1.png</iconset>
+    </attribute>
     <attribute name="title">
-     <string>秘法達成日計算 (&amp;Z)</string>
+     <string>ARC達成日計算</string>
+    </attribute>
+    <attribute name="toolTip">
+     <string>使用左右方向鍵可切換頁面哦！</string>
     </attribute>
     <widget class="QComboBox" name="ArcMode">
      <property name="geometry">
@@ -2852,7 +2862,15 @@
     <zorder>line_8</zorder>
     <zorder>line_9</zorder>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="tab_aut">
+    <attribute name="title">
+     <string>AUT達成日計算</string>
+    </attribute>
+    <attribute name="toolTip">
+     <string>使用左右方向鍵可切換頁面哦！</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_others">
     <property name="toolTip">
      <string notr="true"/>
     </property>
@@ -2869,7 +2887,10 @@
      <string notr="true"/>
     </property>
     <attribute name="title">
-     <string>其他 (&amp;X)</string>
+     <string>其他功能</string>
+    </attribute>
+    <attribute name="toolTip">
+     <string>使用左右方向鍵可切換頁面哦！</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
@@ -2896,7 +2917,7 @@
       <string notr="true"/>
      </property>
      <property name="title">
-      <string>升級所需楓幣</string>
+      <string>ARC升級所需楓幣</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
