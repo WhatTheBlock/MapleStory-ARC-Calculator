@@ -9,8 +9,12 @@ void MainUI::on_tabWidget_currentChanged(int index) {
         MainUI::setMaximumSize(720, 429);
     } break;
     case 1: {
-        MainUI::setMinimumSize(639, 369);
-        MainUI::setMaximumSize(639, 369);
+        MainUI::setMinimumSize(720, 429);
+        MainUI::setMaximumSize(720, 429);
+    } break;
+    case 2: {
+        MainUI::setMinimumSize(402, 659);
+        MainUI::setMaximumSize(402, 659);
     } break;
     }
 }
