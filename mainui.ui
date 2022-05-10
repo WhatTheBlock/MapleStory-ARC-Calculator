@@ -2403,7 +2403,7 @@
        <string>記得先設定角色等級哦！</string>
       </property>
       <property name="text">
-       <string>一鍵勾選打怪任務</string>
+       <string>　自動勾選</string>
       </property>
       <property name="icon">
        <iconset resource="images.qrc">
@@ -2649,7 +2649,7 @@
        <string>打怪和組隊任務都解滿</string>
       </property>
       <property name="text">
-       <string>我全都要</string>
+       <string>　我全都要</string>
       </property>
       <property name="icon">
        <iconset resource="images.qrc">
