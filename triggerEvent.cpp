@@ -2,6 +2,20 @@
 
 #include "mainui.h"
 
+void MainUI::on_tabWidget_currentChanged(int index) {
+    switch(index) {
+    case 0: {
+        MainUI::setMinimumSize(720, 429);
+        MainUI::setMaximumSize(720, 429);
+    } break;
+    case 1: {
+        MainUI::setMinimumSize(639, 369);
+        MainUI::setMaximumSize(639, 369);
+    } break;
+    }
+}
+
+
 void MainUI::on_Arc1LV_valueChanged(int lv) {
     arcLvChanged(ui->arcimg1, 0, lv);
 }

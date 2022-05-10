@@ -2874,8 +2874,8 @@
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>20</y>
+       <x>11</x>
+       <y>10</y>
        <width>311</width>
        <height>131</height>
       </rect>
@@ -3337,8 +3337,8 @@
     <widget class="QGroupBox" name="groupBox_2">
      <property name="geometry">
       <rect>
-       <x>360</x>
-       <y>20</y>
+       <x>340</x>
+       <y>10</y>
        <width>291</width>
        <height>171</height>
       </rect>
@@ -3795,8 +3795,8 @@
     <widget class="QGroupBox" name="groupBox_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>180</y>
+       <x>11</x>
+       <y>160</y>
        <width>311</width>
        <height>171</height>
       </rect>

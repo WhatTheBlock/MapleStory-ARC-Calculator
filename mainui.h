@@ -80,6 +80,8 @@ private slots:
     void on_bahamut_clicked();
     void on_github_clicked();
 
+    void on_tabWidget_currentChanged(int);
+
 private:
     Ui::MainUI *ui;
 
