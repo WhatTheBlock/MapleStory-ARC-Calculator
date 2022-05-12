@@ -99,8 +99,8 @@
    <string>新楓之谷 ARC / AUT 計算機  v2.9</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>maplestory.ico</normaloff>maplestory.ico</iconset>
+   <iconset resource="images.qrc">
+    <normaloff>:/images/maplestory.png</normaloff>:/images/maplestory.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>0.970000000000000</double>
