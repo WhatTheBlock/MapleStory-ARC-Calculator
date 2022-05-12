@@ -1,13 +1,25 @@
 ﻿#ifndef STATIC_VALUE_H
 #define STATIC_VALUE_H
 
-#define VERCODE 280
+//版本
+#define VERCODE 290
 
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCMAX 1450         //個人最高ARC
 #define ARCMAX_MOB 1320     //怪物最高ARC
-
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
+
+//職業屬性提升比率
+#define NORMAL_ARC 10
+#define NORMAL_AUT 20       //AUT計算方式不一樣 (AUT*20+300)
+#define XENON_ARC 0.39
+#define XENON_ARC_NEW 0.48
+#define XENON_AUT 0.39
+#define XENON_AUT_NEW 0.96
+#define DA_ARC 17.5
+#define DA_ARC_NEW 21
+#define DA_AUT 17.5
+#define DA_AUT_NEW 42
 
 //最高取得量
 #define D200_MIS 6

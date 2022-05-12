@@ -78,9 +78,13 @@ void MainUI::updateAp(int mode) {
     int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
 
     switch (mode) {
-    case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 10)); break;
-    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 3.9)); break;
-    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * 175)); break;
+    case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
+    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1\n新版屬性增加量：%2")
+                                 .arg(arc * NORMAL_ARC * XENON_ARC)
+                                 .arg(arc * NORMAL_ARC * XENON_ARC_NEW)); break;
+    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1\n新版屬性增加量：%2")
+                                 .arg(arc * NORMAL_ARC * DA_ARC)
+                                 .arg(arc * NORMAL_ARC * DA_ARC_NEW)); break;
     }
 }
 
