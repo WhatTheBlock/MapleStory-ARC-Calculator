@@ -61,18 +61,18 @@ private slots:
 
     void on_startDate_userDateChanged(const QDate&);
 
+    void on_selectARC_currentIndexChanged(int);
     void on_ArcLV_from_valueChanged();
     void on_ArcLV_to_valueChanged();
+
+    void on_targetArc_valueChanged();
 
     void on_ArcDamage_x_valueChanged(int);
     void on_ArcDamage_y_valueChanged(int);
 
-    void on_targetArc_valueChanged();
 
     void on_transLV_before_valueChanged(int);
     void on_transArc_before_valueChanged(int);
-
-    void on_discountSwitch_stateChanged(int);
 
     void on_HyperStats_valueChanged(int);
     void on_GuildSkillLV_valueChanged(int);
@@ -81,6 +81,7 @@ private slots:
     void on_github_clicked();
 
     void on_tabWidget_currentChanged(int);
+
 
 private:
     Ui::MainUI *ui;
@@ -100,8 +101,14 @@ private:
     int upgradeList[99];
     int dailyGet[6];
     int day;
+
     int hyperStats;
     int guildSkill;
+
+    int ARC200_COST[19];
+    int ARC210_COST[19];
+    int ARC220_COST[19];
+    int ARC225_COST[19];
 
     void upgradeVal();
     void updateAp(int);
@@ -113,8 +120,10 @@ private:
     void updateArcToolTips(QLabel*, int, int);
     void dailyTask();
 
-    int upgradeMeso(int, int, bool);
-    void ArcDamage(int, int);
+    int arcUpgradeCost(int, int, int);
+    double autUpgradeCost(int, int, int);
+
+    void arcDamage(int, int);
     void transArc(int, int);
 
     void warningMsg(QString);

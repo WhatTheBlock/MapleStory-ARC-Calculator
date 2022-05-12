@@ -5,17 +5,18 @@
 #define VERCODE 290
 
 #define ARCMAXLV 20         //ARC等級上限
+#define AUTMAXLV 11         //AUT等級上限
 #define ARCMAX 1450         //個人最高ARC
-#define ARCMAX_MOB 1320     //怪物最高ARC
+#define AUTMAX 220          //個人最高AUT
+#define ARCMAX_MOB 1320     //怪物最高ARC (黑魔法師)
+#define AUTMAX_MOB 300      //怪物最高AUT (凱羅斯)
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
 
 //職業屬性增加量比率
 #define NORMAL_ARC 10
 #define NORMAL_AUT 20       //AUT計算方式不一樣 (AUT*20+300)
-#define XENON_RATIO 0.39
-#define XENON_RATIO_NEW 0.48
-#define DA_RATIO 17.5
-#define DA_RATIO_NEW 21
+#define XENON_RATIO 0.48
+#define DA_RATIO 21
 
 //最高取得量
 #define D200_MIS 6
@@ -38,14 +39,22 @@
 #define ARC_TO_COIN_225 3
 
 //升級所需楓幣
-#define UPGRADE_BASE 19040000
-#define UPGRADE_BASE_INCREASE 6600000
-#define UPGRADE_BASE_DISC 9500000
-#define UPGRADE_BASE_DISC_INCREASE 7130000
+#define ARC200_COST_BASE 7070000
+#define ARC200_COST_INCREASE 3960000
+#define ARC210_COST_BASE 10840000
+#define ARC210_COST_INCREASE 4620000
+#define ARC220_COST_BASE 14610000
+#define ARC220_COST_INCREASE 5280000
+#define ARC225_COST_BASE 17136000    //225~235
+#define ARC225_COST_INCREASE 5940000
+const double AUT260_COST[] = {1.854, 2.739, 3.623, 4.507, 5.392, 6.276, 7.161, 8.045, 8.929, 9.814};
+const double AUT270_COST[] = {2.039, 3.012, 3.985, 4.957, 5.931, 6.903, 7.877, 8.849, 9.823, 10.796}; //可能不準確
 
 //被擊傷害 & 增傷規則
-const int damageList[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
-const int hit_damageList[] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
+const int damageList_arc[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
+const int damageList_aut[] = {100, 150, 200};
+const int hit_damageList_arc[] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
+const int hit_damageList_aut[] = {125, 120, 115, 110, 105, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5};
 
 //極限屬性
 const int hyperStatsList[] = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100};

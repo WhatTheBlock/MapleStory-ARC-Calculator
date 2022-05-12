@@ -1,6 +1,7 @@
 ﻿/*
 //　數據資料來源【1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710】
 //　　　　　　　【2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats】
+//　　　　　　　【3. https://namu.wiki/w/%EA%B0%90%EC%8B%9C%EC%9E%90%20%EC%B9%BC%EB%A1%9C%EC%8A%A4】
 //　圖示來源【https://maplestory.fandom.com/wiki/MapleStory】
 */
 
@@ -64,6 +65,14 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 
     //公會技能
     guildSkill = 0;
+
+    //設定符文升級費用
+    for(int i = 0; i < ARCMAXLV - 1; i++) {
+        ARC200_COST[i] = ARC200_COST_BASE + ARC200_COST_INCREASE * i;
+        ARC210_COST[i] = ARC210_COST_BASE + ARC210_COST_INCREASE * i;
+        ARC220_COST[i] = ARC220_COST_BASE + ARC220_COST_INCREASE * i;
+        ARC225_COST[i] = ARC225_COST_BASE + ARC225_COST_INCREASE * i;
+    }
 }
 
 MainUI::~MainUI() { delete ui; }

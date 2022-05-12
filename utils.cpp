@@ -76,65 +76,65 @@ void MainUI::updateArc() {
 void MainUI::updateAp(int mode) {
     //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
     int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
+    int aut = 0;
 
     switch (mode) {
     case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
-    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1\n新版屬性增加量：%2")
-                                 .arg(arc * NORMAL_ARC * XENON_RATIO)
-                                 .arg(arc * NORMAL_ARC * XENON_RATIO_NEW)); break;
-    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1\n新版屬性增加量：%2")
-                                 .arg(arc * NORMAL_ARC * DA_RATIO)
-                                 .arg(arc * NORMAL_ARC * DA_RATIO_NEW)); break;
+    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * XENON_RATIO)); break;
+    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * DA_RATIO)); break;
+    //新增AUT物件後再改
+    case 3: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
+    case 4: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
+    case 5: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
     }
 }
 
 //升級所需楓幣
-int MainUI::upgradeMeso(int from, int to, bool discount) {
-    if(from == to || from == 0 || from == ARCMAXLV) return 0;
-    //套用強化費用減少
-    else if(discount) {
-        int result_disc = UPGRADE_BASE_DISC;
+int MainUI::arcUpgradeCost(int lv, int from, int to) {
+    double result = 0;
 
-        for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result_disc += UPGRADE_BASE_DISC_INCREASE;
-            result_disc += UPGRADE_BASE_DISC;
+    for(int i = from - 1; i < to - 1; i++) {
+        switch (lv) {
+        case 0: result += ARC200_COST[i]; break;
+        case 1: result += ARC210_COST[i]; break;
+        case 2: result += ARC220_COST[i]; break;
+        default: result += ARC225_COST[i]; break;
         }
-
-        if(from > 1) result_disc -= upgradeMeso(1, from, discount);
-        return result_disc;
     }
-    //無套用
-    else {
-        int result = UPGRADE_BASE;
 
-        for(int i = to - 2; i >= 1; i--){
-            for(int j = 0; j < i; j++) result += UPGRADE_BASE_INCREASE;
-            result += UPGRADE_BASE;
+    return result;
+}
+double MainUI::autUpgradeCost(int lv, int from, int to) {
+    double result = 0;
+
+    for(int i = from - 1; i < to - 1; i++) {
+        switch (lv) {
+        case 0: result += AUT260_COST[i]; break;
+        case 1: result += AUT270_COST[i]; break;
         }
-
-        if(from > 1) result -= upgradeMeso(1, from, discount);
-        return result;
     }
+
+    return result;
 }
 
-//被擊傷害 / 增傷
-void MainUI::ArcDamage(int x, int y) {
+//ARC被擊傷害 & 增傷
+void MainUI::arcDamage(int x, int y) {
     float percent = (float(x) / float(y)) * 100;
 
     for(int i = 0; i < 9; i++) {
-        if(percent < damageList[i]) {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
+        if(percent < damageList_arc[i]) {
+            ui->damage->setNum(damageList_arc[i]);
+            ui->hit_damage->setNum(hit_damageList_arc[i]);
             break;
         }
-        else if(percent >= damageList[i] && percent < damageList[i + 1]) {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
+        else if(percent >= damageList_arc[i] && percent < damageList_arc[i + 1]) {
+            ui->damage->setNum(damageList_arc[i]);
+            ui->hit_damage->setNum(hit_damageList_arc[i]);
             break;
         }
         else {
-            ui->damage->setNum(damageList[i]);
-            ui->hit_damage->setNum(hit_damageList[i]);
+            ui->damage->setNum(damageList_arc[i]);
+            ui->hit_damage->setNum(hit_damageList_arc[i]);
         }
     }
 
@@ -151,7 +151,7 @@ void MainUI::transArc(int lv, int arc) {
 
     for(int i = 0; i < lv; i++) {
         if(total >= upgradeList[lv - i - 1]) {
-            ui->transCost->setText(decimalSeparator(upgradeMeso(1, lv - i, ui->discountSwitch->isChecked())));
+            ui->transCost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), 1, lv - i)));
 
             ui->transLV_after->setNum(lv - i);
             ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);

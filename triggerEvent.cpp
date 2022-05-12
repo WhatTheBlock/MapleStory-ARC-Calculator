@@ -2,6 +2,7 @@
 
 #include "mainui.h"
 
+//變更視窗大小
 void MainUI::on_tabWidget_currentChanged(int index) {
     switch(index) {
     case 0: {
@@ -18,7 +19,6 @@ void MainUI::on_tabWidget_currentChanged(int index) {
     } break;
     }
 }
-
 
 void MainUI::on_Arc1LV_valueChanged(int lv) {
     arcLvChanged(ui->arcimg1, 0, lv);
@@ -97,37 +97,27 @@ void MainUI::on_mobbingMission_235_stateChanged() {
     on_d235_valueChanged();
 }
 
+void MainUI::on_targetArc_valueChanged() { dailyTask(); }
+
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
     ui->targetDate->setDate(date.addDays(day));
 }
 
+//ARC升級所需楓幣
+void MainUI::on_selectARC_currentIndexChanged(int index) {
+    ui->cost->setText(decimalSeparator(arcUpgradeCost(index, ui->ArcLV_from->value(), ui->ArcLV_to->value())));
+    transArc(ui->transLV_before->value(), ui->transArc_before->value());
+}
 void MainUI::on_ArcLV_from_valueChanged() {
     avoidError();
 
-    ui->cost->setText(decimalSeparator(upgradeMeso(ui->ArcLV_from->value(), ui->ArcLV_to->value(), ui->discountSwitch->isChecked())));
+    ui->cost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), ui->ArcLV_from->value(), ui->ArcLV_to->value())));
 }
 void MainUI::on_ArcLV_to_valueChanged() {
     on_ArcLV_from_valueChanged();
 }
-void MainUI::on_discountSwitch_stateChanged(int state) {
-    int from = ui->ArcLV_from->value();
-    int to = ui->ArcLV_to->value();
-    int lv = ui->transLV_before->value();
-    int arc = ui->transArc_before->value();
 
-    ui->cost->setText(decimalSeparator(upgradeMeso(from, to, state)));
-    transArc(lv, arc);
-}
-
-void MainUI::on_ArcDamage_x_valueChanged(int x) {
-    ArcDamage(x, ui->ArcDamage_y->value());
-}
-void MainUI::on_ArcDamage_y_valueChanged(int y) {
-    ArcDamage(ui->ArcDamage_x->value(), y);
-}
-
-void MainUI::on_targetArc_valueChanged() { dailyTask(); }
-
+//秘法觸媒
 void MainUI::on_transLV_before_valueChanged(int lv) {
     if(lv == ARCMAXLV) {
         ui->transArc_before->setValue(0);
@@ -149,25 +139,38 @@ void MainUI::on_transArc_before_valueChanged(int arc) {
     }
 }
 
+//ARC傷害計算
+void MainUI::on_ArcDamage_x_valueChanged(int x) {
+    arcDamage(x, ui->ArcDamage_y->value());
+}
+void MainUI::on_ArcDamage_y_valueChanged(int y) {
+    arcDamage(ui->ArcDamage_x->value(), y);
+}
+
+//極限屬性
 void MainUI::on_HyperStats_valueChanged(int lv) {
     hyperStats = hyperStatsList[lv];
     upgradeVal();
     dailyTask();
 }
+//公會技能
 void MainUI::on_GuildSkillLV_valueChanged(int lv) {
     guildSkill = guildSkillList[lv];
     upgradeVal();
     dailyTask();
 }
 
+//介紹文章
 void MainUI::on_bahamut_clicked() {
     QDesktopServices::openUrl(QUrl(BahamutURL));
 }
+
+//源碼
 void MainUI::on_github_clicked() {
     QDesktopServices::openUrl(QUrl(GithubURL));
 }
 
-//一鍵勾選打怪任務
+//勾選打怪任務
 void MainUI::on_allMobbing_clicked() {
     int temp = ui->targetArc->value();
     ui->targetArc->setValue(0);
