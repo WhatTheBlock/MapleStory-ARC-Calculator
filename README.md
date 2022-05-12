@@ -3,7 +3,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/app/WhatTheBlock/MapleStory-ARC-Calculator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 當前版本對應的遊戲版本為 TMS v242
+### 當前版本對應的遊戲版本為 TMS v242 (Beta : v244)
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
@@ -17,8 +17,10 @@ UI介面：
 Changelog：
 ----
 
-#### v2.9
+#### v2.9 (僅支援v244以後的版本)
 - (New) 新增AUT計算
+- 升級所需楓幣功能重構
+- 更新屬性增加量比率
 - 新增快捷鍵 
 - 新增快捷功能說明 (左右鍵或滑鼠滾輪可切換頁面)
 - 重新設計"其他功能"頁面
