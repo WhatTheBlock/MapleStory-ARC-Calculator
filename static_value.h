@@ -33,6 +33,9 @@
 #define D230_MOB 8
 #define D235_MIS 6
 #define D235_MOB 8
+#define D260_MOB 5
+#define D265_MOB 5
+#define D270_MOB 5
 
 //轉硬幣倍率
 #define ARC_TO_COIN_220 30
@@ -52,9 +55,9 @@ const double AUT270_COST[] = {2.039, 3.012, 3.985, 4.957, 5.931, 6.903, 7.877, 8
 
 //被擊傷害 & 增傷規則
 const int damageList_arc[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
-const int damageList_aut[] = {100, 150, 200};
+const int damageList_aut[] = {100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5};
+const int damageList_aut2[] = {100, 105, 110, 115, 120, 125};
 const int hit_damageList_arc[] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
-const int hit_damageList_aut[] = {125, 120, 115, 110, 105, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5};
 
 //極限屬性
 const int hyperStatsList[] = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100};
