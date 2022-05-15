@@ -69,7 +69,8 @@ private slots:
 
     void on_ArcDamage_x_valueChanged(int);
     void on_ArcDamage_y_valueChanged(int);
-
+    void on_AutDamage_x_valueChanged(int);
+    void on_AutDamage_y_valueChanged(int);
 
     void on_transLV_before_valueChanged(int);
     void on_transArc_before_valueChanged(int);
@@ -98,17 +99,18 @@ private:
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
     int arcUpgradeMeso[6], arcUpgradeDays[6];
-    int upgradeList[99];
+    int arcUpgradeList[ARCMAXLV];
+    int autUpgradeList[AUTMAXLV];
     int dailyGet[6];
     int day;
 
     int hyperStats;
     int guildSkill;
 
-    int ARC200_COST[19];
-    int ARC210_COST[19];
-    int ARC220_COST[19];
-    int ARC225_COST[19];
+    int ARC200_COST[ARCMAXLV];
+    int ARC210_COST[ARCMAXLV];
+    int ARC220_COST[ARCMAXLV];
+    int ARC225_COST[ARCMAXLV];
 
     void upgradeVal();
     void updateAp(int);
@@ -124,6 +126,7 @@ private:
     double autUpgradeCost(int, int, int);
 
     void arcDamage(int, int);
+    void autDamage(int, int);
     void transArc(int, int);
 
     void warningMsg(QString);

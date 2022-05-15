@@ -139,22 +139,34 @@ void MainUI::arcDamage(int x, int y) {
     }
 
     //1.5倍傷害需求尾數為5的值需額外加5
-    if((y * 15) % 100 == 50) ui->damage150->setNum(y * 1.5 + 5);
-    else ui->damage150->setNum(y * 1.5);
+    if((y * 15) % 100 == 50) ui->maxDamage_arc->setNum(y * 1.5 + 5);
+    else ui->maxDamage_arc->setNum(y * 1.5);
+}
+
+//AUT被擊傷害 & 增傷
+void MainUI::autDamage(int x, int y) {
+    if(x < y) {
+        if(y - x <= 100) ui->damage_aut->setNum(damageList_aut[(y - x) / 10]);
+        else ui->damage_aut->setNum(5);
+    }
+    else {
+        if(x - y <= 50) ui->damage_aut->setNum(damageList_aut2[(x - y) / 10]);
+        else ui->damage_aut->setNum(125);
+    }
 }
 
 //秘法觸媒
 void MainUI::transArc(int lv, int arc) {
     ui->transArc_before->setEnabled((lv == ARCMAXLV) ? false : true);
 
-    double total = floor((upgradeList[lv - 1] + arc) * 0.8);
+    double total = floor((arcUpgradeList[lv - 1] + arc) * 0.8);
 
     for(int i = 0; i < lv; i++) {
-        if(total >= upgradeList[lv - i - 1]) {
+        if(total >= arcUpgradeList[lv - i - 1]) {
             ui->transCost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), 1, lv - i)));
 
             ui->transLV_after->setNum(lv - i);
-            ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
+            ui->transArc_after->setNum(total - arcUpgradeList[lv - i - 1]);
             break;
         }
     }

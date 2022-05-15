@@ -146,6 +146,14 @@ void MainUI::on_ArcDamage_x_valueChanged(int x) {
 void MainUI::on_ArcDamage_y_valueChanged(int y) {
     arcDamage(ui->ArcDamage_x->value(), y);
 }
+//AUT傷害計算
+void MainUI::on_AutDamage_x_valueChanged(int x) {
+    autDamage(x, ui->AutDamage_y->value());
+}
+void MainUI::on_AutDamage_y_valueChanged(int y) {
+    autDamage(ui->AutDamage_x->value(), y);
+    ui->maxDamage_aut->setNum(y + 50);
+}
 
 //極限屬性
 void MainUI::on_HyperStats_valueChanged(int lv) {
