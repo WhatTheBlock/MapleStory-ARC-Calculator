@@ -5,7 +5,7 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     dailyTask();
 
     //升級所需楓幣
-    arcUpgradeMeso[arc] = arcUpgradeCost(arc, lv, lv + 1);
+    if(lv != 99) arcUpgradeMeso[arc] = arcUpgradeCost(arc, lv, lv + 1);
 
     //升級所需天數
     int temp = ArcCurrent[arc]->value();
