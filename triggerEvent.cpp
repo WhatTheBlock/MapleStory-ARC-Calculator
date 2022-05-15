@@ -109,12 +109,32 @@ void MainUI::on_selectARC_currentIndexChanged(int index) {
     transArc(ui->transLV_before->value(), ui->transArc_before->value());
 }
 void MainUI::on_ArcLV_from_valueChanged() {
-    avoidError();
+    if(ui->ArcLV_from->value() > ui->ArcLV_to->value()) {
+        ui->ArcLV_from->setValue(ui->ArcLV_to->value());
+    }
 
     ui->cost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), ui->ArcLV_from->value(), ui->ArcLV_to->value())));
 }
 void MainUI::on_ArcLV_to_valueChanged() {
     on_ArcLV_from_valueChanged();
+}
+//AUT升級所需楓幣
+void MainUI::on_selectAUT_currentIndexChanged(int index) {
+    if(ui->AutLV_from->value() == ui->AutLV_to->value())
+        ui->cost_aut->setText("0");
+    else
+        ui->cost_aut->setText(QString::number(autUpgradeCost(index, ui->AutLV_from->value(), ui->AutLV_to->value())) + QStringLiteral("億"));
+}
+void MainUI::on_AutLV_from_valueChanged() {
+    if(ui->AutLV_from->value() > ui->AutLV_to->value())
+        ui->AutLV_from->setValue(ui->AutLV_to->value());
+    else if(ui->AutLV_from->value() == ui->AutLV_to->value())
+        ui->cost_aut->setText("0");
+    else
+        ui->cost_aut->setText(QString::number(autUpgradeCost(ui->selectAUT->currentIndex(), ui->AutLV_from->value(), ui->AutLV_to->value())) + QStringLiteral("億"));
+}
+void MainUI::on_AutLV_to_valueChanged() {
+    on_AutLV_from_valueChanged();
 }
 
 //秘法觸媒

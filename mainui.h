@@ -64,6 +64,9 @@ private slots:
     void on_selectARC_currentIndexChanged(int);
     void on_ArcLV_from_valueChanged();
     void on_ArcLV_to_valueChanged();
+    void on_selectAUT_currentIndexChanged(int);
+    void on_AutLV_from_valueChanged();
+    void on_AutLV_to_valueChanged();
 
     void on_targetArc_valueChanged();
 
