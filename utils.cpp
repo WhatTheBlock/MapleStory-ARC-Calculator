@@ -17,22 +17,17 @@ QString MainUI::decimalSeparator(int n){
 }
 
 void MainUI::avoidError() {
-    //升級所需楓幣
-    if(ui->ArcLV_from->value() > ui->ArcLV_to->value()) {
-        ui->ArcLV_from->setValue(ui->ArcLV_to->value());
-    }
-    else {
-        for(int i = 0; i < 6; i++) {
-            arcLV = ArcLV[i]->value();
-            arcCurrent = ArcCurrent[i]->value();
-            arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
+    //更新變數避免計算錯誤
+    for(int i = 0; i < 6; i++) {
+        arcLV = ArcLV[i]->value();
+        arcCurrent = ArcCurrent[i]->value();
+        arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
 
-            if(arcCurrent > arcUpgradeInt[i]) {
-                if(arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
-                    ArcCurrent[i]->setValue(arcUpgradeInt[i]);
-                }
-                else ArcCurrent[i]->setValue(0);
+        if(arcCurrent > arcUpgradeInt[i]) {
+            if(arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
+                ArcCurrent[i]->setValue(arcUpgradeInt[i]);
             }
+            else ArcCurrent[i]->setValue(0);
         }
     }
 }
@@ -139,22 +134,41 @@ void MainUI::arcDamage(int x, int y) {
     }
 
     //1.5倍傷害需求尾數為5的值需額外加5
-    if((y * 15) % 100 == 50) ui->damage150->setNum(y * 1.5 + 5);
-    else ui->damage150->setNum(y * 1.5);
+    if((y * 15) % 100 == 50) ui->maxDamage_arc->setNum(y * 1.5 + 5);
+    else ui->maxDamage_arc->setNum(y * 1.5);
+}
+
+//AUT被擊傷害 & 增傷
+void MainUI::autDamage(int x, int y) {
+    if(x < y) {
+        if(y - x <= 100) {
+            ui->damage_aut->setNum(damageList_aut[(y - x) / 10]);
+            ui->hit_damage_aut->setNum(hit_damageList_aut[(y - x) / 10]);
+        }
+        else {
+            ui->damage_aut->setNum(5);
+            ui->hit_damage_aut->setNum(200);
+        }
+    }
+    else {
+        if(x - y <= 50) ui->damage_aut->setNum(damageList_aut2[(x - y) / 10]);
+        else ui->damage_aut->setNum(125);
+        ui->hit_damage_aut->setNum(100);
+    }
 }
 
 //秘法觸媒
 void MainUI::transArc(int lv, int arc) {
     ui->transArc_before->setEnabled((lv == ARCMAXLV) ? false : true);
 
-    double total = floor((upgradeList[lv - 1] + arc) * 0.8);
+    double total = floor((arcUpgradeList[lv - 1] + arc) * 0.8);
 
     for(int i = 0; i < lv; i++) {
-        if(total >= upgradeList[lv - i - 1]) {
+        if(total >= arcUpgradeList[lv - i - 1]) {
             ui->transCost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), 1, lv - i)));
 
             ui->transLV_after->setNum(lv - i);
-            ui->transArc_after->setNum(total - upgradeList[lv - i - 1]);
+            ui->transArc_after->setNum(total - arcUpgradeList[lv - i - 1]);
             break;
         }
     }

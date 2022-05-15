@@ -194,7 +194,7 @@ void MainUI::dailyTask() {
 
                 if(arcLV == 0) current[i] = 0;
                 else {
-                    current[i] = upgradeList[arcLV - 1] + arcCurrent;
+                    current[i] = arcUpgradeList[arcLV - 1] + arcCurrent;
                     if(i == 2) current[i] *= ARC_TO_COIN_220; //拉契爾恩轉換為硬幣來計算
                     else if (i == 3) current[i] *= ARC_TO_COIN_225; //阿爾卡娜轉換為硬幣來計算
                 }
@@ -216,7 +216,7 @@ void MainUI::dailyTask() {
                         default: a2c = 1; break;
                         }
 
-                        if(current[i] >= (upgradeList[arcLV + cntLv[i]] * a2c)) {
+                        if(current[i] >= (arcUpgradeList[arcLV + cntLv[i]] * a2c)) {
                             (arcLV + cntLv[i] == 0) ? count += 30 : count += 10;
                             cntLv[i]++;
                         }

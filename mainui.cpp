@@ -45,8 +45,12 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->d235->setMaximum(D235_MIS);
     ui->ArcLV_to->setMaximum(ARCMAXLV);
     ui->ArcLV_from->setMaximum(ARCMAXLV - 1);
+    ui->AutLV_to->setMaximum(AUTMAXLV);
+    ui->AutLV_from->setMaximum(AUTMAXLV - 1);
     ui->ArcDamage_x->setMaximum(ARCMAX);
     ui->ArcDamage_y->setMaximum(ARCMAX_MOB);
+    ui->AutDamage_x->setMaximum(AUTMAX);
+    ui->AutDamage_y->setMaximum(AUTMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
 
     //設定日期為電腦當前時間
@@ -54,11 +58,12 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->targetDate->setDate(QDate::currentDate());
 
     //累加各階ARC升級數量，Lv1=12、Lv2=27、Lv3=47...
-    for(int i = 1; i < ARCMAXLV; i++){
-        if(i != 1) upgradeList[i] = i * i + 11 + upgradeList[i - 1];
-        else upgradeList[i] = i * i + 11;
-    }
-    upgradeList[0] = 0;
+    arcUpgradeList[0] = 0;
+    for(int i = 1; i < ARCMAXLV; i++) arcUpgradeList[i] = i * i + 11 + arcUpgradeList[i - 1];
+
+    //累加各階AUT升級數量，Lv1=29、Lv2=105、Lv3=246...
+    autUpgradeList[0] = 0;
+    for(int i = 1; i < AUTMAXLV; i++) autUpgradeList[i] = 9 * i * i + 20 * i + autUpgradeList[i - 1];
 
     //極限屬性
     hyperStats = 0;
