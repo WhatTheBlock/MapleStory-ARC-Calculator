@@ -58,6 +58,7 @@ const int damageList_arc[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
 const int damageList_aut[] = {100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5};
 const int damageList_aut2[] = {100, 105, 110, 115, 120, 125};
 const int hit_damageList_arc[] = {280, 240, 180, 160, 140, 100, 80, 40, 0};
+const int hit_damageList_aut[] = {100, 150, 150, 150, 150, 150, 200, 200, 200, 200, 200};
 
 //極限屬性
 const int hyperStatsList[] = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100};

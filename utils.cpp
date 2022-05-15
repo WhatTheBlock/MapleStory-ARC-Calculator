@@ -146,12 +146,19 @@ void MainUI::arcDamage(int x, int y) {
 //AUT被擊傷害 & 增傷
 void MainUI::autDamage(int x, int y) {
     if(x < y) {
-        if(y - x <= 100) ui->damage_aut->setNum(damageList_aut[(y - x) / 10]);
-        else ui->damage_aut->setNum(5);
+        if(y - x <= 100) {
+            ui->damage_aut->setNum(damageList_aut[(y - x) / 10]);
+            ui->hit_damage_aut->setNum(hit_damageList_aut[(y - x) / 10]);
+        }
+        else {
+            ui->damage_aut->setNum(5);
+            ui->hit_damage_aut->setNum(200);
+        }
     }
     else {
         if(x - y <= 50) ui->damage_aut->setNum(damageList_aut2[(x - y) / 10]);
         else ui->damage_aut->setNum(125);
+        ui->hit_damage_aut->setNum(100);
     }
 }
 
