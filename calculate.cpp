@@ -4,131 +4,86 @@
 void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     dailyTask();
 
-    //升級所需楓幣
-    if(lv != 99) arcUpgradeMeso[arc] = arcUpgradeCost(arc, lv, lv + 1);
+    int dailyGet[6] = { 0 };
+    dailyGet[0] = ui->d200->value();
+    dailyGet[1] = ui->d210->value();
+    dailyGet[2] = ui->d220->value();
+    dailyGet[3] = ui->d225->value();
+    dailyGet[4] = ui->d230->value();
+    dailyGet[5] = ui->d235->value();
 
-    //升級所需天數
+    bool mobbingMissionState[6] = { 0 };
+    mobbingMissionState[0] = ui->mobbingMission_200->isChecked();
+    mobbingMissionState[1] = ui->mobbingMission_210->isChecked();
+    mobbingMissionState[2] = ui->mobbingMission_220->isChecked();
+    mobbingMissionState[3] = ui->mobbingMission_225->isChecked();
+    mobbingMissionState[4] = ui->mobbingMission_230->isChecked();
+    mobbingMissionState[5] = ui->mobbingMission_235->isChecked();
+
+    int mobbingMission[6] = { 0 };
+    mobbingMission[0] = D200_MOB;
+    mobbingMission[1] = D210_MOB;
+    mobbingMission[2] = D220_MOB;
+    mobbingMission[3] = D225_MOB;
+    mobbingMission[4] = D230_MOB;
+    mobbingMission[5] = D235_MOB;
+
+    int characterLV = ui->characterLV->value();
+
+    //升級所需楓幣
+    arcUpgradeMeso[arc] = (lv != 99) ? arcUpgradeCost(arc, lv, lv + 1) : 0;
+
+    //升級 & 滿級所需天數
     int temp = ArcCurrent[arc]->value();
     arcUpgradeDays[arc] = 0;
+    arcMaxDays[arc] = 0;
+
+    bool invalid = false;
 
     switch (arc) {
-    case 0:
-        while(temp < ArcUpgrade[arc]->text().toInt()) {
-            if(ui->d200->value() == 0) {
-                if(ui->mobbingMission_200->isChecked()) {
-                    temp += (ui->characterLV->value() >= 205) ? D200_MOB + D205_MOB : D200_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
-            }
-            else {
-                if(ui->mobbingMission_200->isChecked())
-                    temp += (ui->characterLV->value() >= 205) ? ui->d200->value() + D200_MOB + D205_MOB : ui->d200->value() + D200_MOB;
-                else temp += ui->d200->value();
-                arcUpgradeDays[arc]++;
-            }
-        } break;
-    case 1:
-        while(temp < ArcUpgrade[arc]->text().toInt()) {
-            if(ui->d210->value() == 0) {
-                if(ui->mobbingMission_210->isChecked()) {
-                    temp += (ui->characterLV->value() >= 215) ? D210_MOB + D215_MOB : D210_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
-            }
-            else {
-                if(ui->mobbingMission_210->isChecked())
-                    temp += (ui->characterLV->value() >= 215) ? ui->d210->value() + D210_MOB + D215_MOB : ui->d210->value() + D210_MOB;
-                else temp += ui->d210->value();
-                arcUpgradeDays[arc]++;
-            }
-        } break;
     case 2:
         temp *= ARC_TO_COIN_220;
         while(temp < ArcUpgrade[arc]->text().toInt() * ARC_TO_COIN_220) {
-            if(ui->d220->value() == 0) {
-                if(ui->mobbingMission_220->isChecked()) {
-                    temp += D220_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
+            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
+                invalid = true;
+                break;
             }
             else {
-                temp += (ui->mobbingMission_220->isChecked()) ? ui->d220->value() + D220_MOB : ui->d220->value();
+                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
+                temp += dailyGet[arc];
                 arcUpgradeDays[arc]++;
             }
         } break;
     case 3:
         temp *= ARC_TO_COIN_225;
         while(temp < ArcUpgrade[arc]->text().toInt() * ARC_TO_COIN_225) {
-            if(ui->d225->value() == 0) {
-                if(ui->mobbingMission_225->isChecked()) {
-                    temp += D225_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
+            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
+                invalid = true;
+                break;
             }
             else {
-                temp += (ui->mobbingMission_225->isChecked()) ? ui->d225->value() + D225_MOB : ui->d225->value();
+                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
+                temp += dailyGet[arc];
                 arcUpgradeDays[arc]++;
             }
         } break;
-    case 4:
+    default:
         while(temp < ArcUpgrade[arc]->text().toInt()) {
-            if(ui->d230->value() == 0) {
-                if(ui->mobbingMission_230->isChecked()) {
-                    temp += D230_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
+            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
+                invalid = true;
+                break;
             }
             else {
-                temp += (ui->mobbingMission_230->isChecked()) ? ui->d230->value() + D230_MOB : ui->d230->value();
+                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
+                if(arc == 0 && characterLV >= 205) temp += D205_MOB;
+                else if(arc == 1 && characterLV >= 215) temp += D215_MOB;
+                temp += dailyGet[arc];
                 arcUpgradeDays[arc]++;
             }
-        } break;
-    case 5:
-        while(temp < ArcUpgrade[arc]->text().toInt()) {
-            if(ui->d235->value() == 0) {
-                if(ui->mobbingMission_235->isChecked()) {
-                    temp += D235_MOB;
-                    arcUpgradeDays[arc]++;
-                }
-                else {
-                    arcUpgradeDays[arc] = 9999;
-                    break;
-                }
-            }
-            else {
-                temp += (ui->mobbingMission_235->isChecked()) ? ui->d235->value() + D235_MOB : ui->d235->value();
-                arcUpgradeDays[arc]++;
-            }
-        } break;
+        }
     }
 
-    //若所需天數無窮大時
-    if(arcUpgradeDays[arc] >= 9999) {
-        arcimg->setToolTip(
-                    QStringLiteral("升級所需楓幣：%1\n升級所需天數：?\n升級日期：?")
-                        .arg(decimalSeparator(arcUpgradeMeso[arc]))
-        );
-    }
+    if(invalid) arcimg->setToolTip(QStringLiteral("升級所需楓幣：?\n升級所需天數：?\n升級日期：?"));
     else {
         arcimg->setToolTip(
                     QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2\n升級日期：%3")
