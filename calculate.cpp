@@ -1,7 +1,7 @@
 ﻿#include "mainui.h"
 
 //更新各ARC的升級資訊
-void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
+void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
     dailyTask();
 
     int dailyGet[6] = { 0 };
@@ -28,68 +28,65 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc, int lv) {
     mobbingMission[4] = D230_MOB;
     mobbingMission[5] = D235_MOB;
 
+    int arcLv = ArcLV[arc]->value();
     int characterLV = ui->characterLV->value();
+    int arcVal = ArcCurrent[arc]->value();
+    int arcVal_max = arcUpgradeList[arcLv - 1] + arcVal;
+    int target = ArcUpgrade[arc]->text().toInt();
+    int target_max = ARCMAXTOTAL;
 
-    //升級所需楓幣
-    arcUpgradeMeso[arc] = (lv != 99) ? arcUpgradeCost(arc, lv, lv + 1) : 0;
+    //升級 & 滿級所需楓幣
+    arcUpgradeMeso[arc] = arcUpgradeCost(arc, arcLv, arcLv + 1);
+    arcUpgradeMeso_max[arc] = arcUpgradeCost(arc, arcLv, ARCMAXLV);
 
     //升級 & 滿級所需天數
-    int temp = ArcCurrent[arc]->value();
     arcUpgradeDays[arc] = 0;
     arcMaxDays[arc] = 0;
 
-    bool invalid = false;
-
-    switch (arc) {
-    case 2:
-        temp *= ARC_TO_COIN_220;
-        while(temp < ArcUpgrade[arc]->text().toInt() * ARC_TO_COIN_220) {
-            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
-                invalid = true;
-                break;
-            }
-            else {
-                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
-                temp += dailyGet[arc];
-                arcUpgradeDays[arc]++;
-            }
-        } break;
-    case 3:
-        temp *= ARC_TO_COIN_225;
-        while(temp < ArcUpgrade[arc]->text().toInt() * ARC_TO_COIN_225) {
-            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
-                invalid = true;
-                break;
-            }
-            else {
-                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
-                temp += dailyGet[arc];
-                arcUpgradeDays[arc]++;
-            }
-        } break;
-    default:
-        while(temp < ArcUpgrade[arc]->text().toInt()) {
-            if(dailyGet[arc] == 0 && !mobbingMissionState[arc]) {
-                invalid = true;
-                break;
-            }
-            else {
-                if(mobbingMissionState[arc]) temp += mobbingMission[arc];
-                if(arc == 0 && characterLV >= 205) temp += D205_MOB;
-                else if(arc == 1 && characterLV >= 215) temp += D215_MOB;
-                temp += dailyGet[arc];
-                arcUpgradeDays[arc]++;
-            }
-        }
+    if(arcLv == 0 || (dailyGet[arc] == 0 && !mobbingMissionState[arc])) {
+        arcimg->setToolTip(QStringLiteral("升級所需楓幣：?\n升級所需天數：?\n升級日期：?\n-\n滿級所需楓幣：?\n滿級所需天數：?\n滿級日期：?"));
     }
-
-    if(invalid) arcimg->setToolTip(QStringLiteral("升級所需楓幣：?\n升級所需天數：?\n升級日期：?"));
     else {
-        arcimg->setToolTip(
-                    QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2\n升級日期：%3")
-                        .arg(decimalSeparator(arcUpgradeMeso[arc]))
-                        .arg(arcUpgradeDays[arc])
-                        .arg(ui->startDate->date().addDays(arcUpgradeDays[arc]).toString("yyyy/MM/dd"))
+        if(arc == 2) {
+            arcVal *= ARC_TO_COIN_220;
+            arcVal_max *= ARC_TO_COIN_220;
+            target *=  ARC_TO_COIN_220;
+            target_max *=  ARC_TO_COIN_220;
+        }
+        else if(arc == 3) {
+            arcVal *= ARC_TO_COIN_225;
+            arcVal_max *= ARC_TO_COIN_225;
+            target *= ARC_TO_COIN_225;
+            target_max *=  ARC_TO_COIN_225;
+        }
+
+        while(arcVal < target) {
+            if(mobbingMissionState[arc]) {
+                arcVal += mobbingMission[arc];
+                if(arc == 0 && characterLV >= 205) arcVal += D205_MOB;
+                else if(arc == 1 && characterLV >= 215) arcVal += D215_MOB;
+            }
+            arcVal += dailyGet[arc];
+            arcUpgradeDays[arc]++;
+        }
+
+        while(arcVal_max < target_max) {
+            if(mobbingMissionState[arc]) {
+                arcVal_max += mobbingMission[arc];
+                if(arc == 0 && characterLV >= 205) arcVal_max += D205_MOB;
+                else if(arc == 1 && characterLV >= 215) arcVal_max += D215_MOB;
+            }
+            arcVal_max += dailyGet[arc];
+            arcMaxDays[arc]++;
+        }
+
+        arcimg->setToolTip(QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2\n升級日期：%3\n-\n滿級所需楓幣：%4\n滿級所需天數：%5\n滿級日期：%6")
+                    .arg(decimalSeparator(arcUpgradeMeso[arc]))
+                    .arg(arcUpgradeDays[arc])
+                    .arg(ui->startDate->date().addDays(arcUpgradeDays[arc]).toString("yyyy/MM/dd"))
+                    .arg(decimalSeparator(arcUpgradeMeso_max[arc]))
+                    .arg(arcMaxDays[arc])
+                    .arg(ui->startDate->date().addDays(arcMaxDays[arc]).toString("yyyy/MM/dd"))
         );
     }
 }

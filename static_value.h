@@ -11,6 +11,7 @@
 #define ARCMAX_MOB 1320     //怪物最高ARC (黑魔法師)
 #define AUTMAX_MOB 300      //怪物最高AUT (凱羅斯)
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
+#define ARCMAXTOTAL 2679    //ARC升級至上限的總數
 
 //職業屬性增加量比率
 #define NORMAL_ARC 10

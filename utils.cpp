@@ -190,8 +190,8 @@ void MainUI::clearMission() {
     ui->d235->setValue(0);
 }
 
-void MainUI::arcLvChanged(QLabel* arcimg, int arc, int lv) {
+void MainUI::arcLvChanged(QLabel* arcimg, int arc) {
     upgradeVal();
     updateAp(ArcMode->currentIndex());
-    updateArcToolTips(arcimg, arc, lv);
+    updateArcToolTips(arcimg, arc);
 }

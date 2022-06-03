@@ -27,12 +27,12 @@ public:
     ~MainUI();
 
 private slots:
-    void on_Arc1LV_valueChanged(int);
-    void on_Arc2LV_valueChanged(int);
-    void on_Arc3LV_valueChanged(int);
-    void on_Arc4LV_valueChanged(int);
-    void on_Arc5LV_valueChanged(int);
-    void on_Arc6LV_valueChanged(int);
+    void on_Arc1LV_valueChanged();
+    void on_Arc2LV_valueChanged();
+    void on_Arc3LV_valueChanged();
+    void on_Arc4LV_valueChanged();
+    void on_Arc5LV_valueChanged();
+    void on_Arc6LV_valueChanged();
 
     void on_ArcMode_currentIndexChanged(int);
 
@@ -101,7 +101,8 @@ private:
     QUrl url;
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
-    int arcUpgradeMeso[6], arcUpgradeDays[6], arcMaxDays[6];
+    int arcUpgradeMeso[6], arcUpgradeMeso_max[6];
+    int arcUpgradeDays[6], arcMaxDays[6];
     int arcUpgradeList[ARCMAXLV];
     int autUpgradeList[AUTMAXLV];
     int dailyGet[6];
@@ -118,11 +119,11 @@ private:
     void upgradeVal();
     void updateAp(int);
     void updateArc();
-    void arcLvChanged(QLabel*, int, int);
+    void arcLvChanged(QLabel*, int);
     void avoidError();
     void clearMission();
 
-    void updateArcToolTips(QLabel*, int, int);
+    void updateArcToolTips(QLabel*, int);
     void dailyTask();
 
     int arcUpgradeCost(int, int, int);

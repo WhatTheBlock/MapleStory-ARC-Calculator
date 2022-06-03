@@ -20,78 +20,78 @@ void MainUI::on_tabWidget_currentChanged(int index) {
     }
 }
 
-void MainUI::on_Arc1LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg1, 0, lv);
+void MainUI::on_Arc1LV_valueChanged() {
+    arcLvChanged(ui->arcimg1, 0);
 }
-void MainUI::on_Arc2LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg2, 1, lv);
+void MainUI::on_Arc2LV_valueChanged() {
+    arcLvChanged(ui->arcimg2, 1);
 }
-void MainUI::on_Arc3LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg3, 2, lv);
+void MainUI::on_Arc3LV_valueChanged() {
+    arcLvChanged(ui->arcimg3, 2);
 }
-void MainUI::on_Arc4LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg4, 3, lv);
+void MainUI::on_Arc4LV_valueChanged() {
+    arcLvChanged(ui->arcimg4, 3);
 }
-void MainUI::on_Arc5LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg5, 4, lv);
+void MainUI::on_Arc5LV_valueChanged() {
+    arcLvChanged(ui->arcimg5, 4);
 }
-void MainUI::on_Arc6LV_valueChanged(int lv) {
-    arcLvChanged(ui->arcimg6, 5, lv);
+void MainUI::on_Arc6LV_valueChanged() {
+    arcLvChanged(ui->arcimg6, 5);
 }
 
 void MainUI::on_Arc1current_valueChanged() {
-    updateArcToolTips(ui->arcimg1, 0, 99);
+    updateArcToolTips(ui->arcimg1, 0);
 }
 void MainUI::on_Arc2current_valueChanged() {
-    updateArcToolTips(ui->arcimg2, 1, 99);
+    updateArcToolTips(ui->arcimg2, 1);
 }
 void MainUI::on_Arc3current_valueChanged() {
-    updateArcToolTips(ui->arcimg3, 2, 99);
+    updateArcToolTips(ui->arcimg3, 2);
 }
 void MainUI::on_Arc4current_valueChanged() {
-    updateArcToolTips(ui->arcimg4, 3, 99);
+    updateArcToolTips(ui->arcimg4, 3);
 }
 void MainUI::on_Arc5current_valueChanged() {
-    updateArcToolTips(ui->arcimg5, 4, 99);
+    updateArcToolTips(ui->arcimg5, 4);
 }
 void MainUI::on_Arc6current_valueChanged() {
-    updateArcToolTips(ui->arcimg6, 5, 99);
+    updateArcToolTips(ui->arcimg6, 5);
 }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 
 void MainUI::on_d200_valueChanged() {
-    updateArcToolTips(ui->arcimg1, 0, 99);
+    updateArcToolTips(ui->arcimg1, 0);
 }
 void MainUI::on_mobbingMission_200_stateChanged() {
     on_d200_valueChanged();
 }
 void MainUI::on_d210_valueChanged() {
-    updateArcToolTips(ui->arcimg2, 1, 99);
+    updateArcToolTips(ui->arcimg2, 1);
 }
 void MainUI::on_mobbingMission_210_stateChanged() {
     on_d210_valueChanged();
 }
 void MainUI::on_d220_valueChanged() {
-    updateArcToolTips(ui->arcimg3, 2, 99);
+    updateArcToolTips(ui->arcimg3, 2);
 }
 void MainUI::on_mobbingMission_220_stateChanged() {
     on_d220_valueChanged();
 }
 void MainUI::on_d225_valueChanged() {
-    updateArcToolTips(ui->arcimg4, 3, 99);
+    updateArcToolTips(ui->arcimg4, 3);
 }
 void MainUI::on_mobbingMission_225_stateChanged() {
     on_d225_valueChanged();
 }
 void MainUI::on_d230_valueChanged() {
-    updateArcToolTips(ui->arcimg5, 4, 99);
+    updateArcToolTips(ui->arcimg5, 4);
 }
 void MainUI::on_mobbingMission_230_stateChanged() {
     on_d230_valueChanged();
 }
 void MainUI::on_d235_valueChanged() {
-    updateArcToolTips(ui->arcimg6, 5, 99);
+    updateArcToolTips(ui->arcimg6, 5);
 }
 void MainUI::on_mobbingMission_235_stateChanged() {
     on_d235_valueChanged();
