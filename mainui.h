@@ -101,7 +101,7 @@ private:
     QUrl url;
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
-    int arcUpgradeMeso[6], arcUpgradeDays[6];
+    int arcUpgradeMeso[6], arcUpgradeDays[6], arcMaxDays[6];
     int arcUpgradeList[ARCMAXLV];
     int autUpgradeList[AUTMAXLV];
     int dailyGet[6];
