@@ -1,7 +1,7 @@
 新楓之谷 ARC / AUT 計算機
 =====
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/app/WhatTheBlock/MapleStory-ARC-Calculator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/gh/WhatTheBlock/MapleStory-ARC-Calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
 ### 當前版本對應的遊戲版本為 TMS v244
 
