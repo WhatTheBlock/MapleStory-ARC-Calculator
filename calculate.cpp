@@ -107,7 +107,6 @@ void MainUI::updateAutToolTips(QLabel* autimg, int aut) {
     int autVal = AutCurrent[aut]->value();
     int autVal_max = autUpgradeList[autLv - 1] + autVal;
     int target = AutUpgrade[aut]->text().toInt();
-    int target_max = AUTMAXTOTAL;
 
     //升級 & 滿級所需楓幣
     autUpgradeMeso[aut] = autUpgradeCost(aut, autLv, autLv + 1);
@@ -127,7 +126,7 @@ void MainUI::updateAutToolTips(QLabel* autimg, int aut) {
             autUpgradeDays[aut]++;
         }
 
-        while(autVal_max < target_max) {
+        while(autVal_max < AUTMAXTOTAL) {
             autVal_max += mobbingMission[aut];
             if(aut == 0 && ui->mob265->isChecked()) autVal_max += D265_MOB;
             autMaxDays[aut]++;
