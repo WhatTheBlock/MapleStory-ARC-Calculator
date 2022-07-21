@@ -91,7 +91,60 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
     }
 }
 
-//計算到達目標所需時間
+//更新各AUT的升級資訊
+void MainUI::updateAutToolTips(QLabel* autimg, int aut) {
+    dailyTask_aut();
+
+    bool mobbingMissionState[3] = { 0 };
+    mobbingMissionState[0] = ui->mobbingMission_260->isChecked();
+    mobbingMissionState[1] = ui->mobbingMission_270->isChecked();
+
+    int mobbingMission[3] = { 0 };
+    mobbingMission[0] = D260_MOB;
+    mobbingMission[1] = D270_MOB;
+
+    int autLv = AutLV[aut]->value();
+    int autVal = AutCurrent[aut]->value();
+    int autVal_max = autUpgradeList[autLv - 1] + autVal;
+    int target = AutUpgrade[aut]->text().toInt();
+    int target_max = AUTMAXTOTAL;
+
+    //升級 & 滿級所需楓幣
+    autUpgradeMeso[aut] = autUpgradeCost(aut, autLv, autLv + 1);
+    autUpgradeMeso_max[aut] = autUpgradeCost(aut, autLv, AUTMAXLV);
+
+    //升級 & 滿級所需天數
+    autUpgradeDays[aut] = 0;
+    autMaxDays[aut] = 0;
+
+    if(autLv == 0 || !mobbingMissionState[aut]) {
+        autimg->setToolTip(QStringLiteral("升級所需楓幣：?\n升級所需天數：?\n升級日期：?\n-\n滿級所需楓幣：?\n滿級所需天數：?\n滿級日期：?"));
+    }
+    else {
+        while(autVal < target) {
+            autVal += mobbingMission[aut];
+            if(aut == 0 && ui->mob265->isChecked()) autVal += D265_MOB;
+            autUpgradeDays[aut]++;
+        }
+
+        while(autVal_max < target_max) {
+            autVal_max += mobbingMission[aut];
+            if(aut == 0 && ui->mob265->isChecked()) autVal_max += D265_MOB;
+            autMaxDays[aut]++;
+        }
+
+        autimg->setToolTip(QStringLiteral("升級所需楓幣：%1億\n升級所需天數：%2\n升級日期：%3\n-\n滿級所需楓幣：%4億\n滿級所需天數：%5\n滿級日期：%6")
+                    .arg(autUpgradeMeso[aut])
+                    .arg(autUpgradeDays[aut])
+                    .arg(ui->startDate_aut->date().addDays(autUpgradeDays[aut]).toString("yyyy/MM/dd"))
+                    .arg(autUpgradeMeso_max[aut])
+                    .arg(autMaxDays[aut])
+                    .arg(ui->startDate_aut->date().addDays(autMaxDays[aut]).toString("yyyy/MM/dd"))
+        );
+    }
+}
+
+//計算到達目標ARC所需時間
 void MainUI::dailyTask() {
     int targetArc = ui->targetArc->value();
     int maxReachArc = hyperStats + guildSkill; //計算前先加上極限屬性 & 公會技能增加的ARC
@@ -178,6 +231,79 @@ void MainUI::dailyTask() {
             }
             ui->targetDays->setNum(day);
             ui->targetDate->setDate(ui->startDate->date().addDays(day));
+        }
+    }
+}
+
+//計算到達目標AUT所需時間
+void MainUI::dailyTask_aut() {
+    int targetAut = ui->targetAut->value();
+    int maxReachAut = 0;
+    day = 0;
+
+    //計算前先偵錯
+    avoidError();
+
+    //若已達到
+    if(targetAut <= AutTotal->text().toInt()) {
+        ui->targetDays_aut->setNum(0);
+        ui->targetDate_aut->setDate(ui->startDate_aut->date());
+    }
+    //若未達到
+    else {
+        if(ui->mobbingMission_260->isChecked())
+            dailyGet[0] = (ui->mob265->isChecked()) ? D260_MOB + D265_MOB : D260_MOB;
+        else dailyGet[0] = 0;
+        dailyGet[1] = (ui->mobbingMission_270->isChecked()) ? D270_MOB : 0;
+
+        //計算可能達到的最高AUT
+        for(int i = 0; i < 2; i++){
+            autLV = AutLV[i]->value();
+            if(dailyGet[i] != 0) maxReachAut += 110;
+            else if(autLV != 0) maxReachAut += autLV * 10;
+        }
+        //-------------------------------------------------------------
+        //目標AUT超過可能達到的最高值，停止計算
+        if(targetAut > maxReachAut) {
+            warningMsg(QStringLiteral("目標訂太高了，無法達到 OAO"));
+            ui->targetAut->setValue(0);
+        }
+        else {
+            int count = AutTotal->text().toInt();
+            int current[3];
+            int cntLv[3];
+
+            //如果目標AUT不為10的倍數則無條件進位
+            if((targetAut % 10) != 0) targetAut += 10 - (targetAut % 10);
+
+            //計算目前各AUT累積量
+            for(int i = 0; i < 2; i++) {
+                cntLv[i] = 0;
+                autLV = AutLV[i]->value();
+                autCurrent = AutCurrent[i]->value();
+
+                if(autLV == 0) current[i] = 0;
+                else current[i] = autUpgradeList[autLV - 1] + autCurrent;
+            }
+
+            //迴圈一次等於過一天
+            while(count < targetAut) {
+                for(int i = 0; i < 2; i++){
+                    autLV = AutLV[i]->value();
+                    //當前等級+暫存等級小於上限且一天可獲得數量大於0
+                    if((autLV + cntLv[i]) < AUTMAXLV && dailyGet[i] > 0){
+                        current[i] += dailyGet[i];
+
+                        if(current[i] >= (autUpgradeList[autLV + cntLv[i]])) {
+                            count += 10;
+                            cntLv[i]++;
+                        }
+                    }
+                }
+                day++;
+            }
+            ui->targetDays_aut->setNum(day);
+            ui->targetDate_aut->setDate(ui->startDate_aut->date().addDays(day));
         }
     }
 }

@@ -9,9 +9,10 @@
 #define ARCMAX 1450         //個人最高ARC
 #define AUTMAX 220          //個人最高AUT
 #define ARCMAX_MOB 1320     //怪物最高ARC (黑魔法師)
-#define AUTMAX_MOB 300      //怪物最高AUT (凱羅斯)
+#define AUTMAX_MOB 300      //怪物最高AUT (卡洛斯)
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
 #define ARCMAXTOTAL 2679    //ARC升級至上限的總數
+#define AUTMAXTOTAL 4565    //AUT升級至上限的總數
 
 //職業屬性增加量比率
 #define NORMAL_ARC 10
@@ -37,6 +38,7 @@
 #define D260_MOB 5
 #define D265_MOB 5
 #define D270_MOB 5
+#define D275_MOB 5
 
 //轉硬幣倍率
 #define ARC_TO_COIN_220 30

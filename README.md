@@ -3,7 +3,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/app/WhatTheBlock/MapleStory-ARC-Calculator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 當前版本對應的遊戲版本為 TMS v243 (Beta : v244)
+### 當前版本對應的遊戲版本為 TMS v244
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
@@ -13,11 +13,13 @@ UI介面：
 ----
 ![ui_1.png](/ui_1.png)
 ![ui_2.png](/ui_2.png)
+![ui_3.png](/ui_3.png)
 
 Changelog：
 ----
 
-#### v2.9-alpha.4 (僅支援v244以後的版本)
+#### v2.9
+- 新增AUT達成日計算
 - 新增AUT升級楓幣計算
 - 新增AUT傷害計算
 - 新增單ARC升到滿級的日期計算

@@ -30,6 +30,19 @@ void MainUI::avoidError() {
             else ArcCurrent[i]->setValue(0);
         }
     }
+
+    for(int i = 0; i < 2; i++) {
+        autLV = AutLV[i]->value();
+        autCurrent = AutCurrent[i]->value();
+        autUpgradeInt[i] = AutUpgrade[i]->text().toInt();
+
+        if(autCurrent > autUpgradeInt[i]) {
+            if(autUpgradeInt[i] != 0 && autLV != AUTMAXLV) {
+                AutCurrent[i]->setValue(autUpgradeInt[i]);
+            }
+            else AutCurrent[i]->setValue(0);
+        }
+    }
 }
 
 //更新升級所需ARC數量
@@ -54,6 +67,27 @@ void MainUI::upgradeVal() {
     avoidError();
 }
 
+//更新升級所需AUT數量
+void MainUI::upgradeVal_aut() {
+    AutTotal->setNum(0);
+
+    for(int i = 0; i < 2; i++) {
+        autLV = AutLV[i]->value();
+
+        //更新目前AUT
+        if(autLV != 0) AutTotal->setNum(autLV * 10 + AutTotal->text().toInt());
+
+        switch(autLV) {
+        case 0: AutUpgrade[i]->setText("?"); break;
+        case AUTMAXLV: AutUpgrade[i]->setNum(0); break;
+        default: AutUpgrade[i]->setNum(9 * autLV * autLV + 20 * autLV); break;
+        }
+    }
+
+    //防止輸入錯誤
+    avoidError();
+}
+
 //更新目前ARC
 void MainUI::updateArc() {
     //計算前先加上極限屬性 & 公會技能增加的ARC
@@ -67,20 +101,29 @@ void MainUI::updateArc() {
     }
 }
 
+//更新目前AUT
+void MainUI::updateAut() {
+    for(int i = 0; i < 2; i++) {
+        autLV = AutLV[i]->value();
+
+        //更新目前AUT
+        if(autLV != 0) AutTotal->setNum(autLV * 10 + AutTotal->text().toInt());
+    }
+}
+
 //更新屬性增加量數據
 void MainUI::updateAp(int mode) {
     //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
     int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
-    int aut = 0;
+    int aut = AutTotal->text().toInt();
 
     switch (mode) {
     case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
     case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * XENON_RATIO)); break;
     case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * DA_RATIO)); break;
-    //新增AUT物件後再改
-    case 3: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
-    case 4: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
-    case 5: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
+    case 3: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
+    case 4: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
+    case 5: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
     }
 }
 
@@ -194,4 +237,10 @@ void MainUI::arcLvChanged(QLabel* arcimg, int arc) {
     upgradeVal();
     updateAp(ArcMode->currentIndex());
     updateArcToolTips(arcimg, arc);
+}
+
+void MainUI::autLvChanged(QLabel* autimg, int aut) {
+    upgradeVal_aut();
+    updateAp(AutMode->currentIndex() + 3);
+    updateAutToolTips(autimg, aut);
 }

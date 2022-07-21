@@ -33,8 +33,11 @@ private slots:
     void on_Arc4LV_valueChanged();
     void on_Arc5LV_valueChanged();
     void on_Arc6LV_valueChanged();
+    void on_Aut1LV_valueChanged();
+    void on_Aut2LV_valueChanged();
 
     void on_ArcMode_currentIndexChanged(int);
+    void on_AutMode_currentIndexChanged(int);
 
     void on_Arc1current_valueChanged();
     void on_Arc2current_valueChanged();
@@ -42,6 +45,8 @@ private slots:
     void on_Arc4current_valueChanged();
     void on_Arc5current_valueChanged();
     void on_Arc6current_valueChanged();
+    void on_Aut1current_valueChanged();
+    void on_Aut2current_valueChanged();
 
     void on_d200_valueChanged();
     void on_d210_valueChanged();
@@ -55,11 +60,16 @@ private slots:
     void on_mobbingMission_225_stateChanged();
     void on_mobbingMission_230_stateChanged();
     void on_mobbingMission_235_stateChanged();
+    void on_mobbingMission_260_stateChanged();
+    void on_mobbingMission_270_stateChanged();
+    void on_mob260_clicked();
+    void on_mob265_clicked();
 
     void on_allMobbing_clicked();
     void on_allMission_clicked();
 
     void on_startDate_userDateChanged(const QDate&);
+    void on_startDate_aut_userDateChanged(const QDate&);
 
     void on_selectARC_currentIndexChanged(int);
     void on_ArcLV_from_valueChanged();
@@ -69,6 +79,7 @@ private slots:
     void on_AutLV_to_valueChanged();
 
     void on_targetArc_valueChanged();
+    void on_targetAut_valueChanged();
 
     void on_ArcDamage_x_valueChanged(int);
     void on_ArcDamage_y_valueChanged(int);
@@ -91,18 +102,26 @@ private:
     Ui::MainUI *ui;
 
     QSpinBox* ArcLV[6];
+    QSpinBox* AutLV[3];
     QSpinBox* ArcCurrent[6];
+    QSpinBox* AutCurrent[3];
     QLabel* ArcUpgrade[6];
+    QLabel* AutUpgrade[3];
     QLabel* ArcTotal;
+    QLabel* AutTotal;
     QComboBox* ArcMode;
+    QComboBox* AutMode;
     QMessageBox* msg;
 
     QNetworkAccessManager* nam;
     QUrl url;
 
     int arcLV, arcCurrent, arcUpgradeInt[6];
+    int autLV, autCurrent, autUpgradeInt[3];
     int arcUpgradeMeso[6], arcUpgradeMeso_max[6];
+    double autUpgradeMeso[3], autUpgradeMeso_max[3];
     int arcUpgradeDays[6], arcMaxDays[6];
+    int autUpgradeDays[3], autMaxDays[3];
     int arcUpgradeList[ARCMAXLV];
     int autUpgradeList[AUTMAXLV];
     int dailyGet[6];
@@ -117,14 +136,19 @@ private:
     int ARC225_COST[ARCMAXLV];
 
     void upgradeVal();
+    void upgradeVal_aut();
     void updateAp(int);
     void updateArc();
+    void updateAut();
     void arcLvChanged(QLabel*, int);
+    void autLvChanged(QLabel*, int);
     void avoidError();
     void clearMission();
 
     void updateArcToolTips(QLabel*, int);
+    void updateAutToolTips(QLabel*, int);
     void dailyTask();
+    void dailyTask_aut();
 
     int arcUpgradeCost(int, int, int);
     double autUpgradeCost(int, int, int);

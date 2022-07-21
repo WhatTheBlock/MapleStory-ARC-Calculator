@@ -10,8 +10,8 @@ void MainUI::on_tabWidget_currentChanged(int index) {
         MainUI::setMaximumSize(720, 429);
     } break;
     case 1: {
-        MainUI::setMinimumSize(720, 429);
-        MainUI::setMaximumSize(720, 429);
+        MainUI::setMinimumSize(529, 340);
+        MainUI::setMaximumSize(529, 340);
     } break;
     case 2: {
         MainUI::setMinimumSize(402, 659);
@@ -38,6 +38,12 @@ void MainUI::on_Arc5LV_valueChanged() {
 void MainUI::on_Arc6LV_valueChanged() {
     arcLvChanged(ui->arcimg6, 5);
 }
+void MainUI::on_Aut1LV_valueChanged() {
+    autLvChanged(ui->autimg1, 0);
+}
+void MainUI::on_Aut2LV_valueChanged() {
+    autLvChanged(ui->autimg2, 1);
+}
 
 void MainUI::on_Arc1current_valueChanged() {
     updateArcToolTips(ui->arcimg1, 0);
@@ -57,8 +63,15 @@ void MainUI::on_Arc5current_valueChanged() {
 void MainUI::on_Arc6current_valueChanged() {
     updateArcToolTips(ui->arcimg6, 5);
 }
+void MainUI::on_Aut1current_valueChanged() {
+    updateAutToolTips(ui->autimg1, 0);
+}
+void MainUI::on_Aut2current_valueChanged() {
+    updateAutToolTips(ui->autimg2, 1);
+}
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
+void MainUI::on_AutMode_currentIndexChanged(int index) { updateAp(index + 3); }
 
 void MainUI::on_d200_valueChanged() {
     updateArcToolTips(ui->arcimg1, 0);
@@ -96,11 +109,27 @@ void MainUI::on_d235_valueChanged() {
 void MainUI::on_mobbingMission_235_stateChanged() {
     on_d235_valueChanged();
 }
+void MainUI::on_mobbingMission_260_stateChanged() {
+    updateAutToolTips(ui->autimg1, 0);
+}
+void MainUI::on_mob260_clicked() {
+    updateAutToolTips(ui->autimg1, 0);
+}
+void MainUI::on_mob265_clicked() {
+    updateAutToolTips(ui->autimg1, 0);
+}
+void MainUI::on_mobbingMission_270_stateChanged() {
+    updateAutToolTips(ui->autimg2, 1);
+}
 
 void MainUI::on_targetArc_valueChanged() { dailyTask(); }
+void MainUI::on_targetAut_valueChanged() { dailyTask_aut(); }
 
 void MainUI::on_startDate_userDateChanged(const QDate &date) {
     ui->targetDate->setDate(date.addDays(day));
+}
+void MainUI::on_startDate_aut_userDateChanged(const QDate &date) {
+    ui->targetDate_aut->setDate(date.addDays(day));
 }
 
 //ARC升級所需楓幣

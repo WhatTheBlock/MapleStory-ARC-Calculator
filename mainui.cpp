@@ -21,20 +21,28 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcLV[3] = ui->Arc4LV;
     ArcLV[4] = ui->Arc5LV;
     ArcLV[5] = ui->Arc6LV;
+    AutLV[0] = ui->Aut1LV;
+    AutLV[1] = ui->Aut2LV;
     ArcCurrent[0] = ui->Arc1current;
     ArcCurrent[1] = ui->Arc2current;
     ArcCurrent[2] = ui->Arc3current;
     ArcCurrent[3] = ui->Arc4current;
     ArcCurrent[4] = ui->Arc5current;
     ArcCurrent[5] = ui->Arc6current;
+    AutCurrent[0] = ui->Aut1current;
+    AutCurrent[1] = ui->Aut2current;
     ArcUpgrade[0] = ui->Arc1upgrade;
     ArcUpgrade[1] = ui->Arc2upgrade;
     ArcUpgrade[2] = ui->Arc3upgrade;
     ArcUpgrade[3] = ui->Arc4upgrade;
     ArcUpgrade[4] = ui->Arc5upgrade;
     ArcUpgrade[5] = ui->Arc6upgrade;
+    AutUpgrade[0] = ui->Aut1upgrade;
+    AutUpgrade[1] = ui->Aut2upgrade;
     ArcTotal = ui->ArcTotal;
+    AutTotal = ui->AutTotal;
     ArcMode = ui->ArcMode;
+    AutMode = ui->AutMode;
 
     //設定數據範圍
     ui->d200->setMaximum(D200_MIS);
@@ -52,10 +60,13 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->AutDamage_x->setMaximum(AUTMAX);
     ui->AutDamage_y->setMaximum(AUTMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
+    ui->targetAut->setMaximum(AUTMAX);
 
     //設定日期為電腦當前時間
     ui->startDate->setDate(QDate::currentDate());
+    ui->startDate_aut->setDate(QDate::currentDate());
     ui->targetDate->setDate(QDate::currentDate());
+    ui->targetDate_aut->setDate(QDate::currentDate());
 
     //累加各階ARC升級數量，Lv1=12、Lv2=27、Lv3=47...
     arcUpgradeList[0] = 0;
@@ -81,3 +92,9 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 }
 
 MainUI::~MainUI() { delete ui; }
+
+
+
+
+
+
