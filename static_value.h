@@ -2,7 +2,7 @@
 #define STATIC_VALUE_H
 
 //版本
-#define VERCODE 292
+#define VERCODE 300
 
 #define ARCMAXLV 20         //ARC等級上限
 #define AUTMAXLV 11         //AUT等級上限
