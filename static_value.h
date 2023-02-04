@@ -2,11 +2,11 @@
 #define STATIC_VALUE_H
 
 //版本
-#define VERCODE 290
+#define VERCODE 292
 
 #define ARCMAXLV 20         //ARC等級上限
 #define AUTMAXLV 11         //AUT等級上限
-#define ARCMAX 1450         //個人最高ARC
+#define ARCMAX 1450         //個人最高ARC (不含活動技能、道具)
 #define AUTMAX 220          //個人最高AUT
 #define ARCMAX_MOB 1320     //怪物最高ARC (黑魔法師)
 #define AUTMAX_MOB 300      //怪物最高AUT (卡洛斯)
@@ -54,7 +54,7 @@
 #define ARC225_COST_BASE 17136000    //225~235
 #define ARC225_COST_INCREASE 5940000
 const double AUT260_COST[] = {1.854, 2.739, 3.623, 4.507, 5.392, 6.276, 7.161, 8.045, 8.929, 9.814};
-const double AUT270_COST[] = {2.039, 3.012, 3.985, 4.957, 5.931, 6.903, 7.877, 8.849, 9.821, 10.795}; //可能不準確
+const double AUT270_COST[] = {2.039, 3.012, 3.985, 4.957, 5.931, 6.903, 7.877, 8.849, 9.821, 10.79};
 
 //被擊傷害 & 增傷規則
 const int damageList_arc[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};

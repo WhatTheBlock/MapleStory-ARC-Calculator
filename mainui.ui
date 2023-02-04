@@ -27,66 +27,9 @@
   </property>
   <property name="palette">
    <palette>
-    <active>
-     <colorrole role="Base">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-     <colorrole role="Window">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-    </active>
-    <inactive>
-     <colorrole role="Base">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-     <colorrole role="Window">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-    </inactive>
-    <disabled>
-     <colorrole role="Base">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-     <colorrole role="Window">
-      <brush brushstyle="SolidPattern">
-       <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
-       </color>
-      </brush>
-     </colorrole>
-    </disabled>
+    <active/>
+    <inactive/>
+    <disabled/>
    </palette>
   </property>
   <property name="font">
@@ -96,7 +39,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷 ARC / AUT 計算機  v2.9</string>
+   <string>新楓之谷 ARC / AUT 計算機  v2.9.2</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -151,7 +94,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -445,7 +388,7 @@
       </property>
       <property name="dateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>1900</year>
@@ -455,17 +398,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
-        <year>9999</year>
-        <month>12</month>
-        <day>31</day>
+        <year>10000</year>
+        <month>1</month>
+        <day>1</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>1900</year>
@@ -475,9 +418,9 @@
       </property>
       <property name="maximumDate">
        <date>
-        <year>9999</year>
-        <month>12</month>
-        <day>31</day>
+        <year>10000</year>
+        <month>1</month>
+        <day>1</day>
        </date>
       </property>
       <property name="minimumDate">
@@ -489,7 +432,7 @@
       </property>
       <property name="minimumTime">
        <time>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
        </time>
@@ -2128,7 +2071,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2180,7 +2122,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2451,7 +2392,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2503,7 +2443,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2555,7 +2494,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2607,7 +2545,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -3360,7 +3297,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -3412,7 +3348,6 @@
        <font>
         <family>微軟正黑體</family>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -3663,7 +3598,7 @@
       </property>
       <property name="dateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>1900</year>
@@ -3673,17 +3608,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
-        <year>9999</year>
-        <month>12</month>
-        <day>31</day>
+        <year>10000</year>
+        <month>1</month>
+        <day>1</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>1900</year>
@@ -3693,9 +3628,9 @@
       </property>
       <property name="maximumDate">
        <date>
-        <year>9999</year>
-        <month>12</month>
-        <day>31</day>
+        <year>10000</year>
+        <month>1</month>
+        <day>1</day>
        </date>
       </property>
       <property name="minimumDate">
@@ -3707,7 +3642,7 @@
       </property>
       <property name="minimumTime">
        <time>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
        </time>
@@ -4267,7 +4202,7 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>533</height>
+        <height>529</height>
        </rect>
       </property>
       <attribute name="icon">
@@ -4812,7 +4747,6 @@
          <font>
           <family>微軟正黑體</family>
           <pointsize>16</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -5327,7 +5261,6 @@
          <font>
           <family>微軟正黑體</family>
           <pointsize>16</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -5853,7 +5786,6 @@
          <font>
           <family>微軟正黑體</family>
           <pointsize>16</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
