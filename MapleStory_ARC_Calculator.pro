@@ -25,20 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        calculate.cpp \
-        checkUpdate.cpp \
-        main.cpp \
-        mainui.cpp \
-        triggerEvent.cpp \
-        utils.cpp
+        src/calculate.cpp \
+        src/checkUpdate.cpp \
+        src/main.cpp \
+        src/mainui.cpp \
+        src/triggerEvent.cpp \
+        src/utils.cpp
 
 HEADERS += \
-        mainui.h \
-    static_value.h \
-    ui_mainui.h
+        src/mainui.h \
+		src/static_value.h
 
 FORMS += \
-        mainui.ui
+        src/mainui.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -46,8 +45,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    images.qrc
+		src/images.qrc
 
 win32 {
-    RC_FILE = admin_icon.rc
+    RC_FILE = icon.rc
 }
