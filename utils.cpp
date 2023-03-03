@@ -18,7 +18,7 @@ QString MainUI::decimalSeparator(int n){
 
 void MainUI::avoidError() {
     //更新變數避免計算錯誤
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < ARCTYPE; i++) {
         arcLV = ArcLV[i]->value();
         arcCurrent = ArcCurrent[i]->value();
         arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
@@ -31,7 +31,7 @@ void MainUI::avoidError() {
         }
     }
 
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < AUTTYPE; i++) {
         autLV = AutLV[i]->value();
         autCurrent = AutCurrent[i]->value();
         autUpgradeInt[i] = AutUpgrade[i]->text().toInt();
@@ -50,7 +50,7 @@ void MainUI::upgradeVal() {
     //計算前先加上極限屬性 & 公會技能增加的ARC
     ArcTotal->setNum(hyperStats + guildSkill);
 
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < ARCTYPE; i++) {
         arcLV = ArcLV[i]->value();
 
         //更新目前ARC
@@ -71,7 +71,7 @@ void MainUI::upgradeVal() {
 void MainUI::upgradeVal_aut() {
     AutTotal->setNum(0);
 
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < AUTTYPE; i++) {
         autLV = AutLV[i]->value();
 
         //更新目前AUT
@@ -93,7 +93,7 @@ void MainUI::updateArc() {
     //計算前先加上極限屬性 & 公會技能增加的ARC
     ArcTotal->setNum(hyperStats + guildSkill);
 
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < ARCTYPE; i++) {
         arcLV = ArcLV[i]->value();
 
         //更新目前ARC
@@ -103,7 +103,7 @@ void MainUI::updateArc() {
 
 //更新目前AUT
 void MainUI::updateAut() {
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < AUTTYPE; i++) {
         autLV = AutLV[i]->value();
 
         //更新目前AUT
@@ -133,10 +133,10 @@ int MainUI::arcUpgradeCost(int lv, int from, int to) {
 
     for(int i = from - 1; i < to - 1; i++) {
         switch (lv) {
-        case 0: result += ARC200_COST[i]; break;
-        case 1: result += ARC210_COST[i]; break;
-        case 2: result += ARC220_COST[i]; break;
-        default: result += ARC225_COST[i]; break;
+            case 0: result += ARC200_COST[i]; break;
+            case 1: result += ARC210_COST[i]; break;
+            case 2: result += ARC220_COST[i]; break;
+            default: result += ARC225_COST[i]; break;
         }
     }
 
@@ -147,8 +147,9 @@ double MainUI::autUpgradeCost(int lv, int from, int to) {
 
     for(int i = from - 1; i < to - 1; i++) {
         switch (lv) {
-        case 0: result += AUT260_COST[i]; break;
-        case 1: result += AUT270_COST[i]; break;
+            case 0: result += AUT260_COST[i]; break;
+            case 1: result += AUT270_COST[i]; break;
+            case 2: result += AUT275_COST[i]; break;
         }
     }
 

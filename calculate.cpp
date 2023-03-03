@@ -4,7 +4,7 @@
 void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
     dailyTask();
 
-    int dailyGet[6] = { 0 };
+    int dailyGet[ARCTYPE] = { 0 };
     dailyGet[0] = ui->d200->value();
     dailyGet[1] = ui->d210->value();
     dailyGet[2] = ui->d220->value();
@@ -12,7 +12,7 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
     dailyGet[4] = ui->d230->value();
     dailyGet[5] = ui->d235->value();
 
-    bool mobbingMissionState[6] = { 0 };
+    bool mobbingMissionState[ARCTYPE] = { 0 };
     mobbingMissionState[0] = ui->mobbingMission_200->isChecked();
     mobbingMissionState[1] = ui->mobbingMission_210->isChecked();
     mobbingMissionState[2] = ui->mobbingMission_220->isChecked();
@@ -20,7 +20,7 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
     mobbingMissionState[4] = ui->mobbingMission_230->isChecked();
     mobbingMissionState[5] = ui->mobbingMission_235->isChecked();
 
-    int mobbingMission[6] = { 0 };
+    int mobbingMission[ARCTYPE] = { 0 };
     mobbingMission[0] = D200_MOB;
     mobbingMission[1] = D210_MOB;
     mobbingMission[2] = D220_MOB;
@@ -95,13 +95,15 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
 void MainUI::updateAutToolTips(QLabel* autimg, int aut) {
     dailyTask_aut();
 
-    bool mobbingMissionState[3] = { 0 };
+    bool mobbingMissionState[AUTTYPE] = { 0 };
     mobbingMissionState[0] = ui->mobbingMission_260->isChecked();
     mobbingMissionState[1] = ui->mobbingMission_270->isChecked();
+    mobbingMissionState[2] = ui->mobbingMission_275->isChecked();
 
-    int mobbingMission[3] = { 0 };
+    int mobbingMission[AUTTYPE] = { 0 };
     mobbingMission[0] = D260_MOB;
     mobbingMission[1] = D270_MOB;
+    mobbingMission[2] = D275_MOB;
 
     int autLv = AutLV[aut]->value();
     int autVal = AutCurrent[aut]->value();
@@ -171,7 +173,7 @@ void MainUI::dailyTask() {
         dailyGet[5] = (ui->mobbingMission_235->isChecked()) ? ui->d235->value() + D235_MOB : ui->d235->value();
 
         //計算可能達到的最高ARC
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < ARCTYPE; i++){
             arcLV = ArcLV[i]->value();
             if(dailyGet[i] != 0) maxReachArc += 220;
             else if(arcLV != 0) maxReachArc += arcLV * 10 + 20;
@@ -184,14 +186,14 @@ void MainUI::dailyTask() {
         }
         else {
             int count = ArcTotal->text().toInt();
-            int current[6];
-            int cntLv[6];
+            int current[ARCTYPE];
+            int cntLv[ARCTYPE];
 
             //如果目標ARC不為10的倍數則無條件進位
             if((targetArc % 10) != 0) targetArc += 10 - (targetArc % 10);
 
             //計算目前各ARC累積量
-            for(int i = 0; i < 6; i++) {
+            for(int i = 0; i < ARCTYPE; i++) {
                 cntLv[i] = 0;
                 arcLV = ArcLV[i]->value();
                 arcCurrent = ArcCurrent[i]->value();
@@ -206,7 +208,7 @@ void MainUI::dailyTask() {
 
             //迴圈一次等於過一天
             while(count < targetArc) {
-                for(int i = 0; i < 6; i++){
+                for(int i = 0; i < ARCTYPE; i++){
                     arcLV = ArcLV[i]->value();
                     //當前等級+暫存等級小於上限且一天可獲得數量大於0
                     if((arcLV + cntLv[i]) < ARCMAXLV && dailyGet[i] > 0){
@@ -254,9 +256,10 @@ void MainUI::dailyTask_aut() {
             dailyGet[0] = (ui->mob265->isChecked()) ? D260_MOB + D265_MOB : D260_MOB;
         else dailyGet[0] = 0;
         dailyGet[1] = (ui->mobbingMission_270->isChecked()) ? D270_MOB : 0;
+        dailyGet[2] = (ui->mobbingMission_275->isChecked()) ? D275_MOB : 0;
 
         //計算可能達到的最高AUT
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < AUTTYPE; i++){
             autLV = AutLV[i]->value();
             if(dailyGet[i] != 0) maxReachAut += 110;
             else if(autLV != 0) maxReachAut += autLV * 10;
@@ -269,14 +272,14 @@ void MainUI::dailyTask_aut() {
         }
         else {
             int count = AutTotal->text().toInt();
-            int current[3];
-            int cntLv[3];
+            int current[AUTTYPE];
+            int cntLv[AUTTYPE];
 
             //如果目標AUT不為10的倍數則無條件進位
             if((targetAut % 10) != 0) targetAut += 10 - (targetAut % 10);
 
             //計算目前各AUT累積量
-            for(int i = 0; i < 2; i++) {
+            for(int i = 0; i < AUTTYPE; i++) {
                 cntLv[i] = 0;
                 autLV = AutLV[i]->value();
                 autCurrent = AutCurrent[i]->value();
@@ -287,7 +290,7 @@ void MainUI::dailyTask_aut() {
 
             //迴圈一次等於過一天
             while(count < targetAut) {
-                for(int i = 0; i < 2; i++){
+                for(int i = 0; i < AUTTYPE; i++){
                     autLV = AutLV[i]->value();
                     //當前等級+暫存等級小於上限且一天可獲得數量大於0
                     if((autLV + cntLv[i]) < AUTMAXLV && dailyGet[i] > 0){
