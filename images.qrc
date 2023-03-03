@@ -21,10 +21,12 @@
         <file>images/bahamut.png</file>
         <file>images/sword.png</file>
         <file>images/sword2.png</file>
-        <file>images/AUT1.png</file>
         <file>images/260.png</file>
         <file>images/270.png</file>
+		<file>images/275.png</file>
+		<file>images/AUT1.png</file>
         <file>images/AUT2.png</file>
+		<file>images/AUT3.png</file>
         <file>images/maplestory.png</file>
     </qresource>
 </RCC>

@@ -2,6 +2,8 @@
 //　數據資料來源【1. https://forum.gamer.com.tw/C.php?bsn=7650&snA=962710】
 //　　　　　　　【2. https://strategywiki.org/wiki/MapleStory/Hyper_Stats】
 //　　　　　　　【3. https://namu.wiki/w/%EA%B0%90%EC%8B%9C%EC%9E%90%20%EC%B9%BC%EB%A1%9C%EC%8A%A4】
+//　　　　　　　【4. https://home.gamer.com.tw/artwork.php?sn=5010798】
+//　　　　　　　【5. https://forum.gamer.com.tw/C.php?bsn=7650&snA=1023650】
 //　圖示來源【https://maplestory.fandom.com/wiki/MapleStory】
 */
 
@@ -23,6 +25,7 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcLV[5] = ui->Arc6LV;
     AutLV[0] = ui->Aut1LV;
     AutLV[1] = ui->Aut2LV;
+    AutLV[2] = ui->Aut3LV;
     ArcCurrent[0] = ui->Arc1current;
     ArcCurrent[1] = ui->Arc2current;
     ArcCurrent[2] = ui->Arc3current;
@@ -31,6 +34,7 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcCurrent[5] = ui->Arc6current;
     AutCurrent[0] = ui->Aut1current;
     AutCurrent[1] = ui->Aut2current;
+    AutCurrent[2] = ui->Aut3current;
     ArcUpgrade[0] = ui->Arc1upgrade;
     ArcUpgrade[1] = ui->Arc2upgrade;
     ArcUpgrade[2] = ui->Arc3upgrade;
@@ -39,6 +43,7 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcUpgrade[5] = ui->Arc6upgrade;
     AutUpgrade[0] = ui->Aut1upgrade;
     AutUpgrade[1] = ui->Aut2upgrade;
+    AutUpgrade[2] = ui->Aut3upgrade;
     ArcTotal = ui->ArcTotal;
     AutTotal = ui->AutTotal;
     ArcMode = ui->ArcMode;
@@ -61,6 +66,7 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->AutDamage_y->setMaximum(AUTMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
     ui->targetAut->setMaximum(AUTMAX);
+    ui->characterLV->setMaximum(MAXLV);
 
     //設定日期為電腦當前時間
     ui->startDate->setDate(QDate::currentDate());
