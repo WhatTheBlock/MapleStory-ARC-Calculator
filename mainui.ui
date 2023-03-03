@@ -1236,6 +1236,9 @@
       <property name="pixmap">
        <pixmap resource="images.qrc">:/images/ARC3.png</pixmap>
       </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
       <property name="margin">
        <number>-1</number>
       </property>
@@ -1996,7 +1999,7 @@
      <widget class="QLabel" name="coinimg1">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>156</x>
         <y>120</y>
         <width>31</width>
         <height>31</height>
@@ -2027,7 +2030,7 @@
      <widget class="QLabel" name="coinimg2">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>156</x>
         <y>160</y>
         <width>29</width>
         <height>29</height>
@@ -2098,8 +2101,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2149,8 +2152,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2176,7 +2179,7 @@
      <widget class="QSpinBox" name="d200">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>40</y>
         <width>51</width>
         <height>31</height>
@@ -2204,7 +2207,7 @@
      <widget class="QSpinBox" name="d210">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>80</y>
         <width>51</width>
         <height>31</height>
@@ -2232,7 +2235,7 @@
      <widget class="QSpinBox" name="d220">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>120</y>
         <width>51</width>
         <height>31</height>
@@ -2260,7 +2263,7 @@
      <widget class="QSpinBox" name="d225">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>160</y>
         <width>51</width>
         <height>31</height>
@@ -2288,7 +2291,7 @@
      <widget class="QSpinBox" name="d230">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>200</y>
         <width>51</width>
         <height>31</height>
@@ -2316,7 +2319,7 @@
      <widget class="QSpinBox" name="d235">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>100</x>
         <y>240</y>
         <width>51</width>
         <height>31</height>
@@ -2419,8 +2422,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2470,8 +2473,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2521,8 +2524,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2572,8 +2575,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>36</width>
+        <height>36</height>
        </size>
       </property>
       <property name="shortcut">
@@ -2586,7 +2589,7 @@
      <widget class="QPushButton" name="allMission">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>8</x>
         <y>330</y>
         <width>171</width>
         <height>41</height>
@@ -2604,8 +2607,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>32</width>
-        <height>32</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
       <property name="shortcut">
