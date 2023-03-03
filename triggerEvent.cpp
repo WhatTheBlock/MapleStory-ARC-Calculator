@@ -6,16 +6,16 @@
 void MainUI::on_tabWidget_currentChanged(int index) {
     switch(index) {
     case 0: {
-        MainUI::setMinimumSize(720, 429);
-        MainUI::setMaximumSize(720, 429);
+        MainUI::setMinimumSize(708, 429);
+        MainUI::setMaximumSize(708, 429);
     } break;
     case 1: {
-        MainUI::setMinimumSize(529, 340);
-        MainUI::setMaximumSize(529, 340);
+        MainUI::setMinimumSize(517, 424);
+        MainUI::setMaximumSize(517, 424);
     } break;
     case 2: {
-        MainUI::setMinimumSize(402, 659);
-        MainUI::setMaximumSize(402, 659);
+        MainUI::setMinimumSize(372, 659);
+        MainUI::setMaximumSize(372, 659);
     } break;
     }
 }
