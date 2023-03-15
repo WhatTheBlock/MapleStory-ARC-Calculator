@@ -57,9 +57,9 @@ void MainUI::upgradeVal() {
         if(arcLV != 0) ArcTotal->setNum((arcLV + 2) * 10 + ArcTotal->text().toInt());
 
         switch(arcLV) {
-        case 0: ArcUpgrade[i]->setText("?"); break;
-        case ARCMAXLV: ArcUpgrade[i]->setNum(0); break;
-        default: ArcUpgrade[i]->setNum(arcLV * arcLV + 11); break;
+            case 0: ArcUpgrade[i]->setText("?"); break;
+            case ARCMAXLV: ArcUpgrade[i]->setNum(0); break;
+            default: ArcUpgrade[i]->setNum(arcLV * arcLV + 11); break;
         }
     }
 
@@ -78,9 +78,9 @@ void MainUI::upgradeVal_aut() {
         if(autLV != 0) AutTotal->setNum(autLV * 10 + AutTotal->text().toInt());
 
         switch(autLV) {
-        case 0: AutUpgrade[i]->setText("?"); break;
-        case AUTMAXLV: AutUpgrade[i]->setNum(0); break;
-        default: AutUpgrade[i]->setNum(9 * autLV * autLV + 20 * autLV); break;
+            case 0: AutUpgrade[i]->setText("?"); break;
+            case AUTMAXLV: AutUpgrade[i]->setNum(0); break;
+            default: AutUpgrade[i]->setNum(9 * autLV * autLV + 20 * autLV); break;
         }
     }
 
@@ -118,12 +118,12 @@ void MainUI::updateAp(int mode) {
     int aut = AutTotal->text().toInt();
 
     switch (mode) {
-    case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
-    case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * XENON_RATIO)); break;
-    case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * DA_RATIO)); break;
-    case 3: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
-    case 4: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
-    case 5: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
+        case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
+        case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * XENON_RATIO)); break;
+        case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * DA_RATIO)); break;
+        case 3: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
+        case 4: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
+        case 5: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
     }
 }
 

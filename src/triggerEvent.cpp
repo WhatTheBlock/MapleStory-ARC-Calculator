@@ -5,18 +5,31 @@
 //變更視窗大小
 void MainUI::on_tabWidget_currentChanged(int index) {
     switch(index) {
-    case 0: {
-        MainUI::setMinimumSize(708, 429);
-        MainUI::setMaximumSize(708, 429);
-    } break;
-    case 1: {
-        MainUI::setMinimumSize(517, 424);
-        MainUI::setMaximumSize(517, 424);
-    } break;
-    case 2: {
-        MainUI::setMinimumSize(372, 659);
-        MainUI::setMaximumSize(372, 659);
-    } break;
+        case 0: {
+            MainUI::setMinimumSize(708, 429);
+            MainUI::setMaximumSize(708, 429);
+        } break;
+        case 1: {
+            MainUI::setMinimumSize(518, 424);
+            MainUI::setMaximumSize(518, 424);
+        } break;
+        case 2: {
+            ui->toolBox->setCurrentIndex(0);
+            MainUI::setMinimumSize(372, 659);
+            MainUI::setMaximumSize(372, 659);
+        } break;
+    }
+}
+void MainUI::on_toolBox_currentChanged(int index) {
+    switch(index) {
+        case 0: {
+            MainUI::setMinimumSize(372, 659);
+            MainUI::setMaximumSize(372, 659);
+        } break;
+        case 1: {
+            MainUI::setMinimumSize(372, 454);
+            MainUI::setMaximumSize(372, 454);
+        } break;
     }
 }
 
@@ -44,6 +57,9 @@ void MainUI::on_Aut1LV_valueChanged() {
 void MainUI::on_Aut2LV_valueChanged() {
     autLvChanged(ui->autimg2, 1);
 }
+void MainUI::on_Aut3LV_valueChanged() {
+    autLvChanged(ui->autimg3, 2);
+}
 
 void MainUI::on_Arc1current_valueChanged() {
     updateArcToolTips(ui->arcimg1, 0);
@@ -68,6 +84,9 @@ void MainUI::on_Aut1current_valueChanged() {
 }
 void MainUI::on_Aut2current_valueChanged() {
     updateAutToolTips(ui->autimg2, 1);
+}
+void MainUI::on_Aut3current_valueChanged() {
+    updateAutToolTips(ui->autimg3, 2);
 }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
@@ -120,6 +139,9 @@ void MainUI::on_mob265_clicked() {
 }
 void MainUI::on_mobbingMission_270_stateChanged() {
     updateAutToolTips(ui->autimg2, 1);
+}
+void MainUI::on_mobbingMission_275_stateChanged() {
+    updateAutToolTips(ui->autimg3, 2);
 }
 
 void MainUI::on_targetArc_valueChanged() { dailyTask(); }

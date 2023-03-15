@@ -4476,7 +4476,7 @@
        <string>秘法符文 (&amp;Z)</string>
       </attribute>
       <attribute name="toolTip">
-       <string>Alt+Z可快速切換頁面</string>
+       <string>Alt+Z 可快速切換頁面</string>
       </attribute>
       <widget class="QGroupBox" name="groupBox_2">
        <property name="geometry">
@@ -5979,7 +5979,7 @@
        <string>真實符文 (&amp;X)</string>
       </attribute>
       <attribute name="toolTip">
-       <string>Alt+X可快速切換頁面</string>
+       <string>Alt+X 可快速切換頁面</string>
       </attribute>
       <widget class="QGroupBox" name="groupBox_5">
        <property name="geometry">

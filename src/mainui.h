@@ -35,6 +35,7 @@ private slots:
     void on_Arc6LV_valueChanged();
     void on_Aut1LV_valueChanged();
     void on_Aut2LV_valueChanged();
+    void on_Aut3LV_valueChanged();
 
     void on_ArcMode_currentIndexChanged(int);
     void on_AutMode_currentIndexChanged(int);
@@ -47,6 +48,7 @@ private slots:
     void on_Arc6current_valueChanged();
     void on_Aut1current_valueChanged();
     void on_Aut2current_valueChanged();
+    void on_Aut3current_valueChanged();
 
     void on_d200_valueChanged();
     void on_d210_valueChanged();
@@ -62,6 +64,7 @@ private slots:
     void on_mobbingMission_235_stateChanged();
     void on_mobbingMission_260_stateChanged();
     void on_mobbingMission_270_stateChanged();
+    void on_mobbingMission_275_stateChanged();
     void on_mob260_clicked();
     void on_mob265_clicked();
 
@@ -97,6 +100,7 @@ private slots:
 
     void on_tabWidget_currentChanged(int);
 
+    void on_toolBox_currentChanged(int);
 
 private:
     Ui::MainUI *ui;

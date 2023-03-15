@@ -217,9 +217,9 @@ void MainUI::dailyTask() {
                         //設定ARC轉硬幣倍率
                         int a2c;
                         switch (i) {
-                        case 2: a2c = ARC_TO_COIN_220; break;
-                        case 3: a2c = ARC_TO_COIN_225; break;
-                        default: a2c = 1; break;
+                            case 2: a2c = ARC_TO_COIN_220; break;
+                            case 3: a2c = ARC_TO_COIN_225; break;
+                            default: a2c = 1; break;
                         }
 
                         if(current[i] >= (arcUpgradeList[arcLV + cntLv[i]] * a2c)) {
