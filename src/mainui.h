@@ -142,8 +142,6 @@ private:
     void upgradeVal();
     void upgradeVal_aut();
     void updateAp(int);
-    void updateArc();
-    void updateAut();
     void arcLvChanged(QLabel*, int);
     void autLvChanged(QLabel*, int);
     void avoidError();

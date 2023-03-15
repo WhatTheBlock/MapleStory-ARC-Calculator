@@ -88,29 +88,6 @@ void MainUI::upgradeVal_aut() {
     avoidError();
 }
 
-//更新目前ARC
-void MainUI::updateArc() {
-    //計算前先加上極限屬性 & 公會技能增加的ARC
-    ArcTotal->setNum(hyperStats + guildSkill);
-
-    for(int i = 0; i < ARCTYPE; i++) {
-        arcLV = ArcLV[i]->value();
-
-        //更新目前ARC
-        if(arcLV != 0) ArcTotal->setNum((arcLV + 2) * 10 + ArcTotal->text().toInt());
-    }
-}
-
-//更新目前AUT
-void MainUI::updateAut() {
-    for(int i = 0; i < AUTTYPE; i++) {
-        autLV = AutLV[i]->value();
-
-        //更新目前AUT
-        if(autLV != 0) AutTotal->setNum(autLV * 10 + AutTotal->text().toInt());
-    }
-}
-
 //更新屬性增加量數據
 void MainUI::updateAp(int mode) {
     //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
