@@ -3,7 +3,7 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/gh/WhatTheBlock/MapleStory-ARC-Calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 適用的遊戲版本為 TMS v250
+### 適用的遊戲版本為 TMS v252
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
