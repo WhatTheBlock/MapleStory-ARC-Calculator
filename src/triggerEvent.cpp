@@ -131,6 +131,27 @@ void MainUI::on_startDate_aut_userDateChanged(const QDate &date) {
     ui->targetDate_aut->setDate(date.addDays(day));
 }
 
+void MainUI::on_selectAll_clicked() {
+    on_dailyAll_clicked();
+    on_weeklyAll_clicked();
+}
+void MainUI::on_dailyAll_clicked() {
+    ui->daily200->setChecked(true);
+    ui->daily210->setChecked(true);
+    ui->daily220->setChecked(true);
+    ui->daily225->setChecked(true);
+    ui->daily230->setChecked(true);
+    ui->daily235->setChecked(true);
+}
+void MainUI::on_weeklyAll_clicked() {
+    ui->weekly200->setChecked(true);
+    ui->weekly210->setChecked(true);
+    ui->weekly220->setChecked(true);
+    ui->weekly225->setChecked(true);
+    ui->weekly230->setChecked(true);
+    ui->weekly235->setChecked(true);
+}
+
 //ARC升級所需楓幣
 void MainUI::on_selectARC_currentIndexChanged(int index) {
     ui->cost->setText(decimalSeparator(arcUpgradeCost(index, ui->ArcLV_from->value(), ui->ArcLV_to->value())));

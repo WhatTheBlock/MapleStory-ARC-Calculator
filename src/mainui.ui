@@ -2289,14 +2289,17 @@
      <widget class="QCheckBox" name="daily200">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>90</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>85</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2305,14 +2308,17 @@
      <widget class="QCheckBox" name="daily210">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>140</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>135</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2321,14 +2327,17 @@
      <widget class="QCheckBox" name="daily220">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>190</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>185</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2337,14 +2346,17 @@
      <widget class="QCheckBox" name="daily225">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>240</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>235</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2353,14 +2365,17 @@
      <widget class="QCheckBox" name="daily230">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>290</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>285</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2369,14 +2384,17 @@
      <widget class="QCheckBox" name="daily235">
       <property name="geometry">
        <rect>
-        <x>73</x>
-        <y>340</y>
-        <width>16</width>
-        <height>22</height>
+        <x>69</x>
+        <y>335</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2385,14 +2403,17 @@
      <widget class="QCheckBox" name="weekly235">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>340</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>335</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2401,14 +2422,17 @@
      <widget class="QCheckBox" name="weekly200">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>90</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>85</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2417,14 +2441,17 @@
      <widget class="QCheckBox" name="weekly225">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>240</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>235</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2433,14 +2460,17 @@
      <widget class="QCheckBox" name="weekly210">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>140</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>135</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2449,14 +2479,17 @@
      <widget class="QCheckBox" name="weekly220">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>190</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>185</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>
@@ -2465,14 +2498,17 @@
      <widget class="QCheckBox" name="weekly230">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>290</y>
-        <width>16</width>
-        <height>22</height>
+        <x>119</x>
+        <y>285</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {width:24px;height: 24px;}</string>
       </property>
       <property name="text">
        <string/>

@@ -94,6 +94,10 @@ private slots:
 
     void on_toolBox_currentChanged(int);
 
+    void on_selectAll_clicked();
+    void on_dailyAll_clicked();
+    void on_weeklyAll_clicked();
+
 private:
     Ui::MainUI *ui;
 
