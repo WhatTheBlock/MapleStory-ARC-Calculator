@@ -9,19 +9,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>708</width>
+    <width>688</width>
     <height>429</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>708</width>
+    <width>688</width>
     <height>429</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>708</width>
+    <width>688</width>
     <height>429</height>
    </size>
   </property>
@@ -39,14 +39,14 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷 ARC / AUT 計算機  v2.9.3</string>
+   <string>新楓之谷 ARC / AUT 計算機  v2.9.4</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
     <normaloff>:/images/maplestory.png</normaloff>:/images/maplestory.png</iconset>
   </property>
   <property name="windowOpacity">
-   <double>0.970000000000000</double>
+   <double>0.960000000000000</double>
   </property>
   <property name="toolTip">
    <string notr="true"/>
@@ -226,7 +226,7 @@
     <widget class="Line" name="line">
      <property name="geometry">
       <rect>
-       <x>261</x>
+       <x>264</x>
        <y>-10</y>
        <width>31</width>
        <height>421</height>
@@ -254,10 +254,10 @@
     <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>470</x>
        <y>10</y>
        <width>221</width>
-       <height>241</height>
+       <height>201</height>
       </rect>
      </property>
      <property name="title">
@@ -276,7 +276,7 @@
       <property name="geometry">
        <rect>
         <x>123</x>
-        <y>200</y>
+        <y>160</y>
         <width>51</width>
         <height>31</height>
        </rect>
@@ -311,7 +311,7 @@
       <property name="geometry">
        <rect>
         <x>93</x>
-        <y>80</y>
+        <y>40</y>
         <width>61</width>
         <height>31</height>
        </rect>
@@ -346,6 +346,9 @@
       <property name="maximum">
        <number>0</number>
       </property>
+      <property name="singleStep">
+       <number>5</number>
+      </property>
       <property name="value">
        <number>0</number>
       </property>
@@ -354,7 +357,7 @@
       <property name="geometry">
        <rect>
         <x>93</x>
-        <y>120</y>
+        <y>80</y>
         <width>115</width>
         <height>31</height>
        </rect>
@@ -461,7 +464,7 @@
       <property name="geometry">
        <rect>
         <x>13</x>
-        <y>160</y>
+        <y>120</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -489,7 +492,7 @@
       <property name="geometry">
        <rect>
         <x>13</x>
-        <y>200</y>
+        <y>160</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -517,7 +520,7 @@
       <property name="geometry">
        <rect>
         <x>13</x>
-        <y>80</y>
+        <y>40</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -545,7 +548,7 @@
       <property name="geometry">
        <rect>
         <x>13</x>
-        <y>120</y>
+        <y>80</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -573,7 +576,7 @@
       <property name="geometry">
        <rect>
         <x>93</x>
-        <y>160</y>
+        <y>120</y>
         <width>97</width>
         <height>31</height>
        </rect>
@@ -667,80 +670,6 @@
         <month>12</month>
         <day>31</day>
        </date>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_57">
-      <property name="geometry">
-       <rect>
-        <x>13</x>
-        <y>40</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string notr="true"/>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string notr="true">角色等級：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="characterLV">
-      <property name="geometry">
-       <rect>
-        <x>93</x>
-        <y>40</y>
-        <width>61</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string notr="true">設定角色等級只會影響打怪任務相關功能</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="specialValueText">
-       <string notr="true"/>
-      </property>
-      <property name="minimum">
-       <number>200</number>
-      </property>
-      <property name="maximum">
-       <number>200</number>
-      </property>
-      <property name="singleStep">
-       <number>5</number>
-      </property>
-      <property name="value">
-       <number>200</number>
       </property>
      </widget>
     </widget>
@@ -1928,7 +1857,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string notr="true">艾斯佩拉</string>
+       <string notr="true"/>
       </property>
       <property name="statusTip">
        <string notr="true"/>
@@ -1981,648 +1910,10 @@
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_7">
-     <property name="geometry">
-      <rect>
-       <x>287</x>
-       <y>10</y>
-       <width>191</width>
-       <height>381</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>每日可取得數量</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <widget class="QLabel" name="coinimg1">
-      <property name="geometry">
-       <rect>
-        <x>156</x>
-        <y>120</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string notr="true">每30個硬幣可兌換1個拉契爾恩ARC</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string notr="true"/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/images/Coin1.png</pixmap>
-      </property>
-     </widget>
-     <widget class="QLabel" name="coinimg2">
-      <property name="geometry">
-       <rect>
-        <x>156</x>
-        <y>160</y>
-        <width>29</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string notr="true">每3個硬幣可兌換1個阿爾卡娜ARC</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string notr="true"/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/images/Coin2.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_225">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>150</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得8個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/225.png</normaloff>:/images/225.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_220">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>110</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得8個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/220.png</normaloff>:/images/220.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="Line" name="line_2">
-      <property name="geometry">
-       <rect>
-        <x>1</x>
-        <y>274</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d200">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>40</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d210">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>80</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d220">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>120</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d225">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>160</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d230">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>200</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="d235">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>240</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::PlusMinus</enum>
-      </property>
-      <property name="showGroupSeparator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>0</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="displayIntegerBase">
-       <number>10</number>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="allMobbing">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>290</y>
-        <width>171</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>記得先設定角色等級哦！</string>
-      </property>
-      <property name="text">
-       <string>　自動勾選 (M)</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/sword.png</normaloff>:/images/sword.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>32</width>
-        <height>32</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>M</string>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_200">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得8、16個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/200.png</normaloff>:/images/200.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_210">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>70</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得4、8個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/210.png</normaloff>:/images/210.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_230">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>190</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得8個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/230.png</normaloff>:/images/230.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="mobbingMission_235">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>230</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string notr="true">打怪任務可獲得8個秘法符文</string>
-      </property>
-      <property name="statusTip">
-       <string notr="true"/>
-      </property>
-      <property name="whatsThis">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleName">
-       <string notr="true"/>
-      </property>
-      <property name="accessibleDescription">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>：</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/235.png</normaloff>:/images/235.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>36</width>
-        <height>36</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>V</string>
-      </property>
-      <property name="tristate">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="allMission">
-      <property name="geometry">
-       <rect>
-        <x>8</x>
-        <y>330</y>
-        <width>171</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>打怪和組隊任務都解滿</string>
-      </property>
-      <property name="text">
-       <string>　我全都要  (A)</string>
-      </property>
-      <property name="icon">
-       <iconset resource="images.qrc">
-        <normaloff>:/images/sword2.png</normaloff>:/images/sword2.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>35</width>
-        <height>35</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string>A</string>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
     <widget class="QPushButton" name="bahamut">
      <property name="geometry">
       <rect>
-       <x>495</x>
+       <x>477</x>
        <y>310</y>
        <width>101</width>
        <height>81</height>
@@ -2657,7 +1948,7 @@
     <widget class="QPushButton" name="github">
      <property name="geometry">
       <rect>
-       <x>609</x>
+       <x>590</x>
        <y>303</y>
        <width>101</width>
        <height>91</height>
@@ -2692,7 +1983,7 @@
     <widget class="QLabel" name="label_58">
      <property name="geometry">
       <rect>
-       <x>489</x>
+       <x>470</x>
        <y>270</y>
        <width>211</width>
        <height>31</height>
@@ -2723,7 +2014,7 @@
     <widget class="Line" name="line_7">
      <property name="geometry">
       <rect>
-       <x>587</x>
+       <x>570</x>
        <y>264</y>
        <width>31</width>
        <height>142</height>
@@ -2751,7 +2042,7 @@
     <widget class="Line" name="line_8">
      <property name="geometry">
       <rect>
-       <x>491</x>
+       <x>471</x>
        <y>255</y>
        <width>251</width>
        <height>20</height>
@@ -2764,7 +2055,7 @@
     <widget class="Line" name="line_9">
      <property name="geometry">
       <rect>
-       <x>477</x>
+       <x>457</x>
        <y>264</y>
        <width>31</width>
        <height>145</height>
@@ -2789,18 +2080,417 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
+    <widget class="QGroupBox" name="groupBox_12">
+     <property name="geometry">
+      <rect>
+       <x>294</x>
+       <y>10</y>
+       <width>161</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>取得方式</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>消逝的旅途</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/200.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>啾啾島</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/210.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>180</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>拉契爾恩</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/220.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_69">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>阿爾卡娜</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/225.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_70">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>魔菈斯</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/230.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_71">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>艾斯佩拉</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/235.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dailyAll">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>全選打怪任務</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="images.qrc">
+        <normaloff>:/images/sword.png</normaloff>:/images/sword.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="shortcut">
+       <string>D</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="weeklyAll">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>30</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>全選每週任務</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="images.qrc">
+        <normaloff>:/images/lightbulb.gif</normaloff>:/images/lightbulb.gif</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="shortcut">
+       <string>Q</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="selectAll">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>全選</string>
+      </property>
+      <property name="shortcut">
+       <string>A</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily200">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>90</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily210">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>140</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily220">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>190</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily225">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>240</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily230">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>290</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="daily235">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>340</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly235">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>340</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly200">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>90</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly225">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>240</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly210">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>140</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly220">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>190</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="weekly230">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>290</y>
+        <width>16</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
     <zorder>line</zorder>
     <zorder>groupBox_4</zorder>
     <zorder>groupBox_6</zorder>
     <zorder>ArcTotal</zorder>
     <zorder>ArcMode</zorder>
-    <zorder>groupBox_7</zorder>
     <zorder>bahamut</zorder>
     <zorder>github</zorder>
     <zorder>label_58</zorder>
     <zorder>line_7</zorder>
     <zorder>line_8</zorder>
     <zorder>line_9</zorder>
+    <zorder>groupBox_12</zorder>
    </widget>
    <widget class="QWidget" name="tab_aut">
     <attribute name="icon">
@@ -3458,7 +3148,7 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
-     <widget class="QCheckBox" name="mobbingMission_260">
+     <widget class="QCheckBox" name="daily260">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -3515,7 +3205,7 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QCheckBox" name="mobbingMission_270">
+     <widget class="QCheckBox" name="daily270">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -3672,7 +3362,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QCheckBox" name="mobbingMission_275">
+     <widget class="QCheckBox" name="daily275">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -3818,6 +3508,9 @@
       </property>
       <property name="maximum">
        <number>0</number>
+      </property>
+      <property name="singleStep">
+       <number>10</number>
       </property>
       <property name="value">
        <number>0</number>
@@ -4881,6 +4574,9 @@
         </property>
         <property name="maximum">
          <number>0</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
          <number>0</number>
@@ -6812,6 +6508,9 @@
         </property>
         <property name="maximum">
          <number>0</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
         </property>
         <property name="value">
          <number>0</number>
