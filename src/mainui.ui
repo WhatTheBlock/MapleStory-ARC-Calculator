@@ -3914,7 +3914,7 @@
        <x>20</x>
        <y>10</y>
        <width>351</width>
-       <height>601</height>
+       <height>591</height>
       </rect>
      </property>
      <property name="palette">
@@ -4194,7 +4194,7 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>529</height>
+        <height>519</height>
        </rect>
       </property>
       <attribute name="icon">
@@ -4211,7 +4211,7 @@
        <property name="geometry">
         <rect>
          <x>19</x>
-         <y>350</y>
+         <y>340</y>
          <width>311</width>
          <height>171</height>
         </rect>
@@ -4675,7 +4675,7 @@
        <property name="geometry">
         <rect>
          <x>19</x>
-         <y>10</y>
+         <y>0</y>
          <width>311</width>
          <height>131</height>
         </rect>
@@ -5164,7 +5164,7 @@
        <property name="geometry">
         <rect>
          <x>19</x>
-         <y>160</y>
+         <y>150</y>
          <width>311</width>
          <height>171</height>
         </rect>
@@ -5700,7 +5700,7 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>529</height>
+        <height>519</height>
        </rect>
       </property>
       <attribute name="icon">
@@ -5717,7 +5717,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>10</y>
+         <y>0</y>
          <width>311</width>
          <height>131</height>
         </rect>
@@ -6145,7 +6145,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>160</y>
+         <y>150</y>
          <width>311</width>
          <height>171</height>
         </rect>
@@ -6613,7 +6613,7 @@
        <x>0</x>
        <y>11</y>
        <width>41</width>
-       <height>573</height>
+       <height>563</height>
       </rect>
      </property>
      <property name="orientation">
@@ -6626,7 +6626,7 @@
        <x>350</x>
        <y>37</y>
        <width>41</width>
-       <height>573</height>
+       <height>563</height>
       </rect>
      </property>
      <property name="orientation">

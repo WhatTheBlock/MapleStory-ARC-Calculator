@@ -13,17 +13,17 @@ void MainUI::on_tabWidget_currentChanged(int index) {
             break;
         case 2:
             ui->toolBox->setCurrentIndex(0);
-            MainUI::setFixedSize(372, 659);
+            MainUI::setFixedSize(372, 649);
             break;
     }
 }
 void MainUI::on_toolBox_currentChanged(int index) {
     switch(index) {
         case 0:
-            MainUI::setFixedSize(372, 659);
+            MainUI::setFixedSize(372, 649);
             break;
         case 1:
-            MainUI::setFixedSize(372, 454);
+            MainUI::setFixedSize(372, 444);
             break;
     }
 }
