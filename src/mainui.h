@@ -13,6 +13,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDesktopServices>
+#include <QMovie>
 #include <cmath>
 #include "ui_mainui.h"
 #include "static_value.h"
@@ -50,26 +51,17 @@ private slots:
     void on_Aut2current_valueChanged();
     void on_Aut3current_valueChanged();
 
-    void on_d200_valueChanged();
-    void on_d210_valueChanged();
-    void on_d220_valueChanged();
-    void on_d225_valueChanged();
-    void on_d230_valueChanged();
-    void on_d235_valueChanged();
-    void on_mobbingMission_200_stateChanged();
-    void on_mobbingMission_210_stateChanged();
-    void on_mobbingMission_220_stateChanged();
-    void on_mobbingMission_225_stateChanged();
-    void on_mobbingMission_230_stateChanged();
-    void on_mobbingMission_235_stateChanged();
-    void on_mobbingMission_260_stateChanged();
-    void on_mobbingMission_270_stateChanged();
-    void on_mobbingMission_275_stateChanged();
+    void on_daily200_stateChanged();
+    void on_daily210_stateChanged();
+    void on_daily220_stateChanged();
+    void on_daily225_stateChanged();
+    void on_daily230_stateChanged();
+    void on_daily235_stateChanged();
+    void on_daily260_stateChanged();
+    void on_daily270_stateChanged();
+    void on_daily275_stateChanged();
     void on_mob260_clicked();
     void on_mob265_clicked();
-
-    void on_allMobbing_clicked();
-    void on_allMission_clicked();
 
     void on_startDate_userDateChanged(const QDate&);
     void on_startDate_aut_userDateChanged(const QDate&);
@@ -105,12 +97,12 @@ private slots:
 private:
     Ui::MainUI *ui;
 
-    QSpinBox* ArcLV[6];
-    QSpinBox* AutLV[3];
-    QSpinBox* ArcCurrent[6];
-    QSpinBox* AutCurrent[3];
-    QLabel* ArcUpgrade[6];
-    QLabel* AutUpgrade[3];
+    QSpinBox* ArcLV[ARCTYPE];
+    QSpinBox* AutLV[AUTTYPE];
+    QSpinBox* ArcCurrent[ARCTYPE];
+    QSpinBox* AutCurrent[AUTTYPE];
+    QLabel* ArcUpgrade[ARCTYPE];
+    QLabel* AutUpgrade[AUTTYPE];
     QLabel* ArcTotal;
     QLabel* AutTotal;
     QComboBox* ArcMode;
@@ -120,15 +112,21 @@ private:
     QNetworkAccessManager* nam;
     QUrl url;
 
-    int arcLV, arcCurrent, arcUpgradeInt[6];
-    int autLV, autCurrent, autUpgradeInt[3];
-    int arcUpgradeMeso[6], arcUpgradeMeso_max[6];
-    double autUpgradeMeso[3], autUpgradeMeso_max[3];
-    int arcUpgradeDays[6], arcMaxDays[6];
-    int autUpgradeDays[3], autMaxDays[3];
+    int arcLV, arcCurrent, arcUpgradeInt[ARCTYPE];
+    int autLV, autCurrent, autUpgradeInt[AUTTYPE];
+    int arcUpgradeMeso[ARCTYPE], arcUpgradeMeso_max[ARCTYPE];
+    double autUpgradeMeso[AUTTYPE], autUpgradeMeso_max[AUTTYPE];
+    int arcUpgradeDays[ARCTYPE], arcMaxDays[ARCTYPE];
+    int autUpgradeDays[AUTTYPE], autMaxDays[AUTTYPE];
     int arcUpgradeList[ARCMAXLV];
     int autUpgradeList[AUTMAXLV];
-    int dailyGet[6];
+    int dailyGet[ARCTYPE];
+    int weeklyGet[ARCTYPE];
+    bool dailyIsChecked[ARCTYPE], dailyIsChecked_aut[AUTTYPE];
+    bool weeklyIsChecked[ARCTYPE];
+    const int dailyMission[ARCTYPE] = {D200_MOB, D210_MOB, D220_MOB, D225_MOB, D230_MOB, D235_MOB};
+    const int dailyMission_aut[AUTTYPE] = {D260_MOB, D270_MOB, D275_MOB};
+    const int weeklyMission[ARCTYPE] = {D200_MIS, D210_MIS, D220_MIS, D225_MIS, D230_MIS, D235_MIS};
     int day;
 
     int hyperStats;
