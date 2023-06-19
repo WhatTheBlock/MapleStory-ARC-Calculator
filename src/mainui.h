@@ -51,18 +51,6 @@ private slots:
     void on_Aut2current_valueChanged();
     void on_Aut3current_valueChanged();
 
-    void on_daily200_stateChanged();
-    void on_daily210_stateChanged();
-    void on_daily220_stateChanged();
-    void on_daily225_stateChanged();
-    void on_daily230_stateChanged();
-    void on_daily235_stateChanged();
-    void on_daily260_stateChanged();
-    void on_daily270_stateChanged();
-    void on_daily275_stateChanged();
-    void on_mob260_clicked();
-    void on_mob265_clicked();
-
     void on_startDate_userDateChanged(const QDate&);
     void on_startDate_aut_userDateChanged(const QDate&);
 
@@ -97,6 +85,25 @@ private slots:
     void on_selectAll_clicked();
     void on_dailyAll_clicked();
     void on_weeklyAll_clicked();
+
+    void on_daily200_clicked();
+    void on_daily210_clicked();
+    void on_daily220_clicked();
+    void on_daily225_clicked();
+    void on_daily230_clicked();
+    void on_daily235_clicked();
+    void on_weekly200_clicked();
+    void on_weekly210_clicked();
+    void on_weekly220_clicked();
+    void on_weekly225_clicked();
+    void on_weekly230_clicked();
+    void on_weekly235_clicked();
+
+    void on_daily260_clicked();
+    void on_daily270_clicked();
+    void on_daily275_clicked();
+    void on_mob260_clicked();
+    void on_mob265_clicked();
 
 private:
     Ui::MainUI *ui;

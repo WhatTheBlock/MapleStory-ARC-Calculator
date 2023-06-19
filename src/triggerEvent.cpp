@@ -28,98 +28,47 @@ void MainUI::on_toolBox_currentChanged(int index) {
     }
 }
 
-void MainUI::on_Arc1LV_valueChanged() {
-    arcLvChanged(ui->arcimg1, 0);
-}
-void MainUI::on_Arc2LV_valueChanged() {
-    arcLvChanged(ui->arcimg2, 1);
-}
-void MainUI::on_Arc3LV_valueChanged() {
-    arcLvChanged(ui->arcimg3, 2);
-}
-void MainUI::on_Arc4LV_valueChanged() {
-    arcLvChanged(ui->arcimg4, 3);
-}
-void MainUI::on_Arc5LV_valueChanged() {
-    arcLvChanged(ui->arcimg5, 4);
-}
-void MainUI::on_Arc6LV_valueChanged() {
-    arcLvChanged(ui->arcimg6, 5);
-}
-void MainUI::on_Aut1LV_valueChanged() {
-    autLvChanged(ui->autimg1, 0);
-}
-void MainUI::on_Aut2LV_valueChanged() {
-    autLvChanged(ui->autimg2, 1);
-}
-void MainUI::on_Aut3LV_valueChanged() {
-    autLvChanged(ui->autimg3, 2);
-}
+void MainUI::on_Arc1LV_valueChanged() { arcLvChanged(ui->arcimg1, 0); }
+void MainUI::on_Arc2LV_valueChanged() { arcLvChanged(ui->arcimg2, 1); }
+void MainUI::on_Arc3LV_valueChanged() { arcLvChanged(ui->arcimg3, 2); }
+void MainUI::on_Arc4LV_valueChanged() { arcLvChanged(ui->arcimg4, 3); }
+void MainUI::on_Arc5LV_valueChanged() { arcLvChanged(ui->arcimg5, 4); }
+void MainUI::on_Arc6LV_valueChanged() { arcLvChanged(ui->arcimg6, 5); }
+void MainUI::on_Aut1LV_valueChanged() { autLvChanged(ui->autimg1, 0); }
+void MainUI::on_Aut2LV_valueChanged() { autLvChanged(ui->autimg2, 1); }
+void MainUI::on_Aut3LV_valueChanged() { autLvChanged(ui->autimg3, 2); }
 
-void MainUI::on_Arc1current_valueChanged() {
-    updateArcToolTips(ui->arcimg1, 0);
-}
-void MainUI::on_Arc2current_valueChanged() {
-    updateArcToolTips(ui->arcimg2, 1);
-}
-void MainUI::on_Arc3current_valueChanged() {
-    updateArcToolTips(ui->arcimg3, 2);
-}
-void MainUI::on_Arc4current_valueChanged() {
-    updateArcToolTips(ui->arcimg4, 3);
-}
-void MainUI::on_Arc5current_valueChanged() {
-    updateArcToolTips(ui->arcimg5, 4);
-}
-void MainUI::on_Arc6current_valueChanged() {
-    updateArcToolTips(ui->arcimg6, 5);
-}
-void MainUI::on_Aut1current_valueChanged() {
-    updateAutToolTips(ui->autimg1, 0);
-}
-void MainUI::on_Aut2current_valueChanged() {
-    updateAutToolTips(ui->autimg2, 1);
-}
-void MainUI::on_Aut3current_valueChanged() {
-    updateAutToolTips(ui->autimg3, 2);
-}
+void MainUI::on_Arc1current_valueChanged() { updateArcToolTips(ui->arcimg1, 0); }
+void MainUI::on_Arc2current_valueChanged() { updateArcToolTips(ui->arcimg2, 1); }
+void MainUI::on_Arc3current_valueChanged() { updateArcToolTips(ui->arcimg3, 2); }
+void MainUI::on_Arc4current_valueChanged() { updateArcToolTips(ui->arcimg4, 3); }
+void MainUI::on_Arc5current_valueChanged() { updateArcToolTips(ui->arcimg5, 4); }
+void MainUI::on_Arc6current_valueChanged() { updateArcToolTips(ui->arcimg6, 5); }
+void MainUI::on_Aut1current_valueChanged() { updateAutToolTips(ui->autimg1, 0); }
+void MainUI::on_Aut2current_valueChanged() { updateAutToolTips(ui->autimg2, 1); }
+void MainUI::on_Aut3current_valueChanged() { updateAutToolTips(ui->autimg3, 2); }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) { updateAp(index); }
 void MainUI::on_AutMode_currentIndexChanged(int index) { updateAp(index + 3); }
 
-void MainUI::on_daily200_stateChanged() {
-    updateArcToolTips(ui->arcimg1, 0);
-}
-void MainUI::on_daily210_stateChanged() {
-    updateArcToolTips(ui->arcimg2, 1);
-}
-void MainUI::on_daily220_stateChanged() {
-    updateArcToolTips(ui->arcimg3, 2);
-}
-void MainUI::on_daily225_stateChanged() {
-    updateArcToolTips(ui->arcimg4, 3);
-}
-void MainUI::on_daily230_stateChanged() {
-    updateArcToolTips(ui->arcimg5, 4);
-}
-void MainUI::on_daily235_stateChanged() {
-    updateArcToolTips(ui->arcimg6, 5);
-}
-void MainUI::on_daily260_stateChanged() {
-    updateAutToolTips(ui->autimg1, 0);
-}
-void MainUI::on_mob260_clicked() {
-    updateAutToolTips(ui->autimg1, 0);
-}
-void MainUI::on_mob265_clicked() {
-    updateAutToolTips(ui->autimg1, 0);
-}
-void MainUI::on_daily270_stateChanged() {
-    updateAutToolTips(ui->autimg2, 1);
-}
-void MainUI::on_daily275_stateChanged() {
-    updateAutToolTips(ui->autimg3, 2);
-}
+void MainUI::on_daily200_clicked() { updateArcToolTips(ui->arcimg1, 0); }
+void MainUI::on_daily210_clicked() { updateArcToolTips(ui->arcimg2, 1); }
+void MainUI::on_daily220_clicked() { updateArcToolTips(ui->arcimg3, 2); }
+void MainUI::on_daily225_clicked() { updateArcToolTips(ui->arcimg4, 3); }
+void MainUI::on_daily230_clicked() { updateArcToolTips(ui->arcimg5, 4); }
+void MainUI::on_daily235_clicked() { updateArcToolTips(ui->arcimg6, 5); }
+void MainUI::on_weekly200_clicked() { on_daily200_clicked(); }
+void MainUI::on_weekly210_clicked() { on_daily210_clicked(); }
+void MainUI::on_weekly220_clicked() { on_daily220_clicked(); }
+void MainUI::on_weekly225_clicked() { on_daily225_clicked(); }
+void MainUI::on_weekly230_clicked() { on_daily230_clicked(); }
+void MainUI::on_weekly235_clicked() { on_daily235_clicked(); }
+
+void MainUI::on_daily260_clicked() { updateAutToolTips(ui->autimg1, 0); }
+void MainUI::on_daily270_clicked() { updateAutToolTips(ui->autimg2, 1); }
+void MainUI::on_daily275_clicked() { updateAutToolTips(ui->autimg3, 2); }
+void MainUI::on_mob260_clicked() { on_daily260_clicked(); }
+void MainUI::on_mob265_clicked() { on_daily260_clicked(); }
 
 void MainUI::on_targetArc_valueChanged() { dailyTask(); }
 void MainUI::on_targetAut_valueChanged() { dailyTask_aut(); }
