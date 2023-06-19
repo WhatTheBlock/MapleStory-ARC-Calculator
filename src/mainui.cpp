@@ -89,12 +89,31 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
         ARC225_COST[i] = ARC225_COST_BASE + ARC225_COST_INCREASE * i;
     }
 
+    //gif button
     auto movie = new QMovie(this);
     movie->setFileName(":/images/lightbulb.gif");
     connect(movie, &QMovie::frameChanged, [=]{
         ui->weeklyAll->setIcon(movie->currentPixmap());
     });
     movie->start();
+
+    //tooltip
+    ui->daily200->setToolTip(QStringLiteral("每日可獲得%1個").arg(D200_MOB));
+    ui->daily210->setToolTip(QStringLiteral("每日可獲得%1個").arg(D210_MOB));
+    ui->daily220->setToolTip(QStringLiteral("每日可獲得%1個").arg(D220_MOB));
+    ui->daily225->setToolTip(QStringLiteral("每日可獲得%1個").arg(D225_MOB));
+    ui->daily230->setToolTip(QStringLiteral("每日可獲得%1個").arg(D230_MOB));
+    ui->daily235->setToolTip(QStringLiteral("每日可獲得%1個").arg(D235_MOB));
+    ui->weekly200->setToolTip(QStringLiteral("每週可獲得%1個").arg(D200_MIS));
+    ui->weekly210->setToolTip(QStringLiteral("每週可獲得%1個").arg(D210_MIS));
+    ui->weekly220->setToolTip(QStringLiteral("每週可獲得%1個").arg(D220_MIS));
+    ui->weekly225->setToolTip(QStringLiteral("每週可獲得%1個").arg(D225_MIS));
+    ui->weekly230->setToolTip(QStringLiteral("每週可獲得%1個").arg(D230_MIS));
+    ui->weekly235->setToolTip(QStringLiteral("每週可獲得%1個").arg(D235_MIS));
+    ui->mob260->setToolTip(QStringLiteral("每日可獲得%1個").arg(D260_MOB));
+    ui->mob265->setToolTip(QStringLiteral("每日可獲得%1個").arg(D265_MOB));
+    ui->mob270->setToolTip(QStringLiteral("每日可獲得%1個").arg(D270_MOB));
+    ui->mob275->setToolTip(QStringLiteral("每日可獲得%1個").arg(D275_MOB));
 }
 
 MainUI::~MainUI() { delete ui; }

@@ -1920,7 +1920,7 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>點我！</string>
+      <string>我是個好MS寶嗎？</string>
      </property>
      <property name="text">
       <string/>
@@ -1955,7 +1955,7 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>點我！</string>
+      <string>Built with Qt!</string>
      </property>
      <property name="text">
       <string/>
@@ -3207,7 +3207,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string notr="true">打怪任務可獲得5、10個真實符文</string>
+       <string notr="true">賽爾尼溫</string>
       </property>
       <property name="statusTip">
        <string notr="true"/>
@@ -3258,7 +3258,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string notr="true">打怪任務可獲得5個真實符文</string>
+       <string notr="true">阿爾克斯</string>
       </property>
       <property name="statusTip">
        <string notr="true"/>
@@ -3415,7 +3415,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string notr="true">打怪任務可獲得5個真實符文</string>
+       <string notr="true">奧迪溫</string>
       </property>
       <property name="statusTip">
        <string notr="true"/>
