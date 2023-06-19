@@ -3,14 +3,14 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/gh/WhatTheBlock/MapleStory-ARC-Calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 適用的遊戲版本為 TMS v252
+### 適用的遊戲版本為 TMS v253
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
 #### 若計算公式未即時更新請至巴哈姆特文章回覆通知
 #### 感謝您 😊 <br><br>
 
-### UI介面：
+### 使用介面：
 ----
 ![ui_1.png](/ui_1.png) <br>
 ![ui_2.png](/ui_2.png) <br>
@@ -18,6 +18,17 @@
 
 ### Changelog：
 ----
+
+#### v2.9.4
+- 跟進TMS v253系統改動
+- 重寫ARC取得方式
+- 達成日的計算邏輯調整為起始日獲得量也計算進去
+- 修正ARC 1.5倍增傷數值錯誤，因極限屬性讓ARC尾數有可能出現5，無需再進位
+- 修正其他分頁空白過多的問題
+- ARC傷害計算的自身ARC步進單位改為5
+- AUT傷害計算的自身AUT步進單位改為10
+- ARC達成日計算的目標ARC步進單位改為5
+- AUT達成日計算的目標AUT步進單位改為10
 
 #### v2.9.3
 - 新增奧迪溫AUT達成日計算
@@ -56,28 +67,3 @@
 - 新增部分介面說明
 - 修正秘法觸媒的錯誤
 - 32位元系統支援
-
-#### v2.7.1
-- (New) 新增檢查更新失敗提示
-- 修正檢查更新失敗
-- 修正版本號錯誤
-
-#### v2.7
-- (New) 新增ARC升級所需楓幣提示
-- (New) 新增ARC升級所需天數提示
-- (New) 新增ARC升級日期提示
-- (New) 新增秘法觸媒省錢技巧提示
-- 修正升級所需楓幣在0元時還有分位符號的錯誤
-- 修正升級所需楓幣在歸零時沒有分位符號的錯誤
-- 修正秘法觸媒所需楓幣計算錯誤
-- 修正秘法觸媒成長等級滿級後還可增加成長值的錯誤
-- 調整偵錯功能
-
-#### v2.6
-- (New) 新增檢查更新功能
-- (New) 新增公會技能選項
-- (New) 新增巴哈文章連結
-- (New) 新增Github專案連結
-- 調整屬性增加量顯示方式
-- 提高個人ARC上限至1450
-- 修正提醒訊息視窗標題沒有圖標的錯誤
