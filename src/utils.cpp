@@ -23,12 +23,9 @@ void MainUI::avoidError() {
         arcCurrent = ArcCurrent[i]->value();
         arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
 
-        if(arcCurrent > arcUpgradeInt[i]) {
-            if(arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
-                ArcCurrent[i]->setValue(arcUpgradeInt[i]);
-            }
-            else ArcCurrent[i]->setValue(0);
-        }
+        if (arcCurrent > arcUpgradeInt[i] && arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
+            ArcCurrent[i]->setValue(arcUpgradeInt[i]);
+        } else ArcCurrent[i]->setValue(0);
     }
 
     for(int i = 0; i < AUTTYPE; i++) {
@@ -36,12 +33,9 @@ void MainUI::avoidError() {
         autCurrent = AutCurrent[i]->value();
         autUpgradeInt[i] = AutUpgrade[i]->text().toInt();
 
-        if(autCurrent > autUpgradeInt[i]) {
-            if(autUpgradeInt[i] != 0 && autLV != AUTMAXLV) {
-                AutCurrent[i]->setValue(autUpgradeInt[i]);
-            }
-            else AutCurrent[i]->setValue(0);
-        }
+        if (autCurrent > autUpgradeInt[i] && autUpgradeInt[i] != 0 && autLV != AUTMAXLV) {
+            AutCurrent[i]->setValue(autUpgradeInt[i]);
+        } else AutCurrent[i]->setValue(0);
     }
 }
 
@@ -93,15 +87,18 @@ void MainUI::updateAp(int mode) {
     //計算屬性增加量不可納入極限屬性 & 公會技能增加的ARC
     int arc = ArcTotal->text().toInt() - hyperStats - guildSkill;
     int aut = AutTotal->text().toInt();
+    int ap = 0;
 
     switch (mode) {
-        case 0: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC)); break;
-        case 1: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * XENON_RATIO)); break;
-        case 2: ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(arc * NORMAL_ARC * DA_RATIO)); break;
-        case 3: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(aut * NORMAL_AUT + 300)); break;
-        case 4: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * XENON_RATIO)); break;
-        case 5: AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg((aut * NORMAL_AUT + 300) * DA_RATIO)); break;
+        case 0: ap = arc * NORMAL_ARC; break;
+        case 1: ap = arc * NORMAL_ARC * XENON_RATIO; break;
+        case 2: ap = arc * NORMAL_ARC * DA_RATIO; break;
+        case 3: ap = aut * NORMAL_AUT + 300; break;
+        case 4: ap = (aut * NORMAL_AUT + 300) * XENON_RATIO; break;
+        case 5: ap = (aut * NORMAL_AUT + 300) * DA_RATIO; break;
     }
+    ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
+    AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
 }
 
 //升級所需楓幣
@@ -137,34 +134,31 @@ double MainUI::autUpgradeCost(int lv, int from, int to) {
 void MainUI::arcDamage(int x, int y) {
     float percent = (float(x) / float(y)) * 100;
 
-    for(int i = 0; i < 9; i++) {
-        if(percent < damageList_arc[i]) {
+    for (int i = 0; i < 8; i++) {
+        if (percent < damageList_arc[i + 1]) {
             ui->damage->setNum(damageList_arc[i]);
             ui->hit_damage->setNum(hit_damageList_arc[i]);
-            break;
+            return;
         }
-        else if(percent >= damageList_arc[i] && percent < damageList_arc[i + 1]) {
-            ui->damage->setNum(damageList_arc[i]);
-            ui->hit_damage->setNum(hit_damageList_arc[i]);
-            break;
-        }
-        else {
-            ui->damage->setNum(damageList_arc[i]);
-            ui->hit_damage->setNum(hit_damageList_arc[i]);
-        }
+
+        ui->damage->setNum(damageList_arc[i]);
+        ui->hit_damage->setNum(hit_damageList_arc[i]);
     }
 
-    //1.5倍傷害需求尾數為5的值需額外加5
-    if((y * 15) % 100 == 50) ui->maxDamage_arc->setNum(y * 1.5 + 5);
-    else ui->maxDamage_arc->setNum(y * 1.5);
+    ui->damage->setNum(damageList_arc[8]);
+    ui->hit_damage->setNum(hit_damageList_arc[8]);
 }
 
 //AUT被擊傷害 & 增傷
 void MainUI::autDamage(int x, int y) {
+    int diff, index;
+
     if(x < y) {
-        if(y - x <= 100) {
-            ui->damage_aut->setNum(damageList_aut[(y - x) / 10]);
-            ui->hit_damage_aut->setNum(hit_damageList_aut[(y - x) / 10]);
+        diff = y - x;
+        if(diff <= 100) {
+            index = diff / 10;
+            ui->damage_aut->setNum(damageList_aut[index]);
+            ui->hit_damage_aut->setNum(hit_damageList_aut[index]);
         }
         else {
             ui->damage_aut->setNum(5);
@@ -172,7 +166,11 @@ void MainUI::autDamage(int x, int y) {
         }
     }
     else {
-        if(x - y <= 50) ui->damage_aut->setNum(damageList_aut2[(x - y) / 10]);
+        diff = x - y;
+        if(diff <= 50) {
+            index = diff / 10;
+            ui->damage_aut->setNum(damageList_aut2[index]);
+        }
         else ui->damage_aut->setNum(125);
         ui->hit_damage_aut->setNum(100);
     }
@@ -193,22 +191,6 @@ void MainUI::transArc(int lv, int arc) {
             break;
         }
     }
-}
-
-//清除任務狀態
-void MainUI::clearMission() {
-    ui->mobbingMission_200->setChecked(false);
-    ui->mobbingMission_210->setChecked(false);
-    ui->mobbingMission_220->setChecked(false);
-    ui->mobbingMission_225->setChecked(false);
-    ui->mobbingMission_230->setChecked(false);
-    ui->mobbingMission_235->setChecked(false);
-    ui->d200->setValue(0);
-    ui->d210->setValue(0);
-    ui->d220->setValue(0);
-    ui->d225->setValue(0);
-    ui->d230->setValue(0);
-    ui->d235->setValue(0);
 }
 
 void MainUI::arcLvChanged(QLabel* arcimg, int arc) {
