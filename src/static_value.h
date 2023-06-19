@@ -2,9 +2,8 @@
 #define STATIC_VALUE_H
 
 //版本
-#define VERCODE 293
+#define VERCODE 294
 
-#define MAXLV 300           //等級上限
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCTYPE 6           //ARC種類
 #define AUTMAXLV 11         //AUT等級上限
@@ -24,28 +23,22 @@
 #define DA_RATIO 21
 
 //最高取得量
-#define D200_MIS 6
-#define D200_MOB 8
-#define D205_MOB 8
-#define D210_MIS 15
-#define D210_MOB 4
-#define D215_MOB 4
-#define D220_MIS 524
-#define D220_MOB 240
-#define D225_MIS 30
-#define D225_MOB 24
-#define D230_MIS 6
+#define D200_MIS 45
+#define D200_MOB 18
+#define D210_MIS 45
+#define D210_MOB 16
+#define D220_MIS 45
+#define D220_MOB 11
+#define D225_MIS 45
+#define D225_MOB 9
+#define D230_MIS 45
 #define D230_MOB 8
-#define D235_MIS 6
+#define D235_MIS 45
 #define D235_MOB 8
-#define D260_MOB 5
+#define D260_MOB 10
 #define D265_MOB 5
-#define D270_MOB 5
+#define D270_MOB 10
 #define D275_MOB 5
-
-//轉硬幣倍率
-#define ARC_TO_COIN_220 30
-#define ARC_TO_COIN_225 3
 
 //升級所需楓幣
 #define ARC200_COST_BASE 7070000
