@@ -50,12 +50,6 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     AutMode = ui->AutMode;
 
     //設定數據範圍
-    ui->d200->setMaximum(D200_MIS);
-    ui->d210->setMaximum(D210_MIS);
-    ui->d220->setMaximum(D220_MIS);
-    ui->d225->setMaximum(D225_MIS);
-    ui->d230->setMaximum(D230_MIS);
-    ui->d235->setMaximum(D235_MIS);
     ui->ArcLV_to->setMaximum(ARCMAXLV);
     ui->ArcLV_from->setMaximum(ARCMAXLV - 1);
     ui->AutLV_to->setMaximum(AUTMAXLV);
@@ -66,7 +60,6 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->AutDamage_y->setMaximum(AUTMAX_MOB);
     ui->targetArc->setMaximum(ARCMAX);
     ui->targetAut->setMaximum(AUTMAX);
-    ui->characterLV->setMaximum(MAXLV);
 
     //設定日期為電腦當前時間
     ui->startDate->setDate(QDate::currentDate());
@@ -95,6 +88,13 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
         ARC220_COST[i] = ARC220_COST_BASE + ARC220_COST_INCREASE * i;
         ARC225_COST[i] = ARC225_COST_BASE + ARC225_COST_INCREASE * i;
     }
+
+    auto movie = new QMovie(this);
+    movie->setFileName(":/images/lightbulb.gif");
+    connect(movie, &QMovie::frameChanged, [=]{
+        ui->weeklyAll->setIcon(movie->currentPixmap());
+    });
+    movie->start();
 }
 
 MainUI::~MainUI() { delete ui; }
