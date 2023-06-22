@@ -23,9 +23,12 @@ void MainUI::avoidError() {
         arcCurrent = ArcCurrent[i]->value();
         arcUpgradeInt[i] = ArcUpgrade[i]->text().toInt();
 
-        if (arcCurrent > arcUpgradeInt[i] && arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
-            ArcCurrent[i]->setValue(arcUpgradeInt[i]);
-        } else ArcCurrent[i]->setValue(0);
+        if(arcCurrent > arcUpgradeInt[i]) {
+            if(arcUpgradeInt[i] != 0 && arcLV != ARCMAXLV) {
+                ArcCurrent[i]->setValue(arcUpgradeInt[i]);
+            }
+            else ArcCurrent[i]->setValue(0);
+        }
     }
 
     for(int i = 0; i < AUTTYPE; i++) {
@@ -33,9 +36,12 @@ void MainUI::avoidError() {
         autCurrent = AutCurrent[i]->value();
         autUpgradeInt[i] = AutUpgrade[i]->text().toInt();
 
-        if (autCurrent > autUpgradeInt[i] && autUpgradeInt[i] != 0 && autLV != AUTMAXLV) {
-            AutCurrent[i]->setValue(autUpgradeInt[i]);
-        } else AutCurrent[i]->setValue(0);
+        if(autCurrent > autUpgradeInt[i]) {
+            if(autUpgradeInt[i] != 0 && autLV != AUTMAXLV) {
+                AutCurrent[i]->setValue(autUpgradeInt[i]);
+            }
+            else AutCurrent[i]->setValue(0);
+        }
     }
 }
 
