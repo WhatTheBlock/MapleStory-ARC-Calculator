@@ -104,7 +104,7 @@ void MainUI::on_weeklyAll_clicked() {
 //ARC升級所需楓幣
 void MainUI::on_selectARC_currentIndexChanged(int index) {
     ui->cost->setText(decimalSeparator(arcUpgradeCost(index, ui->ArcLV_from->value(), ui->ArcLV_to->value())));
-    transArc(ui->transLV_before->value(), ui->transArc_before->value());
+    transArc(ui->transArc_before->value());
 }
 void MainUI::on_ArcLV_from_valueChanged() {
     if(ui->ArcLV_from->value() > ui->ArcLV_to->value()) {
@@ -136,25 +136,8 @@ void MainUI::on_AutLV_to_valueChanged() {
 }
 
 //秘法觸媒
-void MainUI::on_transLV_before_valueChanged(int lv) {
-    if(lv == ARCMAXLV) {
-        ui->transArc_before->setValue(0);
-        warningMsg(QStringLiteral("19等滿經驗直接轉就好\n可以省一筆錢唷！"));
-    }
-
-    transArc(lv, ui->transArc_before->value());
-}
 void MainUI::on_transArc_before_valueChanged(int arc) {
-    int lv = ui->transLV_before->value();
-
-    if(lv != ARCMAXLV) {
-       transArc(lv, arc);
-
-       if(arc == (lv * lv + 11)) {
-           ui->transArc_before->setValue(0);
-           ui->transLV_before->setValue(lv + 1);
-       }
-    }
+    transArc(arc);
 }
 
 //ARC傷害計算

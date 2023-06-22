@@ -69,7 +69,6 @@ private slots:
     void on_AutDamage_x_valueChanged(int);
     void on_AutDamage_y_valueChanged(int);
 
-    void on_transLV_before_valueChanged(int);
     void on_transArc_before_valueChanged(int);
 
     void on_HyperStats_valueChanged(int);
@@ -166,7 +165,7 @@ private:
 
     void arcDamage(int, int);
     void autDamage(int, int);
-    void transArc(int, int);
+    void transArc(int);
 
     void warningMsg(QString);
 

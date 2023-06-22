@@ -39,7 +39,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>新楓之谷 ARC / AUT 計算機  v2.9.4</string>
+   <string>新楓之谷 ARC / AUT 計算機  v2.9.5</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -5190,39 +5190,11 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <widget class="QLabel" name="label_46">
-        <property name="geometry">
-         <rect>
-          <x>15</x>
-          <y>40</y>
-          <width>81</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="toolTip">
-         <string notr="true"/>
-        </property>
-        <property name="statusTip">
-         <string notr="true"/>
-        </property>
-        <property name="whatsThis">
-         <string notr="true"/>
-        </property>
-        <property name="accessibleName">
-         <string notr="true"/>
-        </property>
-        <property name="accessibleDescription">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string notr="true">成長等級：</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_47">
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>80</y>
+          <y>60</y>
           <width>61</width>
           <height>31</height>
          </rect>
@@ -5249,7 +5221,7 @@
        <widget class="QLabel" name="label_48">
         <property name="geometry">
          <rect>
-          <x>155</x>
+          <x>160</x>
           <y>60</y>
           <width>31</width>
           <height>31</height>
@@ -5407,61 +5379,12 @@
          <string notr="true">0</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="transLV_before">
-        <property name="geometry">
-         <rect>
-          <x>95</x>
-          <y>40</y>
-          <width>42</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="toolTip">
-         <string notr="true"/>
-        </property>
-        <property name="statusTip">
-         <string notr="true"/>
-        </property>
-        <property name="whatsThis">
-         <string notr="true"/>
-        </property>
-        <property name="accessibleName">
-         <string notr="true"/>
-        </property>
-        <property name="accessibleDescription">
-         <string notr="true"/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::PlusMinus</enum>
-        </property>
-        <property name="specialValueText">
-         <string notr="true"/>
-        </property>
-        <property name="suffix">
-         <string notr="true"/>
-        </property>
-        <property name="prefix">
-         <string notr="true"/>
-        </property>
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>20</number>
-        </property>
-        <property name="value">
-         <number>1</number>
-        </property>
-       </widget>
        <widget class="QSpinBox" name="transArc_before">
         <property name="geometry">
          <rect>
           <x>85</x>
-          <y>80</y>
-          <width>51</width>
+          <y>60</y>
+          <width>61</width>
           <height>31</height>
          </rect>
         </property>
@@ -5496,13 +5419,13 @@
          <string notr="true"/>
         </property>
         <property name="minimum">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="maximum">
-         <number>372</number>
+         <number>2679</number>
         </property>
         <property name="value">
-         <number>0</number>
+         <number>1</number>
         </property>
        </widget>
        <widget class="Line" name="line_4">

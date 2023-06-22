@@ -66,7 +66,6 @@ void MainUI::upgradeVal() {
     //防止輸入錯誤
     avoidError();
 }
-
 //更新升級所需AUT數量
 void MainUI::upgradeVal_aut() {
     AutTotal->setNum(0);
@@ -105,6 +104,18 @@ void MainUI::updateAp(int mode) {
     }
     ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
     AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
+}
+
+void MainUI::arcLvChanged(QLabel* arcimg, int arc) {
+    upgradeVal();
+    updateAp(ArcMode->currentIndex());
+    updateArcToolTips(arcimg, arc);
+}
+
+void MainUI::autLvChanged(QLabel* autimg, int aut) {
+    upgradeVal_aut();
+    updateAp(AutMode->currentIndex() + 3);
+    updateAutToolTips(autimg, aut);
 }
 
 //升級所需楓幣
@@ -154,7 +165,6 @@ void MainUI::arcDamage(int x, int y) {
     ui->damage->setNum(damageList_arc[8]);
     ui->hit_damage->setNum(hit_damageList_arc[8]);
 }
-
 //AUT被擊傷害 & 增傷
 void MainUI::autDamage(int x, int y) {
     int diff, index;
@@ -183,30 +193,16 @@ void MainUI::autDamage(int x, int y) {
 }
 
 //秘法觸媒
-void MainUI::transArc(int lv, int arc) {
-    ui->transArc_before->setEnabled((lv == ARCMAXLV) ? false : true);
+void MainUI::transArc(int arc) {
+    double total = floor(arc * 0.8);
 
-    double total = floor((arcUpgradeList[lv - 1] + arc) * 0.8);
+    for(int i = 0; i < ARCMAXLV; i++) {
+        if(total >= arcUpgradeList[ARCMAXLV - i - 1]) {
+            ui->transCost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), 1, ARCMAXLV - i)));
 
-    for(int i = 0; i < lv; i++) {
-        if(total >= arcUpgradeList[lv - i - 1]) {
-            ui->transCost->setText(decimalSeparator(arcUpgradeCost(ui->selectARC->currentIndex(), 1, lv - i)));
-
-            ui->transLV_after->setNum(lv - i);
-            ui->transArc_after->setNum(total - arcUpgradeList[lv - i - 1]);
+            ui->transLV_after->setNum(ARCMAXLV - i);
+            ui->transArc_after->setNum(total - arcUpgradeList[ARCMAXLV - i - 1]);
             break;
         }
     }
-}
-
-void MainUI::arcLvChanged(QLabel* arcimg, int arc) {
-    upgradeVal();
-    updateAp(ArcMode->currentIndex());
-    updateArcToolTips(arcimg, arc);
-}
-
-void MainUI::autLvChanged(QLabel* autimg, int aut) {
-    upgradeVal_aut();
-    updateAp(AutMode->currentIndex() + 3);
-    updateAutToolTips(autimg, aut);
 }
