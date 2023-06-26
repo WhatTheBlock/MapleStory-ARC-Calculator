@@ -2,7 +2,7 @@
 #define STATIC_VALUE_H
 
 //版本
-#define VERCODE 294
+#define VERCODE 295
 
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCTYPE 6           //ARC種類
