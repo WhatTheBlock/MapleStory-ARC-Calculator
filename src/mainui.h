@@ -14,42 +14,46 @@
 #include <QJsonObject>
 #include <QDesktopServices>
 #include <QMovie>
+#include <QSettings>
+#include <QSharedPointer>
 #include <cmath>
 #include "ui_mainui.h"
 #include "static_value.h"
 
-namespace Ui {class MainUI;}
+namespace Ui { class MainUI; }
 
-class MainUI : public QWidget{
+class MainUI : public QWidget {
     Q_OBJECT
 
 public:
     explicit MainUI(QWidget *parent = nullptr);
     ~MainUI();
 
+    QSharedPointer<QSettings> settings;
+
 private slots:
-    void on_Arc1LV_valueChanged();
-    void on_Arc2LV_valueChanged();
-    void on_Arc3LV_valueChanged();
-    void on_Arc4LV_valueChanged();
-    void on_Arc5LV_valueChanged();
-    void on_Arc6LV_valueChanged();
-    void on_Aut1LV_valueChanged();
-    void on_Aut2LV_valueChanged();
-    void on_Aut3LV_valueChanged();
+    void on_Arc1LV_valueChanged(int);
+    void on_Arc2LV_valueChanged(int);
+    void on_Arc3LV_valueChanged(int);
+    void on_Arc4LV_valueChanged(int);
+    void on_Arc5LV_valueChanged(int);
+    void on_Arc6LV_valueChanged(int);
+    void on_Aut1LV_valueChanged(int);
+    void on_Aut2LV_valueChanged(int);
+    void on_Aut3LV_valueChanged(int);
 
     void on_ArcMode_currentIndexChanged(int);
     void on_AutMode_currentIndexChanged(int);
 
-    void on_Arc1current_valueChanged();
-    void on_Arc2current_valueChanged();
-    void on_Arc3current_valueChanged();
-    void on_Arc4current_valueChanged();
-    void on_Arc5current_valueChanged();
-    void on_Arc6current_valueChanged();
-    void on_Aut1current_valueChanged();
-    void on_Aut2current_valueChanged();
-    void on_Aut3current_valueChanged();
+    void on_Arc1current_valueChanged(int);
+    void on_Arc2current_valueChanged(int);
+    void on_Arc3current_valueChanged(int);
+    void on_Arc4current_valueChanged(int);
+    void on_Arc5current_valueChanged(int);
+    void on_Arc6current_valueChanged(int);
+    void on_Aut1current_valueChanged(int);
+    void on_Aut2current_valueChanged(int);
+    void on_Aut3current_valueChanged(int);
 
     void on_startDate_userDateChanged(const QDate&);
     void on_startDate_aut_userDateChanged(const QDate&);
@@ -61,8 +65,8 @@ private slots:
     void on_AutLV_from_valueChanged();
     void on_AutLV_to_valueChanged();
 
-    void on_targetArc_valueChanged();
-    void on_targetAut_valueChanged();
+    void on_targetArc_valueChanged(int);
+    void on_targetAut_valueChanged(int);
 
     void on_ArcDamage_x_valueChanged(int);
     void on_ArcDamage_y_valueChanged(int);
@@ -103,6 +107,8 @@ private slots:
     void on_daily275_clicked();
     void on_mob260_clicked();
     void on_mob265_clicked();
+
+    void on_clearSettings_clicked();
 
 private:
     Ui::MainUI *ui;
@@ -173,6 +179,9 @@ private:
 
     void checkUpdate();
     void onResult(QNetworkReply*);
+
+    void settingsInit();
+    void importSettings();
 };
 
 #endif // MAINUI_H

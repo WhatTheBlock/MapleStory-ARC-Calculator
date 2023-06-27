@@ -29,6 +29,7 @@ SOURCES += \
         src/checkUpdate.cpp \
         src/main.cpp \
         src/mainui.cpp \
+        src/settings.cpp \
         src/triggerEvent.cpp \
         src/utils.cpp
 

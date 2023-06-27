@@ -49,6 +49,12 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ArcMode = ui->ArcMode;
     AutMode = ui->AutMode;
 
+    //極限屬性
+    hyperStats = 0;
+
+    //公會技能
+    guildSkill = 0;
+
     //設定數據範圍
     ui->ArcLV_to->setMaximum(ARCMAXLV);
     ui->ArcLV_from->setMaximum(ARCMAXLV - 1);
@@ -74,12 +80,6 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     //累加各階AUT升級數量，Lv1=29、Lv2=105、Lv3=246...
     autUpgradeList[0] = 0;
     for(int i = 1; i < AUTMAXLV; i++) autUpgradeList[i] = 9 * i * i + 20 * i + autUpgradeList[i - 1];
-
-    //極限屬性
-    hyperStats = 0;
-
-    //公會技能
-    guildSkill = 0;
 
     //設定符文升級費用
     for(int i = 0; i < ARCMAXLV - 1; i++) {
@@ -114,6 +114,9 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
     ui->mob265->setToolTip(QStringLiteral("每日可獲得%1個").arg(D265_MOB));
     ui->mob270->setToolTip(QStringLiteral("每日可獲得%1個").arg(D270_MOB));
     ui->mob275->setToolTip(QStringLiteral("每日可獲得%1個").arg(D275_MOB));
+
+    //載入存檔
+    importSettings();
 }
 
 MainUI::~MainUI() { delete ui; }

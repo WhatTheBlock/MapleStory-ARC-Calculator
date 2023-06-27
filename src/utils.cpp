@@ -63,6 +63,8 @@ void MainUI::upgradeVal() {
         }
     }
 
+    updateAp(settings->value("ARC/ArcMode").toInt());
+
     //防止輸入錯誤
     avoidError();
 }
@@ -83,6 +85,8 @@ void MainUI::upgradeVal_aut() {
         }
     }
 
+    updateAp(settings->value("AUT/AutMode").toInt() + 3);
+
     //防止輸入錯誤
     avoidError();
 }
@@ -102,8 +106,8 @@ void MainUI::updateAp(int mode) {
         case 4: ap = (aut * NORMAL_AUT + 300) * XENON_RATIO; break;
         case 5: ap = (aut * NORMAL_AUT + 300) * DA_RATIO; break;
     }
-    ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
-    AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
+    if(mode <= 2) ArcTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
+    else AutTotal->setToolTip(QStringLiteral("屬性增加量：%1").arg(ap));
 }
 
 void MainUI::arcLvChanged(QLabel* arcimg, int arc) {

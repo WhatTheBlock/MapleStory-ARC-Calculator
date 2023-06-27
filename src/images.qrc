@@ -28,5 +28,7 @@
         <file>images/AUT3.png</file>
         <file>images/maplestory.png</file>
         <file>images/lightbulb.gif</file>
+        <file>images/restore.png</file>
+        <file>images/select.png</file>
     </qresource>
 </RCC>
