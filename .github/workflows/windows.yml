@@ -4,11 +4,15 @@ on:
     paths:
       - '*.pro'
       - 'src/**'
+      - 'icon.rc'
+      - 'scripts/**'
       - '.github/workflows/windows.yml'
   pull_request:
     paths:
       - '*.pro'
       - 'src/**'
+      - 'icon.rc'
+      - 'scripts/**'
       - '.github/workflows/windows.yml'
 jobs:
   build:
@@ -29,7 +33,6 @@ jobs:
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
-          cached: 'false'
           aqtversion: '==3.1.11'         
       - uses: ilammy/msvc-dev-cmd@v1
       - uses: actions/checkout@v3
@@ -48,13 +51,12 @@ jobs:
       - name: package
         id: package      
         env:
-          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
+          archiveName: MapleStory-ARC-Calculator
           msvcArch: ${{ matrix.msvc_arch }}          
         shell: pwsh
         run: |
           & scripts\windows-publish.ps1 ${env:archiveName} ${env:targetName}
            $name = ${env:archiveName}
-           echo "::set-output name=packageName::$name"       
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
