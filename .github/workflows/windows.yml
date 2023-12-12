@@ -31,6 +31,7 @@ jobs:
           arch: ${{ matrix.qt_arch }}
           cached: 'false'
           aqtversion: '==3.1.11'         
+      - uses: ilammy/msvc-dev-cmd@v1
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
@@ -38,7 +39,6 @@ jobs:
         id: build
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.msvc_arch }}
           qmake
           nmake
           echo winSdkDir=%WindowsSdkDir% >> %GITHUB_ENV%
