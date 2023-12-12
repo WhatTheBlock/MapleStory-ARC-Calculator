@@ -1,0 +1,62 @@
+name: Windows
+on: 
+  push:
+    paths:
+      - '*.pro'
+      - 'src/**'
+      - '.github/workflows/windows.yml'
+  pull_request:
+    paths:
+      - '*.pro'
+      - 'src/**'
+      - '.github/workflows/windows.yml' 
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - qt_ver: 6.5.3
+            qt_arch: win64_msvc2019_64
+            msvc_arch: x64
+            qt_arch_install: msvc2019_64
+    env:
+      targetName: MapleStory_ARC_Calculator.exe
+    steps:
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: ${{ matrix.qt_ver }}
+          arch: ${{ matrix.qt_arch }}
+          cached: 'false'
+          aqtversion: '==3.1.11'         
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: msvc-build
+        id: build
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.msvc_arch }}
+          qmake
+          nmake
+          echo winSdkDir=%WindowsSdkDir% >> %GITHUB_ENV%
+          echo winSdkVer=%WindowsSdkVersion% >> %GITHUB_ENV%
+          echo vcToolsInstallDir=%VCToolsInstallDir% >> %GITHUB_ENV%
+          echo vcToolsRedistDir=%VCToolsRedistDir% >> %GITHUB_ENV%
+      - name: package
+        id: package      
+        env:
+          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
+          msvcArch: ${{ matrix.msvc_arch }}          
+        shell: pwsh
+        run: |
+          & scripts\windows-publish.ps1 ${env:archiveName} ${env:targetName}
+           $name = ${env:archiveName}
+           echo "::set-output name=packageName::$name"       
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.package.outputs.packageName }}
+          path: ${{ steps.package.outputs.packageName }}
+          
