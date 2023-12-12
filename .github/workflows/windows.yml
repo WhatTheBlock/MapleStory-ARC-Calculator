@@ -51,7 +51,7 @@ jobs:
       - name: package
         id: package      
         env:
-          archiveName: MapleStory_ARC_Calculator
+          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
           msvcArch: ${{ matrix.msvc_arch }}          
         shell: pwsh
         run: |
