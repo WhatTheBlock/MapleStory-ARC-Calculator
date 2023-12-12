@@ -201,8 +201,38 @@ void MainUI::on_startDate_aut_userDateChanged(const QDate &date) {
 }
 
 void MainUI::on_selectAll_clicked() {
-    on_dailyAll_clicked();
-    on_weeklyAll_clicked();
+    if(settings->value("ARC/selectAll", true).toBool()){
+        on_dailyAll_clicked();
+        on_weeklyAll_clicked();
+        settings->setValue("ARC/selectAll", false);
+    }
+    else {
+        ui->daily200->setChecked(false);
+        ui->daily210->setChecked(false);
+        ui->daily220->setChecked(false);
+        ui->daily225->setChecked(false);
+        ui->daily230->setChecked(false);
+        ui->daily235->setChecked(false);
+        ui->weekly200->setChecked(false);
+        ui->weekly210->setChecked(false);
+        ui->weekly220->setChecked(false);
+        ui->weekly225->setChecked(false);
+        ui->weekly230->setChecked(false);
+        ui->weekly235->setChecked(false);
+        on_daily200_clicked();
+        on_daily210_clicked();
+        on_daily220_clicked();
+        on_daily225_clicked();
+        on_daily230_clicked();
+        on_daily235_clicked();
+        on_weekly200_clicked();
+        on_weekly210_clicked();
+        on_weekly220_clicked();
+        on_weekly225_clicked();
+        on_weekly230_clicked();
+        on_weekly235_clicked();
+        settings->setValue("ARC/selectAll", true);
+    }
 }
 void MainUI::on_dailyAll_clicked() {
     ui->daily200->setChecked(true);
