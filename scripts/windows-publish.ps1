@@ -11,7 +11,7 @@ Write-Host "scriptDir" $scriptDir
 function Main() {
 
     New-Item -ItemType Directory $archiveName
-    Copy-Item bin\release\$targetName $archiveName\
+    Copy-Item release\$targetName $archiveName\
     windeployqt --qmldir . --plugindir $archiveName\plugins --no-translations --compiler-runtime $archiveName\$targetName
     $excludeList = @("*.qmlc", "*.ilk", "*.exp", "*.lib", "*.pdb")
     Remove-Item -Path $archiveName -Include $excludeList -Recurse -Force
