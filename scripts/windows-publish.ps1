@@ -21,7 +21,7 @@ function Main() {
     Copy-Item $sdkDll $archiveName\
 	$excludeList2 = @("d3dcompiler*.dll", "opengl32sw.dll", "vc_redist.x64.exe", "api-ms*.dll")
     Remove-Item -Path $archiveName -Include $excludeList2 -Recurse -Force
-    Compress-Archive -Path $archiveName 'MapleStory_ARC_Calculator.zip'
+    Compress-Archive -Path $archiveName $archiveName'.zip'
 }
 
 if ($null -eq $archiveName || $null -eq $targetName) {
