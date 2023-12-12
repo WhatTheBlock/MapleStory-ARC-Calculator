@@ -117,6 +117,10 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 
     //載入存檔
     importSettings();
+
+    if(QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark){
+        ui->github->setIcon(QIcon(":/images/github_dark.png"));
+    }
 }
 
 MainUI::~MainUI() { delete ui; }

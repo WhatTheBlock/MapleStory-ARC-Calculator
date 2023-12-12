@@ -16,7 +16,6 @@
 #include <QMovie>
 #include <QSettings>
 #include <QSharedPointer>
-#include <cmath>
 #include "ui_mainui.h"
 #include "static_value.h"
 

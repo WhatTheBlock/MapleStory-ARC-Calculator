@@ -30,5 +30,6 @@
         <file>images/lightbulb.gif</file>
         <file>images/restore.png</file>
         <file>images/select.png</file>
+        <file>images/github_dark.png</file>
     </qresource>
 </RCC>
