@@ -19,7 +19,9 @@ function Main() {
     Copy-Item $redistDll $archiveName\
     $sdkDll="{0}Redist\{1}ucrt\DLLs\{2}\*.dll" -f $env:winSdkDir.Trim(),$env:winSdkVer.Trim(),$env:msvcArch
     Copy-Item $sdkDll $archiveName\
-    Compress-Archive -Path $archiveName $archiveName'.zip'
+	$excludeList2 = @("d3dcompiler*.dll", "opengl32sw.dll", "vc_redist.x64.exe", "api-ms*.dll")
+    Remove-Item -Path $archiveName -Include $excludeList2 -Recurse -Force
+    Compress-Archive -Path $archiveName 'MapleStory_ARC_Calculator.zip'
 }
 
 if ($null -eq $archiveName || $null -eq $targetName) {
