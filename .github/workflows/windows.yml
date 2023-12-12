@@ -51,13 +51,13 @@ jobs:
       - name: package
         id: package      
         env:
-          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
+          archiveName: MapleStory-ARC-Calculator
           msvcArch: ${{ matrix.msvc_arch }}          
         shell: pwsh
         run: |
           & scripts\windows-publish.ps1 ${env:archiveName} ${env:targetName}
            $name = ${env:archiveName}
-           echo "packageName=$name" >> $GITHUB_OUTPUT
+           echo "::set-output name=packageName::$name"
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
