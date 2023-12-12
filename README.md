@@ -3,7 +3,7 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/gh/WhatTheBlock/MapleStory-ARC-Calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade)
 
-### 適用的遊戲版本為 TMS v253
+### 適用的遊戲版本為 TMS v257
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
@@ -18,6 +18,14 @@
 
 ### Changelog：
 ----
+
+#### v3.1.0-beta1
+- 新增暗黑介面
+- 解決系統縮放比例非100%的顯示問題
+- 一鍵多選按鈕新增一鍵取消功能
+- 更改一鍵多選按鈕圖示
+- 更改清除存檔按鈕圖示
+- 不再支援32bit
 
 #### v3.0.1
 - 新增自動存檔 / 載入存檔功能
