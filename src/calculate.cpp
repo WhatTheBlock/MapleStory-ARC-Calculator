@@ -39,12 +39,12 @@ void MainUI::updateArcToolTips(QLabel* arcimg, int arc) {
         }
 
         arcimg->setToolTip(QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2\n升級日期：%3\n-\n滿級所需楓幣：%4\n滿級所需天數：%5\n滿級日期：%6")
-                    .arg(decimalSeparator(arcUpgradeMeso[arc]))
-                    .arg(arcUpgradeDays[arc])
-                    .arg(ui->startDate->date().addDays(arcUpgradeDays[arc]).toString("yyyy/MM/dd"))
-                    .arg(decimalSeparator(arcUpgradeMeso_max[arc]))
-                    .arg(arcMaxDays[arc])
-                    .arg(ui->startDate->date().addDays(arcMaxDays[arc]).toString("yyyy/MM/dd"))
+                                .arg(decimalSeparator(arcUpgradeMeso[arc]))
+                                .arg(arcUpgradeDays[arc])
+                                .arg(ui->startDate->date().addDays(arcUpgradeDays[arc]).toString("yyyy/MM/dd"))
+                                .arg(decimalSeparator(arcUpgradeMeso_max[arc]))
+                                .arg(arcMaxDays[arc])
+                                .arg(ui->startDate->date().addDays(arcMaxDays[arc]).toString("yyyy/MM/dd"))
         );
     }
 }
@@ -74,22 +74,17 @@ void MainUI::updateAutToolTips(QLabel* autimg, int aut) {
         while (autVal < target || autVal_max < AUTMAXTOTAL) {
             autVal += dailyMission_aut[aut];
             autVal_max += dailyMission_aut[aut];
-            if (aut == 0 && ui->mob265->isChecked()) {
-                autVal += D265_MOB;
-                autVal_max += D265_MOB;
-            }
-
             if (autVal < target) autUpgradeDays[aut]++;
             autMaxDays[aut]++;
         }
-
-        autimg->setToolTip(QStringLiteral("升級所需楓幣：%1億\n升級所需天數：%2\n升級日期：%3\n-\n滿級所需楓幣：%4億\n滿級所需天數：%5\n滿級日期：%6")
-                    .arg(autUpgradeMeso[aut])
-                    .arg(autUpgradeDays[aut])
-                    .arg(ui->startDate_aut->date().addDays(autUpgradeDays[aut]).toString("yyyy/MM/dd"))
-                    .arg(autUpgradeMeso_max[aut])
-                    .arg(autMaxDays[aut])
-                    .arg(ui->startDate_aut->date().addDays(autMaxDays[aut]).toString("yyyy/MM/dd"))
+        autMaxDays[aut]--;
+        autimg->setToolTip(QStringLiteral("升級所需楓幣：%1\n升級所需天數：%2\n升級日期：%3\n-\n滿級所需楓幣：%4\n滿級所需天數：%5\n滿級日期：%6")
+                                .arg(decimalSeparator(autUpgradeMeso[aut]))
+                                .arg(autUpgradeDays[aut])
+                                .arg(ui->startDate_aut->date().addDays(autUpgradeDays[aut]).toString("yyyy/MM/dd"))
+                                .arg(decimalSeparator(autUpgradeMeso_max[aut]))
+                                .arg(autMaxDays[aut])
+                                .arg(ui->startDate_aut->date().addDays(autMaxDays[aut]).toString("yyyy/MM/dd"))
         );
     }
 }
@@ -187,8 +182,11 @@ void MainUI::dailyTask_aut() {
     day = 0;
 
     dailyIsChecked_aut[0] = ui->daily260->isChecked();
-    dailyIsChecked_aut[1] = ui->daily270->isChecked();
-    dailyIsChecked_aut[2] = ui->daily275->isChecked();
+    dailyIsChecked_aut[1] = ui->daily265->isChecked();
+    dailyIsChecked_aut[2] = ui->daily270->isChecked();
+    dailyIsChecked_aut[3] = ui->daily275->isChecked();
+    dailyIsChecked_aut[4] = ui->daily280->isChecked();
+    dailyIsChecked_aut[5] = ui->daily285->isChecked();
 
     //計算前先偵錯
     avoidError();
@@ -200,14 +198,11 @@ void MainUI::dailyTask_aut() {
     }
     //若未達到
     else {
-        dailyGet[0] = (dailyIsChecked_aut[0] && ui->mob265->isChecked()) ? dailyMission_aut[0] + D265_MOB : dailyMission_aut[0];
-        dailyGet[0] = (dailyIsChecked_aut[0]) ? dailyGet[0] : 0;
-        dailyGet[1] = (dailyIsChecked_aut[1]) ? dailyMission_aut[1] : 0;
-        dailyGet[2] = (dailyIsChecked_aut[2]) ? dailyMission_aut[2] : 0;
-
         //計算可能達到的最高AUT
         for(int i = 0; i < AUTTYPE; i++){
             autLV = AutLV[i]->value();
+            dailyGet[i] = (dailyIsChecked_aut[i]) ? dailyMission_aut[i] : 0;
+
             if(dailyGet[i] != 0) maxReachAut += 110;
             else if(autLV != 0) maxReachAut += autLV * 10;
         }

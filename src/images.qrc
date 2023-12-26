@@ -21,15 +21,23 @@
         <file>images/bahamut.png</file>
         <file>images/sword.png</file>
         <file>images/260.png</file>
+		<file>images/265.png</file>
         <file>images/270.png</file>
         <file>images/275.png</file>
+		<file>images/280.png</file>
+		<file>images/285.png</file>
         <file>images/AUT1.png</file>
         <file>images/AUT2.png</file>
         <file>images/AUT3.png</file>
+		<file>images/AUT4.png</file>
+		<file>images/AUT5.png</file>
+		<file>images/AUT6.png</file>
         <file>images/maplestory.png</file>
         <file>images/lightbulb.gif</file>
         <file>images/restore.png</file>
         <file>images/select.png</file>
         <file>images/github_dark.png</file>
+		<file>images/maplewiki.png</file>
+        <file>images/namuwiki.jpg</file>
     </qresource>
 </RCC>

@@ -23,10 +23,11 @@ void MainUI::importSettings() {
     ui->daily235->setChecked(settings->value("ARC/daily235").toBool());
     ui->weekly235->setChecked(settings->value("ARC/weekly235").toBool());
     ui->daily260->setChecked(settings->value("AUT/daily260").toBool());
-    ui->mob260->setChecked(settings->value("AUT/mob260", true).toBool());
-    ui->mob265->setChecked(settings->value("AUT/mob265").toBool());
+    ui->daily265->setChecked(settings->value("AUT/daily265").toBool());
     ui->daily270->setChecked(settings->value("AUT/daily270").toBool());
     ui->daily275->setChecked(settings->value("AUT/daily275").toBool());
+    ui->daily280->setChecked(settings->value("AUT/daily280").toBool());
+    ui->daily285->setChecked(settings->value("AUT/daily285").toBool());
 
     ArcLV[0]->setValue(settings->value("ARC/Arc1LV").toInt());
     ArcLV[1]->setValue(settings->value("ARC/Arc2LV").toInt());
@@ -37,6 +38,9 @@ void MainUI::importSettings() {
     AutLV[0]->setValue(settings->value("AUT/Aut1LV").toInt());
     AutLV[1]->setValue(settings->value("AUT/Aut2LV").toInt());
     AutLV[2]->setValue(settings->value("AUT/Aut3LV").toInt());
+    AutLV[3]->setValue(settings->value("AUT/Aut4LV").toInt());
+    AutLV[4]->setValue(settings->value("AUT/Aut5LV").toInt());
+    AutLV[5]->setValue(settings->value("AUT/Aut6LV").toInt());
 
     ArcCurrent[0]->setValue(settings->value("ARC/Arc1current").toInt());
     ArcCurrent[1]->setValue(settings->value("ARC/Arc2current").toInt());
@@ -47,6 +51,9 @@ void MainUI::importSettings() {
     AutCurrent[0]->setValue(settings->value("AUT/Aut1current").toInt());
     AutCurrent[1]->setValue(settings->value("AUT/Aut2current").toInt());
     AutCurrent[2]->setValue(settings->value("AUT/Aut3current").toInt());
+    AutCurrent[3]->setValue(settings->value("AUT/Aut4current").toInt());
+    AutCurrent[4]->setValue(settings->value("AUT/Aut5current").toInt());
+    AutCurrent[5]->setValue(settings->value("AUT/Aut6current").toInt());
 
     ArcMode->setCurrentIndex(settings->value("ARC/ArcMode").toInt());
     AutMode->setCurrentIndex(settings->value("AUT/AutMode").toInt());

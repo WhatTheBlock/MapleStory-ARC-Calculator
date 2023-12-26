@@ -4,7 +4,7 @@
 | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/020d720a719a400082f1ef7b1d1aa39e)](https://www.codacy.com/gh/WhatTheBlock/MapleStory-ARC-Calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WhatTheBlock/MapleStory-ARC-Calculator&amp;utm_campaign=Badge_Grade) | [![Windows build](https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/workflows/Windows/badge.svg)](https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/actions?query=workflow%3AWindows) |
 | --- | --- |
 
-### 適用的遊戲版本為 TMS v257
+### 適用的遊戲版本為 TMS v258
 
 - 巴哈姆特詳細介紹文章：[點我](https://forum.gamer.com.tw/C.php?bsn=7650&snA=1000541) <br><br>
 
@@ -19,6 +19,19 @@
 
 ### Changelog：
 ----
+
+#### v3.1.0
+- 更新至TMS v258系統改動
+- 補上前版本強化費用下修的改動
+- 修正艾斯佩拉符文圖示被裁切的錯誤
+- 預先新增AUT地區至KMS最新進度
+- AUT頁面改為與ARC相同的UI配置
+- AUT強化費用不再用億縮寫顯示
+- 更新怪物最高AUT上限 (極限咖凌)
+- 更新個人最高AUT上限
+- 修正分位符號函式錯誤
+- 新增數據來源連結按鈕
+- 修正AUT單顆滿級天數計算錯誤
 
 #### v3.1.0-beta1
 - 新增暗黑介面

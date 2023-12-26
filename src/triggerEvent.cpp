@@ -9,7 +9,7 @@ void MainUI::on_tabWidget_currentChanged(int index) {
             MainUI::setFixedSize(688, 429);
             break;
         case 1:
-            MainUI::setFixedSize(518, 424);
+            MainUI::setFixedSize(638, 429);
             break;
         case 2:
             on_toolBox_currentChanged(settings->value("othersPage").toInt());
@@ -65,6 +65,18 @@ void MainUI::on_Aut3LV_valueChanged(int lv) {
     autLvChanged(ui->autimg3, 2);
     settings->setValue("AUT/Aut3LV", lv);
 }
+void MainUI::on_Aut4LV_valueChanged(int lv) {
+    autLvChanged(ui->autimg4, 3);
+    settings->setValue("AUT/Aut4LV", lv);
+}
+void MainUI::on_Aut5LV_valueChanged(int lv) {
+    autLvChanged(ui->autimg5, 4);
+    settings->setValue("AUT/Aut5LV", lv);
+}
+void MainUI::on_Aut6LV_valueChanged(int lv) {
+    autLvChanged(ui->autimg6, 5);
+    settings->setValue("AUT/Aut6LV", lv);
+}
 
 void MainUI::on_Arc1current_valueChanged(int val) {
     updateArcToolTips(ui->arcimg1, 0);
@@ -101,6 +113,18 @@ void MainUI::on_Aut2current_valueChanged(int val) {
 void MainUI::on_Aut3current_valueChanged(int val) {
     updateAutToolTips(ui->autimg3, 2);
     settings->setValue("AUT/Aut3current", val);
+}
+void MainUI::on_Aut4current_valueChanged(int val) {
+    updateAutToolTips(ui->autimg4, 3);
+    settings->setValue("AUT/Aut4current", val);
+}
+void MainUI::on_Aut5current_valueChanged(int val) {
+    updateAutToolTips(ui->autimg5, 4);
+    settings->setValue("AUT/Aut5current", val);
+}
+void MainUI::on_Aut6current_valueChanged(int val) {
+    updateAutToolTips(ui->autimg6, 5);
+    settings->setValue("AUT/Aut6current", val);
 }
 
 void MainUI::on_ArcMode_currentIndexChanged(int index) {
@@ -165,23 +189,25 @@ void MainUI::on_daily260_clicked() {
     updateAutToolTips(ui->autimg1, 0);
     settings->setValue("AUT/daily260", ui->daily260->isChecked());
 }
-void MainUI::on_daily270_clicked() {
+void MainUI::on_daily265_clicked() {
     updateAutToolTips(ui->autimg2, 1);
+    settings->setValue("AUT/daily265", ui->daily265->isChecked());
+}
+void MainUI::on_daily270_clicked() {
+    updateAutToolTips(ui->autimg3, 2);
     settings->setValue("AUT/daily270", ui->daily270->isChecked());
 }
 void MainUI::on_daily275_clicked() {
-    updateAutToolTips(ui->autimg3, 2);
+    updateAutToolTips(ui->autimg4, 3);
     settings->setValue("AUT/daily275", ui->daily275->isChecked());
 }
-void MainUI::on_mob260_clicked() {
-    updateAutToolTips(ui->autimg1, 0);
-    settings->setValue("AUT/mob260", true);
-    settings->setValue("AUT/mob265", false);
+void MainUI::on_daily280_clicked() {
+    updateAutToolTips(ui->autimg5, 4);
+    settings->setValue("AUT/daily280", ui->daily280->isChecked());
 }
-void MainUI::on_mob265_clicked() {
-    updateAutToolTips(ui->autimg1, 0);
-    settings->setValue("AUT/mob260", false);
-    settings->setValue("AUT/mob265", true);
+void MainUI::on_daily285_clicked() {
+    updateAutToolTips(ui->autimg6, 5);
+    settings->setValue("AUT/daily285", ui->daily285->isChecked());
 }
 
 void MainUI::on_targetArc_valueChanged(int val) {
@@ -263,6 +289,42 @@ void MainUI::on_weeklyAll_clicked() {
     on_weekly235_clicked();
 }
 
+void MainUI::on_selectAll_aut_clicked() {
+    if(settings->value("AUT/selectAll", true).toBool()){
+        on_dailyAll_aut_clicked();
+        settings->setValue("AUT/selectAll", false);
+    }
+    else {
+        ui->daily260->setChecked(false);
+        ui->daily265->setChecked(false);
+        ui->daily270->setChecked(false);
+        ui->daily275->setChecked(false);
+        ui->daily280->setChecked(false);
+        ui->daily285->setChecked(false);
+        on_daily260_clicked();
+        on_daily265_clicked();
+        on_daily270_clicked();
+        on_daily275_clicked();
+        on_daily280_clicked();
+        on_daily285_clicked();
+        settings->setValue("AUT/selectAll", true);
+    }
+}
+void MainUI::on_dailyAll_aut_clicked() {
+    ui->daily260->setChecked(true);
+    ui->daily265->setChecked(true);
+    ui->daily270->setChecked(true);
+    ui->daily275->setChecked(true);
+    ui->daily280->setChecked(true);
+    ui->daily285->setChecked(true);
+    on_daily260_clicked();
+    on_daily265_clicked();
+    on_daily270_clicked();
+    on_daily275_clicked();
+    on_daily280_clicked();
+    on_daily285_clicked();
+}
+
 //ARC升級所需楓幣
 void MainUI::on_selectARC_currentIndexChanged(int index) {
     ui->cost->setText(decimalSeparator(arcUpgradeCost(index, ui->ArcLV_from->value(), ui->ArcLV_to->value())));
@@ -283,7 +345,7 @@ void MainUI::on_selectAUT_currentIndexChanged(int index) {
     if(ui->AutLV_from->value() == ui->AutLV_to->value())
         ui->cost_aut->setText("0");
     else
-        ui->cost_aut->setText(QString::number(autUpgradeCost(index, ui->AutLV_from->value(), ui->AutLV_to->value())) + QStringLiteral("億"));
+        ui->cost_aut->setText(decimalSeparator(autUpgradeCost(index, ui->AutLV_from->value(), ui->AutLV_to->value())));
 }
 void MainUI::on_AutLV_from_valueChanged() {
     if(ui->AutLV_from->value() > ui->AutLV_to->value())
@@ -291,7 +353,7 @@ void MainUI::on_AutLV_from_valueChanged() {
     else if(ui->AutLV_from->value() == ui->AutLV_to->value())
         ui->cost_aut->setText("0");
     else
-        ui->cost_aut->setText(QString::number(autUpgradeCost(ui->selectAUT->currentIndex(), ui->AutLV_from->value(), ui->AutLV_to->value())) + QStringLiteral("億"));
+        ui->cost_aut->setText(decimalSeparator(autUpgradeCost(ui->selectAUT->currentIndex(), ui->AutLV_from->value(), ui->AutLV_to->value())));
 }
 void MainUI::on_AutLV_to_valueChanged() {
     on_AutLV_from_valueChanged();
@@ -342,6 +404,16 @@ void MainUI::on_bahamut_clicked() {
 //Github repo
 void MainUI::on_github_clicked() {
     QDesktopServices::openUrl(QUrl(GithubURL));
+}
+
+//MapleWiki
+void MainUI::on_maplewiki_clicked() {
+    QDesktopServices::openUrl(QUrl(dataResource1));
+}
+
+//NamuWiki
+void MainUI::on_namuwiki_clicked() {
+    QDesktopServices::openUrl(QUrl(dataResource2));
 }
 
 //清除存檔資料

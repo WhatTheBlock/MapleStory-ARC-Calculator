@@ -2,16 +2,16 @@
 #define STATIC_VALUE_H
 
 //版本
-#define VERCODE 302
+#define VERCODE 310
 
 #define ARCMAXLV 20         //ARC等級上限
 #define ARCTYPE 6           //ARC種類
 #define AUTMAXLV 11         //AUT等級上限
-#define AUTTYPE 3           //AUT種類
+#define AUTTYPE 6           //AUT種類
 #define ARCMAX 1450         //個人最高ARC (不含活動技能、道具)
-#define AUTMAX 330          //個人最高AUT
+#define AUTMAX 660          //個人最高AUT
 #define ARCMAX_MOB 1320     //怪物最高ARC (黑魔法師)
-#define AUTMAX_MOB 330      //怪物最高AUT (咖凌)
+#define AUTMAX_MOB 480      //怪物最高AUT (極限咖凌)
 #define ARC_LV19_MAX 372    //ARC LV19的最高數量
 #define ARCMAXTOTAL 2679    //ARC升級至上限的總數
 #define AUTMAXTOTAL 4565    //AUT升級至上限的總數
@@ -24,34 +24,23 @@
 
 //最高取得量
 #define D200_MIS 45
-#define D200_MOB 18
+#define D200_MOB 20
 #define D210_MIS 45
-#define D210_MOB 16
+#define D210_MOB 20
 #define D220_MIS 45
-#define D220_MOB 11
+#define D220_MOB 20
 #define D225_MIS 45
-#define D225_MOB 9
+#define D225_MOB 20
 #define D230_MIS 45
-#define D230_MOB 8
+#define D230_MOB 20
 #define D235_MIS 45
-#define D235_MOB 8
-#define D260_MOB 10
-#define D265_MOB 5
-#define D270_MOB 10
-#define D275_MOB 5
-
-//升級所需楓幣
-#define ARC200_COST_BASE 7070000
-#define ARC200_COST_INCREASE 3960000
-#define ARC210_COST_BASE 10840000
-#define ARC210_COST_INCREASE 4620000
-#define ARC220_COST_BASE 14610000
-#define ARC220_COST_INCREASE 5280000
-#define ARC225_COST_BASE 17136000    //225~235
-#define ARC225_COST_INCREASE 5940000
-const double AUT260_COST[] = {1.854, 2.739, 3.623, 4.507, 5.392, 6.276, 7.161, 8.045, 8.929, 9.814};
-const double AUT270_COST[] = {2.039, 3.012, 3.985, 4.957, 5.931, 6.903, 7.877, 8.849, 9.821, 10.79};
-const double AUT275_COST[] = {2.245, 3.316, 4.387, 5.457, 6.529, 7.599, 8.671, 9.741, 10.811, 11.878};
+#define D235_MOB 20
+#define D260_MOB 20 //賽爾尼溫
+#define D265_MOB 10 //阿爾克斯
+#define D270_MOB 10 //奧迪溫
+#define D275_MOB 10 //桃園境
+#define D280_MOB 10 //阿爾泰利亞
+#define D285_MOB 10 //卡爾西翁
 
 //被擊傷害 & 增傷規則
 const int damageList_arc[] = {10, 30, 60, 70, 80, 100, 110, 130, 150};
@@ -71,5 +60,9 @@ const int guildSkillList[] = {0, 15, 20, 25, 30};
 #define ReleaseURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator/releases/latest"
 #define GithubURL "https://github.com/WhatTheBlock/MapleStory-ARC-Calculator"
 #define BahamutURL "https://forum.gamer.com.tw/Co.php?bsn=07650&sn=6273565"
+#define iconResource1 "https://namu.wiki/w/%EC%96%B4%EC%84%BC%ED%8B%B1%ED%8F%AC%EC%8A%A4"
+#define iconResource2 "https://namu.wiki/w/%EA%B7%B8%EB%9E%80%EB%94%94%EC%8A%A4"
+#define dataResource1 "https://maplestory.fandom.com/wiki/MapleStory_Wiki"
+#define dataResource2 "https://namu.wiki/w/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%8A%A4%ED%86%A0%EB%A6%AC"
 
 #endif // STATIC_VALUE_H

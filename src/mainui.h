@@ -40,6 +40,9 @@ private slots:
     void on_Aut1LV_valueChanged(int);
     void on_Aut2LV_valueChanged(int);
     void on_Aut3LV_valueChanged(int);
+    void on_Aut4LV_valueChanged(int);
+    void on_Aut5LV_valueChanged(int);
+    void on_Aut6LV_valueChanged(int);
 
     void on_ArcMode_currentIndexChanged(int);
     void on_AutMode_currentIndexChanged(int);
@@ -53,6 +56,9 @@ private slots:
     void on_Aut1current_valueChanged(int);
     void on_Aut2current_valueChanged(int);
     void on_Aut3current_valueChanged(int);
+    void on_Aut4current_valueChanged(int);
+    void on_Aut5current_valueChanged(int);
+    void on_Aut6current_valueChanged(int);
 
     void on_startDate_userDateChanged(const QDate&);
     void on_startDate_aut_userDateChanged(const QDate&);
@@ -79,6 +85,8 @@ private slots:
 
     void on_bahamut_clicked();
     void on_github_clicked();
+    void on_maplewiki_clicked();
+    void on_namuwiki_clicked();
 
     void on_tabWidget_currentChanged(int);
 
@@ -87,6 +95,8 @@ private slots:
     void on_selectAll_clicked();
     void on_dailyAll_clicked();
     void on_weeklyAll_clicked();
+    void on_selectAll_aut_clicked();
+    void on_dailyAll_aut_clicked();
 
     void on_daily200_clicked();
     void on_daily210_clicked();
@@ -102,10 +112,11 @@ private slots:
     void on_weekly235_clicked();
 
     void on_daily260_clicked();
+    void on_daily265_clicked();
     void on_daily270_clicked();
     void on_daily275_clicked();
-    void on_mob260_clicked();
-    void on_mob265_clicked();
+    void on_daily280_clicked();
+    void on_daily285_clicked();
 
     void on_clearSettings_clicked();
 
@@ -140,7 +151,7 @@ private:
     bool dailyIsChecked[ARCTYPE], dailyIsChecked_aut[AUTTYPE];
     bool weeklyIsChecked[ARCTYPE];
     const int dailyMission[ARCTYPE] = {D200_MOB, D210_MOB, D220_MOB, D225_MOB, D230_MOB, D235_MOB};
-    const int dailyMission_aut[AUTTYPE] = {D260_MOB, D270_MOB, D275_MOB};
+    const int dailyMission_aut[AUTTYPE] = {D260_MOB, D265_MOB, D270_MOB, D275_MOB, D280_MOB, D285_MOB};
     const int weeklyMission[ARCTYPE] = {D200_MIS, D210_MIS, D220_MIS, D225_MIS, D230_MIS, D235_MIS};
     int day;
 
@@ -151,6 +162,14 @@ private:
     int ARC210_COST[ARCMAXLV];
     int ARC220_COST[ARCMAXLV];
     int ARC225_COST[ARCMAXLV];
+    int ARC230_COST[ARCMAXLV];
+    int ARC235_COST[ARCMAXLV];
+    int AUT260_COST[AUTMAXLV];
+    int AUT265_COST[AUTMAXLV];
+    int AUT270_COST[AUTMAXLV];
+    int AUT275_COST[AUTMAXLV];
+    int AUT280_COST[AUTMAXLV];
+    int AUT285_COST[AUTMAXLV];
 
     void upgradeVal();
     void upgradeVal_aut();
@@ -174,7 +193,7 @@ private:
 
     void warningMsg(QString);
 
-    QString decimalSeparator(int);
+    QString decimalSeparator(double);
 
     void checkUpdate();
     void onResult(QNetworkReply*);

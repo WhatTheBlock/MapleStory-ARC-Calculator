@@ -6,11 +6,11 @@ void MainUI::warningMsg(QString str){
 }
 
 //加入分位符號
-QString MainUI::decimalSeparator(int n){
-    QString temp = QString::number(n);
-
+QString MainUI::decimalSeparator(double n){
+    QString temp = QString::number(n, 'f', 0);
     if(n == 0) return "0";
-    if(n < 10000000) return temp.mid(0,1) + "," + temp.mid(1,3) + "," + temp.mid(4,3);
+    if(n < 1000000) return temp.mid(0,3) + "," + temp.mid(3,3);
+    else if(n < 10000000) return temp.mid(0,1) + "," + temp.mid(1,3) + "," + temp.mid(4,3);
     else if(n < 100000000) return temp.mid(0,2) + "," + temp.mid(2,3) + "," + temp.mid(5,3);
     else if(n < 1000000000) return temp.mid(0,3) + "," + temp.mid(3,3) + "," + temp.mid(6,3);
     else return temp.mid(0,1) + "," + temp.mid(1,3) + "," + temp.mid(4,3) + "," + temp.mid(7,3);
@@ -124,14 +124,16 @@ void MainUI::autLvChanged(QLabel* autimg, int aut) {
 
 //升級所需楓幣
 int MainUI::arcUpgradeCost(int lv, int from, int to) {
-    double result = 0;
+    int result = 0;
 
     for(int i = from - 1; i < to - 1; i++) {
         switch (lv) {
             case 0: result += ARC200_COST[i]; break;
             case 1: result += ARC210_COST[i]; break;
             case 2: result += ARC220_COST[i]; break;
-            default: result += ARC225_COST[i]; break;
+            case 3: result += ARC225_COST[i]; break;
+            case 4: result += ARC230_COST[i]; break;
+            case 5: result += ARC235_COST[i]; break;
         }
     }
 
@@ -143,8 +145,11 @@ double MainUI::autUpgradeCost(int lv, int from, int to) {
     for(int i = from - 1; i < to - 1; i++) {
         switch (lv) {
             case 0: result += AUT260_COST[i]; break;
-            case 1: result += AUT270_COST[i]; break;
-            case 2: result += AUT275_COST[i]; break;
+            case 1: result += AUT265_COST[i]; break;
+            case 2: result += AUT270_COST[i]; break;
+            case 3: result += AUT275_COST[i]; break;
+            case 4: result += AUT280_COST[i]; break;
+            case 5: result += AUT285_COST[i]; break;
         }
     }
 
