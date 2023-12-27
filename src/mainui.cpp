@@ -92,12 +92,13 @@ MainUI::MainUI(QWidget *parent) : QWidget(parent), ui(new Ui::MainUI) {
 
     //設定ARC升級費用
     for(int i = 1; i < ARCMAXLV; i++) {
-        ARC200_COST[i-1] = 10000 * floor((i * i + 11) * (8 + 0.1 * i));
-        ARC210_COST[i-1] = 10000 * floor((i * i + 11) * (10 + 0.1 * i));
-        ARC220_COST[i-1] = 10000 * floor((i * i + 11) * (12 + 0.1 * i));
-        ARC225_COST[i-1] = 10000 * floor((i * i + 11) * (14 + 0.1 * i));
-        ARC230_COST[i-1] = 10000 * floor((i * i + 11) * (16 + 0.1 * i));
-        ARC235_COST[i-1] = 10000 * floor((i * i + 11) * (18 + 0.1 * i));
+        //floor(15*8.2) = 122
+        ARC200_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((8 + 0.1 * i) * 10)) / 10));
+        ARC210_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((10 + 0.1 * i) * 10)) / 10));
+        ARC220_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((12 + 0.1 * i) * 10)) / 10));
+        ARC225_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((14 + 0.1 * i) * 10)) / 10));
+        ARC230_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((16 + 0.1 * i) * 10)) / 10));
+        ARC235_COST[i-1] = 10000 * floor((floor((i * i + 11) * ((18 + 0.1 * i) * 10)) / 10));
     }
 
     //設定AUT升級費用
